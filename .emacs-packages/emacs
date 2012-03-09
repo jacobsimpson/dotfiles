@@ -1,0 +1,124 @@
+;;; XEmacs backwards compatibility file
+;;(setq user-init-file
+;;      (expand-file-name "init.el"
+;;			(expand-file-name ".xemacs" "~")))
+;;(setq custom-file
+;;      (expand-file-name "custom.el"
+;;			(expand-file-name ".xemacs" "~")))
+
+;; Use this to get the Common Lisp libraries loaded by default.
+;; (require 'cl)
+
+;; Start the emacs server so emacsclient can open files in this instance.
+(server-start)
+
+;; This gives me vim editing keys. So efficient.
+;; http://www.emacswiki.org/emacs/Evil
+(add-to-list 'load-path (expand-file-name "~/.emacs-packages/evil"))
+(require 'evil)
+(evil-mode 1)
+
+;; From: http://stud4.tuwien.ac.at/~e0225855/linum/linum.html
+(add-to-list 'load-path (expand-file-name "~/.emacs-packages/linum"))
+(require 'linum)
+
+(add-to-list 'load-path (expand-file-name "~/.emacs-packages/smart-snippet"))
+(require 'smart-snippet)
+
+;; Stopped using these, not sure if they are working.
+;;(add-to-list 'load-path (expand-file-name "~/.emacs-packages/python-mode"))
+;;(require 'python-mode)
+;;
+;;(add-to-list 'load-path (expand-file-name "~/.emacs-packages/ipython"))
+;;(require 'ipython)
+
+;(add-to-list 'load-path (expand-file-name "~/.emacs-packages/find-file-in-project"))
+;(require 'find-file-in-project)
+
+;; Taken from here: http://blog.arithm.com/2007/06/26/practicing-safe-emacs/
+;; Should give you versioned backups of saves, and store them
+;; all in a special directory, instead of littering your dev
+;; tree with them.
+;; Enable versioning with default values.
+(setq version-control t)
+
+;; Save all backup file into the designated directory.
+(setq backup-directory-alist (quote ((".*" . "~/.emacs.d/backups/"))))
+
+
+;; Loads up a buffer with the project files for searching.
+;; This should bind to a key stroke.
+(defun js-find-dired ()
+  (interactive)
+  (let ((buffer-exists (get-buffer "*Find*"))
+	(base-dir "~/projects/dh-5804_add_retention_config_type/"))
+    (cd base-dir)
+    (if (null buffer-exists)
+	(find-dired base-dir "-name '*.java' -o -name '*.jsp' -o -name '*.py' -o -name '*.xml'")
+      (switch-to-buffer buffer-exists))
+    (beginning-of-buffer)
+    (isearch-forward-regexp)
+    )
+)
+;;(global-set-key (kbd "C-M-o") 'js-find-dired)
+;;(global-set-key (kbd "M-*") 'pop-tag-mark)
+;;(global-set-key (kbd "M-m") 'back-to-indentation)
+
+;; Set the tab settings, tab width 4, always and spaces
+(setq c-basic-offset 4)
+(setq tab-width 4)
+(setq indent-tabs-mode nil)
+
+; Those ~ files irk me.
+(setq make-backup-files         nil)
+
+
+;; Custom keybinding for make, I do that a lot.
+;; I need to find another key to bind this too. M-m takes you to the first non-space char of the line, very useful.
+;;(global-set-key (kbd "M-m") 'compile)
+
+;;(load-file user-init-file)
+;;(load-file custom-file)
+
+; cedet configuration.
+;;(load-file "~/.emacs-packages/cedet-1.0/common/cedet.el")
+;;(global-ede-mode 1)                      ; Enable the Project management system
+;;(semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
+;;(global-srecode-minor-mode 1)            ; Enable template insertion menu
+
+; jdee configuration.
+;;(add-to-list 'load-path (expand-file-name "~/.emacs-packages/jdee-2.4.0.1/lisp"))
+;;(add-to-list 'load-path (expand-file-name "~/.emacs-packages/cedet-1.0/common"))
+;(load-file (expand-file-name "~/.emacs-packages/cedet-1.0/common/cedet.el"))
+;;(add-to-list 'load-path (expand-file-name "~/.emacs-packages/elib-1.0"))
+;;(require 'jde)
+
+; ecb configuration.
+;;(add-to-list 'load-path "~/.emacs-packages/ecb-2.40/")
+;;(require 'ecb)
+
+; Added special function to select text in delimiters.
+
+;; Set the debugger port to attach to. This is member.
+;;(setq jde-db-option-connect-socket '(nil "7209"))
+;;(setq jde-sourcepath '("/home/jsimpson/svn/nngs/branches/3.7/neteller/src" "/home/jsimpson/svn/nngs/branches/3.7/neteller/classes"))
+;;(setq jde-db-option-classpath '("/home/jsimpson/svn/nngs/branches/3.7/neteller/classes"))
+;;(setq jde-global-classpath '("/home/jsimpson/svn/nngs/branches/3.7/neteller/classes"))
+
+;; This should allow highlighted text to be deleted with the backspace, or changed by typing.
+;;(delete-selection-mode t)
+(require 'ido)
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(ido-enable-flex-matching t)
+ '(ido-ignore-files (quote ("\\`CVS/" "\\`#" "\\`.#" "\\`\\.\\./" "\\`\\./" "\\`\\.svn/" "\\`build/" "\\.pyc" "\\.class" "\\.pdf" "\\.jar")))
+ '(ido-mode (quote both) nil (ido)))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )

@@ -1,0 +1,12 @@
+Basic home directory configuration for a Linux box. I try
+to keep everything in here so I can easily check it out on
+a new machine and quickly configure it to my tastes,
+as well as keep changes from various machines in sync.
+
+Jacob.
+
+git init
+git add .bashrc .vim/ .emacs-packages/ README 
+git commit -m "Added first versions."
+git remote add orgin git@github.com:jacobsimpson/home-dir.git
+git push orgin master

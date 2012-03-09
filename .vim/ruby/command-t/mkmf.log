@@ -1,0 +1,11 @@
+have_header: checking for ruby.h... -------------------- yes
+
+"gcc -E -I. -I/usr/lib64/ruby/1.8/x86_64-linux -I.  -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -Wall -fno-strict-aliasing  -fPIC  conftest.c -o conftest.i"
+/usr/lib/ruby/1.8/mkmf.rb:222: warning: Insecure world writable dir /hub/apps, mode 040777
+checked program was:
+/* begin */
+1: #include <ruby.h>
+/* end */
+
+--------------------
+
