@@ -5,6 +5,9 @@ as well as keep changes from various machines in sync.
 
 Jacob.
 
+git config --global user.name "Jacob Simpson"
+git config --global user.email jacob.simpson@gmail.com
+
 git init
 git add .bashrc .vim/ .emacs-packages/ README 
 git commit -m "Added first versions."
