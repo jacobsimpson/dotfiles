@@ -14,25 +14,25 @@
 
 ;; This gives me vim editing keys. So efficient.
 ;; http://www.emacswiki.org/emacs/Evil
-(add-to-list 'load-path (expand-file-name "~/.emacs-packages/evil"))
+(add-to-list 'load-path (expand-file-name "~/home-dir/.emacs-packages/evil"))
 (require 'evil)
 (evil-mode 1)
 
 ;; From: http://stud4.tuwien.ac.at/~e0225855/linum/linum.html
-(add-to-list 'load-path (expand-file-name "~/.emacs-packages/linum"))
+(add-to-list 'load-path (expand-file-name "~/home-dir/.emacs-packages/linum"))
 (require 'linum)
 
-(add-to-list 'load-path (expand-file-name "~/.emacs-packages/smart-snippet"))
+(add-to-list 'load-path (expand-file-name "~/home-dir/.emacs-packages/smart-snippet"))
 (require 'smart-snippet)
 
 ;; Stopped using these, not sure if they are working.
-;;(add-to-list 'load-path (expand-file-name "~/.emacs-packages/python-mode"))
+;;(add-to-list 'load-path (expand-file-name "~/home-dir/.emacs-packages/python-mode"))
 ;;(require 'python-mode)
 ;;
-;;(add-to-list 'load-path (expand-file-name "~/.emacs-packages/ipython"))
+;;(add-to-list 'load-path (expand-file-name "~/home-dir/.emacs-packages/ipython"))
 ;;(require 'ipython)
 
-;(add-to-list 'load-path (expand-file-name "~/.emacs-packages/find-file-in-project"))
+;(add-to-list 'load-path (expand-file-name "~/home-dir/.emacs-packages/find-file-in-project"))
 ;(require 'find-file-in-project)
 
 ;; Taken from here: http://blog.arithm.com/2007/06/26/practicing-safe-emacs/
@@ -81,20 +81,20 @@
 ;;(load-file custom-file)
 
 ; cedet configuration.
-;;(load-file "~/.emacs-packages/cedet-1.0/common/cedet.el")
+;;(load-file "~/home-dir/.emacs-packages/cedet-1.0/common/cedet.el")
 ;;(global-ede-mode 1)                      ; Enable the Project management system
 ;;(semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
 ;;(global-srecode-minor-mode 1)            ; Enable template insertion menu
 
 ; jdee configuration.
-;;(add-to-list 'load-path (expand-file-name "~/.emacs-packages/jdee-2.4.0.1/lisp"))
-;;(add-to-list 'load-path (expand-file-name "~/.emacs-packages/cedet-1.0/common"))
-;(load-file (expand-file-name "~/.emacs-packages/cedet-1.0/common/cedet.el"))
-;;(add-to-list 'load-path (expand-file-name "~/.emacs-packages/elib-1.0"))
+;;(add-to-list 'load-path (expand-file-name "~/home-dir/.emacs-packages/jdee-2.4.0.1/lisp"))
+;;(add-to-list 'load-path (expand-file-name "~/home-dir/.emacs-packages/cedet-1.0/common"))
+;(load-file (expand-file-name "~/home-dir/.emacs-packages/cedet-1.0/common/cedet.el"))
+;;(add-to-list 'load-path (expand-file-name "~/home-dir/.emacs-packages/elib-1.0"))
 ;;(require 'jde)
 
 ; ecb configuration.
-;;(add-to-list 'load-path "~/.emacs-packages/ecb-2.40/")
+;;(add-to-list 'load-path "~/home-dir/.emacs-packages/ecb-2.40/")
 ;;(require 'ecb)
 
 ; Added special function to select text in delimiters.
