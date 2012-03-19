@@ -7,10 +7,28 @@
 ;;			(expand-file-name ".xemacs" "~")))
 
 ;; Use this to get the Common Lisp libraries loaded by default.
-;; (require 'cl)
+(require 'cl)
+
+;; Loads and configures Pymacs, interactive python from inside emacs.
+(load-library "~/home-dir/.emacs-packages/pymacs.el")
+(autoload 'pymacs-apply "pymacs")
+(autoload 'pymacs-call "pymacs")
+(autoload 'pymacs-eval "pymacs" nil t)
+(autoload 'pymacs-exec "pymacs" nil t)
+(autoload 'pymacs-load "pymacs" nil t)
+(autoload 'pymacs-autoload "pymacs")
+;;(eval-after-load "pymacs"
+;;  '(add-to-list 'pymacs-load-path YOUR-PYMACS-DIRECTORY"))
+
+(require 'pymacs)
+(pymacs-load "ropemacs" "rope-")
+(setq ropemacs-enable-autoimport t)
 
 ;; Start the emacs server so emacsclient can open files in this instance.
 (server-start)
+
+;; Set compile window to auto scroll to the bottom as output exceeds visible area.
+(setq compilation-scroll-output t)
 
 ;; This gives me vim editing keys. So efficient.
 ;; http://www.emacswiki.org/emacs/Evil
@@ -22,8 +40,15 @@
 (add-to-list 'load-path (expand-file-name "~/home-dir/.emacs-packages/linum"))
 (require 'linum)
 
+;; Templates. Not quite working yet.
 (add-to-list 'load-path (expand-file-name "~/home-dir/.emacs-packages/smart-snippet"))
 (require 'smart-snippet)
+
+;; Auto-complete feature.
+(add-to-list 'load-path "~/home-dir/.emacs-packages/auto-complete-1.3.1")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/home-dir/.emacs-packages/auto-complete-1.3.1/dict")
+(ac-config-default)
 
 ;; Stopped using these, not sure if they are working.
 ;;(add-to-list 'load-path (expand-file-name "~/home-dir/.emacs-packages/python-mode"))
@@ -75,7 +100,7 @@
 
 ;; Custom keybinding for make, I do that a lot.
 ;; I need to find another key to bind this too. M-m takes you to the first non-space char of the line, very useful.
-;;(global-set-key (kbd "M-m") 'compile)
+(global-set-key (kbd "M-m") 'compile)
 
 ;;(load-file user-init-file)
 ;;(load-file custom-file)
