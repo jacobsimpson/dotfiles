@@ -6,8 +6,11 @@ as well as keep changes from various machines in sync.
 To set this up on a new computer:
 
 # do the checkout.
-Add the required line to the ~/.bashrc
+
+# Run these lines to configure your environment to use the new checkout.
+echo 'test -f ~/home-dir/.bashrc && source ~/home-dir/.bashrc' >> ~/.bashrc
 ln -nsf ~/home-dir/.vim
+echo 'source ~/home-dir/.vim/myvimrc' > ~/.vimrc
 echo '(load-library "~/home-dir/.emacs-packages/emacs")' > ~/.emacs
 
 
