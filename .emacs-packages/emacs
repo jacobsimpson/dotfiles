@@ -21,8 +21,8 @@
 ;;  '(add-to-list 'pymacs-load-path YOUR-PYMACS-DIRECTORY"))
 
 (require 'pymacs)
-(pymacs-load "ropemacs" "rope-")
-(setq ropemacs-enable-autoimport t)
+;;(pymacs-load "ropemacs" "rope-")
+;;(setq ropemacs-enable-autoimport t)
 
 ;; Start the emacs server so emacsclient can open files in this instance.
 (server-start)
@@ -93,6 +93,7 @@
 (setq c-basic-offset 4)
 (setq tab-width 4)
 (setq indent-tabs-mode nil)
+;(setq-default indent-tabs-mode nil)
 
 ; Those ~ files irk me.
 (setq make-backup-files         nil)
