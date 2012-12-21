@@ -9,20 +9,9 @@ To set this up on a new computer:
 git clone https://github.com/jacobsimpson/home-dir.git
 
 # Run these lines to configure your environment to use the new checkout.
-echo 'test -f ~/home-dir/.bashrc && source ~/home-dir/.bashrc' >> ~/.bashrc
-ln -nsf ~/home-dir/.vim
+echo 'test -f ~/home-dir/bashrc && source ~/home-dir/bashrc' >> ~/.bashrc
 echo 'source ~/home-dir/.vim/myvimrc' > ~/.vimrc
 echo '(load-library "~/home-dir/.emacs-packages/emacs")' > ~/.emacs
 
-
 Jacob.
 
-# Create the new repository (if it is new) through the github home page.
-git config --global user.name "Jacob Simpson"
-git config --global user.email jacob.simpson@gmail.com
-
-git init
-git add .bashrc .vim/ .emacs-packages/ README 
-git commit -m "Added first versions."
-git remote add orgin git@github.com:jacobsimpson/home-dir.git
-git push orgin master
