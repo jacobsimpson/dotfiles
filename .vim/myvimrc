@@ -9,7 +9,7 @@ set tabstop=4
 " Sets how much indent for the >
 set shiftwidth=4
 
-" This will affect Command-T plugin, and exclude files from the listing.
+" This will affect CtrlP plugin, and exclude files from the listing.
 set wildignore+=*.o,*.class,.svn,*.jar,*.gif,*.jpg,*.pyc
 
 " Each new line will match code block
@@ -20,6 +20,9 @@ set expandtab
 
 " Toggle the NERDTree side bar on and off.
 nmap <leader>d :NERDTreeToggle<CR>
+
+" Moke CtrlP easy to get to.
+let g:ctrlp_map = '<leader>t'
 
 " Add incremental searching to vim.
 set incsearch
@@ -110,21 +113,14 @@ endfunction
 "" The autocmd lines conditionally remap the makeprg if you navigate to or open Java files.
 autocmd BufEnter,BufNew *.java      call SetJavaCompiler()
 autocmd BufEnter,BufNew build.xml   call SetJavaCompiler()
-"autocmd BufRead *.groovy set makeprg=ant\ -find\ build.xml
-
-"set makeprg=ant
-"set efm+=\ %#[javac]\ %#%f:%l:%c:%*\\d:%*\\d:\ %t%[%^:]%#:%m
-"set efm+=\%A\ %#[javac]\ %f:%l:\ %m
-"set efm+=%-Z\ %#[javac]\ %p^
-"set efm+=%-C%.%#
 
 "checkstyle error format messages.
 "set efm+=%f:%l:\ %m
 "set efm+=%f:%l:%c\ %m
 
 " Highlight any chars exceeding the 80 char limit.
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-"match OverLength /\%81v.\+/
+"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+"match OverLength /\%101v.\+/
 
 " Maps the RE search key so it gets extended regular expressions by default.
 nnoremap / /\v
