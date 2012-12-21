@@ -7,3 +7,6 @@
 [submodule ".emacs-packages/evil"]
 	path = .emacs-packages/evil
 	url = git://gitorious.org/evil/evil.git
+[submodule ".vim/bundle/ctrlp"]
+	path = .vim/bundle/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git
