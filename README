@@ -6,6 +6,7 @@ as well as keep changes from various machines in sync.
 To set this up on a new computer:
 
 # do the checkout.
+git clone https://github.com/jacobsimpson/home-dir.git
 
 # Run these lines to configure your environment to use the new checkout.
 echo 'test -f ~/home-dir/.bashrc && source ~/home-dir/.bashrc' >> ~/.bashrc
