@@ -1,0 +1,15 @@
+
+Adding new sub modules.
+
+git submodule add git://github.com/chneukirchen/rack.git rack
+
+The directories contained here are typically git submodules,
+which allows me to point portions of my git tree directly
+to other git repositories. Each submodule directory must
+be initialized:
+
+git submodule init
+
+and updated
+
+git submodule update
