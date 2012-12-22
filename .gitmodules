@@ -10,3 +10,9 @@
 [submodule ".vim/bundle/ctrlp"]
 	path = .vim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
+[submodule ".emacs-packages/yasnippet"]
+	path = .emacs-packages/yasnippet
+	url = https://github.com/capitaomorte/yasnippet
+[submodule ".emacs-packages/scala-mode2"]
+	path = .emacs-packages/scala-mode2
+	url = git://github.com/hvesalai/scala-mode2.git
