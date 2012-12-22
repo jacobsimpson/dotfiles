@@ -74,9 +74,6 @@
 ;; Stopped using these, not sure if they are working.
 ;;(add-to-list 'load-path (expand-file-name "~/home-dir/.emacs-packages/python-mode"))
 ;;(require 'python-mode)
-;;
-;;(add-to-list 'load-path (expand-file-name "~/home-dir/.emacs-packages/ipython"))
-;;(require 'ipython)
 
 ;(add-to-list 'load-path (expand-file-name "~/home-dir/.emacs-packages/find-file-in-project"))
 ;(require 'find-file-in-project)
