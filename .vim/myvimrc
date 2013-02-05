@@ -107,20 +107,11 @@ function SetJavaCompiler()
     set efm=\ %#[junit]\ %.at%m
 
     let &efm=' %#[javac] %f:%l:%m'
-    "let &efm.=', %#[junit] %.at%m'
 endfunction
 
 "" The autocmd lines conditionally remap the makeprg if you navigate to or open Java files.
 autocmd BufEnter,BufNew *.java      call SetJavaCompiler()
 autocmd BufEnter,BufNew build.xml   call SetJavaCompiler()
-
-"checkstyle error format messages.
-"set efm+=%f:%l:\ %m
-"set efm+=%f:%l:%c\ %m
-
-" Highlight any chars exceeding the 80 char limit.
-"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-"match OverLength /\%101v.\+/
 
 " Maps the RE search key so it gets extended regular expressions by default.
 nnoremap / /\v
