@@ -1,6 +1,5 @@
 snippet main
-	public static void main (String [] args)
-	{
+	public static void main (String[] args) {
 		${1:/* code */}
 	}
 snippet pu
@@ -23,7 +22,9 @@ snippet de
 	default:
 		${1}
 snippet ca
-	catch(${1:Exception} ${2:e}) ${3}
+	catch(${1:Exception} ${2:e}) {
+		${3}
+	}
 snippet th
 	throw 
 snippet sy
@@ -41,17 +42,29 @@ snippet j.n
 snippet j.m
 	java.math.
 snippet if
-	if (${1}) ${2}
+	if (${1}) {
+		${2}
+	}
 snippet el
-	else 
+	else {
+		${1}
+	}
 snippet elif
-	else if (${1}) ${2}
+	else if (${1}) {
+		${2}
+	}
 snippet wh
-	while (${1}) ${2}
+	while (${1}) {
+		${2}
+	}
 snippet for
-	for (${1}; ${2}; ${3}) ${4}
+	for (${1}; ${2}; ${3}) {
+		${4}
+	}
 snippet fore
-	for (${1} : ${2}) ${3}
+	for (${1} : ${2}) {
+		${3}
+	}
 snippet sw
 	switch (${1}) ${2}
 snippet cs
@@ -69,7 +82,9 @@ snippet cl
 snippet in
 	interface ${1:`Filename("", "untitled")`} ${2:extends Parent}${3}
 snippet m
-	${1:void} ${2:method}(${3}) ${4:throws }${5}
+	${1:void} ${2:method}(${3}) ${4:throws } {
+		${5}
+	}
 snippet v
 	${1:String} ${2:var}${3: = null}${4};${5}
 snippet co
@@ -99,4 +114,13 @@ snippet pgs
 
 	public void set$2($1 v) {
 		this.$3 = v;
+	}
+snippet toString
+	public String toString() {
+		return ${1};
+	}
+snippet try
+	try {
+		${1}
+	} catch (Exception e) {
 	}
