@@ -1,2 +1,3 @@
 .vim/plugin/open_template.vim
 .*.swp
+.netrwhist
