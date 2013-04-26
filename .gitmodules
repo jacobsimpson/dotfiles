@@ -31,3 +31,6 @@
 [submodule ".vim/bundle/less"]
 	path = .vim/bundle/less
 	url = git://github.com/groenewege/vim-less.git
+[submodule ".vim/bundle/vim-easymotion"]
+	path = .vim/bundle/vim-easymotion
+	url = git://github.com/Lokaltog/vim-easymotion.git

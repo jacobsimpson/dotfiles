@@ -1,7 +1,10 @@
 Adding new sub modules.
 =======================
 
-git submodule add git://github.com/chneukirchen/rack.git rack
+From the same directory as this README.
+
+git submodule add git://github.com/Lokaltog/vim-easymotion.git .vim/bundle/vim-easymoti
+on
 
 Updating Submodules in a Clone
 ==============================
