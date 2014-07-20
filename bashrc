@@ -37,5 +37,5 @@ function rg() {
 
 # Allows autocomplete of previously used ssh targets.
 #complete -W "$(echo $(grep '^ssh ' ${HOME}/.bash_history | sort -u | sed 's/^ssh //'))" ssh
-complete -W "$(echo $(sed 's|[, ].*||; s|.int.pason.com||' .ssh/known_hosts | sort -u))" ssh
+complete -W "$(echo $(sed 's|[, ].*||; s|.int.pason.com||' ~/.ssh/known_hosts | sort -u))" ssh
 
