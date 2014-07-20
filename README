@@ -12,6 +12,9 @@ git clone https://github.com/jacobsimpson/home-dir.git
 echo 'test -f ~/home-dir/bashrc && source ~/home-dir/bashrc' >> ~/.bashrc
 echo 'source ~/home-dir/.vim/myvimrc' > ~/.vimrc
 echo '(load-library "~/home-dir/.emacs-packages/emacs")' > ~/.emacs
+echo '[include]
+    path = ~/home-dir/gitconfig
+' > ~/.gitconfig
 ln -nsf ~/home-dir/guile/guile-config.scm ~/.guile
 ln -nsf ~/home-dir/.vim ~/.vim
 

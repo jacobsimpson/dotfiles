@@ -1,0 +1,82 @@
+[color]
+	ui = true
+
+[alias]
+    # Using the first two letters of frequent commands really cuts down on
+    # typing.
+    st = status
+    br = branch
+    ch = checkout
+    co = commit
+    coa = commit -a
+    me = merge
+    di = diff
+    pl = pull
+    psh = push
+    lg = log --graph --pretty=format:'%Cred%h%Creset %an -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+
+    #
+    # Complex, multi-command aliases use the ! operator to invoke the shell.
+    # Use the format of:
+    #      tst = "!f() { echo 'one'; }; f"
+    # because git both replaces positional args ($1, $2) and tacks them on the
+    # end, but if you use the shell function, you only get the positional args
+    # behavior, because the function invocation at the end captures the args
+    # tacked on.
+    #
+
+    # Update mainline, all in one command, run from any branch, with uncommitted
+    # changes.
+    plma = "!f() {\
+        NAME=$(git status | head -1 | sed 's|^# On branch ||') ; \
+        exec 5>&1 ; \
+        STASH=$(git stash | tee /dev/fd/5) ; \
+        git checkout mainline ; \
+        git pull ; \
+        git checkout ${NAME} ; \
+        echo $STASH | grep -qv 'No local changes' && git stash pop ; \
+    }; f"
+
+    # Process:
+    #  1. Check for uncommitted changes.
+    #     - fail if so
+    #  2. pull mainline
+    #     - fail if fails
+    #  3. merge mainline
+    #     - fail if problem.
+    #  4. ch mainline
+    #  5. merge --squash <br name>
+    #  6. commit
+    #     - detect committed code review if it history.
+    #  7. delete the merged branch??
+    squash = "!f() {\
+        NAME=$(git status | head -1 | sed 's|^# On branch ||') ; \
+        git checkout mainline ; \
+        git pull ; \
+        git checkout ${NAME} ; \
+        echo $STASH | grep -qv 'No local changes' && git stash pop ; \
+    }; f"
+
+    ages = "!f() {\
+        git branch \"$@\" | \
+        grep -v 'HEAD' | \
+        sed 's|*||' | \
+        xargs -I{} -n 1 git log --pretty=format:'%at<>%Cgreen%ad%Creset<>%Cblue<>%aN<>%Creset<>{}%n' -1 {} | \
+        sort -n | \
+        awk '{\
+            split($0, vals, \"<>\"); \
+            name = sprintf(\"%.15s\", vals[4]); \
+            printf \"%-39s %s%-15s%s %s\\n\", vals[2], vals[3], name, vals[5], vals[6]; \
+        }' ;\
+    }; f"
+
+	dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(blue)%d%C(reset)%n%s' --date-order
+
+[push]
+	default = simple
+[core]
+	pager = less -FMRiX
+[merge]
+	tool = vimdiff
+[difftool]
+	prompt = false
