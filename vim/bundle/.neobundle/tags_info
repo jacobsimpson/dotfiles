@@ -1,0 +1,11 @@
+go.vim
+neobundle.vim
+neocomplete
+neosnippet
+neosnippet-snippets
+nerdtree
+rust.vim
+unite.vim
+vim-markdown
+vim-surround
+vimproc.vim

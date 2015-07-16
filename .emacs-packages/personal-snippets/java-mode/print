@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: print statement
-# key: print
-# --
-System.out.print("$1");

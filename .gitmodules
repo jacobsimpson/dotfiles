@@ -4,18 +4,9 @@
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule ".emacs-packages/evil"]
-	path = .emacs-packages/evil
-	url = git://gitorious.org/evil/evil.git
 [submodule ".vim/bundle/ctrlp"]
 	path = .vim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule ".emacs-packages/yasnippet"]
-	path = .emacs-packages/yasnippet
-	url = https://github.com/capitaomorte/yasnippet
-[submodule ".emacs-packages/scala-mode2"]
-	path = .emacs-packages/scala-mode2
-	url = git://github.com/hvesalai/scala-mode2.git
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
