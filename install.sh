@@ -2,13 +2,23 @@
 
 echo
 
+echo "Installing NeoBundle for vim."
+if [[ -d ~/.vim/bundle ]] ; then
+    echo "    Already installed."
+else
+    pushd ~
+    curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
+    sh ./install.sh
+    popd
+fi
+
 echo "Installing vim settings."
 if grep "source .*home-dir.vim.vimrc" ~/.vimrc >& /dev/null ; then
     echo "    vim settings already installed. Skipping."
 else
     echo 'source ~/home-dir/vim/vimrc' >> ~/.vimrc
 fi
-ln -nsf ~/home-dir/vim ~/.vim
+ln -nsf ~/home-dir/vim/bundle/NeoBundle.lock ~/.vim/bundle/NeoBundle.lock
 
 echo "Installing the Git configuration."
 if grep "home-dir.gitconfig" ~/.gitconfig >& /dev/null ; then

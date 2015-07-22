@@ -6,6 +6,10 @@
 # test -f ~/home-dir/zshrc && source ~/home-dir/zshrc
 #
 
+# Disables sharing history between active terminals.
+unsetopt share_history
+unsetopt autopushd
+
 alias ls='ls -FG'
 
 alias grep='grep --color=auto'
@@ -44,5 +48,4 @@ do
         export CDPATH=${CDPATH}:${P}/src
     fi
 done
-
 
