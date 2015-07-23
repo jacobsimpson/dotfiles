@@ -2,6 +2,9 @@
 
 echo
 
+echo "Set the shell to zshrc."
+chsh -s /bin/zsh
+
 echo "Installing NeoBundle for vim."
 if [[ -d ~/.vim/bundle ]] ; then
     echo "    Already installed."
