@@ -48,5 +48,42 @@ else
     echo 'test -f ~/home-dir/zshrc && source ~/home-dir/zshrc' >> ~/.zshrc
 fi
 
+if uname -a | grep Darwin >& /dev/null ; then
+    # Installing Mac specific updates.
+
+    echo "Installing homebrew for Mac package management."
+    if which brew >& /dev/null ; then
+        echo "    Homebrew is already installed."
+    else
+        echo "    Installing homebrew."
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+
+    # Install the XCode command line tools, including Git.
+    xcode-select --install
+
+    # Set the defaults so all files are visible in Finder.
+    defaults write com.apple.finder AppleShowAllFiles YES
+
+    brew install ag
+    brew install caskroom/cask/brew-cask
+    brew cask install google-chrome
+    brew cask install spectacle # To remap Capslock to Esc.
+    brew cask install karabiner # To remap Pause to Eject for locking the screen.
+    brew cask install java
+    brew cask install iterm2
+    brew cask install atom
+    brew cask install intellij-idea
+    brew cask install seil
+    brew cask install xquartz
+    brew cask install dia
+    brew tap neovim/neovim
+    brew install --HEAD neovim
+
+    ln -s ~/.vimrc ~/.nvimrc
+    ln -s ~/.vim ~/.nvim
+
+fi
+
 echo
 
