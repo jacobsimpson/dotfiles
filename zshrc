@@ -40,3 +40,8 @@ export PATH=/Users/jsimpson/bin:${PATH}
 # # Chrome browser, or start an instance.
 alias chrome='/usr/bin/open -a "/Applications/Google Chrome.app"'
 
+if which nvim >& /dev/null ; then
+    alias vim=nvim
+    alias vi=nvim
+fi
+
