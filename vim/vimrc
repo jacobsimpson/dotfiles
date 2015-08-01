@@ -232,13 +232,19 @@ if has('conceal')
     set conceallevel=2 concealcursor=niv
 endif
 
-" The VisualStar plugin installs some additional mappings on <leader>* that
-" acts as an extension to the regular vim * behavior by allowing <leader>* to
-" run a recursive file search. These lines alter the <leader>* behavior to use
-" the Ag plugin instead of vimgrep.
-"nnoremap <leader>* :Ag substitute(escape(expand("<cword>"), '\'), '\n', '\\n', 'g')<CR>
+" You know when you are editing a file and you try to save it only to find out
+" it is write restricted and you have to exit vim and re-run it with sudo root
+" just so you can save changes?
+" Do :w!! instead.
+cmap w!! w !sudo tee > /dev/null %
+
+" This will execute highlighted text as VimScript.
+vmap <leader>r "xy:@x<CR>
+
+" Remap the <leader>* key to do a search analogous to how vim searches when
+" the * key is hit, but across different files.
 nnoremap <leader>* :Ag "<cword>"<CR>
-vnoremap <leader>* :<C-u>call VisualStarSearchSet('/')<CR>:execute 'noautocmd vimgrep /' . @/ . '/ **'<CR>
+vnoremap <leader>* :<C-u>call VisualStarSearchSet('/')<CR>:execute 'noautocmd Ag ' . @/ . ''<CR>
 
 source ~/home-dir/vim/nvimrc
 

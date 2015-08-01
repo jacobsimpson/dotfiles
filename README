@@ -7,7 +7,7 @@ To set this up on a new computer:
 
 # do the checkout.
 git clone https://github.com/jacobsimpson/home-dir.git
-./install.sh
+home-dir/install.sh
 
 Jacob.
 
