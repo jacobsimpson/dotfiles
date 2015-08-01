@@ -40,12 +40,3 @@ export PATH=/Users/jsimpson/bin:${PATH}
 # # Chrome browser, or start an instance.
 alias chrome='/usr/bin/open -a "/Applications/Google Chrome.app"'
 
-# Set up the CDPATH so my repositories are all on it.
-export CDPATH=/Users/jsimpson/workspaces/src
-for P in /Users/jsimpson/workspaces/*
-do
-    if [ -e ${P}/src ]; then
-        export CDPATH=${CDPATH}:${P}/src
-    fi
-done
-
