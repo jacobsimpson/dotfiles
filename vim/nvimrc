@@ -1,0 +1,34 @@
+
+" This file contains the settings specific to NeoVim.
+
+if has('nvim')
+
+    " nvim specific. Integrates the vim buffers with the system clipboard.
+    set clipboard+=unnamedplus
+
+    " Update the terminal mode so the Esc char changes to normal mode.
+    tnoremap <Esc> <C-\><C-n>
+
+    " Key mappings recommended in the NeoVim documentation for making Vim split
+    " navigation easier.
+
+    "tnoremap <A-h> :wincmd h<CR>
+    "tnoremap <A-j> :wincmd j<CR>
+    "tnoremap <A-k> :wincmd k<CR>
+    "tnoremap <A-l> :wincmd l<CR>
+    tnoremap <A-h> :wincmd h<CR>
+    tnoremap <A-j> :wincmd j<CR>
+    tnoremap <A-k> :wincmd k<CR>
+    tnoremap <A-l> :wincmd l<CR>
+
+    "nnoremap <A-h> <C-w>h
+    "nnoremap <A-j> <C-w>j
+    "nnoremap <A-k> <C-w>k
+    "nnoremap <A-l> <C-w>l
+    nnoremap <A-h> :wincmd h<CR>
+    nnoremap <A-j> :wincmd j<CR>
+    nnoremap <A-k> :wincmd k<CR>
+    nnoremap <A-l> :wincmd l<CR>
+
+endif
+

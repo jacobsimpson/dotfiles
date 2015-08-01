@@ -219,3 +219,13 @@ if has('conceal')
     set conceallevel=2 concealcursor=niv
 endif
 
+" The VisualStar plugin installs some additional mappings on <leader>* that
+" acts as an extension to the regular vim * behavior by allowing <leader>* to
+" run a recursive file search. These lines alter the <leader>* behavior to use
+" the Ag plugin instead of vimgrep.
+"nnoremap <leader>* :Ag substitute(escape(expand("<cword>"), '\'), '\n', '\\n', 'g')<CR>
+nnoremap <leader>* :Ag "<cword>"<CR>
+vnoremap <leader>* :<C-u>call VisualStarSearchSet('/')<CR>:execute 'noautocmd vimgrep /' . @/ . '/ **'<CR>
+
+source ~/home-dir/vim/nvimrc
+
