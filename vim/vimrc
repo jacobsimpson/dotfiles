@@ -192,6 +192,17 @@ call neobundle#begin(expand('~/.vim/bundle/'))
     NeoBundle 'Shougo/neosnippet'
     NeoBundle 'Shougo/neosnippet-snippets'
 
+    " Git access from inside Vim.
+    NeoBundle 'tpope/vim-fugitive'
+
+    " In Vim support for Silver Searcher.
+    NeoBundle 'rking/ag.vim'
+
+    " When a visual selection is active, pressing * or # will do a file
+    " search of the selection, instead of a file search of the word under the
+    " cursor.
+    NeoBundle 'bronson/vim-visual-star-search'
+
 call neobundle#end()
 
 " Required:
