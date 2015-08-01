@@ -21,8 +21,10 @@ set expandtab
 nmap <leader>d :NERDTreeToggle<CR>
 
 " Search recursively for files.
-" http://bling.github.io//blog/2013/06/02/unite-dot-vim-the-plugin-you-didnt-know-you-need/#comment-919769841
-nnoremap <C-p> :Unite file_rec/async<cr>
+nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
+
+" List the open buffers.
+nnoremap <leader>b :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
 
 " Add incremental searching to vim.
 set incsearch
