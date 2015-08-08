@@ -249,5 +249,16 @@ vnoremap <leader>* :<C-u>call VisualStarSearchSet('/')<CR>:execute 'noautocmd Ag
 
 " Makes the Airline status bar visible at all times.
 set laststatus=2
+
+" Keep visual selection after indenting or unindenting.
+vnoremap < <gv
+vnoremap > >gv
+vmap <TAB> >
+vmap <S-TAB> <
+
+" Make the cursor at least this many lines away from the edge of the screen.
+set scrolloff=3
+
+
 source ~/home-dir/vim/nvimrc
 
