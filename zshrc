@@ -10,7 +10,11 @@
 unsetopt share_history
 unsetopt autopushd
 
-alias ls='ls -FG'
+if uname -a | grep Darwin >& /dev/null ; then
+    alias ls='ls -FG'
+else
+    alias ls='ls -F --color=auto'
+fi
 
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
