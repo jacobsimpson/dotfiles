@@ -178,9 +178,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
     " Support Unite with async operations.
     NeoBundle 'Shougo/vimproc.vim'
 
-    NeoBundle 'fsouza/go.vim'
-    NeoBundle 'wting/rust.vim'
-    NeoBundle 'plasticboy/vim-markdown'
+    " Syntax and other language specific settings for many languages.
+    NeoBundle 'sheerun/vim-polyglot'
 
     " NERDTree - directory tree navigation in a Vim window.
     NeoBundle 'scrooloose/nerdtree'
