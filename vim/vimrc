@@ -202,6 +202,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
     " cursor.
     NeoBundle 'bronson/vim-visual-star-search'
 
+    " Creates a nicer status line.
+    NeoBundle 'bling/vim-airline'
 call neobundle#end()
 
 " Required:
@@ -245,5 +247,7 @@ vmap <leader>r "xy:@x<CR>
 nnoremap <leader>* :Ag "<cword>"<CR>
 vnoremap <leader>* :<C-u>call VisualStarSearchSet('/')<CR>:execute 'noautocmd Ag ' . @/ . ''<CR>
 
+" Makes the Airline status bar visible at all times.
+set laststatus=2
 source ~/home-dir/vim/nvimrc
 
