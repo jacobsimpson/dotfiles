@@ -12,23 +12,11 @@ if has('nvim')
     " Key mappings recommended in the NeoVim documentation for making Vim split
     " navigation easier.
 
-    "tnoremap <A-h> :wincmd h<CR>
-    "tnoremap <A-j> :wincmd j<CR>
-    "tnoremap <A-k> :wincmd k<CR>
-    "tnoremap <A-l> :wincmd l<CR>
-    tnoremap <A-h> :wincmd h<CR>
-    tnoremap <A-j> :wincmd j<CR>
-    tnoremap <A-k> :wincmd k<CR>
-    tnoremap <A-l> :wincmd l<CR>
-
-    "nnoremap <A-h> <C-w>h
-    "nnoremap <A-j> <C-w>j
-    "nnoremap <A-k> <C-w>k
-    "nnoremap <A-l> <C-w>l
-    nnoremap <A-h> :wincmd h<CR>
-    nnoremap <A-j> :wincmd j<CR>
-    nnoremap <A-k> :wincmd k<CR>
-    nnoremap <A-l> :wincmd l<CR>
+    " Key mappings for making Vim split navigation easier.
+    tnoremap <C-h> <C-\><C-n>:wincmd h<CR>
+    tnoremap <C-j> <C-\><C-n>:wincmd j<CR>
+    tnoremap <C-k> <C-\><C-n>:wincmd k<CR>
+    tnoremap <C-l> <C-\><C-n>:wincmd l<CR>
 
     " Upon entering a terminal window, go to insert mode so you can start
     " doing terminal things immediately.
