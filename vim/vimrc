@@ -254,6 +254,11 @@ vnoremap <leader>* :<C-u>call VisualStarSearchSet('/')<CR>:execute 'noautocmd Ag
 " Select a color scheme.
 color molokai
 
+" Open new split panes to right and bottom, which feels more natural than
+" Vim’s default:
+set splitbelow
+set splitright
+
 " Makes the Airline status bar visible at all times.
 set laststatus=2
 
