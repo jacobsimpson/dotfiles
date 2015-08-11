@@ -38,7 +38,7 @@ function rg() {
     find . -name "$2" -exec egrep --color=auto -H "$1" {} \;
 }
 
-export PATH=/Users/jsimpson/bin:${PATH}
+export PATH=${HOME}/bin:${PATH}
 
 # An alias that will open any specified html file in the currently running
 # # Chrome browser, or start an instance.
