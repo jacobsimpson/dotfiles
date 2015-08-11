@@ -83,6 +83,23 @@ if uname -a | grep Darwin >& /dev/null ; then
     ln -s ~/.vimrc ~/.nvimrc
     ln -s ~/.vim ~/.nvim
 
+    # Install Go lang.
+    gopath=~/golang
+    mkdir $gopath
+    mkdir -p $gopath/src/github.com/jacobsimpson
+
+    export GOPATH=$gopath
+    export GOROOT=/usr/local/opt/go/libexec
+    export PATH=$PATH:$GOPATH/bin
+    export PATH=$PATH:$GOROOT/bin
+
+    brew install go
+    # Mercurial is used by the Go get command for installing some packages.
+    brew install mercurial
+
+    go get golang.org/x/tools/cmd/godoc
+    go get golang.org/x/tools/cmd/vet
+    go get github.com/constabulary/gb/...
 fi
 
 echo

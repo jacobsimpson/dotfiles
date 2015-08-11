@@ -49,3 +49,11 @@ if which nvim >& /dev/null ; then
     alias vi=nvim
 fi
 
+# Golang configuration.
+gopath=~/golang
+
+export GOPATH=$gopath
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+
