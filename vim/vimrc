@@ -186,6 +186,10 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
     NeoBundle 'tpope/vim-surround'
 
+    " Select with :color jellybeans
+    NeoBundle 'nanotech/jellybeans.vim'
+    NeoBundle 'tomasr/molokai'
+
     " Snippet support.
     NeoBundle 'Shougo/neocomplete'
     NeoBundle 'Shougo/neosnippet'
@@ -246,6 +250,9 @@ vmap <silent> <leader>r "xy:@x<CR>
 " the * key is hit, but across different files.
 nnoremap <leader>* :Ag "<cword>"<CR>
 vnoremap <leader>* :<C-u>call VisualStarSearchSet('/')<CR>:execute 'noautocmd Ag ' . @/ . ''<CR>
+
+" Select a color scheme.
+color molokai
 
 " Makes the Airline status bar visible at all times.
 set laststatus=2
