@@ -1,0 +1,8 @@
+
+# Ignore Vim swap files.
+.sw?
+.*.sw?
+
+# Ignore Intellij project files.
+*.iml
+.idea/

@@ -1,5 +1,5 @@
 [color]
-	ui = true
+    ui = true
 
 [alias]
     # Using the first two letters of frequent commands really cuts down on
@@ -11,6 +11,7 @@
     coa = commit -a
     me = merge
     di = diff
+    din = diff --name-only
     pl = pull
     psh = push
     lg = log --graph --pretty=format:'%Cred%h%Creset %an -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
@@ -70,14 +71,15 @@
         }' ;\
     }; f"
 
-	dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(blue)%d%C(reset)%n%s' --date-order
+    dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(blue)%d%C(reset)%n%s' --date-order
 
 [push]
-	default = simple
+    default = simple
 [core]
-	pager = less -FMRiX
+    pager = less -FMRiX
     editor = /usr/bin/vim
+    excludesfile = ~/home-dir/gitignore
 [merge]
-	tool = vimdiff
+    tool = vimdiff
 [difftool]
-	prompt = false
+    prompt = false
