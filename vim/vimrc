@@ -240,7 +240,7 @@ endif
 cmap w!! w !sudo tee > /dev/null %
 
 " This will execute highlighted text as VimScript.
-vmap <leader>r "xy:@x<CR>
+vmap <silent> <leader>r "xy:@x<CR>
 
 " Remap the <leader>* key to do a search analogous to how vim searches when
 " the * key is hit, but across different files.
