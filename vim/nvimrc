@@ -30,5 +30,8 @@ if has('nvim')
     nnoremap <A-k> :wincmd k<CR>
     nnoremap <A-l> :wincmd l<CR>
 
+    " Upon entering a terminal window, go to insert mode so you can start
+    " doing terminal things immediately.
+    autocmd BufWinEnter,WinEnter term://* startinsert
 endif
 
