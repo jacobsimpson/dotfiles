@@ -284,6 +284,12 @@ vmap <S-TAB> <
 " Make the cursor at least this many lines away from the edge of the screen.
 set scrolloff=3
 
+" Make global substitutions the default.
+" So, when you do:
+"     :%s/abc/123/
+" it will act like:
+"     :%s/abc/123/g
+set gdefault
 
 source ~/home-dir/vim/nvimrc
 
