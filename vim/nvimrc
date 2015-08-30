@@ -9,9 +9,6 @@ if has('nvim')
     " Update the terminal mode so the Esc char changes to normal mode.
     tnoremap <Esc> <C-\><C-n>
 
-    " Key mappings recommended in the NeoVim documentation for making Vim split
-    " navigation easier.
-
     " Key mappings for making Vim split navigation easier.
     tnoremap <C-h> <C-\><C-n>:wincmd h<CR>
     tnoremap <C-j> <C-\><C-n>:wincmd j<CR>
