@@ -245,5 +245,16 @@ set scrolloff=3
 "     :%s/abc/123/g
 set gdefault
 
+" Marks in Vim can be used two ways. The ' takes you to the line of the mark,
+" the ` takes you to the line and column of the mark. I nearly always want the
+" line and column position, but I find the ' easier to use, so these commands
+" reverse the keymaps.
+" NOTE: There is a still a problem with this. These keys are not remapped when
+" used in sequences like d'a (delete to mark a).
+nnoremap ` '
+nnoremap ' `
+vnoremap ` '
+vnoremap ' `
+
 source ~/home-dir/vim/nvimrc
 
