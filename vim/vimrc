@@ -256,5 +256,9 @@ nnoremap ' `
 vnoremap ` '
 vnoremap ' `
 
+" Keep the cursor at the column it was at after a move, like switching
+" buffers.
+set nostartofline
+
 source ~/home-dir/vim/nvimrc
 
