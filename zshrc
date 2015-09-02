@@ -45,8 +45,9 @@ export PATH=${HOME}/bin:${PATH}
 alias chrome='/usr/bin/open -a "/Applications/Google Chrome.app"'
 
 if which nvim >& /dev/null ; then
-    alias vim=nvim
-    alias vi=nvim
+    alias vi=${HOME}/home-dir/bin/nvim-wrapper
+    alias vim=${HOME}/home-dir/bin/nvim-wrapper
+    alias nvim=${HOME}/home-dir/bin/nvim-wrapper
 fi
 
 # Golang configuration.
