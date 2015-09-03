@@ -5,6 +5,10 @@ set tabstop=4
 " Sets how much indent for the >
 set shiftwidth=4
 
+" Use 'shiftwidth' when using <Tab> in front of a line. By default it's used
+" only for shift commands ("<", ">").
+set smarttab
+
 " This will affect CtrlP plugin, and exclude files from the listing.
 set wildignore+=*.o,*.class,.svn,*.jar,*.gif,*.jpg,*.pyc,.git,*.so,*.zip,*.swp
 
