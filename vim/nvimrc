@@ -9,11 +9,12 @@ if has('nvim')
     " Update the terminal mode so the Esc char changes to normal mode.
     tnoremap <Esc> <C-\><C-n>
 
-    " Key mappings for making Vim split navigation easier.
-    tnoremap <C-h> <C-\><C-n>:wincmd h<CR>
-    tnoremap <C-j> <C-\><C-n>:wincmd j<CR>
-    tnoremap <C-k> <C-\><C-n>:wincmd k<CR>
-    tnoremap <C-l> <C-\><C-n>:wincmd l<CR>
+    " These are the characters sent by the equivalient Alt-? combinations on
+    " the default keyboard mapping for a Mac.
+    tnoremap è <C-\><C-n>:wincmd h<CR>
+    tnoremap ê <C-\><C-n>:wincmd j<CR>
+    tnoremap ë <C-\><C-n>:wincmd k<CR>
+    tnoremap ì <C-\><C-n>:wincmd l<CR>
 
     " Upon entering a terminal window, go to insert mode so you can start
     " doing terminal things immediately.

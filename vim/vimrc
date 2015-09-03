@@ -225,6 +225,34 @@ nnoremap <C-L> <C-W><C-L>
 "-- nnoremap <C-H> <C-W><C-H> - I wished it was this easy.
 nnoremap <Backspace> <C-W><C-H>
 
+" The Goal:
+" Improved windowing experience in Vim.
+" 1. Really simple hotkeys for common actions.
+"   - moving windows
+"   - C-hjkl - not bad, but C-h maps to backspace in many terminal programs.
+"   - A-hjkl - not bad, but Mac uses Alt for Unicode chars be default.
+" 2. Closing a buffer in a window should really pop back a buffer, like a
+" stack. But the stack should be specific to that window.
+" 3. Easy to change between a couple common arrangements.
+"   - big window in the middle, one on each side, terminal type on the bottom.
+"   - side by side diff of two things.
+" 4. Pair navigation.
+"   - navigate to the paired file.
+"   - some kind of function or pattern for recognizing a pair.
+"   - file to the unit test, that kind of thing.
+"   - primary, secondary, tertiary pair.
+"
+" On a Mac, the default keyboard mapping doesn't pass the Alt key
+" combinations, so this is a mapping of the Unicode characters it does pass.
+noremap ê <C-W><C-J>
+noremap ë <C-W><C-K>
+noremap ì <C-W><C-L>
+noremap è <C-W><C-H>
+noremap <A-h> <C-W><C-H>
+noremap <A-j> <C-W><C-J>
+noremap <A-k> <C-W><C-k>
+noremap <A-l> <C-W><C-l>
+
 " Open new split panes to right and bottom, which feels more natural than
 " Vim’s default:
 set splitbelow
