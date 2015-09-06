@@ -79,6 +79,12 @@ if uname -a | grep Darwin >& /dev/null ; then
     brew cask install dia
     brew tap neovim/neovim
     brew install --HEAD neovim
+    brew install pyenv
+    brew install pyenv-virtualenv
+
+    pyenv install 2.7.10
+    pyenv install 3.4.3
+    pyenv global 2.7.10
 
     ln -s ~/.vimrc ~/.nvimrc
     ln -s ~/.vim ~/.nvim
@@ -101,6 +107,9 @@ if uname -a | grep Darwin >& /dev/null ; then
     go get golang.org/x/tools/cmd/vet
     go get github.com/constabulary/gb/...
 fi
+
+pip install --upgrade pip
+pip install virtualenv
 
 echo
 

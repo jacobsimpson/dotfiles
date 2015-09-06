@@ -12,9 +12,6 @@ unsetopt autopushd
 
 if uname -a | grep Darwin >& /dev/null ; then
     alias ls='ls -FG'
-
-    # This is the path where pip install --user puts things.
-    export PATH=${PATH}:${HOME}/Library/Python/2.7/bin/
 else
     alias ls='ls -F --color=auto'
 fi
@@ -64,3 +61,9 @@ export PATH=$PATH:$GOROOT/bin
 alias vbm=vboxmanage
 
 alias history='fc -iln 0'
+
+if which pyenv > /dev/null; then
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+    pyenv shell global
+fi

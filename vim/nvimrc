@@ -19,5 +19,12 @@ if has('nvim')
     " Upon entering a terminal window, go to insert mode so you can start
     " doing terminal things immediately.
     autocmd BufWinEnter,WinEnter term://* startinsert
+
+    if filereadable($HOME . "/.pyenv/versions/neovim-2.7/bin/python")
+        let g:python_host_prog=$HOME . "/.pyenv/versions/neovim-2.7/bin/python"
+    endif
+    if filereadable($HOME . "/.pyenv/versions/neovim-3.4/bin/python")
+        let g:python3_host_prog=$HOME . "/.pyenv/versions/neovim-3.4/bin/python"
+    endif
 endif
 
