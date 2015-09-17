@@ -62,6 +62,13 @@ alias vbm=vboxmanage
 
 alias history='fc -iln 0'
 
+# Disables zsh from doing the history expansion and waiting for confirmation
+# before continuing, like this:
+# ➜  2015-09-02-WordSearch  mkdir src
+# ➜  2015-09-02-WordSearch  ls !$
+# ➜  2015-09-02-WordSearch  ls src
+unsetopt HIST_VERIFY
+
 if which pyenv &> /dev/null; then
     # pyenv shell switches between different Python interpreters, and it hacks up
     # my prompt to show me which one is active, but I would rather it didn't do
