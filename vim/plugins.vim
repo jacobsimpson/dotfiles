@@ -45,5 +45,10 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
     " Creates a nicer status line.
     NeoBundle 'bling/vim-airline'
+
+    " In Vim support for some standard Unix commands. I'm mostly interested in
+    " Move.
+    NeoBundle 'tpope/vim-eunuch'
+
 call neobundle#end()
 
