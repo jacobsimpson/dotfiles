@@ -48,6 +48,9 @@ NeoBundle 'ntpeters/vim-better-whitespace'
 " Make it easy to do little practice coding sessions.
 NeoBundle 'jacobsimpson/nvim-code-kata'
 
+" Expedite terminal interactions.
+NeoBundle 'jacobsimpson/nvim-terminal-velocity'
+
 " ############################################################
 " ################### Experimental Plugins ###################
 
