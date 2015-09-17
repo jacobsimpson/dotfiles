@@ -53,6 +53,9 @@ call neobundle#begin(expand('~/.vim/bundle/'))
     " Add better text object handling, things like ci" or ci(
     NeoBundle 'wellle/targets.vim'
 
+    " Strip trailing whitespace on save.
+    NeoBundle 'ntpeters/vim-better-whitespace'
+
     " ############################################################
     " ################### Experimental Plugins ###################
 
