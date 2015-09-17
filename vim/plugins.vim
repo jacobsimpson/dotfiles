@@ -1,66 +1,53 @@
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+" Unite is a super flexible plugin, searches buffers and the like.
+NeoBundle 'Shougo/unite.vim'
+" Support Unite with async operations.
+NeoBundle 'Shougo/vimproc.vim'
 
-    " Let NeoBundle manage NeoBundle
-    " Required:
-    NeoBundleFetch 'Shougo/neobundle.vim'
+" Syntax and other language specific settings for many languages.
+NeoBundle 'sheerun/vim-polyglot'
 
-    " My Bundles here:
-    " Refer to |:NeoBundle-examples|.
-    " Note: You don't set neobundle setting in .gvimrc!
+" NERDTree - directory tree navigation in a Vim window.
+NeoBundle 'scrooloose/nerdtree'
 
-    " Unite is a super flexible plugin, searches buffers and the like.
-    NeoBundle 'Shougo/unite.vim'
-    " Support Unite with async operations.
-    NeoBundle 'Shougo/vimproc.vim'
+NeoBundle 'tpope/vim-surround'
 
-    " Syntax and other language specific settings for many languages.
-    NeoBundle 'sheerun/vim-polyglot'
+" Select with :color jellybeans
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'tomasr/molokai'
 
-    " NERDTree - directory tree navigation in a Vim window.
-    NeoBundle 'scrooloose/nerdtree'
+" Snippet support.
+NeoBundle 'Shougo/neocomplete'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 
-    NeoBundle 'tpope/vim-surround'
+" Git access from inside Vim.
+NeoBundle 'tpope/vim-fugitive'
 
-    " Select with :color jellybeans
-    NeoBundle 'nanotech/jellybeans.vim'
-    NeoBundle 'tomasr/molokai'
+" In Vim support for Silver Searcher.
+NeoBundle 'rking/ag.vim'
 
-    " Snippet support.
-    NeoBundle 'Shougo/neocomplete'
-    NeoBundle 'Shougo/neosnippet'
-    NeoBundle 'Shougo/neosnippet-snippets'
+" When a visual selection is active, pressing * or # will do a file
+" search of the selection, instead of a file search of the word under the
+" cursor.
+NeoBundle 'bronson/vim-visual-star-search'
 
-    " Git access from inside Vim.
-    NeoBundle 'tpope/vim-fugitive'
+" Creates a nicer status line.
+NeoBundle 'bling/vim-airline'
 
-    " In Vim support for Silver Searcher.
-    NeoBundle 'rking/ag.vim'
+" In Vim support for some standard Unix commands. I'm mostly interested in
+" Move.
+NeoBundle 'tpope/vim-eunuch'
 
-    " When a visual selection is active, pressing * or # will do a file
-    " search of the selection, instead of a file search of the word under the
-    " cursor.
-    NeoBundle 'bronson/vim-visual-star-search'
+" Add better text object handling, things like ci" or ci(
+NeoBundle 'wellle/targets.vim'
 
-    " Creates a nicer status line.
-    NeoBundle 'bling/vim-airline'
+" Strip trailing whitespace on save.
+NeoBundle 'ntpeters/vim-better-whitespace'
 
-    " In Vim support for some standard Unix commands. I'm mostly interested in
-    " Move.
-    NeoBundle 'tpope/vim-eunuch'
+" Make it easy to do little practice coding sessions.
+NeoBundle 'jacobsimpson/nvim-code-kata'
 
-    " Add better text object handling, things like ci" or ci(
-    NeoBundle 'wellle/targets.vim'
-
-    " Strip trailing whitespace on save.
-    NeoBundle 'ntpeters/vim-better-whitespace'
-
-    " Make it easy to do little practice coding sessions.
-    NeoBundle 'jacobsimpson/nvim-code-kata'
-
-    " ############################################################
-    " ################### Experimental Plugins ###################
-
-call neobundle#end()
+" ############################################################
+" ################### Experimental Plugins ###################
 

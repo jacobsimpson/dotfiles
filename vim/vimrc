@@ -166,7 +166,14 @@ if has('vim_starting')
    set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-source ~/home-dir/vim/plugins.vim
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+    " Let NeoBundle manage NeoBundle
+    " Required:
+    NeoBundleFetch 'Shougo/neobundle.vim'
+
+    source ~/home-dir/vim/plugins.vim
+call neobundle#end()
 
 " Required:
 filetype plugin indent on
