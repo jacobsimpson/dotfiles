@@ -271,6 +271,9 @@ nmap <S-TAB> <<
 " When inserting, allow Shift-Tab to un-Tab.
 inoremap <S-TAB> <C-D>
 
+" Allow the current buffer to be deleted without removing the window.
+nmap <silent> ,bd :bp\|bd #<CR>
+
 " Make the cursor at least this many lines away from the edge of the screen.
 set scrolloff=3
 
