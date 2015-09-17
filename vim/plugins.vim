@@ -50,5 +50,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
     " Move.
     NeoBundle 'tpope/vim-eunuch'
 
+    " Add better text object handling, things like ci" or ci(
+    NeoBundle 'wellle/targets.vim'
+
 call neobundle#end()
 
