@@ -299,5 +299,7 @@ vnoremap ' `
 " buffers.
 set nostartofline
 
+nmap <C-A-F> :%!python -m json.tool<CR>
+
 source ~/home-dir/vim/nvimrc
 
