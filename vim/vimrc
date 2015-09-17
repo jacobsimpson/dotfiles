@@ -266,6 +266,10 @@ vnoremap < <gv
 vnoremap > >gv
 vmap <TAB> >
 vmap <S-TAB> <
+nmap <TAB> >>
+nmap <S-TAB> <<
+" When inserting, allow Shift-Tab to un-Tab.
+inoremap <S-TAB> <C-D>
 
 " Make the cursor at least this many lines away from the edge of the screen.
 set scrolloff=3
