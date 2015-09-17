@@ -82,9 +82,15 @@ if uname -a | grep Darwin >& /dev/null ; then
     brew install pyenv
     brew install pyenv-virtualenv
 
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
     pyenv install 2.7.10
     pyenv install 3.4.3
-    pyenv global 2.7.10
+    pyenv global 3.4.3
+    pyenv virtualenv 2.7.10 neovim-2.7
+    pyenv virtualenv 3.4.3 neovim-3.4
+    pyenv virtualenv 2.7.10 global-2.7
+    pyenv virtualenv 3.4.3 global-3.4
 
     ln -s ~/.vimrc ~/.nvimrc
     ln -s ~/.vim ~/.nvim

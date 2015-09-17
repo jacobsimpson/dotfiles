@@ -62,8 +62,13 @@ alias vbm=vboxmanage
 
 alias history='fc -iln 0'
 
-if which pyenv > /dev/null; then
+if which pyenv &> /dev/null; then
+    # pyenv shell switches between different Python interpreters, and it hacks up
+    # my prompt to show me which one is active, but I would rather it didn't do
+    # that.
+    export VIRTUAL_ENV_DISABLE_PROMPT="DoIt"
+
     eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-    pyenv shell global
+    eval "$(pyenv virtualenv-init -)" >& /dev/null
+    pyenv shell global-3.4
 fi
