@@ -56,6 +56,9 @@ call neobundle#begin(expand('~/.vim/bundle/'))
     " Strip trailing whitespace on save.
     NeoBundle 'ntpeters/vim-better-whitespace'
 
+    " Make it easy to do little practice coding sessions.
+    NeoBundle 'jacobsimpson/nvim-code-kata'
+
     " ############################################################
     " ################### Experimental Plugins ###################
 
