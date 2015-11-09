@@ -23,6 +23,13 @@ else
 fi
 ln -nsf ~/home-dir/vim/bundle/NeoBundle.lock ~/.vim/bundle/NeoBundle.lock
 
+mkdir -p ~/.config/nvim
+ln -s ~/.vim ~/.nvim
+ln -s ~/.vimrc ~/.config/nvim/init.vim
+# This is the directory where backup files are written. For some reason Neovim
+# doesn't create this itself. Or, it didn't at 10/29/2015.
+mkdir ~/.local/share/nvim/backup
+
 echo "Installing the Git configuration."
 if grep "home-dir.gitconfig" ~/.gitconfig >& /dev/null ; then
     echo "    The Git config settings are already installed. Skipping."
@@ -91,9 +98,6 @@ if uname -a | grep Darwin >& /dev/null ; then
     pyenv virtualenv 3.4.3 neovim-3.4
     pyenv virtualenv 2.7.10 global-2.7
     pyenv virtualenv 3.4.3 global-3.4
-
-    ln -s ~/.vimrc ~/.nvimrc
-    ln -s ~/.vim ~/.nvim
 
     # Install Go lang.
     gopath=~/golang
