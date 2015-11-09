@@ -102,6 +102,10 @@ if which pyenv &> /dev/null; then
     pyenv shell global-3.4
 fi
 
+function mcd() {
+  mkdir -p "$1" && cd "$1"
+}
+
 function cd() {
   if [[ -z $1 ]]; then
     builtin cd
@@ -122,3 +126,4 @@ alias .......="cd ../../../../../.."
 
 alias g=git
 alias gi=git
+
