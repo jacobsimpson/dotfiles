@@ -32,7 +32,7 @@ HISTSIZE=100000
 
 export PATH=${PATH}:/sbin:/usr/sbin
 
-export PYTHONSTARTUP=${HOME}/home-dir/python/pyprompt.py 
+export PYTHONSTARTUP=${HOME}/home-dir/python/pyprompt.py
 
 function rg() {
     find . -name "$2" -exec egrep --color=auto -H "$1" {} \;
@@ -101,3 +101,21 @@ if which pyenv &> /dev/null; then
     eval "$(pyenv virtualenv-init -)" >& /dev/null
     pyenv shell global-3.4
 fi
+
+function cd() {
+  if [[ -z $1 ]]; then
+    builtin cd
+  elif [[ -f $1 ]]; then
+    dirname=$(dirname "$1")
+    builtin cd "$dirname"
+  else
+    builtin cd "$1"
+  fi
+}
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+alias .......="cd ../../../../../.."
