@@ -30,6 +30,8 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 # doesn't create this itself. Or, it didn't at 10/29/2015.
 mkdir ~/.local/share/nvim/backup
 
+ln -nsf ~/home-dir/psqlrc ~
+
 echo "Installing the Git configuration."
 if grep "home-dir.gitconfig" ~/.gitconfig >& /dev/null ; then
     echo "    The Git config settings are already installed. Skipping."

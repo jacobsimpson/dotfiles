@@ -1,0 +1,43 @@
+
+-- Don't display the "helpful" message on startup.
+\set QUIET 1
+
+-- Make nice lines for tables.
+\pset linestyle unicode
+-- Surround data with lines.
+\pset border 2
+
+-- Make null visible. As a string or as a character is possible.
+-- \pset null '[NULL]'
+\pset null ¤
+
+\set PROMPT1 '%[%033[1m%]%M %n@%/%[%033[0m%]% ──────────────────────────────────────────────── \n'
+-- PROMPT2 is printed when the prompt expects more input.
+\set PROMPT2 ''
+
+-- Make visible how long it took to execute a query.
+\timing
+
+-- Will wrap column values rather than wrapping the row.
+-- If you enable this, the \x option will not automatically transition the
+-- output from table format to record format.
+-- \pset format wrapped
+
+-- Depending on the output, format as will look the best.
+\x auto
+
+-- Discard duplicate queries from the history.
+\set HISTCONTROL ignoredups
+
+-- This enables a per database history.
+-- \set HISTFILE ~/.psql_history- :DBNAME
+
+-- Save a lot of history.
+\set HISTSIZE 100000
+
+\unset QUIET
+
+
+\set uptime 'select now() - backend_start as uptime from pg_stat_activity where pid = pg_backend_pid();'
+\set settings 'select name, setting,unit,context from pg_settings;'
+\set conninfo 'select usename, count(*) from pg_stat_activity group by usename;'
