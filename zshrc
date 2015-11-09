@@ -58,7 +58,29 @@ export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
-alias vbm=vboxmanage
+function vbm() {
+  if [[ $1 == "ssh" || $1 == "ip" ]]; then
+    if [[ -z $2 ]]; then
+      echo "You must specify a VM to ssh to."
+    else
+      ip=$(vboxmanage guestproperty get "$2" /VirtualBox/GuestInfo/Net/0/V4/IP 2>&1)
+      if [[ ! $? -eq 0 ]]; then
+        echo "Could not get an IP address for '$2'. Try one of these:"
+        echo
+        vboxmanage list vms
+      else
+        ip=$(echo $ip | sed 's|Value: ||')
+        if [[ $1 == "ssh" ]]; then
+          ssh -o StrictHostKeyChecking=no $ip
+        else
+          echo $ip
+        fi
+      fi
+    fi
+  else
+    vboxmanage "$@"
+  fi
+}
 
 alias history='fc -iln 0'
 
