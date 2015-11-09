@@ -77,6 +77,7 @@ if uname -a | grep Darwin >& /dev/null ; then
     defaults write NSGlobalDomain KeyRepeat -int 1
 
     brew install ag
+    brew install jq
     brew install caskroom/cask/brew-cask
     brew cask install google-chrome
     brew cask install spectacle # To remap Capslock to Esc.
