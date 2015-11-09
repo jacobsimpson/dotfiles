@@ -126,5 +126,8 @@ fi
 pip install --upgrade pip
 pip install virtualenv
 
+# Agree to the Mac OS X XCode License.
+sudo xcodebuild -license
+
 echo
 
