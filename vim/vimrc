@@ -116,8 +116,12 @@ autocmd BufEnter,BufNew *.java      call SetJavaCompiler()
 autocmd BufEnter,BufNew build.xml   call SetJavaCompiler()
 
 " Maps the RE search key so it gets extended regular expressions by default.
-nnoremap / /\v
-vnoremap / /\v
+"
+" As it turns out, this is painful. It's always in the way, I often have to
+" delete it for some reason.
+"
+"nnoremap / /\v
+"vnoremap / /\v
 
 " Configuration for easymotion, improved word motion.
 let g:EasyMotion_leader_key = ','
