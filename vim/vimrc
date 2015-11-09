@@ -186,10 +186,9 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
-
 " Configure the whitespace plugin to auto strip trailing whitespace when the
 " given file types are saved.
-autocmd FileType java,ruby,python,javascript,html,c,cpp,text,vim
+autocmd FileType java,ruby,python,javascript,html,c,cpp,text,vim,json,xml,sh
       \  autocmd BufWritePre <buffer> StripWhitespace
 
 " Plugin key-mappings.
