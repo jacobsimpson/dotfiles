@@ -188,7 +188,7 @@ NeoBundleCheck
 
 " Configure the whitespace plugin to auto strip trailing whitespace when the
 " given file types are saved.
-autocmd FileType java,ruby,python,javascript,html,c,cpp,text,vim,json,xml,sh
+autocmd FileType java,ruby,python,javascript,html,c,cpp,text,vim,json,xml,sh,go
       \  autocmd BufWritePre <buffer> StripWhitespace
 
 " Plugin key-mappings.
@@ -314,6 +314,8 @@ vnoremap ' `
 set nostartofline
 
 nmap <C-A-F> :%!python -m json.tool<CR>
+
+nmap <C-A-l> :!go fmt %<CR>
 
 " Experimental ...
 " This changes the default command line editor experience (the mode you enter
