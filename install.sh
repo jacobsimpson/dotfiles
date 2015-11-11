@@ -93,6 +93,7 @@ if uname -a | grep Darwin >& /dev/null ; then
     brew install --HEAD neovim
     brew install pyenv
     brew install pyenv-virtualenv
+    brew install coreutils
 
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"

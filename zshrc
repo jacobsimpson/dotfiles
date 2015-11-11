@@ -82,6 +82,10 @@ function vbm() {
   fi
 }
 
+# Put the more current versions of the GNU utils from coreutils at the front of
+# the path.
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
 alias history='fc -iln 0'
 
 # Disables zsh from doing the history expansion and waiting for confirmation
