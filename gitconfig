@@ -15,6 +15,11 @@
     pl = pull
     psh = push
     lg = log --graph --pretty=format:'%Cred%h%Creset %an -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    c = clone
+
+    pr = "!f() {\
+        git push -u origin $(git rev-parse --abbrev-ref HEAD) ; \
+    }; f"
 
     #
     # Complex, multi-command aliases use the ! operator to invoke the shell.
