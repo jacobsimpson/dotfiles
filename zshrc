@@ -10,7 +10,13 @@
 unsetopt share_history
 unsetopt autopushd
 
-if uname -a | grep Darwin >& /dev/null ; then
+# Put the more current versions of the GNU utils from coreutils at the front of
+# the path.
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+if uname -a | grep Darwin >& /dev/null && ! ls --version >& /dev/null; then
+    # These are the flags for color and file type characters if we are on a
+    # Mac, and not using the GNU version of 'ls'
     alias ls='ls -FG'
 else
     alias ls='ls -F --color=auto'
@@ -81,10 +87,6 @@ function vbm() {
     vboxmanage "$@"
   fi
 }
-
-# Put the more current versions of the GNU utils from coreutils at the front of
-# the path.
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 alias history='fc -iln 0'
 
