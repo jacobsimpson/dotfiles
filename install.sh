@@ -74,7 +74,7 @@ if uname -a | grep Darwin >& /dev/null ; then
     # Set the defaults so all files are visible in Finder.
     defaults write com.apple.finder AppleShowAllFiles YES
     # Set the initial delay after a key is held down until it repeats.
-    defaults write -g InitialKeyRepeat -int 20
+    defaults write -g InitialKeyRepeat -int 25
     # Make the key repeat quickly when a key is held down.
     defaults write NSGlobalDomain KeyRepeat -int 1
 
