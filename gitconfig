@@ -1,6 +1,13 @@
 [color]
     ui = true
 
+# Causes Git to remember how conflicts were resolved so if they occur again,
+# they will be resolved the same way again. This is useful when rebasing over a
+# conflict. Normally, each change in the rebased branch will conflict in the
+# same way as each change is applied.
+[rerere]
+    enabled = true
+
 [alias]
     # Using the first two letters of frequent commands really cuts down on
     # typing.
