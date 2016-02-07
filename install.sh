@@ -77,6 +77,10 @@ if uname -a | grep Darwin >& /dev/null ; then
     defaults write -g InitialKeyRepeat -int 25
     # Make the key repeat quickly when a key is held down.
     defaults write NSGlobalDomain KeyRepeat -int 1
+    # http://apple.stackexchange.com/questions/58769/my-keyboard-stopped-repeating-how-to-fix
+    # Might require a restart to take effect.
+    # Setting this true brings up the alternate input menu for certain keys.
+    defaults write -g ApplePressAndHoldEnabled -bool false
 
     brew install ag
     brew install jq
