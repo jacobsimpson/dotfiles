@@ -133,3 +133,7 @@ alias .......="cd ../../../../../.."
 alias g=git
 alias gi=git
 
+export PROMPT="$(echo $PROMPT | sed 's|^[^ ]* ||')"
+export PROMPT="${PROMPT}
+${ret_status}%{$fg_bold[green]%}%p %{$reset_color%}"
+
