@@ -244,6 +244,8 @@ nnoremap <Backspace> <C-W><C-H>
 " 1. Really simple hotkeys for common actions.
 "   - moving windows
 "   - C-hjkl - not bad, but C-h maps to backspace in many terminal programs.
+"              Also, on Mac OS X, it isn't mapped properly in the term progs.
+"              https://github.com/neovim/neovim/issues/2048
 "   - A-hjkl - not bad, but Mac uses Alt for Unicode chars be default.
 " 2. Closing a buffer in a window should really pop back a buffer, like a
 " stack. But the stack should be specific to that window.
