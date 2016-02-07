@@ -334,3 +334,29 @@ augroup END
 
 source ~/home-dir/vim/nvimrc
 
+nmap <C-A-F> :%!python -m json.tool<CR>
+
+" This changes the default command line editor experience (the mode you enter
+" with the : key) to use a command-line-editor window instead. It allows you
+" to have an editing experience more in line with the other Vim windows.
+"
+" NOTE: This was an experiment that didn't work out. At first it seemed okay,
+" but in daily usage, the following problems appeared:
+" 1. If you start typing a command and press the up arrow, the partially typed
+" command is NOT used to limit up arrow navigation to matches. Instead, up
+" arrow just takes you one line up, to the previous command.
+" 2. :pwd - output disappears off the screeen and isn't visible.
+" 3. The command-line-editor, even at height of 1, causes all windows to
+" resize each time you do a ':' command. It's kind of annoying, though
+" ultimately livable.
+"nnoremap : q::startinsert<cr>
+"set cmdwinheight=1
+
+" When Vim is resized, make all the splits resize equally. Not a perfect
+" solution (maintaining proportion would be perfect) but a sufficient
+" solution.
+augroup Misc
+    autocmd!
+    autocmd VimResized * exe "normal! \<c-w>="
+augroup END
+
