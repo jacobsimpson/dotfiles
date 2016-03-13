@@ -88,19 +88,28 @@ if uname -a | grep Darwin >& /dev/null ; then
     brew cask install google-chrome
     brew cask install spectacle # To remap Capslock to Esc.
     brew cask install karabiner # To remap Pause to Eject for locking the screen.
-    brew cask install java
     brew cask install iterm2
     brew cask install atom
-    brew cask install intellij-idea
     brew cask install seil
     brew cask install xquartz
     brew cask install dia
     brew tap neovim/neovim
     brew install --HEAD neovim
-    brew install pyenv
-    brew install pyenv-virtualenv
     brew install coreutils
 
+    brew cask install java7
+    brew cask install java8
+    brew cask install java9
+    brew install jenv
+    path=($HOME/.jenv/bin $path)
+    eval "$(jenv init -)"
+    ls -d /Library/Java/JavaVirtualMachines/jdk*/Contents/Home/. \
+        | sed 's|/\./||' | xargs -n 1 jenv add
+    jenv global 1.8
+    brew cask install intellij-idea
+
+    brew install pyenv
+    brew install pyenv-virtualenv
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
     pyenv install 2.7.10

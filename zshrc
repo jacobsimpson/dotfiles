@@ -144,3 +144,7 @@ unsetopt beep
 unsetopt histbeep
 unsetopt listbeep
 
+if which jenv ; then
+  path=($HOME/.jenv/bin $path)
+  eval "$(jenv init -)"
+fi
