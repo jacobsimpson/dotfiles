@@ -68,4 +68,5 @@ NeoBundle 'mattn/calendar-vim'
 " ################### Experimental Plugins ###################
 
 NeoBundle 'elubow/cql-vim'
+NeoBundle 'bfredl/nvim-ipy'
 
