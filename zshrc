@@ -12,7 +12,7 @@ unsetopt autopushd
 
 # Put the more current versions of the GNU utils from coreutils at the front of
 # the path.
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+path=("/usr/local/opt/coreutils/libexec/gnubin" $path)
 
 if uname -a | grep Darwin >& /dev/null && ! ls --version >& /dev/null; then
     # These are the flags for color and file type characters if we are on a
@@ -36,7 +36,7 @@ SAVEHIST=100000
 HISTSIZE=100000
 
 
-export PATH=${PATH}:/sbin:/usr/sbin
+path+=('/sbin' '/usr/sbin')
 
 export PYTHONSTARTUP=${HOME}/home-dir/python/pyprompt.py
 
@@ -44,7 +44,7 @@ function rg() {
     find . -name "$2" -exec egrep --color=auto -H "$1" {} \;
 }
 
-export PATH=${HOME}/bin:${PATH}
+path=("${HOME}/bin" $path)
 
 # An alias that will open any specified html file in the currently running
 # # Chrome browser, or start an instance.
@@ -61,8 +61,7 @@ gopath=~/golang
 
 export GOPATH=$gopath
 export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
+path+=("$GOPATH/bin" "$GOROOT/bin")
 
 function vbm() {
   if [[ $1 == "ssh" || $1 == "ip" ]]; then
