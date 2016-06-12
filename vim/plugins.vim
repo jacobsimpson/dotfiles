@@ -45,11 +45,15 @@ NeoBundle 'wellle/targets.vim'
 " Strip trailing whitespace on save.
 NeoBundle 'ntpeters/vim-better-whitespace'
 
-" Make it easy to do little practice coding sessions.
-NeoBundle 'jacobsimpson/nvim-code-kata'
+if has('nvim')
 
-" Expedite terminal interactions.
-NeoBundle 'jacobsimpson/nvim-terminal-velocity'
+    " Make it easy to do little practice coding sessions.
+    NeoBundle 'jacobsimpson/nvim-code-kata'
+
+    " Expedite terminal interactions.
+    NeoBundle 'jacobsimpson/nvim-terminal-velocity'
+
+endif
 
 " Golang development.
 NeoBundle 'fatih/vim-go'
@@ -66,7 +70,3 @@ NeoBundle 'mattn/calendar-vim'
 
 " ############################################################
 " ################### Experimental Plugins ###################
-
-NeoBundle 'elubow/cql-vim'
-NeoBundle 'bfredl/nvim-ipy'
-
