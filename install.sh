@@ -107,6 +107,7 @@ if uname -a | grep Darwin >& /dev/null ; then
         | sed 's|/\./||' | xargs -n 1 jenv add
     jenv global 1.8
     brew cask install intellij-idea
+    brew install sbt
 
     brew install pyenv
     brew install pyenv-virtualenv
