@@ -137,3 +137,5 @@ export PROMPT="$(echo $PROMPT | sed 's|^[^ ]* ||')"
 export PROMPT="${PROMPT}
 ${ret_status}%{$fg_bold[green]%}%p %{$reset_color%}"
 
+# Enable extended history.
+source ~/home-dir/extended-history.plugin.zsh
