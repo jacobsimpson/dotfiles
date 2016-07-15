@@ -362,6 +362,9 @@ augroup Misc
     autocmd VimResized * exe "normal! \<c-w>="
 augroup END
 
+" Configure Universal Text Linking plugin.
+let g:utl_cfg_hdl_scm_http_system = 'silent !/usr/bin/open -a "/Applications/Google Chrome.app" "%u"'
+
 " vim-go settings.
 
 " Make the output of GoTest appear in a terminal window instead of in
@@ -387,3 +390,4 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+

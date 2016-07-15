@@ -58,6 +58,14 @@ NeoBundle 'fatih/vim-go'
 " Haven't figured out how to make it work incrementally.
 NeoBundle 'othree/eregex.vim'
 
+" Vim OrgMode related plugins.
+NeoBundle 'jceb/vim-orgmode'
+NeoBundle 'tpope/vim-speeddating'
+NeoBundle 'vim-scripts/utl.vim'
+NeoBundle 'mattn/calendar-vim'
+
 " ############################################################
 " ################### Experimental Plugins ###################
+
+NeoBundle 'elubow/cql-vim'
 
