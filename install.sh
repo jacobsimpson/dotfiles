@@ -128,6 +128,11 @@ if uname -a | grep Darwin >& /dev/null ; then
     go get golang.org/x/tools/cmd/godoc
     go get golang.org/x/tools/cmd/vet
     go get github.com/constabulary/gb/...
+
+    # Install Rust.
+    brew install rust
+    brew install luajit
+
 fi
 
 pip install --upgrade pip
