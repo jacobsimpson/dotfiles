@@ -11,18 +11,25 @@
 [alias]
     # Using the first two letters of frequent commands really cuts down on
     # typing.
-    st = status
     br = branch
     ch = checkout
+    cl = clone
     co = commit
     coa = commit -a
-    me = merge
     di = diff
     din = diff --name-only
-    pl = pull
-    psh = push
     lg = log --graph --pretty=format:'%Cred%h%Creset %an -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-    c = clone
+    mrg = merge
+    ph = push
+    phf = push --force
+    pl = pull
+    re = rebase
+    rec = rebase --continue
+    st = status
+
+    delete-merged = "!f() {\
+        [[ $(git rev-parse --abbrev-ref HEAD) == 'master' ]] && git branch --merged | egrep -v '\\*|master|dev' | xargs -n 1 git branch -d ; \
+    }; f"
 
     pr = "!f() {\
         git push -u origin $(git rev-parse --abbrev-ref HEAD) ; \
