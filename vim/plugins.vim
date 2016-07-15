@@ -51,6 +51,9 @@ NeoBundle 'jacobsimpson/nvim-code-kata'
 " Expedite terminal interactions.
 NeoBundle 'jacobsimpson/nvim-terminal-velocity'
 
+" Golang development.
+NeoBundle 'fatih/vim-go'
+
 " ############################################################
 " ################### Experimental Plugins ###################
 

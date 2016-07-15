@@ -362,3 +362,28 @@ augroup Misc
     autocmd VimResized * exe "normal! \<c-w>="
 augroup END
 
+" vim-go settings.
+
+" Make the output of GoTest appear in a terminal window instead of in
+" quickfix.
+" -- with experimentation I found that this is not so useful. Although the
+"  quick fix window is quirky and difficult to read, it stays visible, and is
+"  navigable. The terminal window is nicer with respect to size, but it
+"  doesn't have highlighting and disappears when I press a key.
+"let g:go_term_enabled = 1
+
+" Open new terminals in a horizontal split by default.
+let g:go_term_mode = "split"
+
+" Enable some keyboard shortcuts.
+au FileType go nmap ,r <Plug>(go-run-split)
+au FileType go nmap ,t :GoTest<CR>
+au FileType go nmap ,e <Plug>(go-rename)
+
+" Improve the syntax highlighting defaults.
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
