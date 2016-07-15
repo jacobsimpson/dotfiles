@@ -139,3 +139,9 @@ ${ret_status}%{$fg_bold[green]%}%p %{$reset_color%}"
 
 # Enable extended history.
 source ~/home-dir/extended-history.plugin.zsh
+
+# Make the terminal stop beeping, ever.
+unsetopt beep
+unsetopt histbeep
+unsetopt listbeep
+
