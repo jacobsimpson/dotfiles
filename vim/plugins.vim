@@ -54,6 +54,10 @@ NeoBundle 'jacobsimpson/nvim-terminal-velocity'
 " Golang development.
 NeoBundle 'fatih/vim-go'
 
+" Extended regular expression support for / and ? searches.
+" Haven't figured out how to make it work incrementally.
+NeoBundle 'othree/eregex.vim'
+
 " ############################################################
 " ################### Experimental Plugins ###################
 
