@@ -274,7 +274,14 @@ nnoremap <C-L> <C-W><C-L>
 " the C-? character as backspace (Settings -> Profile -> Select Profile ->
 " Keymap -> + (to add a new keymap) -> Backspace as C-?)
 " http://vi.stackexchange.com/questions/3119/mapping-control-h-in-insert-mode-doesnt-work-it-always-works-like-backspace
-"-- nnoremap <C-H> <C-W><C-H> - I wished it was this easy.
+"
+" This works on Linux.
+nnoremap <C-H> <C-W><C-H>
+" This is for Mac.
+" To make this work, I had to change iTerm to send
+" the C-? character as backspace (Settings -> Profile -> Select Profile ->
+" Keymap -> + (to add a new keymap) -> Backspace as C-?)
+" http://vi.stackexchange.com/questions/3119/mapping-control-h-in-insert-mode-doesnt-work-it-always-works-like-backspace
 nnoremap <Backspace> <C-W><C-H>
 
 " The Goal:
