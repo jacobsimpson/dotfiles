@@ -388,6 +388,9 @@ xnoremap <Space>j   :<C-u>silent! '<,'>move'>+<CR>gv=gv
 " buffers.
 set nostartofline
 
+" Set the colors used when the cursor is on a matching paren.
+hi MatchParen cterm=bold ctermbg=none ctermfg=Yellow
+
 nmap <C-A-F> :%!python -m json.tool<CR>
 
 " Experimental ...
