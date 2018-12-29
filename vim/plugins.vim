@@ -84,3 +84,5 @@ NeoBundle 'racer-rust/vim-racer'
 " ############################################################
 " ################### Experimental Plugins ###################
 NeoBundle 'rhysd/vim-crystal'
+
+NeoBundle 'jrozner/vim-antlr'
