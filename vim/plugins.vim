@@ -21,6 +21,10 @@ NeoBundle 'tomasr/molokai'
 "NeoBundle 'Shougo/neosnippet'
 "NeoBundle 'Shougo/neosnippet-snippets'
 
+" Improved snippet support.
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'honza/vim-snippets'
+
 " Git access from inside Vim.
 NeoBundle 'tpope/vim-fugitive'
 
