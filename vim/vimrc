@@ -405,3 +405,10 @@ let g:go_highlight_build_constraints = 1
 "let g:go_fmt_command = "goimports"
 " When `GoRun` is executed, the default will be to use a horizontal buffer.
 let g:go_term_mode = "split"
+
+" Disable concealing behavior (where Markdown link syntax is shorted to just
+" the link name.
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
+let g:tex_conceal = ""
+let g:vim_markdown_math = 1
