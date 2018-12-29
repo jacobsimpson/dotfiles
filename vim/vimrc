@@ -362,8 +362,6 @@ set nostartofline
 
 nmap <C-A-F> :%!python -m json.tool<CR>
 
-nmap <C-A-l> :!go fmt %<CR>
-
 " Experimental ...
 " This changes the default command line editor experience (the mode you enter
 " with the : key) to use a command-line-editor window instead. It allows you
@@ -380,8 +378,6 @@ augroup Misc
 augroup END
 
 source ~/home-dir/vim/nvimrc
-
-nmap <C-A-F> :%!python -m json.tool<CR>
 
 " This changes the default command line editor experience (the mode you enter
 " with the : key) to use a command-line-editor window instead. It allows you
