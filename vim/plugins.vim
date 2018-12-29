@@ -55,6 +55,9 @@ NeoBundle 'prabirshrestha/vim-lsp'
 " Add better text object handling, things like ci" or ci(
 NeoBundle 'wellle/targets.vim'
 
+" Shows lines added or removed according to the version control system.
+NeoBundle 'mhinz/vim-signify'
+
 " Strip trailing whitespace on save.
 NeoBundle 'ntpeters/vim-better-whitespace'
 
