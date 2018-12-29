@@ -271,11 +271,6 @@ cmap w!! w !sudo tee > /dev/null %
 " This will execute highlighted text as VimScript.
 vmap <silent> <leader>r "xy:@x<CR>
 
-" Remap the <leader>* key to do a search analogous to how vim searches when
-" the * key is hit, but across different files.
-nnoremap <leader>* :Ag "<cword>"<CR>
-vnoremap <leader>* :<C-u>call VisualStarSearchSet('/')<CR>:execute 'noautocmd Ag ' . @/ . ''<CR>
-
 " Select a color scheme.
 color molokai
 
@@ -446,6 +441,16 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0
 let g:tex_conceal = ""
 let g:vim_markdown_math = 1
+
+" Remap the <leader>* key to do a search analogous to how vim searches when
+" the * key is hit, but across different files.
+nnoremap <leader>* :Ag "<cword>"<CR>
+vnoremap <leader>* :<C-u>call VisualStarSearchSet('/')<CR>:execute 'noautocmd Ag ' . @/ . ''<CR>
+
+" Make Ag easier to use.
+nnoremap <silent> ,g :Ag <C-r><C-w><CR>
+xnoremap <silent> ,g :<C-u>let cmd = "Ag " . functions#GetVisualSelection() <bar>
+                        \ call histadd("cmd",cmd) <bar>
 
 " Enable Rust formatting on save.
 let g:rustfmt_autosave = 1
