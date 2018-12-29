@@ -26,5 +26,6 @@ if has('nvim')
     if filereadable($HOME . "/.pyenv/versions/neovim-3.4/bin/python")
         let g:python3_host_prog=$HOME . "/.pyenv/versions/neovim-3.4/bin/python"
     endif
-endif
 
+    source ~/home-dir/vim/nvimrc-golang
+endif
