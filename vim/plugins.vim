@@ -12,6 +12,11 @@ NeoBundle 'scrooloose/nerdtree'
 
 NeoBundle 'tpope/vim-surround'
 
+" The easy motion system, where you type an activating letter, then the letter
+" you see on the screen, then the disambiguating letter that appears over the
+" letter you see. Move anywhere on the screen in 3 keys.
+NeoBundle 'easymotion/vim-easymotion'
+
 " Select with :color jellybeans
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'tomasr/molokai'
