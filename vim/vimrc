@@ -148,8 +148,6 @@ au FileType java nmap ,t :make test<CR>
 
 au FileType lua vmap <C-_> :s#^#--#<CR>
 au FileType lua nmap <C-_> :s#^#--#<CR>
-au FileType go vmap <C-_> :s#^#//#<CR>
-au FileType go nmap <C-_> :s#^#//#<CR>
 au FileType vim vmap <C-_> :s#^#"#<CR>
 au FileType vim nmap <C-_> :s#^#"#<CR>
 au FileType java vmap <C-_> :s#^#//#<CR>
@@ -440,45 +438,7 @@ augroup END
 " Configure Universal Text Linking plugin.
 let g:utl_cfg_hdl_scm_http_system = 'silent !/usr/bin/open -a "/Applications/Google Chrome.app" "%u"'
 
-" vim-go settings.
-
-" Make the output of GoTest appear in a terminal window instead of in
-" quickfix.
-" -- with experimentation I found that this is not so useful. Although the
-"  quick fix window is quirky and difficult to read, it stays visible, and is
-"  navigable. The terminal window is nicer with respect to size, but it
-"  doesn't have highlighting and disappears when I press a key.
-"let g:go_term_enabled = 1
-
-" Open new terminals in a horizontal split by default.
-let g:go_term_mode = "split"
-
-" Enable some keyboard shortcuts.
-au FileType go nmap ,a :GoAlternate<CR>
-au FileType go nmap ,b <Plug>(go-build)
-au FileType go nmap ,c <Plug>(go-coverage)
-au FileType go nmap ,e <Plug>(go-rename)
-au FileType go nmap ,gb <Plug>(go-doc-browser)
-au FileType go nmap ,gd <Plug>(go-doc)
-au FileType go nmap ,i <Plug>(go-info)
-au FileType go nmap ,m :GoBuild<CR>
-au FileType go nmap ,q <Plug>(go-doc-split)
-au FileType go nmap ,r <Plug>(go-run-split)
-au FileType go nmap ,t :GoTest<CR>
-au FileType go nmap ,t <Plug>(go-test)
-
-" Improve the syntax highlighting defaults.
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-
-" Automatically fill in and fix the imports section on save.
-"let g:go_fmt_command = "goimports"
-" When `GoRun` is executed, the default will be to use a horizontal buffer.
-let g:go_term_mode = "split"
+source ~/home-dir/vim/go-customizations.vim
 
 " Disable concealing behavior (where Markdown link syntax is shorted to just
 " the link name.
