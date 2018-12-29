@@ -78,5 +78,8 @@ NeoBundle 'tpope/vim-speeddating'
 NeoBundle 'vim-scripts/utl.vim'
 NeoBundle 'mattn/calendar-vim'
 
+NeoBundle 'rust-lang/rust.vim'
+NeoBundle 'racer-rust/vim-racer'
+
 " ############################################################
 " ################### Experimental Plugins ###################
