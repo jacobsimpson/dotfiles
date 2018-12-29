@@ -232,6 +232,11 @@ nmap s <Plug>(easymotion-overwin-f)
 " Required:
 filetype plugin indent on
 
+" Signify is a plugin that adds signs to the gutter indicating that there are
+" local changes.
+let g:signify_vcs_list = [ 'git', 'hg' ]
+let g:signify_realtime = 1
+
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
