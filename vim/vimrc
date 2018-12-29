@@ -410,6 +410,9 @@ augroup END
 
 source ~/home-dir/vim/nvimrc
 
+" Automatically save the file when the user does a build.
+set autowrite
+
 " This changes the default command line editor experience (the mode you enter
 " with the : key) to use a command-line-editor window instead. It allows you
 " to have an editing experience more in line with the other Vim windows.
