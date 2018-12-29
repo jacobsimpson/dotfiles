@@ -48,6 +48,10 @@ NeoBundle 'bling/vim-airline'
 " Move.
 NeoBundle 'tpope/vim-eunuch'
 
+" These two plugins are for Language Server Protocal integration.
+NeoBundle 'prabirshrestha/async.vim'
+NeoBundle 'prabirshrestha/vim-lsp'
+
 " Add better text object handling, things like ci" or ci(
 NeoBundle 'wellle/targets.vim'
 
