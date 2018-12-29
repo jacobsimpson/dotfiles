@@ -62,11 +62,11 @@ if has('nvim')
 
     " Expedite terminal interactions.
     NeoBundle 'jacobsimpson/nvim-terminal-velocity'
-
 endif
 
 " Golang development.
 NeoBundle 'fatih/vim-go'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 
 " Extended regular expression support for / and ? searches.
 " Haven't figured out how to make it work incrementally.
