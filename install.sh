@@ -2,8 +2,8 @@
 
 echo
 
-echo "Set the shell to zshrc."
-chsh -s /bin/zsh
+#echo "Set the shell to zshrc."
+#chsh -s /bin/zsh
 
 echo "Installing NeoBundle for vim."
 if [[ -d ~/.vim/bundle/neobundle ]] ; then
@@ -120,6 +120,8 @@ if uname -a | grep Darwin >& /dev/null ; then
     pyenv virtualenv 3.4.3 neovim-3.4
     pyenv virtualenv 2.7.10 global-2.7
     pyenv virtualenv 3.4.3 global-3.4
+    pip install --upgrade pip
+    pip install virtualenv
 
     # Install Go lang.
     gopath=~/golang
@@ -143,13 +145,10 @@ if uname -a | grep Darwin >& /dev/null ; then
     brew install rust
     brew install luajit
 
+    # Agree to the Mac OS X XCode License.
+    sudo xcodebuild -license
+
 fi
-
-pip install --upgrade pip
-pip install virtualenv
-
-# Agree to the Mac OS X XCode License.
-sudo xcodebuild -license
 
 echo
 
