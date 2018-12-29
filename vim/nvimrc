@@ -27,6 +27,11 @@ if has('nvim')
         let g:python3_host_prog=$HOME . "/.pyenv/versions/neovim-3.4/bin/python"
     endif
 
+    " While substitutions are in progress, this highlight matches as you type,
+    " and then show what the replacement will look like while you enter the
+    " replacement text.
+    set inccommand=split
+
     " Configuration of the NeoTerm plugin.
     " Position was deprecated in favor of default_mod.
     "let g:neoterm_position = 'horizontal'
