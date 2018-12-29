@@ -183,9 +183,17 @@ autocmd BufLeave Makefile             call LeaveMakefile()
 autocmd BufLeave makefile             call LeaveMakefile()
 
 
-" Settings for GoVim -- https://github.com/fatih/vim-go#settings
-let g:go_disable_autoinstall = 1
 
+" When editing markdown files...
+function EnterMarkdown()
+    set conceallevel=0
+endfunction
+function LeaveMarkdown()
+    set conceallevel=0
+endfunction
+
+autocmd BufEnter,BufNew *.md      call EnterMarkdown()
+autocmd BufLeave        *.md      call LeaveMarkdown()
 
 " ######################### NeoBundle Config
 " Note: Skip initialization for vim-tiny or vim-small.
