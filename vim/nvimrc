@@ -28,7 +28,9 @@ if has('nvim')
     endif
 
     " Configuration of the NeoTerm plugin.
-    let g:neoterm_position = 'horizontal'
+    " Position was deprecated in favor of default_mod.
+    "let g:neoterm_position = 'horizontal'
+    let g:neoterm_default_mod = 'rightbelow'
     let g:neoterm_automap_keys = ',tt'
 
     nnoremap <silent> ,sf :TREPLSendFile<cr>
