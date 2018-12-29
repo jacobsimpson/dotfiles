@@ -67,8 +67,6 @@ NeoBundle 'vim-scripts/utl.vim'
 NeoBundle 'tpope/vim-speeddating'
 NeoBundle 'majutsushi/tagbar'
 
-if has('nvim')
-
 " Golang development.
 NeoBundle 'fatih/vim-go'
 NeoBundle 'ctrlpvim/ctrlp.vim'
