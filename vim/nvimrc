@@ -27,5 +27,27 @@ if has('nvim')
         let g:python3_host_prog=$HOME . "/.pyenv/versions/neovim-3.4/bin/python"
     endif
 
+    " Configuration of the NeoTerm plugin.
+    let g:neoterm_position = 'horizontal'
+    let g:neoterm_automap_keys = ',tt'
+
+    nnoremap <silent> ,sf :TREPLSendFile<cr>
+    nnoremap <silent> ,sl :TREPLSendLine<cr>
+    vnoremap <silent> ,ss :TREPLSendSelection<cr>
+
+    " run set test lib
+    nnoremap <silent> ,ra :call neoterm#test#run('all')<cr>
+    nnoremap <silent> ,rf :call neoterm#test#run('file')<cr>
+    nnoremap <silent> ,rc :call neoterm#test#run('current')<cr>
+    nnoremap <silent> ,rr :call neoterm#test#rerun()<cr>
+
+    " Useful maps
+    " hide/close terminal
+    nnoremap <silent> ,th :call neoterm#close()<cr>
+    " clear terminal
+    nnoremap <silent> ,tl :call neoterm#clear()<cr>
+    " kills the current job (send a <c-c>)
+    nnoremap <silent> ,tc :call neoterm#kill()<cr>
+
     source ~/home-dir/vim/nvimrc-golang
 endif

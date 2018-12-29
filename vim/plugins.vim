@@ -77,6 +77,10 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 " Haven't figured out how to make it work incrementally.
 NeoBundle 'othree/eregex.vim'
 
+" NeoTerm allows selected text to be sent to the interpreter running in a
+" terminal.
+NeoBundle 'kassio/neoterm'
+
 " Vim OrgMode related plugins.
 NeoBundle 'jceb/vim-orgmode'
 NeoBundle 'tpope/vim-speeddating'
