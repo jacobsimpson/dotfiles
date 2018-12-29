@@ -57,13 +57,6 @@ NeoBundle 'majutsushi/tagbar'
 
 if has('nvim')
 
-    " Make it easy to do little practice coding sessions.
-    NeoBundle 'jacobsimpson/nvim-code-kata'
-
-    " Expedite terminal interactions.
-    NeoBundle 'jacobsimpson/nvim-terminal-velocity'
-endif
-
 " Golang development.
 NeoBundle 'fatih/vim-go'
 NeoBundle 'ctrlpvim/ctrlp.vim'
