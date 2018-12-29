@@ -45,6 +45,9 @@ set ignorecase
 " If you include a capital letter in a search, vim switches to case sensitive searching.
 set smartcase
 
+" Close the current buffer without closing the current window.
+map <silent> <Space>bd :b#<bar>bd#<CR>
+
 " Jump to the next or previous line that has the same level or a lower
 " level of indentation than the current line.
 "
