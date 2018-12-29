@@ -1,4 +1,7 @@
 
+"let mapleader = ','
+"let maplocalleader = ","
+
 syntax on
 filetype plugin indent off
 set tabstop=4
