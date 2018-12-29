@@ -90,3 +90,7 @@ NeoBundle 'racer-rust/vim-racer'
 NeoBundle 'rhysd/vim-crystal'
 
 NeoBundle 'jrozner/vim-antlr'
+
+" After a yank, the yanked text is highlighted in a different color to show
+" what happened.
+NeoBundle 'machakann/vim-highlightedyank'
