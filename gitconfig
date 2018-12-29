@@ -20,6 +20,7 @@
     din = diff --name-only
     lg = log --graph --pretty=format:'%Cred%h%Creset %an -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     mrg = merge
+    mff = merge --ff-only
     ph = push
     phf = push --force
     pl = pull
