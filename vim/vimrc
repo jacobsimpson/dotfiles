@@ -224,6 +224,11 @@ call neobundle#begin(expand('~/.vim/bundle/'))
     source ~/home-dir/vim/plugins.vim
 call neobundle#end()
 
+" EasyMotion configuration.
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+let g:EasyMotion_leader_key = ','
+nmap s <Plug>(easymotion-overwin-f)
+
 " Required:
 filetype plugin indent on
 
