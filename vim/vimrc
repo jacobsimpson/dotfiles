@@ -156,9 +156,6 @@ au FileType java nmap <C-_> :s#^#//#<CR>
 "nnoremap / /\v
 "vnoremap / /\v
 
-" Configuration for easymotion, improved word motion.
-let g:EasyMotion_leader_key = ','
-
 " Set up the Go-Lang plugins. Copy-Paste from the
 " Some Linux distributions set filetype in /etc/vimrc.
 " Clear filetype flags before changing runtimepath to force Vim to reload them.
