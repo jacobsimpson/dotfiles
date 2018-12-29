@@ -378,6 +378,12 @@ nnoremap ' `
 vnoremap ` '
 vnoremap ' `
 
+" These mappings should allow easily moving a line up or down.
+nnoremap <Space>k   :<C-u>silent! move-2<CR>==
+nnoremap <Space>j   :<C-u>silent! move+<CR>==
+xnoremap <Space>k   :<C-u>silent! '<,'>move-2<CR>gv=gv
+xnoremap <Space>j   :<C-u>silent! '<,'>move'>+<CR>gv=gv
+
 " Keep the cursor at the column it was at after a move, like switching
 " buffers.
 set nostartofline
