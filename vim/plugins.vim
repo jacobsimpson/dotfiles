@@ -83,6 +83,10 @@ NeoBundle 'racer-rust/vim-racer'
 
 " ############################################################
 " ################### Experimental Plugins ###################
+"
+" Can't remember what this plugin does. Guess it wasn't a big hit.
+" NeoBundle 'elubow/cql-vim'
+
 NeoBundle 'rhysd/vim-crystal'
 
 NeoBundle 'jrozner/vim-antlr'
