@@ -383,8 +383,15 @@ let g:go_term_mode = "split"
 
 " Enable some keyboard shortcuts.
 au FileType go nmap ,r <Plug>(go-run-split)
-au FileType go nmap ,t :GoTest<CR>
+au FileType go nmap ,b <Plug>(go-build)
+au FileType go nmap ,t <Plug>(go-test)
+au FileType go nmap ,c <Plug>(go-coverage)
+au FileType go nmap ,a :GoAlternate<CR>
+au FileType go nmap ,gd <Plug>(go-doc)
+au FileType go nmap ,gb <Plug>(go-doc-browser)
+au FileType go nmap ,i <Plug>(go-info)
 au FileType go nmap ,e <Plug>(go-rename)
+au FileType go nmap ,q <Plug>(go-doc-split)
 
 " Improve the syntax highlighting defaults.
 let g:go_highlight_functions = 1
@@ -394,3 +401,7 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
+" Automatically fill in and fix the imports section on save.
+"let g:go_fmt_command = "goimports"
+" When `GoRun` is executed, the default will be to use a horizontal buffer.
+let g:go_term_mode = "split"
