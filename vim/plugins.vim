@@ -49,6 +49,12 @@ NeoBundle 'wellle/targets.vim'
 " Strip trailing whitespace on save.
 NeoBundle 'ntpeters/vim-better-whitespace'
 
+" Vim Org Mode
+NeoBundle 'jceb/vim-orgmode'
+NeoBundle 'vim-scripts/utl.vim'
+NeoBundle 'tpope/vim-speeddating'
+NeoBundle 'majutsushi/tagbar'
+
 if has('nvim')
 
     " Make it easy to do little practice coding sessions.
