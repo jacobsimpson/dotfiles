@@ -73,7 +73,7 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 
 " Extended regular expression support for / and ? searches.
 " Haven't figured out how to make it work incrementally.
-NeoBundle 'othree/eregex.vim'
+"NeoBundle 'othree/eregex.vim'
 
 " NeoTerm allows selected text to be sent to the interpreter running in a
 " terminal.
