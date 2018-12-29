@@ -30,6 +30,8 @@
     delete-merged = "!f() {\
         [[ $(git rev-parse --abbrev-ref HEAD) == 'master' ]] && git branch --merged | egrep -v '\\*|master|dev' | xargs -n 1 git branch -d ; \
     }; f"
+    c = clone
+    amend = commit --amend --no-edit
 
     pr = "!f() {\
         git push -u origin $(git rev-parse --abbrev-ref HEAD) ; \
