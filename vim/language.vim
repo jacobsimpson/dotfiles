@@ -3,21 +3,23 @@
 " key strokes the same, or nearly the same, for any different language, and
 " for the settings to only load when the specific language is in use.
 "
-" <Space>r = run current file
-" <Space>t = test current file
 " <Space>b = build current file
+" <Space>c = comment out the current line, or the currently highlighted block.
 " <Space>f = format the current file.
 " <Space>ga = go to the 'alternate' file, like to the test file from the source file,
 "      or to the source file from the test file.
+" <Space>gb = go to the build file for this project.
 " <Space>gd = go to the definition of the symbol under the cursor.
+" <Space>l = run linter
 " <Space>m = make project - this one tends to be hard as there are a lot of build
 "      systems, and many projects don't have clean build systems, requiring
 "      instead a series of steps.
 " <Space>n = rename symbol under the cursor.
-" <Space>l = run linter
-" <Space>c = comment out the current line, or the currently highlighted block.
+" <Space>r = run current file
+" <Space>s = make a scratch file to experiment in.
+" <Space>t = test current file
 "
-" On save, strip whitespace.
+" Each language should configure for their file type to strip whitespace on save.
 "
 
 function language#Format()
