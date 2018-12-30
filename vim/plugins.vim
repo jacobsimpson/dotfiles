@@ -61,8 +61,6 @@ Plug 'vim-scripts/utl.vim'
 Plug 'tpope/vim-speeddating'
 Plug 'majutsushi/tagbar'
 
-source ~/home-dir/vim/language-go.vim
-
 Plug 'ctrlpvim/ctrlp.vim'
 " Extended regular expression support for / and ? searches.
 " Haven't figured out how to make it work incrementally.
@@ -94,3 +92,6 @@ Plug 'kassio/neoterm'
 " After a yank, the yanked text is highlighted in a different color to show
 " what happened.
 Plug 'machakann/vim-highlightedyank'
+
+source ~/home-dir/vim/language-go.vim
+source ~/home-dir/vim/language-java.vim
