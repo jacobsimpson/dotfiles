@@ -92,13 +92,6 @@ onoremap <silent> ]l :call NextIndent(0, 1, 0, 1)<CR>
 onoremap <silent> [L :call NextIndent(1, 0, 1, 1)<CR>
 onoremap <silent> ]L :call NextIndent(1, 1, 1, 1)<CR>
 
-" Options for highlighting matching values of search.
-"  Turn on highlighting.
-set hlsearch
-"  remap the space bar to toggle match highlighting off.
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-"nnoremap <leader><space> :noh<cr>
-
 " This setting allows you to switch between buffers, leave unsaved changes
 " in a buffer and have them still be there when you get back.
 set hidden
@@ -161,6 +154,12 @@ autocmd BufLeave        *.md      call LeaveMarkdown()
 call plug#begin('~/.vim/plugged')
     source ~/home-dir/vim/plugins.vim
 call plug#end()
+
+" Options for highlighting matching values of search.
+"  Turn on highlighting.
+set hlsearch
+"  remap the space bar to toggle match highlighting off.
+nnoremap <silent> ,/ :nohlsearch<Bar>:echo<CR>
 
 " Required:
 filetype plugin indent on
