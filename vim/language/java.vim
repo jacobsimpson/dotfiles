@@ -12,6 +12,11 @@ function language#java#Build()
     execute "!javac %"
 endfunction
 
+function language#java#Run()
+    execute "!javac %"
+    execute "!java -cp %:h %:t:r"
+endfunction
+
 function language#java#Scratch()
     let tmpdir="/tmp/vim-scratch-java-".strftime('%Y-%m-%d-%H-%M-%S')
 

@@ -38,7 +38,6 @@ au FileType go nmap ,m  :GoBuild<CR>
 au FileType go nmap ,n  <Plug>(go-rename)
 au FileType go nmap ,o  <Plug>(go-coverage)
 au FileType go nmap ,q  <Plug>(go-doc-split)
-au FileType go nmap ,r  <Plug>(go-run-split)
 au FileType go nmap ,t  <Plug>(go-test)
 
 " Improve the syntax highlighting defaults.
@@ -125,4 +124,8 @@ function language#go#Scratch()
     execute ":e ~/home-dir/vim/language/templates/scratch.go"
     execute ":saveas ".tmpdir."/main.go"
     execute ":normal jjjjjjw"
+endfunction
+
+function language#go#Run()
+    execute ":GoRun"
 endfunction

@@ -80,6 +80,19 @@ function language#Comment()
     endif
 endfunction
 
+function language#Run()
+    " Clear the current messages.
+    echo ""
+
+    if &ft ==# 'go'
+        call language#go#Run()
+    elseif &ft ==# 'java'
+        call language#java#Run()
+    else
+        echom "There is no run function defined for this file type."
+    endif
+endfunction
+
 function language#Scratch()
     " Clear the current messages.
     echo ""
@@ -102,4 +115,5 @@ nmap <silent> <Space>b  :call language#Build()<CR>
 nmap <silent> <Space>f  :call language#Format()<CR>
 vmap <Space>c :call language#Comment()<CR>
 nmap <Space>c :call language#Comment()<CR>
+nmap <Space>r :call language#Run()<CR>
 nmap <Space>s :call language#Scratch()<CR>
