@@ -5,14 +5,12 @@ echo
 #echo "Set the shell to zshrc."
 #chsh -s /bin/zsh
 
-echo "Installing NeoBundle for vim."
-if [[ -d ~/.vim/bundle/neobundle ]] ; then
+echo "Installing VimPlug for vim plugin management."
+if [[ -e ~/.local/share/nvim/site/autoload/plug.vim ]] ; then
     echo "    Already installed."
 else
-    pushd ~
-    curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
-    sh ./install.sh
-    popd
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 echo "Installing vim settings."
@@ -21,7 +19,6 @@ if grep "source .*home-dir.vim.vimrc" ~/.vimrc >& /dev/null ; then
 else
     echo 'source ~/home-dir/vim/vimrc' >> ~/.vimrc
 fi
-ln -nsf ~/home-dir/vim/bundle/NeoBundle.lock ~/.vim/bundle/NeoBundle.lock
 
 mkdir -p ~/.config/nvim
 ln -s ~/.vim ~/.nvim
