@@ -30,7 +30,6 @@ let g:go_disable_autoinstall = 1
 let g:go_term_mode = "split"
 
 " Enable some keyboard shortcuts.
-au FileType go nmap ,b  <Plug>(go-build)
 au FileType go nmap ,e  <Plug>(go-rename)
 au FileType go nmap ,gb <Plug>(go-doc-browser)
 au FileType go nmap ,i  <Plug>(go-info)
@@ -113,4 +112,8 @@ endfunction
 
 function language#go#GoAlternate()
     execute ":GoAlternate"
+endfunction
+
+function language#go#Build()
+    execute ":GoBuild"
 endfunction

@@ -22,6 +22,19 @@
 " Each language should configure for their file type to strip whitespace on save.
 "
 
+function language#Build()
+    " Clear the current messages.
+    echo ""
+
+    if &ft ==# 'go'
+        call language#go#Build()
+    elseif &ft ==# 'java'
+        call language#java#Build()
+    else
+        echom "There is no build step defined for this file type."
+    endif
+endfunction
+
 function language#GoAlternate()
     " Clear the current messages.
     echo ""

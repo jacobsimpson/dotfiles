@@ -8,6 +8,10 @@ function language#java#Comment()
     execute "s#^#//#"
 endfunction
 
+function language#java#Build()
+    execute "!javac %"
+endfunction
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Remap :make to ant for Java files.
 function SetJavaCompilerAnt()
