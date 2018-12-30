@@ -98,8 +98,6 @@ if has('nvim')
         " As an advanced feature, you could fold away everything except the user's
         " code.
     endfunction
-
-    au FileType go nmap ,gs :call GoScratch()<CR>
 endif
 
 function language#go#Format()
@@ -116,4 +114,15 @@ endfunction
 
 function language#go#Build()
     execute ":GoBuild"
+endfunction
+
+function language#go#Scratch()
+    let tmpdir="/tmp/vim-scratch-go-".strftime('%Y-%m-%d-%H-%M-%S')
+
+    if !isdirectory(tmpdir)
+        call mkdir(tmpdir, "p")
+    endif
+    execute ":e ~/home-dir/vim/language/templates/scratch.go"
+    execute ":saveas ".tmpdir."/main.go"
+    execute ":normal jjjjjjw"
 endfunction

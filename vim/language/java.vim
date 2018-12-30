@@ -12,6 +12,17 @@ function language#java#Build()
     execute "!javac %"
 endfunction
 
+function language#java#Scratch()
+    let tmpdir="/tmp/vim-scratch-java-".strftime('%Y-%m-%d-%H-%M-%S')
+
+    if !isdirectory(tmpdir)
+        call mkdir(tmpdir, "p")
+    endif
+    execute ":e ~/home-dir/vim/language/templates/Scratch.java"
+    execute ":saveas ".tmpdir."/Main.java"
+    execute ":normal jj"
+endfunction
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Remap :make to ant for Java files.
 function SetJavaCompilerAnt()
