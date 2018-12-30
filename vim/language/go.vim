@@ -32,8 +32,6 @@ let g:go_term_mode = "split"
 " Enable some keyboard shortcuts.
 au FileType go nmap ,a  :GoAlternate<CR>
 au FileType go nmap ,b  <Plug>(go-build)
-au FileType go vmap <Space>c :s#^#//#<CR>
-au FileType go nmap <Space>c :s#^#//#<CR>
 au FileType go nmap ,e  <Plug>(go-rename)
 au FileType go nmap ,ga GoAlternate<CR>
 au FileType go nmap ga  GoAlternate<CR>
@@ -110,4 +108,8 @@ endif
 
 function language#go#Format()
     execute ":GoFmt"
+endfunction
+
+function language#go#Comment()
+    execute "s#^#//#"
 endfunction

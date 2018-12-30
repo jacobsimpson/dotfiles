@@ -24,12 +24,14 @@ function language#Format()
     " Clear the current messages.
     echo ""
 
-    if &ft ==# 'json'
-        call language#json#Format()
-    elseif &ft ==# 'go'
+    if &ft ==# 'go'
         call language#go#Format()
-     elseif &ft ==# 'java'
+    elseif &ft ==# 'java'
         call language#java#Format()
+    elseif &ft ==# 'json'
+        call language#json#Format()
+    elseif &ft ==# 'vim'
+        call language#vim#Format()
     else
         echom "There is no formatter defined for this file type."
     endif
@@ -39,14 +41,16 @@ function language#Comment()
     " Clear the current messages.
     echo ""
 
-    if &ft ==# 'json'
-        call language#json#Comment()
-    elseif &ft ==# 'go'
+    if &ft ==# 'go'
         call language#go#Comment()
-     elseif &ft ==# 'java'
+    elseif &ft ==# 'java'
         call language#java#Comment()
+    elseif &ft ==# 'json'
+        call language#json#Comment()
+    elseif &ft ==# 'vim'
+        call language#vim#Comment()
     else
-        echom "There is no formatter defined for this file type."
+        echom "There is no commenter defined for this file type."
     endif
 endfunction
 

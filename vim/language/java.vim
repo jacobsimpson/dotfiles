@@ -4,6 +4,10 @@ function language#java#Format()
     execute "%!java -jar ~/home-dir/vim/support/google-java-format-1.6-all-deps.jar -"
 endfunction
 
+function language#java#Comment()
+    execute "s#^#//#"
+endfunction
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Remap :make to ant for Java files.
 function SetJavaCompilerAnt()
