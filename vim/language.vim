@@ -22,6 +22,17 @@
 " Each language should configure for their file type to strip whitespace on save.
 "
 
+function language#GoAlternate()
+    " Clear the current messages.
+    echo ""
+
+    if &ft ==# 'go'
+        call language#go#GoAlternate()
+    else
+        echom "There is no alternate navigation for this file type."
+    endif
+endfunction
+
 function language#Format()
     " Clear the current messages.
     echo ""
@@ -59,6 +70,9 @@ endfunction
 " These are the key mappings that are expected to be common across all
 " languages, though a given language can just show an error message instead of
 " carrying out the intended activity.
+nmap <silent> <Space>a  :call language#GoAlternate()<CR>
+nmap <silent> <Space>ga  :call language#GoAlternate()<CR>
+nmap <silent> <Space>b  :call language#Build()<CR>
 nmap <silent> <Space>f  :call language#Format()<CR>
 vmap <Space>c :call language#Comment()<CR>
 nmap <Space>c :call language#Comment()<CR>
