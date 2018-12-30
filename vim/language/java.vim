@@ -1,7 +1,9 @@
 "Plug 'google/vim-codefmt'
 
 function language#java#Format()
+    let save_pos = getpos(".")
     execute "%!java -jar ~/home-dir/vim/support/google-java-format-1.6-all-deps.jar -"
+    call setpos('.', save_pos)
 endfunction
 
 function language#java#Comment()
