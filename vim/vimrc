@@ -352,9 +352,6 @@ nnoremap <silent> ,g :Ag <C-r><C-w><CR>
 xnoremap <silent> ,g :<C-u>let cmd = "Ag " . functions#GetVisualSelection() <bar>
                         \ call histadd("cmd",cmd) <bar>
 
-" Enable Rust formatting on save.
-let g:rustfmt_autosave = 1
-
 " This makes it so that when you are navigating up and down in a long line
 " that wraps on the screen, you will move one display line, instead of one
 " physical line (as determined by the hard line break.)

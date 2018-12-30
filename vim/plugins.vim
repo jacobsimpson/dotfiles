@@ -73,8 +73,6 @@ Plug 'tpope/vim-speeddating'
 Plug 'vim-scripts/utl.vim'
 Plug 'mattn/calendar-vim'
 
-Plug 'rust-lang/rust.vim'
-Plug 'racer-rust/vim-racer'
 
 " ############################################################
 " ################### Experimental Plugins ###################
@@ -97,4 +95,5 @@ source ~/home-dir/vim/language/java.vim
 source ~/home-dir/vim/language/json.vim
 source ~/home-dir/vim/language/vim.vim
 source ~/home-dir/vim/language/markdown.vim
+source ~/home-dir/vim/language/rust.vim
 source ~/home-dir/vim/language.vim
