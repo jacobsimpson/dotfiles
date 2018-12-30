@@ -384,6 +384,12 @@ xnoremap <silent> ,g :<C-u>let cmd = "Ag " . functions#GetVisualSelection() <bar
 " Enable Rust formatting on save.
 let g:rustfmt_autosave = 1
 
+" This makes it so that when you are navigating up and down in a long line
+" that wraps on the screen, you will move one display line, instead of one
+" physical line (as determined by the hard line break.)
+nmap j gj
+nmap k gk
+
 " This should give Emacs style navigation within the command line window.
 cnoremap <C-a>  <Home>
 cnoremap <C-b>  <Left>
