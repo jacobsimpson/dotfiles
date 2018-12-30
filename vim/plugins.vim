@@ -77,8 +77,6 @@ Plug 'rhysd/vim-crystal'
 
 Plug 'jrozner/vim-antlr'
 
-Plug 'kassio/neoterm'
-
 " After a yank, the yanked text is highlighted in a different color to show
 " what happened.
 Plug 'machakann/vim-highlightedyank'
