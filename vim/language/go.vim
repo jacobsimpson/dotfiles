@@ -6,26 +6,6 @@ let g:go_bin_path = $HOME."/golang"
 " Configure the whitespace plugin to auto strip trailing whitespace when the
 " given file types are saved.
 autocmd FileType go autocmd BufWritePre <buffer> StripWhitespace
-"
-" Customizations for working with Go lang. The goal is to have key strokes the
-" same, or nearly the same, for any different language, and for the settings to
-" only load when the specific language is in use.
-"
-" ,r = run current file
-" ,t = test current file
-" ,b = build current file
-" ga = go to the 'alternate' file, like to the test file from the source file,
-"      or to the source file from the test file.
-" ,m = make project - this one tends to be hard as there are a lot of build
-"      systems, and many projects don't have clean build systems, requiring
-"      instead a series of steps.
-" ,n = rename symbol under the cursor.
-" ,l = run linter
-" gd = go to the definition of the symbol under the cursor.
-" ?? = comment out the current line, or the currently highlighted block.
-"
-" On save, strip whitespace.
-"
 " Settings for vim-go -- https://github.com/fatih/vim-go#settings
 
 " Make the output of GoTest appear in a terminal window instead of in
@@ -49,29 +29,23 @@ let g:go_disable_autoinstall = 1
 " Open new terminals in a horizontal split by default.
 let g:go_term_mode = "split"
 
-" Automatically fill in and fix the imports section on save.
-"let g:go_fmt_command = "goimports"
-
 " Enable some keyboard shortcuts.
 au FileType go nmap ,a  :GoAlternate<CR>
 au FileType go nmap ,b  <Plug>(go-build)
-au FileType go nmap ,c  <Plug>(go-coverage)
+au FileType go vmap <Space>c :s#^#//#<CR>
+au FileType go nmap <Space>c :s#^#//#<CR>
 au FileType go nmap ,e  <Plug>(go-rename)
 au FileType go nmap ,ga GoAlternate<CR>
 au FileType go nmap ga  GoAlternate<CR>
 au FileType go nmap ,gb <Plug>(go-doc-browser)
-au FileType go nmap ,gd <Plug>(go-doc)
 au FileType go nmap ,i  <Plug>(go-info)
 au FileType go nmap ,l  :GoLint<CR>
 au FileType go nmap ,m  :GoBuild<CR>
 au FileType go nmap ,n  <Plug>(go-rename)
+au FileType go nmap ,o  <Plug>(go-coverage)
 au FileType go nmap ,q  <Plug>(go-doc-split)
 au FileType go nmap ,r  <Plug>(go-run-split)
 au FileType go nmap ,t  <Plug>(go-test)
-
-
-au FileType go vmap <C-_> :s#^#//#<CR>
-au FileType go nmap <C-_> :s#^#//#<CR>
 
 " Improve the syntax highlighting defaults.
 let g:go_highlight_functions = 1
@@ -133,3 +107,7 @@ if has('nvim')
 
     au FileType go nmap ,gs :call GoScratch()<CR>
 endif
+
+function language#go#Format()
+    execute ":GoFmt"
+endfunction
