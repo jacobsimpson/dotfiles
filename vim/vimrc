@@ -339,14 +339,6 @@ set autowrite
 "nnoremap : q::startinsert<cr>
 "set cmdwinheight=1
 
-" When Vim is resized, make all the splits resize equally. Not a perfect
-" solution (maintaining proportion would be perfect) but a sufficient
-" solution.
-augroup Misc
-    autocmd!
-    autocmd VimResized * exe "normal! \<c-w>="
-augroup END
-
 " Configure Universal Text Linking plugin.
 let g:utl_cfg_hdl_scm_http_system = 'silent !/usr/bin/open -a "/Applications/Google Chrome.app" "%u"'
 
