@@ -1,3 +1,11 @@
+" Golang development.
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+let g:go_bin_path = $HOME."/golang"
+
+" Configure the whitespace plugin to auto strip trailing whitespace when the
+" given file types are saved.
+autocmd FileType go autocmd BufWritePre <buffer> StripWhitespace
 "
 " Customizations for working with Go lang. The goal is to have key strokes the
 " same, or nearly the same, for any different language, and for the settings to
@@ -84,3 +92,44 @@ highlight goCoverageUncover ctermbg=lightred
 "highlight goCoverageCovered ctermbg=green guibg=darkgreen
 highlight goCoverageCovered ctermbg=lightgreen
 
+
+if has('nvim')
+    if exists("g:loaded_goext")
+      finish
+    endif
+    let g:loaded_goext = 1
+
+
+    function GoNew(project)
+        let path = go#path#Detect() . "/src/"
+        let filename = path
+        if a:project =~ "\.go$"
+            " If the new project ends in .go, assume a file name and chop it off the
+            " directory to create.
+            let end = strridx(a:project, "/")
+            let path = path . strpart(a:project, 0, end)
+            let filename = path . strpart(a:project, end)
+        else
+            let path = path . a:project
+            let filename = path . "/main.go"
+        endif
+
+        if !isdirectory(path)
+            call mkdir(path, "p")
+            execute "edit " . path . "/" . filename
+        endif
+    endfunction
+
+    function GoScratch()
+        " This function should open a new main file in a new temporary package and
+        " and let the user paste in their code an run it easily. When the buffer
+        " closes, the file, and package, should be deleted. The idea is to make it
+        " dead easy to cut, paste, restructure, edit and execute a bit of code. I
+        " want to easily experiment with things and see how stuff works.
+        "
+        " As an advanced feature, you could fold away everything except the user's
+        " code.
+    endfunction
+
+    au FileType go nmap ,gs :call GoScratch()<CR>
+endif

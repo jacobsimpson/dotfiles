@@ -55,9 +55,4 @@ if has('nvim')
     nnoremap <silent> ,tl :call neoterm#clear()<cr>
     " kills the current job (send a <c-c>)
     nnoremap <silent> ,tc :call neoterm#kill()<cr>
-
-    "
-    " This should support the custom go-lang plugin.
-    "
-    source ~/home-dir/vim/nvimrc-golang
 endif
