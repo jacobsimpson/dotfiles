@@ -315,8 +315,6 @@ set nostartofline
 " Set the colors used when the cursor is on a matching paren.
 hi MatchParen cterm=bold ctermbg=none ctermfg=Yellow
 
-nmap <C-A-F> :%!python -m json.tool<CR>
-
 " Experimental ...
 " This changes the default command line editor experience (the mode you enter
 " with the : key) to use a command-line-editor window instead. It allows you

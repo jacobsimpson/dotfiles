@@ -95,3 +95,4 @@ Plug 'machakann/vim-highlightedyank'
 
 source ~/home-dir/vim/language-go.vim
 source ~/home-dir/vim/language-java.vim
+source ~/home-dir/vim/language-json.vim
