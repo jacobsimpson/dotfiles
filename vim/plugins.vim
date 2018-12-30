@@ -20,14 +20,7 @@ Plug 'scrooloose/nerdtree'
 
 Plug 'tpope/vim-surround'
 
-" Snippet support.
-"Plug 'Shougo/neocomplete'
-"Plug 'Shougo/neosnippet'
-"Plug 'Shougo/neosnippet-snippets'
-
-" Improved snippet support.
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+source ~/home-dir/vim/plugins/ultisnips.vim
 
 " Git access from inside Vim.
 Plug 'tpope/vim-fugitive'
