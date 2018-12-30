@@ -68,9 +68,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Haven't figured out how to make it work incrementally.
 "Plug 'othree/eregex.vim'
 
-" NeoTerm allows selected text to be sent to the interpreter running in a
-" terminal.
-Plug 'kassio/neoterm'
+source ~/home-dir/vim/plugins/neoterm.vim
 
 " Vim OrgMode related plugins.
 Plug 'jceb/vim-orgmode'
