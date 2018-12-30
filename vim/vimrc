@@ -164,11 +164,6 @@ nnoremap <silent> ,/ :nohlsearch<Bar>:echo<CR>
 " Required:
 filetype plugin indent on
 
-" Signify is a plugin that adds signs to the gutter indicating that there are
-" local changes.
-let g:signify_vcs_list = [ 'git', 'hg' ]
-let g:signify_realtime = 1
-
 " Configure the whitespace plugin to auto strip trailing whitespace when the
 " given file types are saved.
 autocmd FileType ruby,python,javascript,html,c,cpp,text,vim,json,xml,sh,rs,coffee,groovy,scala,jproperties,toml,vue

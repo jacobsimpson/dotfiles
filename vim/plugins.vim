@@ -49,8 +49,7 @@ Plug 'prabirshrestha/vim-lsp'
 " Add better text object handling, things like ci" or ci(
 Plug 'wellle/targets.vim'
 
-" Shows lines added or removed according to the version control system.
-Plug 'mhinz/vim-signify'
+source ~/home-dir/vim/plugins/signify.vim
 
 " Strip trailing whitespace on save.
 Plug 'ntpeters/vim-better-whitespace'
