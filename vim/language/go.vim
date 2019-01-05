@@ -1,5 +1,12 @@
 " Golang development.
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" In theory this seems like a good idea, to have the golang binaries get
+" updated whenever the plugin updates, but this actually pauses the
+" installation process for each binary, waiting for a keystroke, and it's not
+" async, and it takes a long time. That makes plugin updates unnecessarily
+" painful.
+"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go'
 
 let g:go_bin_path = $HOME."/golang"
 
