@@ -1,3 +1,10 @@
+" Load guard
+if ( exists('g:loaded_ctrlp_projects_open') && g:loaded_ctrlp_projects_open )
+	\ || v:version < 700 || &cp
+	finish
+endif
+let g:loaded_ctrlp_projects_open = 1
+
 " To load this extension into ctrlp, add this to your vimrc:
 "
 "     let g:ctrlp_extensions = ['projects']
@@ -10,15 +17,10 @@
 "         \ 'extension1',
 "         \ 'extension2',
 "         \ ]
-let g:ctrlp_extensions = ['projects_open']
-
-" Load guard
-if ( exists('g:loaded_ctrlp_projects') && g:loaded_ctrlp_projects )
-	\ || v:version < 700 || &cp
-	finish
+if !exists('g:ctrlp_extensions')
+    let g:ctrlp_extensions = []
 endif
-let g:loaded_ctrlp_projects = 1
-
+let g:ctrlp_extensions = g:ctrlp_extensions + ['projects_open']
 
 " Add this extension's settings to g:ctrlp_ext_vars
 "

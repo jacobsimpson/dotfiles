@@ -1,3 +1,14 @@
+" Load guard
+if ( exists('g:loaded_ctrlp_projects_new') && g:loaded_ctrlp_projects_new )
+	\ || v:version < 700 || &cp
+	finish
+endif
+let g:loaded_ctrlp_projects_new = 1
+
+" NOTE: By experimentation, this little section is unnecessary. I don't know
+" exactly what it is supposed to do (I mean adding my item to the ctrlp list),
+" but when I leave it out, CtrlP seems to continue working.
+"
 " To load this extension into ctrlp, add this to your vimrc:
 "
 "     let g:ctrlp_extensions = ['projects']
@@ -10,14 +21,10 @@
 "         \ 'extension1',
 "         \ 'extension2',
 "         \ ]
-let g:ctrlp_extensions = ['projects_new']
-
-" Load guard
-if ( exists('g:loaded_ctrlp_projects') && g:loaded_ctrlp_projects )
-	\ || v:version < 700 || &cp
-	finish
+if !exists('g:ctrlp_extensions')
+    let g:ctrlp_extensions = []
 endif
-let g:loaded_ctrlp_projects = 1
+let g:ctrlp_extensions = g:ctrlp_extensions + ['projects_new']
 
 
 " Add this extension's settings to g:ctrlp_ext_vars
