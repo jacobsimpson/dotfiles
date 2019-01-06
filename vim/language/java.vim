@@ -14,7 +14,11 @@ function language#java#Comment()
 endfunction
 
 function language#java#Build()
-    execute "!javac %"
+    if !empty(glob("build.gradle"))
+        execute(":make build")
+    else
+        execute "!javac %"
+    endif
 endfunction
 
 function language#java#Run()
