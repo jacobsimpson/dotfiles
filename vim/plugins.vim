@@ -54,6 +54,9 @@ Plug 'tpope/vim-speeddating'
 Plug 'majutsushi/tagbar'
 
 Plug 'ctrlpvim/ctrlp.vim'
+Plug '~/home-dir/vim/ctrlp-projects'
+
+"
 " Extended regular expression support for / and ? searches.
 " Haven't figured out how to make it work incrementally.
 "Plug 'othree/eregex.vim'
