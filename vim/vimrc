@@ -354,6 +354,7 @@ xnoremap <silent> ,g :<C-u>let cmd = "Ag " . functions#GetVisualSelection() <bar
                         \ call histadd("cmd",cmd) <bar>
 
 map <silent> ,r :e %<CR>
+map ,q :q<CR>
 
 " This makes it so that when you are navigating up and down in a long line
 " that wraps on the screen, you will move one display line, instead of one

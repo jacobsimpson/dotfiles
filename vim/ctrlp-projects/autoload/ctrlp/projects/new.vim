@@ -1,9 +1,3 @@
-echo "-------------------------------------------------------------"
-echo "-------------------------------------------------------------"
-echo "-------------------------------------------------------------"
-echo "-------------------------------------------------------------"
-echo "-------------------------------------------------------------"
-
 " To load this extension into ctrlp, add this to your vimrc:
 "
 "     let g:ctrlp_extensions = ['projects']
@@ -16,7 +10,7 @@ echo "-------------------------------------------------------------"
 "         \ 'extension1',
 "         \ 'extension2',
 "         \ ]
-let g:ctrlp_extensions = ['projects']
+let g:ctrlp_extensions = ['projects_new']
 
 " Load guard
 if ( exists('g:loaded_ctrlp_projects') && g:loaded_ctrlp_projects )
@@ -56,14 +50,14 @@ let g:loaded_ctrlp_projects = 1
 " + specinput: enable special inputs '..' and '@cd' (disabled by default)
 "
 call add(g:ctrlp_ext_vars, {
-	\ 'init': 'ctrlp#projects#init()',
-	\ 'accept': 'ctrlp#projects#accept',
+	\ 'init': 'ctrlp#projects#new#init()',
+	\ 'accept': 'ctrlp#projects#new#accept',
 	\ 'lname': 'List of projects and things',
-	\ 'sname': 'projects',
+	\ 'sname': 'projects_new',
 	\ 'type': 'line',
-	\ 'enter': 'ctrlp#projects#enter()',
-	\ 'exit': 'ctrlp#projects#exit()',
-	\ 'opts': 'ctrlp#projects#opts()',
+	\ 'enter': 'ctrlp#projects#new#enter()',
+	\ 'exit': 'ctrlp#projects#new#exit()',
+	\ 'opts': 'ctrlp#projects#new#opts()',
 	\ 'sort': 0,
 	\ 'specinput': 0,
 	\ })
@@ -73,16 +67,12 @@ call add(g:ctrlp_ext_vars, {
 "
 " Return: a Vim's List
 "
-function! ctrlp#projects#init()
-	let input = [
-		\ 'one',
-		\ 'two',
-		\ 'three',
-		\ 'four',
-		\ 'five',
-		\ 'six',
-		\ ]
-	return input
+function! ctrlp#projects#new#init()
+  return [
+    \ 'Go',
+    \ 'Java',
+    \ 'Vim Plugin in Lua',
+  \ ]
 endfunction
 
 
@@ -93,25 +83,45 @@ endfunction
 "           the values are 'e', 'v', 't' and 'h', respectively
 "  a:str    the selected string
 "
-function! ctrlp#projects#accept(mode, str)
+function! ctrlp#projects#new#accept(mode, str)
 	" For this example, just exit ctrlp and run help
 	call ctrlp#exit()
-	echo "I'm going to switch to the project ".a:str
+  if (a:str == 'Go')
+    call inputsave()
+    let name = input('Enter name: ')
+    call inputrestore()
+    let full = $HOME . "/src/".name."/src/github.com/jacobsimpson/".name
+    execute("!mkdir -p " . full)
+    execute("cd " . full)
+    let $GOPATH=$HOME."/src/".name
+  elseif (a:str == 'Java')
+    call inputsave()
+    let name = input('Enter name: ')
+    call inputrestore()
+    let template = $HOME . "/home-dir/vim/ctrlp-projects/templates/Java"
+    let project = $HOME . "/src/".name
+    execute("!cp -R " . template . " " . project)
+    execute("!mkdir -p ".project."/src/main/java/".name)
+    execute("!mkdir -p ".project."/src/tests/java/".name)
+    execute("cd " . project)
+  else
+    echo "Don't know how to make a new project for '".a:str."'."
+  endif
 endfunction
 
 
 " (optional) Do something before enterting ctrlp
-function! ctrlp#projects#enter()
+function! ctrlp#projects#new#enter()
 endfunction
 
 
 " (optional) Do something after exiting ctrlp
-function! ctrlp#projects#exit()
+function! ctrlp#projects#new#exit()
 endfunction
 
 
 " (optional) Set or check for user options specific to this extension
-function! ctrlp#projects#opts()
+function! ctrlp#projects#new#opts()
 endfunction
 
 
@@ -119,7 +129,7 @@ endfunction
 let s:id = g:ctrlp_builtins + len(g:ctrlp_ext_vars)
 
 " Allow it to be called later
-function! ctrlp#projects#id()
+function! ctrlp#projects#new#id()
 	return s:id
 endfunction
 

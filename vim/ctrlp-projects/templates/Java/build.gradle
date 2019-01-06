@@ -1,0 +1,16 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'org.junit.jupiter:junit-jupiter-api:5.1.1'
+    testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.1.1'
+    testCompile 'org.assertj:assertj-core:3.9.0'
+}
+
+javadoc {
+  source = sourceSets.main.allJava
+  destinationDir = new File('docs/javadoc')
+}
