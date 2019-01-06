@@ -7,6 +7,9 @@ function language#java#Format()
 endfunction
 
 function language#java#Comment()
+    " There was some old code around for comment lines.
+    " au FileType java vmap <C-_> :s#^#//#<CR>
+    " au FileType java nmap <C-_> :s#^#//#<CR>
     execute "s#^#//#"
 endfunction
 
@@ -63,12 +66,6 @@ endfunction
 autocmd BufEnter,BufNew *.java         call SetJavaCompilerGradle()
 autocmd BufEnter,BufNew build.xml      call SetJavaCompilerAnt()
 autocmd BufEnter,BufNew build.gradle   call SetJavaCompilerGradle()
-
-au FileType java nmap ,m :make build<CR>
-au FileType java nmap ,t :make test<CR>
-
-au FileType java vmap <C-_> :s#^#//#<CR>
-au FileType java nmap <C-_> :s#^#//#<CR>
 
 " Configure the whitespace plugin to auto strip trailing whitespace when the
 " given file types are saved.
