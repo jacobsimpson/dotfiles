@@ -45,12 +45,14 @@ endfunction
 
 function language#java#Scratch()
     let tmpdir="/tmp/vim-scratch-java-".strftime('%Y-%m-%d-%H-%M-%S')
+    let src="~/home-dir/vim/language/templates/Scratch.java"
+    let dst=l:tmpdir . "/Main.java"
 
     if !isdirectory(tmpdir)
         call mkdir(tmpdir, "p")
     endif
-    execute ":e ~/home-dir/vim/language/templates/Scratch.java"
-    execute ":saveas ".tmpdir."/Main.java"
+    execute "silent !cp " . l:src . " " . l:dst
+    execute ":edit " . l:dst
     execute ":normal jj"
 endfunction
 

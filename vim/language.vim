@@ -103,9 +103,17 @@ function language#Scratch()
     " Clear the current messages.
     echo ""
 
-    if &ft ==# 'go'
+    if &ft ==# ''
+        call ctrlp#init(ctrlp#projects#scratch#id())
+    else
+        call language#ScratchByName(&ft)
+    endif
+endfunction
+
+function language#ScratchByName(name)
+    if a:name ==# 'go'
         call language#go#Scratch()
-    elseif &ft ==# 'java'
+    elseif a:name ==# 'java'
         call language#java#Scratch()
     else
         echom "There is no scratch function defined for this file type."
