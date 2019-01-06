@@ -106,6 +106,10 @@ if has('nvim')
     endfunction
 endif
 
+function language#go#Test()
+    execute ":GoTest"
+endfunction
+
 function language#go#Format()
     execute ":GoFmt"
 endfunction

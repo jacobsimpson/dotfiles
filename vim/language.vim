@@ -28,8 +28,12 @@ function language#Build()
 
     if &ft ==# 'go'
         call language#go#Build()
-    elseif &ft ==# 'java'
+    elseif &ft ==# 'java' || &ft ==# 'groovy' || &ft ==# 'ant'
         call language#java#Build()
+    elseif &ft ==# ''
+        if !empty(glob("build.gradle"))
+            call language#java#Build()
+        endif
     else
         echom "There is no build step defined for this file type."
     endif
@@ -108,14 +112,28 @@ function language#Scratch()
     endif
 endfunction
 
+function language#Test()
+    " Clear the current messages.
+    echo ""
+
+    if &ft ==# 'go'
+        call language#go#Test()
+    elseif &ft ==# 'java' || &ft ==# 'groovy' || &ft ==# 'ant'
+        call language#java#Test()
+    else
+        echom "There is no test function defined for this file type."
+    endif
+endfunction
+
 " These are the key mappings that are expected to be common across all
 " languages, though a given language can just show an error message instead of
 " carrying out the intended activity.
 nmap <silent> <Space>a  :call language#GoAlternate()<CR>
-nmap <silent> <Space>ga  :call language#GoAlternate()<CR>
+vmap          <Space>c  :call language#Comment()<CR>
+nmap          <Space>c  :call language#Comment()<CR>
 nmap <silent> <Space>b  :call language#Build()<CR>
 nmap <silent> <Space>f  :call language#Format()<CR>
-vmap <Space>c :call language#Comment()<CR>
-nmap <Space>c :call language#Comment()<CR>
-nmap <Space>r :call language#Run()<CR>
-nmap <Space>s :call language#Scratch()<CR>
+nmap <silent> <Space>ga :call language#GoAlternate()<CR>
+nmap          <Space>r  :call language#Run()<CR>
+nmap          <Space>s  :call language#Scratch()<CR>
+nmap <silent> <Space>t  :call language#Test()<CR>

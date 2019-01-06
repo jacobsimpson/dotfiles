@@ -1,5 +1,9 @@
 "Plug 'google/vim-codefmt'
 
+function language#java#Test()
+    execute(":make test")
+endfunction
+
 function language#java#GoAlternate()
     let l = expand('%')
     if l =~ "Test\.java$"
