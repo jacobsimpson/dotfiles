@@ -106,24 +106,24 @@ if has('nvim')
     endfunction
 endif
 
-function language#go#Test()
-    execute ":GoTest"
+function language#go#Comment()
+    execute "s#^#//#"
+endfunction
+
+function language#go#Build()
+    execute ":GoBuild"
 endfunction
 
 function language#go#Format()
     execute ":GoFmt"
 endfunction
 
-function language#go#Comment()
-    execute "s#^#//#"
-endfunction
-
 function language#go#GoAlternate()
     execute ":GoAlternate"
 endfunction
 
-function language#go#Build()
-    execute ":GoBuild"
+function language#go#Run()
+    execute ":GoRun"
 endfunction
 
 function language#go#Scratch()
@@ -137,6 +137,7 @@ function language#go#Scratch()
     execute ":normal jjjjjjw"
 endfunction
 
-function language#go#Run()
-    execute ":GoRun"
+function language#go#Test()
+    execute ":GoTest"
 endfunction
+

@@ -1,7 +1,24 @@
 "Plug 'google/vim-codefmt'
 
-function language#java#Test()
-    execute(":make test")
+function language#java#Build()
+    if !empty(glob("build.gradle"))
+        execute(":make build")
+    else
+        execute "!javac %"
+    endif
+endfunction
+
+function language#java#Comment()
+    " There was some old code around for comment lines.
+    " au FileType java vmap <C-_> :s#^#//#<CR>
+    " au FileType java nmap <C-_> :s#^#//#<CR>
+    execute "s#^#//#"
+endfunction
+
+function language#java#Format()
+    let save_pos = getpos(".")
+    execute "%!java -jar ~/home-dir/vim/support/google-java-format-1.6-all-deps.jar -"
+    call setpos('.', save_pos)
 endfunction
 
 function language#java#GoAlternate()
@@ -21,27 +38,6 @@ function language#java#GoAlternate()
     endif
 endfunction
 
-function language#java#Format()
-    let save_pos = getpos(".")
-    execute "%!java -jar ~/home-dir/vim/support/google-java-format-1.6-all-deps.jar -"
-    call setpos('.', save_pos)
-endfunction
-
-function language#java#Comment()
-    " There was some old code around for comment lines.
-    " au FileType java vmap <C-_> :s#^#//#<CR>
-    " au FileType java nmap <C-_> :s#^#//#<CR>
-    execute "s#^#//#"
-endfunction
-
-function language#java#Build()
-    if !empty(glob("build.gradle"))
-        execute(":make build")
-    else
-        execute "!javac %"
-    endif
-endfunction
-
 function language#java#Run()
     execute "!javac %"
     execute "!java -cp %:h %:t:r"
@@ -56,6 +52,10 @@ function language#java#Scratch()
     execute ":e ~/home-dir/vim/language/templates/Scratch.java"
     execute ":saveas ".tmpdir."/Main.java"
     execute ":normal jj"
+endfunction
+
+function language#java#Test()
+    execute(":make test")
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
