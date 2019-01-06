@@ -30,6 +30,8 @@ function language#Build()
         call language#go#Build()
     elseif &ft ==# 'java' || &ft ==# 'groovy' || &ft ==# 'ant'
         call language#java#Build()
+    elseif &ft ==# 'lua'
+        call language#lua#Build()
     elseif &ft ==# ''
         if !empty(glob("build.gradle"))
             call language#java#Build()
@@ -47,6 +49,8 @@ function language#GoAlternate()
         call language#go#GoAlternate()
     elseif &ft ==# 'java'
         call language#java#GoAlternate()
+    elseif &ft ==# 'lua'
+        call language#lua#GoAlternate()
     else
         echom "There is no alternate navigation for this file type."
     endif
@@ -62,6 +66,8 @@ function language#Format()
         call language#java#Format()
     elseif &ft ==# 'json'
         call language#json#Format()
+    elseif &ft ==# 'lua'
+        call language#lua#Format()
     elseif &ft ==# 'vim'
         call language#vim#Format()
     else
@@ -79,6 +85,8 @@ function language#Comment()
         call language#java#Comment()
     elseif &ft ==# 'json'
         call language#json#Comment()
+    elseif &ft ==# 'lua'
+        call language#lua#Comment()
     elseif &ft ==# 'vim'
         call language#vim#Comment()
     else
@@ -94,6 +102,8 @@ function language#Run()
         call language#go#Run()
     elseif &ft ==# 'java'
         call language#java#Run()
+    elseif &ft ==# 'lua'
+        call language#lua#Run()
     else
         echom "There is no run function defined for this file type."
     endif
@@ -115,6 +125,8 @@ function language#ScratchByName(name)
         call language#go#Scratch()
     elseif a:name ==# 'java'
         call language#java#Scratch()
+    elseif a:name ==# 'lua'
+        call language#lua#Scratch()
     else
         echom "There is no scratch function defined for this file type."
     endif
@@ -128,6 +140,8 @@ function language#Test()
         call language#go#Test()
     elseif &ft ==# 'java' || &ft ==# 'groovy' || &ft ==# 'ant'
         call language#java#Test()
+    elseif &ft ==# 'lua'
+        call language#lua#Test()
     else
         echom "There is no test function defined for this file type."
     endif
