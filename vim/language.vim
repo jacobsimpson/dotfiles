@@ -41,6 +41,8 @@ function language#GoAlternate()
 
     if &ft ==# 'go'
         call language#go#GoAlternate()
+    elseif &ft ==# 'java'
+        call language#java#GoAlternate()
     else
         echom "There is no alternate navigation for this file type."
     endif
