@@ -88,6 +88,7 @@ source ~/home-dir/vim/language/go.vim
 source ~/home-dir/vim/language/java.vim
 source ~/home-dir/vim/language/json.vim
 source ~/home-dir/vim/language/lua.vim
+source ~/home-dir/vim/language/typescript.vim
 source ~/home-dir/vim/language/markdown.vim
 source ~/home-dir/vim/language/rust.vim
 source ~/home-dir/vim/language/vim.vim

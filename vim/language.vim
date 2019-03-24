@@ -32,6 +32,8 @@ function language#Build()
         call language#java#Build()
     elseif &ft ==# 'lua'
         call language#lua#Build()
+    elseif &ft ==# 'typescript'
+        call language#typescript#Build()
     elseif &ft ==# ''
         if !empty(glob("build.gradle"))
             call language#java#Build()
@@ -51,6 +53,8 @@ function language#GoAlternate()
         call language#java#GoAlternate()
     elseif &ft ==# 'lua'
         call language#lua#GoAlternate()
+    elseif &ft ==# 'typescript'
+        call language#typescript#GoAlternate()
     else
         echom "There is no alternate navigation for this file type."
     endif
@@ -68,6 +72,8 @@ function language#Format()
         call language#json#Format()
     elseif &ft ==# 'lua'
         call language#lua#Format()
+    elseif &ft ==# 'typescript'
+        call language#typescript#Format()
     elseif &ft ==# 'vim'
         call language#vim#Format()
     else
@@ -87,6 +93,8 @@ function language#Comment()
         call language#json#Comment()
     elseif &ft ==# 'lua'
         call language#lua#Comment()
+    elseif &ft ==# 'typescript'
+        call language#typescript#Comment()
     elseif &ft ==# 'vim'
         call language#vim#Comment()
     else
@@ -104,6 +112,8 @@ function language#Run()
         call language#java#Run()
     elseif &ft ==# 'lua'
         call language#lua#Run()
+    elseif &ft ==# 'typescript'
+        call language#typescript#Run()
     else
         echom "There is no run function defined for this file type."
     endif
@@ -127,6 +137,8 @@ function language#ScratchByName(name)
         call language#java#Scratch()
     elseif a:name ==# 'lua'
         call language#lua#Scratch()
+    elseif a:name ==# 'typescript'
+        call language#typescript#Scratch()
     else
         echom "There is no scratch function defined for this file type."
     endif
@@ -142,6 +154,8 @@ function language#Test()
         call language#java#Test()
     elseif &ft ==# 'lua'
         call language#lua#Test()
+    elseif &ft ==# 'typescript'
+        call language#typescript#Test()
     else
         echom "There is no test function defined for this file type."
     endif
