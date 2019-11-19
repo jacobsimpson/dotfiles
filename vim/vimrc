@@ -276,6 +276,7 @@ map <silent> ,bp :bp<CR>
 map <silent> ,bn :bn<CR>
 " Allow the current buffer to be deleted without removing the window.
 map <silent> ,bc :bp\|bd #<CR>
+map <silent> ,bl :Buffers<CR>
 
 " Make the cursor at least this many lines away from the edge of the screen.
 set scrolloff=3
@@ -343,16 +344,6 @@ set autowrite
 " Configure Universal Text Linking plugin.
 let g:utl_cfg_hdl_scm_http_system = 'silent !/usr/bin/open -a "/Applications/Google Chrome.app" "%u"'
 
-" Remap the <leader>* key to do a search analogous to how vim searches when
-" the * key is hit, but across different files.
-nnoremap <leader>* :Ag "<cword>"<CR>
-vnoremap <leader>* :<C-u>call VisualStarSearchSet('/')<CR>:execute 'noautocmd Ag ' . @/ . ''<CR>
-
-" Make Ag easier to use.
-nnoremap <silent> ,g :Ag <C-r><C-w><CR>
-xnoremap <silent> ,g :<C-u>let cmd = "Ag " . functions#GetVisualSelection() <bar>
-                        \ call histadd("cmd",cmd) <bar>
-
 map <silent> ,r :e %<CR>
 map ,q :q<CR>
 
@@ -375,3 +366,23 @@ cnoremap <Esc>f <S-Right>
 cnoremap <Esc>d <S-right><Delete>
 cnoremap <C-g>  <C-c>
 cnoremap <C-y>  <C-r>"
+
+" Set the keys for repeating the previous search to use the absolute direction
+" that the key indicates, rather than a direction relative to the last search
+" performed. For example, if you search ?pattern, normally the next key n will
+" search backwards, to match the direction of the most recent search. These
+" mappings make it so that key n will search forward in all cases, no matter
+" the direction of the most recent search.
+nmap n /<CR>
+nmap N ?<CR>
+
+" Auto reload vimrc related changes on each save.
+augroup reloadvimrc
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,nvimrc,*.vim so $MYVIMRC
+augroup END
+
+" Add an abbreviation so that %% is the directory of the current file. I tend
+" to use %:h a lot, and this should be faster.
+cabbr <expr> %% expand('%:p:h')
+
