@@ -30,7 +30,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'rking/ag.vim'
 
 " Creates a nicer status line.
-Plug 'bling/vim-airline'
+"Plug 'bling/vim-airline'
 
 " In Vim support for some standard Unix commands. I'm mostly interested in
 " Move.
