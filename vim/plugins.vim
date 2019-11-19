@@ -60,6 +60,8 @@ Plug 'jrozner/vim-antlr'
 " what happened.
 Plug 'machakann/vim-highlightedyank'
 
+Plug 'neomake/neomake'
+
 source ~/home-dir/vim/language/go.vim
 source ~/home-dir/vim/language/java.vim
 source ~/home-dir/vim/language/json.vim
