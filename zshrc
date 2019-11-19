@@ -98,7 +98,7 @@ if which pyenv &> /dev/null; then
 
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)" >& /dev/null
-    pyenv shell global-3.4
+    pyenv shell 3.7.0
 fi
 
 function mcd() {
