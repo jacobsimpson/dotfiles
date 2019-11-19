@@ -119,7 +119,7 @@ function language#go#Format()
 endfunction
 
 function language#go#GoAlternate()
-    execute ":GoAlternate"
+    execute ":GoAlternate!"
 endfunction
 
 function language#go#Run()
