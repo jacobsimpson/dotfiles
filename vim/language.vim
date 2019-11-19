@@ -163,6 +163,17 @@ function! language#Test()
     endif
 endfunction
 
+function! language#Imports()
+    " Clear the current messages.
+    echo ""
+
+    if &ft ==# 'go'
+        call language#go#Imports()
+    else
+        echom "There is no imports function defined for this file type."
+    endif
+endfunction
+
 " These are the key mappings that are expected to be common across all
 " languages, though a given language can just show an error message instead of
 " carrying out the intended activity.

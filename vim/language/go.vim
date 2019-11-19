@@ -69,6 +69,7 @@ let g:go_highlight_build_constraints = 1
 
 " Go uses tabs everywhere, so change the tab width.
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4
 
 " Without these highlight groups defined, vim-go errors out when invoking
 " `:GoCoverage`
@@ -153,3 +154,7 @@ function language#go#Test()
     execute ":GoTest"
 endfunction
 
+function language#go#Imports()
+  execute ":% !goimports %"
+  execute ":!glaze //%:h"
+endfunction
