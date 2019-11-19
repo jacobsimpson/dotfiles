@@ -48,28 +48,11 @@ source ~/home-dir/vim/plugins/signify.vim
 " Strip trailing whitespace on save.
 Plug 'ntpeters/vim-better-whitespace'
 
-" Vim Org Mode
-Plug 'jceb/vim-orgmode'
-Plug 'vim-scripts/utl.vim'
-Plug 'tpope/vim-speeddating'
-Plug 'majutsushi/tagbar'
-
-Plug 'ctrlpvim/ctrlp.vim'
-Plug '~/home-dir/vim/ctrlp-projects'
-
-"
 " Extended regular expression support for / and ? searches.
 " Haven't figured out how to make it work incrementally.
 "Plug 'othree/eregex.vim'
 
 source ~/home-dir/vim/plugins/neoterm.vim
-
-" Vim OrgMode related plugins.
-Plug 'jceb/vim-orgmode'
-Plug 'tpope/vim-speeddating'
-Plug 'vim-scripts/utl.vim'
-Plug 'mattn/calendar-vim'
-
 
 " ############################################################
 " ################### Experimental Plugins ###################
