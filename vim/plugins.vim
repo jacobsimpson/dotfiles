@@ -26,9 +26,6 @@ source ~/home-dir/vim/plugins/ultisnips.vim
 " Git access from inside Vim.
 Plug 'tpope/vim-fugitive'
 
-" In Vim support for Silver Searcher.
-Plug 'rking/ag.vim'
-
 " Creates a nicer status line.
 "Plug 'bling/vim-airline'
 
