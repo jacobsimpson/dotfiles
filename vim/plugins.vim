@@ -51,6 +51,8 @@ Plug 'ntpeters/vim-better-whitespace'
 
 source ~/home-dir/vim/plugins/neoterm.vim
 
+source ~/home-dir/vim/plugins/fzf.vim
+
 " ############################################################
 " ################### Experimental Plugins ###################
 "
