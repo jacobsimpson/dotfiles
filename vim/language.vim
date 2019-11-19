@@ -22,7 +22,7 @@
 " Each language should configure for their file type to strip whitespace on save.
 "
 
-function language#Build()
+function! language#Build()
     " Clear the current messages.
     echo ""
 
@@ -43,7 +43,7 @@ function language#Build()
     endif
 endfunction
 
-function language#GoAlternate()
+function! language#GoAlternate()
     " Clear the current messages.
     echo ""
 
@@ -60,7 +60,7 @@ function language#GoAlternate()
     endif
 endfunction
 
-function language#Format()
+function! language#Format()
     " Clear the current messages.
     echo ""
 
@@ -81,7 +81,7 @@ function language#Format()
     endif
 endfunction
 
-function language#Comment()
+function! language#Comment()
     " Clear the current messages.
     echo ""
 
@@ -102,7 +102,7 @@ function language#Comment()
     endif
 endfunction
 
-function language#Run()
+function! language#Run()
     " Clear the current messages.
     echo ""
 
@@ -114,12 +114,14 @@ function language#Run()
         call language#lua#Run()
     elseif &ft ==# 'typescript'
         call language#typescript#Run()
+    elseif &ft ==# 'vim'
+        call language#vim#Run()
     else
         echom "There is no run function defined for this file type."
     endif
 endfunction
 
-function language#Scratch()
+function! language#Scratch()
     " Clear the current messages.
     echo ""
 
@@ -130,7 +132,7 @@ function language#Scratch()
     endif
 endfunction
 
-function language#ScratchByName(name)
+function! language#ScratchByName(name)
     if a:name ==# 'go'
         call language#go#Scratch()
     elseif a:name ==# 'java'
@@ -144,7 +146,7 @@ function language#ScratchByName(name)
     endif
 endfunction
 
-function language#Test()
+function! language#Test()
     " Clear the current messages.
     echo ""
 
