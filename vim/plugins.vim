@@ -57,11 +57,6 @@ source ~/home-dir/vim/plugins/neoterm.vim
 " ############################################################
 " ################### Experimental Plugins ###################
 "
-" Can't remember what this plugin does. Guess it wasn't a big hit.
-" Plug 'elubow/cql-vim'
-
-Plug 'rhysd/vim-crystal'
-
 Plug 'jrozner/vim-antlr'
 
 " After a yank, the yanked text is highlighted in a different color to show
