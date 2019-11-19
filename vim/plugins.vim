@@ -6,11 +6,12 @@ source ~/home-dir/vim/plugins/easymotion.vim
 " cursor.
 Plug 'bronson/vim-visual-star-search'
 
-
 " Unite is a super flexible plugin, searches buffers and the like.
-Plug 'Shougo/unite.vim'
+" Stopped using this in favor of fzf, which seems to do the things I want to
+" do even better.
+"Plug 'Shougo/unite.vim'
 " Support Unite with async operations.
-Plug 'Shougo/vimproc.vim'
+"Plug 'Shougo/vimproc.vim'
 
 " Syntax and other language specific settings for many languages.
 Plug 'sheerun/vim-polyglot'
