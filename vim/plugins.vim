@@ -73,4 +73,5 @@ source ~/home-dir/vim/language/typescript.vim
 source ~/home-dir/vim/language/markdown.vim
 source ~/home-dir/vim/language/rust.vim
 source ~/home-dir/vim/language/vim.vim
+source ~/home-dir/vim/language/make.vim
 source ~/home-dir/vim/language.vim
