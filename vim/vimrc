@@ -28,13 +28,6 @@ set expandtab
 " Toggle the NERDTree side bar on and off.
 nmap <leader>d :NERDTreeToggle<CR>
 
-" Search recursively for files.
-"nnoremap <C-p> :<C-u>Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
-
-" List the open buffers.
-"nnoremap <leader>b :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
-nnoremap <leader>b :CtrlPBuffer<CR>
-
 " Add incremental searching to vim.
 set incsearch
 
@@ -194,7 +187,7 @@ vmap <silent> <leader>r "xy:@x<CR>
 
 " Navigating quickfix should get easier.
 map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
+map <C-p> :cprevious<CR>
 nnoremap ,c :cclose<CR>
 
 " Improved window navigation key strokes. Fewer keys makes a big
