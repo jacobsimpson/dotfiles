@@ -164,12 +164,12 @@ endfunction
 " These are the key mappings that are expected to be common across all
 " languages, though a given language can just show an error message instead of
 " carrying out the intended activity.
-nmap <silent> <Space>a  :call language#GoAlternate()<CR>
-vmap          <Space>c  :call language#Comment()<CR>
-nmap          <Space>c  :call language#Comment()<CR>
-nmap <silent> <Space>b  :call language#Build()<CR>
-nmap <silent> <Space>f  :call language#Format()<CR>
-nmap <silent> <Space>ga :call language#GoAlternate()<CR>
-nmap          <Space>r  :call language#Run()<CR>
-nmap          <Space>s  :call language#Scratch()<CR>
-nmap <silent> <Space>t  :call language#Test()<CR>
+"nmap <silent> <Space>a  :call language#GoAlternate()<CR>
+"vmap          <Space>c  :call language#Comment()<CR>
+"nmap          <Space>c  :call language#Comment()<CR>
+"nmap <silent> <Space>b  :call language#Build()<CR>
+"nmap <silent> <Space>f  :call language#Format()<CR>
+"nmap <silent> <Space>ga :call language#GoAlternate()<CR>
+"nmap          <Space>r  :call language#Run()<CR>
+"nmap          <Space>s  :call language#Scratch()<CR>
+"nmap <silent> <Space>t  :call language#Test()<CR>
