@@ -161,12 +161,12 @@ set laststatus=2
 " Keep visual selection after indenting or unindenting.
 vnoremap < <gv
 vnoremap > >gv
-vmap <TAB> >
-vmap <S-TAB> <
-nmap <TAB> >>
-nmap <S-TAB> <<
+"vmap <TAB> >
+"vmap <S-TAB> <
+"nmap <TAB> >>
+"nmap <S-TAB> <<
 " When inserting, allow Shift-Tab to un-Tab.
-inoremap <S-TAB> <C-D>
+"inoremap <S-TAB> <C-D>
 
 " Buffer navigation is extremely common, so there are some things I remapped
 " to make that go faster. I hope.
