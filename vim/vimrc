@@ -87,9 +87,6 @@ onoremap <silent> ]L :call NextIndent(1, 1, 1, 1)<CR>
 " in a buffer and have them still be there when you get back.
 set hidden
 
-au FileType lua vmap <C-_> :s#^#--#<CR>
-au FileType lua nmap <C-_> :s#^#--#<CR>
-
 " Maps the RE search key so it gets extended regular expressions by default.
 "
 " As it turns out, this is painful. It's always in the way, I often have to
