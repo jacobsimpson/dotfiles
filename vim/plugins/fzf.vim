@@ -1,7 +1,7 @@
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 nnoremap ,fb :Files %:p:h<CR>
-nnoremap ,f. :Files .<CR>
+nnoremap ,fl :Files .<CR>
 " Make a mapping to do a search analogous to how vim searches when
 " the * key is hit, but recursively in the file tree.
 nnoremap ,* :Ag "<cword>"<CR>
