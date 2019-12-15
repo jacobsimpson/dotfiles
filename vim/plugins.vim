@@ -25,6 +25,7 @@ source ~/home-dir/vim/plugins/ultisnips.vim
 
 " Git access from inside Vim.
 Plug 'tpope/vim-fugitive'
+"autocmd Filetype gitcommit cnoremap <silent> <buffer> wq bd<CR>
 
 " Creates a nicer status line.
 "Plug 'bling/vim-airline'
