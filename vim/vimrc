@@ -383,3 +383,8 @@ augroup END
 " to use %:h a lot, and this should be faster.
 cabbr <expr> %% expand('%:p:h')
 
+" Make it easy to get out of a help buffer.
+autocmd FileType help nnoremap <silent> <buffer> <ESC> :bd<CR>
+autocmd FileType help nnoremap <silent> <buffer> <C-C> :bd<CR>
+autocmd FileType help nnoremap <silent> <buffer> q :bd<CR>
+
