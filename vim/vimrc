@@ -60,33 +60,6 @@ filetype plugin indent on
 syntax on
 autocmd FileType go compiler go
 
-" When editing Makefiles...
-function EnterMakefile()
-    set noexpandtab
-endfunction
-function LeaveMakefile()
-    set expandtab
-endfunction
-
-autocmd BufEnter,BufNew Makefile      call EnterMakefile()
-autocmd BufEnter,BufNew makefile      call EnterMakefile()
-
-autocmd BufLeave Makefile             call LeaveMakefile()
-autocmd BufLeave makefile             call LeaveMakefile()
-
-
-
-" When editing markdown files...
-function EnterMarkdown()
-    set conceallevel=0
-endfunction
-function LeaveMarkdown()
-    set conceallevel=0
-endfunction
-
-autocmd BufEnter,BufNew *.md      call EnterMarkdown()
-autocmd BufLeave        *.md      call LeaveMarkdown()
-
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
