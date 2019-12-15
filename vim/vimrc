@@ -70,8 +70,8 @@ call plug#end()
 " Options for highlighting matching values of search.
 "  Turn on highlighting.
 set hlsearch
-"  remap the space bar to toggle match highlighting off.
-nnoremap <silent> ,/ :nohlsearch<Bar>:echo<CR>
+"  Map a key to make it easy to turn off search highlighting.
+nnoremap <silent> <Space><Space> :nohlsearch<Bar>:echo<CR>
 
 " Required:
 filetype plugin indent on
