@@ -25,14 +25,14 @@ function language#java#GoAlternate()
     let l = expand('%')
     if l =~ "Test\.java$"
         let n = strpart(l, 0, strlen(l) - 9) . ".java"
-        if n =~ "^src/tests/"
-            let n = "src/main" . strpart(n, 9)
+        if n =~ "^src/test/"
+            let n = "src/main" . strpart(n, 8)
         endif
         execute "edit " . n
     else
         let n = strpart(l, 0, strlen(l) - 5) . "Test.java"
         if n =~ "^src.main."
-            let n = "src/tests" . strpart(n, 8)
+            let n = "src/test" . strpart(n, 8)
         endif
         execute "edit " . n
     endif
