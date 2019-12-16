@@ -1,6 +1,6 @@
 "Plug 'google/vim-codefmt'
 
-function language#java#Build()
+function! language#java#Build()
     if !empty(glob("build.gradle"))
         execute(":make build")
     else
@@ -8,20 +8,20 @@ function language#java#Build()
     endif
 endfunction
 
-function language#java#Comment()
+function! language#java#Comment()
     " There was some old code around for comment lines.
     " au FileType java vmap <C-_> :s#^#//#<CR>
     " au FileType java nmap <C-_> :s#^#//#<CR>
     execute "s#^#//#"
 endfunction
 
-function language#java#Format()
+function! language#java#Format()
     let save_pos = getpos(".")
     execute "%!java -jar ~/home-dir/vim/support/google-java-format-1.6-all-deps.jar -"
     call setpos('.', save_pos)
 endfunction
 
-function language#java#GoAlternate()
+function! language#java#GoAlternate()
     let l = expand('%')
     if l =~ "Test\.java$"
         let n = strpart(l, 0, strlen(l) - 9) . ".java"
@@ -38,12 +38,12 @@ function language#java#GoAlternate()
     endif
 endfunction
 
-function language#java#Run()
+function! language#java#Run()
     execute "!javac %"
     execute "!java -cp %:h %:t:r"
 endfunction
 
-function language#java#Scratch()
+function! language#java#Scratch()
     let tmpdir="/tmp/vim-scratch-java-".strftime('%Y-%m-%d-%H-%M-%S')
     let src="~/home-dir/vim/language/templates/Scratch.java"
     let dst=l:tmpdir . "/Main.java"
@@ -56,13 +56,13 @@ function language#java#Scratch()
     execute ":normal jj"
 endfunction
 
-function language#java#Test()
+function! language#java#Test()
     execute(":make test")
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Remap :make to ant for Java files.
-function SetJavaCompilerAnt()
+function! SetJavaCompilerAnt()
     set makeprg=ant
     " Things learned about efm.
     "   The pattern MUST consume the whole line, or it will just fail to match.
@@ -75,7 +75,7 @@ function SetJavaCompilerAnt()
     let &efm=' %#[javac] %f:%l:%m'
 endfunction
 
-function SetJavaCompilerGradle()
+function! SetJavaCompilerGradle()
     set makeprg=gradle
     " Things learned about efm.
     "   The pattern MUST consume the whole line, or it will just fail to match.
