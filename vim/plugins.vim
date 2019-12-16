@@ -1,4 +1,3 @@
-source ~/home-dir/vim/plugins/colorscheme.vim
 source ~/home-dir/vim/plugins/easymotion.vim
 
 " When a visual selection is active, pressing * or # will do a file
