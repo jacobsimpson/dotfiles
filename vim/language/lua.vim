@@ -1,25 +1,25 @@
-function language#lua#Build()
+function! language#lua#Build()
     execute "!luajit %"
 endfunction
 
-function language#lua#Comment()
+function! language#lua#Comment()
     execute "s#^#--#"
 endfunction
 
-function language#lua#Format()
+function! language#lua#Format()
     let save_pos = getpos(".")
     "execute "%!java -jar ~/home-dir/vim/support/google-java-format-1.6-all-deps.jar -"
     call setpos('.', save_pos)
 endfunction
 
-function language#lua#GoAlternate()
+function! language#lua#GoAlternate()
 endfunction
 
-function language#lua#Run()
+function! language#lua#Run()
     execute "!luajit %"
 endfunction
 
-function language#lua#Scratch()
+function! language#lua#Scratch()
     let tmpdir="/tmp/vim-scratch-lua-".strftime('%Y-%m-%d-%H-%M-%S')
     let dst=l:tmpdir . "/main.lua"
 
@@ -29,7 +29,7 @@ function language#lua#Scratch()
     execute ":edit " . l:dst
 endfunction
 
-function language#lua#Test()
+function! language#lua#Test()
 endfunction
 
 " Configure the whitespace plugin to auto strip trailing whitespace when the
