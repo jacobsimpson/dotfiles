@@ -68,6 +68,7 @@ call plug#end()
 set hlsearch
 "  Map a key to make it easy to turn off search highlighting.
 nnoremap <silent> <Space><Space> :nohlsearch<Bar>:echo<CR>
+nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
 
 " Required:
 filetype plugin indent on
