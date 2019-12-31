@@ -8,7 +8,7 @@ endfunction
 
 function! language#lua#Format()
     let save_pos = getpos(".")
-    "execute "%!java -jar ~/home-dir/vim/support/google-java-format-1.6-all-deps.jar -"
+    "execute "%!java -jar ~/home-dir/nvim/support/google-java-format-1.6-all-deps.jar -"
     call setpos('.', save_pos)
 endfunction
 

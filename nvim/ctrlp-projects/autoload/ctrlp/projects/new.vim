@@ -105,7 +105,7 @@ function! ctrlp#projects#new#accept(mode, str)
     call inputsave()
     let name = input('Enter name: ')
     call inputrestore()
-    let template = $HOME . "/home-dir/vim/ctrlp-projects/templates/Java"
+    let template = $HOME . "/home-dir/nvim/ctrlp-projects/templates/Java"
     let project = $HOME . "/src/".name
     execute("!cp -R " . template . " " . project)
     execute("!mkdir -p ".project."/src/main/java/".name)

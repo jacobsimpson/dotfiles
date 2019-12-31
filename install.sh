@@ -20,9 +20,10 @@ else
     echo 'source ~/home-dir/vim/vimrc' >> ~/.vimrc
 fi
 
-mkdir -p ~/.config/nvim
-ln -s ~/.vim ~/.nvim
-ln -s ~/.vimrc ~/.config/nvim/init.vim
+mkdir -p ~/.config
+ln -nsf ~/home-dir/nvim ~/.config/nvim
+ln -nsf ~/.vim ~/.nvim
+ln -nsf ~/home-dir/nvim/init.vim ~/.vimrc
 # This is the directory where backup files are written. For some reason Neovim
 # doesn't create this itself. Or, it didn't at 10/29/2015.
 mkdir ~/.local/share/nvim/backup

@@ -1,4 +1,4 @@
-source ~/home-dir/vim/plugins/easymotion.vim
+source ~/home-dir/nvim/plugins/easymotion.vim
 
 " When a visual selection is active, pressing * or # will do a file
 " search of the selection, instead of a file search of the word under the
@@ -7,7 +7,7 @@ Plug 'bronson/vim-visual-star-search'
 
 Plug 'tpope/vim-surround'
 
-source ~/home-dir/vim/plugins/ultisnips.vim
+source ~/home-dir/nvim/plugins/ultisnips.vim
 
 " Git access from inside Vim.
 Plug 'tpope/vim-fugitive'
@@ -27,16 +27,16 @@ Plug 'tpope/vim-eunuch'
 " Add better text object handling, things like ci" or ci(
 Plug 'wellle/targets.vim'
 
-source ~/home-dir/vim/plugins/signify.vim
+source ~/home-dir/nvim/plugins/signify.vim
 
 " Strip trailing whitespace on save.
-source ~/home-dir/vim/plugins/vim-better-whitespace.vim
+source ~/home-dir/nvim/plugins/vim-better-whitespace.vim
 
 " Extended regular expression support for / and ? searches.
 " Haven't figured out how to make it work incrementally.
 "Plug 'othree/eregex.vim'
 
-source ~/home-dir/vim/plugins/fzf.vim
+source ~/home-dir/nvim/plugins/fzf.vim
 
 " ############################################################
 " ################### Experimental Plugins ###################
@@ -49,13 +49,13 @@ Plug 'machakann/vim-highlightedyank'
 
 Plug 'neomake/neomake'
 
-source ~/home-dir/vim/language/go.vim
-source ~/home-dir/vim/language/java.vim
-source ~/home-dir/vim/language/json.vim
-source ~/home-dir/vim/language/lua.vim
-source ~/home-dir/vim/language/typescript.vim
-source ~/home-dir/vim/language/markdown.vim
-source ~/home-dir/vim/language/rust.vim
-source ~/home-dir/vim/language/vim.vim
-source ~/home-dir/vim/language/make.vim
-source ~/home-dir/vim/language.vim
+source ~/home-dir/nvim/language/go.vim
+source ~/home-dir/nvim/language/java.vim
+source ~/home-dir/nvim/language/json.vim
+source ~/home-dir/nvim/language/lua.vim
+source ~/home-dir/nvim/language/typescript.vim
+source ~/home-dir/nvim/language/markdown.vim
+source ~/home-dir/nvim/language/rust.vim
+source ~/home-dir/nvim/language/vim.vim
+source ~/home-dir/nvim/language/make.vim
+source ~/home-dir/nvim/language.vim
