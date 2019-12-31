@@ -1,5 +1,8 @@
 " Golang development.
 
+" Disable the snippets provided by the go plugin.
+let g:go_loaded_gosnippets = 1
+
 " In theory this seems like a good idea, to have the golang binaries get
 " updated whenever the plugin updates, but this actually pauses the
 " installation process for each binary, waiting for a keystroke, and it's not
@@ -139,7 +142,7 @@ function language#go#Imports()
   execute ":% !goimports %"
   execute ":!glaze //%:h"
 endfunction
-"
+
 " Enable some keyboard shortcuts.
 au FileType go nmap <buffer> ,e  <Plug>(go-rename)
 au FileType go nmap <buffer> ,gb <Plug>(go-doc-browser)
