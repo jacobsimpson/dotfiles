@@ -16,7 +16,8 @@ function! language#lua#GoAlternate()
 endfunction
 
 function! language#lua#Run()
-    execute "!luajit %"
+    execute "split | term luajit %"
+    execute "normal Ga"
 endfunction
 
 function! language#lua#Scratch()
