@@ -36,29 +36,6 @@ let g:go_disable_autoinstall = 1
 " Open new terminals in a horizontal split by default.
 let g:go_term_mode = "split"
 
-" Enable some keyboard shortcuts.
-au FileType go nmap <buffer> ,e  <Plug>(go-rename)
-au FileType go nmap <buffer> ,gb <Plug>(go-doc-browser)
-au FileType go nmap <buffer> ,i  <Plug>(go-info)
-au FileType go nmap <buffer> ,l  :GoLint<CR>
-au FileType go nmap <buffer> ,m  :GoBuild<CR>
-au FileType go nmap <buffer> ,n  <Plug>(go-rename)
-au FileType go nmap <buffer> ,o  <Plug>(go-coverage)
-au FileType go nmap <buffer> ,q  <Plug>(go-doc-split)
-au FileType go nmap <buffer> ,t  <Plug>(go-test)
-
-" These are the key mappings that are expected to be common across all
-" carrying out the intended activity.
-au FileType go nmap <buffer> <silent> <Space>a  :call language#go#GoAlternate()<CR>
-au FileType go vmap <buffer>          <Space>c  :call language#go#Comment()<CR>
-au FileType go nmap <buffer>          <Space>c  :call language#go#Comment()<CR>
-au FileType go nmap <buffer> <silent> <Space>b  :call language#go#Build()<CR>
-au FileType go nmap <buffer> <silent> <Space>f  :call language#go#Format()<CR>
-au FileType go nmap <buffer> <silent> <Space>ga :call language#go#GoAlternate()<CR>
-au FileType go nmap <buffer>          <Space>r  :call language#go#Run()<CR>
-au FileType go nmap <buffer>          <Space>s  :call language#go#Scratch()<CR>
-au FileType go nmap <buffer> <silent> <Space>t  :call language#go#Test()<CR>
-
 " Improve the syntax highlighting defaults.
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -70,6 +47,10 @@ let g:go_highlight_build_constraints = 1
 " Go uses tabs everywhere, so change the tab width.
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4
+
+" Somewhere around the neovim 0.2.1-dev transition, every time I save a go file,
+" it resets my tabstop. So, this sets it back.
+au BufWritePost *.go set tabstop=4
 
 " Without these highlight groups defined, vim-go errors out when invoking
 " `:GoCoverage`
@@ -158,3 +139,30 @@ function language#go#Imports()
   execute ":% !goimports %"
   execute ":!glaze //%:h"
 endfunction
+"
+" Enable some keyboard shortcuts.
+au FileType go nmap <buffer> ,e  <Plug>(go-rename)
+au FileType go nmap <buffer> ,gb <Plug>(go-doc-browser)
+au FileType go nmap <buffer> ,i  <Plug>(go-info)
+au FileType go nmap <buffer> ,l  :GoLint<CR>
+au FileType go nmap <buffer> ,m  :GoBuild<CR>
+au FileType go nmap <buffer> ,n  <Plug>(go-rename)
+au FileType go nmap <buffer> ,o  <Plug>(go-coverage)
+au FileType go nmap <buffer> ,q  <Plug>(go-doc-split)
+au FileType go nmap <buffer> ,t  <Plug>(go-test)
+
+" These are the key mappings that are expected to be common across all
+" carrying out the intended activity.
+au FileType go nmap <buffer> <silent> <Space>a  :call language#go#GoAlternate()<CR>
+au FileType go nmap <buffer> <silent> <Space>c  :call language#go#Comment()<CR>
+au FileType go nmap <buffer> <silent> <Space>b  :call language#go#Build()<CR>
+au FileType go nmap <buffer> <silent> <Space>f  :call language#go#Format()<CR>
+au FileType go nmap <buffer> <silent> <Space>ga :call language#go#GoAlternate()<CR>
+au FileType go nmap <buffer> <silent> <Space>r  :call language#go#Run()<CR>
+au FileType go nmap <buffer> <silent> <Space>s  :call language#go#Scratch()<CR>
+au FileType go nmap <buffer> <silent> <Space>t  :call language#go#Test()<CR>
+au FileType go nmap <buffer> <silent> <Space>dc :GoDebugContinue<CR>
+au FileType go nmap <buffer> <silent> <Space>db :GoDebugBreakpoint<CR>
+au FileType go nmap <buffer> <silent> <Space>ds :GoDebugStart<CR>
+au FileType go nmap <buffer> <silent> <Space>df :GoDebugStop<CR>
+au FileType go nmap <buffer> <silent> <Space>dt :GoDebugTest<CR>
