@@ -36,8 +36,6 @@ source ~/home-dir/vim/plugins/vim-better-whitespace.vim
 " Haven't figured out how to make it work incrementally.
 "Plug 'othree/eregex.vim'
 
-source ~/home-dir/vim/plugins/neoterm.vim
-
 source ~/home-dir/vim/plugins/fzf.vim
 
 " ############################################################
