@@ -5,10 +5,6 @@ set tabstop=4
 " Sets how much indent for the >
 set shiftwidth=4
 
-" Somewhere around the neovim 0.2.1-dev transition, every time I save a go file,
-" it resets my tabstop. So, this sets it back.
-au BufWritePost *.go set tabstop=4
-
 " Use 'shiftwidth' when using <Tab> in front of a line. By default it's used
 " only for shift commands ("<", ">").
 set smarttab
