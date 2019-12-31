@@ -10,9 +10,8 @@ set shiftwidth=4
 set smarttab
 
 " This will affect CtrlP plugin, and exclude files from the listing.
-set wildignore+=*.o,*.class,.svn,*.jar,*.gif,*.jpg,*.pyc,.git,*.so,*.zip,*.swp
-
 " Ignore these directories for CtrlP
+set wildignore+=*.o,*.class,.svn,*.jar,*.gif,*.jpg,*.pyc,.git,*.so,*.zip,*.swp
 set wildignore+=*/bin/*,*/build/*,*/target/*,*/node_modules/*,*/lib/*
 
 " Each new line will match code block
