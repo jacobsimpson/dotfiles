@@ -1,3 +1,3 @@
 
-autocmd Filetype make <buffer> setlocal noexpandtab
+autocmd Filetype make setlocal noexpandtab
 
