@@ -30,7 +30,7 @@ Plug 'wellle/targets.vim'
 source ~/home-dir/vim/plugins/signify.vim
 
 " Strip trailing whitespace on save.
-Plug 'ntpeters/vim-better-whitespace'
+source ~/home-dir/vim/plugins/vim-better-whitespace.vim
 
 " Extended regular expression support for / and ? searches.
 " Haven't figured out how to make it work incrementally.
