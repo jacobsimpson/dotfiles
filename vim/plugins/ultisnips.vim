@@ -5,12 +5,15 @@
 " example that does this.
 "
 " The documentation indicates I should not use a directory named 'snippets'.
-let &runtimepath.=','.$HOME . "/home-dir/vim/runtime"
+let &runtimepath.="," . $HOME . "/home-dir/vim/runtime"
 let g:UltiSnipsSnippetDirectories=["mysnippets"]
 
 " Improved snippet support.
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+
+" I tried using these, but they don't match my expectations, so they are kind
+" of annoying
+"Plug 'honza/vim-snippets'
 
 "
 " Trigger configuration. Do not use <tab> if you use
