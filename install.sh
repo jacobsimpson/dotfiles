@@ -13,13 +13,6 @@ else
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-echo "Installing vim settings."
-if grep "source .*home-dir.vim.vimrc" ~/.vimrc >& /dev/null ; then
-    echo "    vim settings already installed. Skipping."
-else
-    echo 'source ~/home-dir/vim/vimrc' >> ~/.vimrc
-fi
-
 mkdir -p ~/.config
 ln -nsf ~/home-dir/nvim ~/.config/nvim
 ln -nsf ~/.vim ~/.nvim
