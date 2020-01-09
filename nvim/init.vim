@@ -1,3 +1,8 @@
+function! SourceIfExists(file)
+  if filereadable(expand(a:file))
+    exe 'source' a:file
+  endif
+endfunction
 
 syntax on
 filetype plugin indent off
@@ -288,11 +293,5 @@ nnoremap <silent> vif ggVG
 nnoremap <silent> vaf ggVG
 nnoremap <silent> cif ggVGc
 nnoremap <silent> caf ggVGc
-
-function! SourceIfExists(file)
-  if filereadable(expand(a:file))
-    exe 'source' a:file
-  endif
-endfunction
 
 call SourceIfExists("~/.vimrc.local")
