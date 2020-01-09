@@ -40,14 +40,14 @@ source ~/home-dir/nvim/plugins/vim-better-whitespace.vim
 
 source ~/home-dir/nvim/plugins/fzf.vim
 
+" After a yank, the yanked text is highlighted in a different color to show
+" what happened.
+Plug 'machakann/vim-highlightedyank'
+
 " ############################################################
 " ################### Experimental Plugins ###################
 "
 Plug 'jrozner/vim-antlr'
-
-" After a yank, the yanked text is highlighted in a different color to show
-" what happened.
-Plug 'machakann/vim-highlightedyank'
 
 Plug 'neomake/neomake'
 
