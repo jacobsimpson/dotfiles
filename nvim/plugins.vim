@@ -7,6 +7,8 @@ Plug 'bronson/vim-visual-star-search'
 
 Plug 'tpope/vim-surround'
 
+Plug 'neovim/nvim-lsp'
+
 source ~/home-dir/nvim/plugins/ultisnips.vim
 
 " Git access from inside Vim.
