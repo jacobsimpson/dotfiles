@@ -7,7 +7,7 @@ Plug 'bronson/vim-visual-star-search'
 
 Plug 'tpope/vim-surround'
 
-Plug 'neovim/nvim-lsp'
+source ~/home-dir/nvim/plugins/nvim-lsp.vim
 
 source ~/home-dir/nvim/plugins/ultisnips.vim
 
