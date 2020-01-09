@@ -49,7 +49,7 @@ Plug 'machakann/vim-highlightedyank'
 "
 Plug 'jrozner/vim-antlr'
 
-Plug 'neomake/neomake'
+source ~/home-dir/nvim/plugins/neomake.vim
 
 source ~/home-dir/nvim/language/go.vim
 source ~/home-dir/nvim/language/java.vim
