@@ -45,7 +45,7 @@ endfunction
 
 function! language#java#Scratch()
     let tmpdir="/tmp/vim-scratch-java-".strftime('%Y-%m-%d-%H-%M-%S')
-    let src="~/home-dir/vim/language/templates/Scratch.java"
+    let src="~/home-dir/nvim/language/templates/Scratch.java"
     let dst=l:tmpdir . "/Main.java"
 
     if !isdirectory(tmpdir)
