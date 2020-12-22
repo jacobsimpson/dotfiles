@@ -44,6 +44,9 @@ source ~/home-dir/nvim/plugins/fzf.vim
 " what happened.
 Plug 'machakann/vim-highlightedyank'
 
+" Adds the closing element whenever an opening element is inserted.
+Plug 'Raimondi/delimitMate'
+
 " ############################################################
 " ################### Experimental Plugins ###################
 "
