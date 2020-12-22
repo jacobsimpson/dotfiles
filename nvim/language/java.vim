@@ -28,11 +28,17 @@ function! language#java#GoAlternate()
         if n =~ "^src/test/"
             let n = "src/main" . strpart(n, 8)
         endif
+        if n =~ "^app/src/test/"
+            let n = "app/src/main" . strpart(n, 12)
+        endif
         execute "edit " . n
     else
         let n = strpart(l, 0, strlen(l) - 5) . "Test.java"
         if n =~ "^src.main."
             let n = "src/test" . strpart(n, 8)
+        endif
+        if n =~ "^app.src.main."
+            let n = "app/src/test" . strpart(n, 12)
         endif
         execute "edit " . n
     endif
