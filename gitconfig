@@ -99,7 +99,7 @@
     default = simple
 [core]
     pager = less -FMRiX
-    editor = /usr/local/bin/nvim
+    editor = /home/jacobsimpson/bin/nvim
     excludesfile = ~/home-dir/gitignore
 [merge]
     tool = vimdiff
