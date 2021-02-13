@@ -8,7 +8,7 @@ endfunction
 
 function language#typescript#Format()
     let save_pos = getpos(".")
-    execute "%!prettier %"
+    execute "%!npx prettier %"
     call setpos('.', save_pos)
 endfunction
 
