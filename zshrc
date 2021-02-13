@@ -22,7 +22,7 @@ else
     alias ls='ls -F --color=auto'
 fi
 
-alias grep='grep --color=auto'
+alias grep='egrep --color=auto'
 alias egrep='egrep --color=auto'
 alias fmtdate='python -c "import sys; from datetime import datetime; print datetime.strftime(datetime.strptime(sys.stdin.read().strip(), sys.argv[1]), sys.argv[2])"'
 
