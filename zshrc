@@ -143,5 +143,4 @@ if which jenv >& /dev/null ; then
   eval "$(jenv init -)"
 fi
 
-# Fix golang package stupidity.
- alias ff='find $GOPATH/pkg -type d -exec chmod a+wx {} \;'
+alias cd.='cd $(pwd)'
