@@ -12,7 +12,6 @@ like:
 To set this up on a new computer:
 
 ```sh
-git clone https://github.com/jacobsimpson/home-dir.git
-home-dir/install.sh
+git clone https://github.com/jacobsimpson/dotfiles.git
+dotfiles/install.sh
 ```
-
