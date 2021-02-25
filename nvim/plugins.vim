@@ -52,6 +52,7 @@ Plug 'Raimondi/delimitMate'
 "
 Plug 'jrozner/vim-antlr'
 
+source ~/home-dir/nvim/plugins/treesitter.vim
 source ~/home-dir/nvim/plugins/neomake.vim
 
 source ~/home-dir/nvim/language/go.vim
