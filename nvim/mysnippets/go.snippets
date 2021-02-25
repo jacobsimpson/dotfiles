@@ -20,6 +20,12 @@ snippet ap "a = append(a, b)"
 ${1} = append($1, ${2})$0
 endsnippet
 
+snippet if "if ? {}"
+if ${1} {
+    ${0}
+}
+endsnippet
+
 snippet ifer "if err != nil { return err }"
 if err != nil {
     return ${1}${1/(.+)/, /}err
@@ -78,6 +84,10 @@ t.Run(${1:test.name}, func(t *testing.T) {
 })
 endsnippet
 
+snippet exit "os.Exit(?)"
+os.Exit(${1})${0}
+endsnippet
+
 snippet p1 "fmt.Printf(1\n)"
 fmt.Printf("1\n")$0
 endsnippet
@@ -125,4 +135,3 @@ endsnippet
 snippet p12 "fmt.Printf(12\n)"
 fmt.Printf("12\n")$0
 endsnippet
-
