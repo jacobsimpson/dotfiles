@@ -1,4 +1,4 @@
-# home-dir
+# dotfiles
 
 Basic home directory configuration for a Unix box. I try to keep everything in
 here so I can easily check it out on a new machine and quickly configure it to

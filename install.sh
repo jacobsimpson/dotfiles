@@ -14,21 +14,21 @@ else
 fi
 
 mkdir -p ~/.config
-ln -nsf ~/home-dir/nvim ~/.config/nvim
+ln -nsf ~/dotfiles/nvim ~/.config/nvim
 ln -nsf ~/.vim ~/.nvim
-ln -nsf ~/home-dir/nvim/init.vim ~/.vimrc
+ln -nsf ~/dotfiles/nvim/init.vim ~/.vimrc
 # This is the directory where backup files are written. For some reason Neovim
 # doesn't create this itself. Or, it didn't at 10/29/2015.
 mkdir ~/.local/share/nvim/backup
 
-ln -nsf ~/home-dir/psqlrc ~
+ln -nsf ~/dotfiles/psqlrc ~
 
 echo "Installing the Git configuration."
-if grep "home-dir.gitconfig" ~/.gitconfig >& /dev/null ; then
+if grep "dotfiles.gitconfig" ~/.gitconfig >& /dev/null ; then
     echo "    The Git config settings are already installed. Skipping."
 else
     echo '[include]
-    path = ~/home-dir/gitconfig
+    path = ~/dotfiles/gitconfig
 ' >> ~/.gitconfig
 fi
 
@@ -42,10 +42,10 @@ else
 fi
 
 echo "Installing zshrc settings."
-if grep "source .*home-dir.zshrc" ~/.zshrc >& /dev/null ; then
+if grep "source .*dotfiles.zshrc" ~/.zshrc >& /dev/null ; then
     echo "    zshrc settings already installed. Skipping."
 else
-    echo 'test -f ~/home-dir/zshrc && source ~/home-dir/zshrc' >> ~/.zshrc
+    echo 'test -f ~/dotfiles/zshrc && source ~/dotfiles/zshrc' >> ~/.zshrc
 fi
 
 if uname -a | grep Darwin >& /dev/null ; then

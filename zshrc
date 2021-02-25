@@ -3,7 +3,7 @@
 # sourced from inside the ~/.zshrc.
 # Add this line to ~/.zshrc:
 #
-# test -f ~/home-dir/zshrc && source ~/home-dir/zshrc
+# test -f ~/dotfiles/zshrc && source ~/dotfiles/zshrc
 #
 
 # Disables sharing history between active terminals.
@@ -38,7 +38,7 @@ HISTSIZE=100000
 
 path+=('/sbin' '/usr/sbin')
 
-export PYTHONSTARTUP=${HOME}/home-dir/python/pyprompt.py
+export PYTHONSTARTUP=${HOME}/dotfiles/python/pyprompt.py
 
 function rg() {
     find . -name "$2" -exec egrep --color=auto -H "$1" {} \;
@@ -131,7 +131,7 @@ export PROMPT="${PROMPT}
 ${ret_status}%{$fg_bold[green]%}%p %{$reset_color%}"
 
 # Enable extended history.
-source ~/home-dir/extended-history.plugin.zsh
+source ~/dotfiles/extended-history.plugin.zsh
 
 # Make the terminal stop beeping, ever.
 unsetopt beep

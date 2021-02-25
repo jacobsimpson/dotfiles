@@ -64,7 +64,7 @@ autocmd FileType go compiler go
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
-    source ~/home-dir/nvim/plugins.vim
+    source ~/dotfiles/nvim/plugins.vim
 call plug#end()
 
 " Options for highlighting matching values of search.
@@ -216,7 +216,7 @@ augroup Misc
     autocmd VimResized * exe "normal! \<c-w>="
 augroup END
 
-source ~/home-dir/nvim/nvimrc
+source ~/dotfiles/nvim/nvimrc
 
 " Automatically save the file when the user does a build.
 set autowrite

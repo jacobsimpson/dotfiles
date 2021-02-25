@@ -100,7 +100,7 @@
 [core]
     pager = less -FMRiX
     editor = /home/jacobsimpson/bin/nvim
-    excludesfile = ~/home-dir/gitignore
+    excludesfile = ~/dotfiles/gitignore
 [merge]
     tool = vimdiff
 [difftool]

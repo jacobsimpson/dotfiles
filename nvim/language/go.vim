@@ -129,7 +129,7 @@ function language#go#Scratch()
     if !isdirectory(tmpdir)
         call mkdir(tmpdir, "p")
     endif
-    execute ":e ~/home-dir/nvim/language/templates/scratch.go"
+    execute ":e ~/dotfiles/nvim/language/templates/scratch.go"
     execute ":saveas ".tmpdir."/main.go"
     execute ":normal jjjjjjw"
 endfunction
