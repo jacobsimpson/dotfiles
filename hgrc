@@ -1,0 +1,6 @@
+# Mercurial configuration.
+#
+# hg config --debug can help you understand what is introducing a setting into
+# your environment.
+
+%include ~/.hgrc.local

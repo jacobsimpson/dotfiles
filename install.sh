@@ -32,6 +32,11 @@ else
 ' >> ~/.gitconfig
 fi
 
+ln -nsf ~/dotfiles/hgrc ~/.hgrc
+if [[ ! -e ~/.hgrc ]]; then
+    echo "# Mercurial settings local to this machine" > ~/.hgrc.local
+fi
+
 echo "Installng Oh My Zsh"
 if [[ -d ${HOME}/.oh-my-zsh ]]; then
     echo "    Oh My Zsh already installed. Skipping."
