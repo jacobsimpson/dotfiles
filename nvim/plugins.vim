@@ -1,4 +1,4 @@
-source ~/dotfiles/nvim/plugins/easymotion.vim
+call SourceConfig("plugins/easymotion.vim")
 
 " When a visual selection is active, pressing * or # will do a file
 " search of the selection, instead of a file search of the word under the
@@ -7,9 +7,9 @@ Plug 'bronson/vim-visual-star-search'
 
 Plug 'tpope/vim-surround'
 
-source ~/dotfiles/nvim/plugins/nvim-lsp.vim
+call SourceConfig("plugins/nvim-lsp.vim")
 
-source ~/dotfiles/nvim/plugins/ultisnips.vim
+call SourceConfig("/plugins/ultisnips.vim")
 
 " Git access from inside Vim.
 Plug 'tpope/vim-fugitive'
@@ -29,16 +29,16 @@ Plug 'tpope/vim-eunuch'
 " Add better text object handling, things like ci" or ci(
 Plug 'wellle/targets.vim'
 
-source ~/dotfiles/nvim/plugins/signify.vim
+call SourceConfig("plugins/signify.vim")
 
 " Strip trailing whitespace on save.
-source ~/dotfiles/nvim/plugins/vim-better-whitespace.vim
+call SourceConfig("plugins/vim-better-whitespace.vim")
 
 " Extended regular expression support for / and ? searches.
 " Haven't figured out how to make it work incrementally.
 "Plug 'othree/eregex.vim'
 
-source ~/dotfiles/nvim/plugins/fzf.vim
+call SourceConfig("plugins/fzf.vim")
 
 " After a yank, the yanked text is highlighted in a different color to show
 " what happened.
@@ -52,16 +52,16 @@ Plug 'Raimondi/delimitMate'
 "
 Plug 'jrozner/vim-antlr'
 
-source ~/dotfiles/nvim/plugins/treesitter.vim
-source ~/dotfiles/nvim/plugins/neomake.vim
+call SourceConfig("plugins/treesitter.vim")
+call SourceConfig("plugins/neomake.vim")
 
-source ~/dotfiles/nvim/language/go.vim
-source ~/dotfiles/nvim/language/java.vim
-source ~/dotfiles/nvim/language/json.vim
-source ~/dotfiles/nvim/language/lua.vim
-source ~/dotfiles/nvim/language/typescript.vim
-source ~/dotfiles/nvim/language/markdown.vim
-source ~/dotfiles/nvim/language/rust.vim
-source ~/dotfiles/nvim/language/vim.vim
-source ~/dotfiles/nvim/language/make.vim
-source ~/dotfiles/nvim/language.vim
+call SourceConfig("language/go.vim")
+call SourceConfig("language/java.vim")
+call SourceConfig("language/json.vim")
+call SourceConfig("language/lua.vim")
+call SourceConfig("language/typescript.vim")
+call SourceConfig("language/markdown.vim")
+call SourceConfig("language/rust.vim")
+call SourceConfig("language/vim.vim")
+call SourceConfig("language/make.vim")
+call SourceConfig("language.vim")

@@ -5,7 +5,7 @@
 " example that does this.
 "
 " The documentation indicates I should not use a directory named 'snippets'.
-let &runtimepath.="," . $HOME . "/dotfiles/nvim/runtime"
+let &runtimepath.="," . g:ConfigDir . "/runtime"
 let g:UltiSnipsSnippetDirectories=["mysnippets"]
 
 " Improved snippet support.

@@ -17,7 +17,7 @@ endfunction
 
 function! language#java#Format()
     let save_pos = getpos(".")
-    execute "%!java -jar ~/dotfiles/nvim/support/google-java-format-1.6-all-deps.jar -"
+    execute "%!java -jar " . g:ConfigDir . "/support/google-java-format-1.6-all-deps.jar -"
     call setpos('.', save_pos)
 endfunction
 
@@ -51,7 +51,7 @@ endfunction
 
 function! language#java#Scratch()
     let tmpdir="/tmp/vim-scratch-java-".strftime('%Y-%m-%d-%H-%M-%S')
-    let src="~/dotfiles/nvim/language/templates/Scratch.java"
+    let src=g:ConfigDir . "language/templates/Scratch.java"
     let dst=l:tmpdir . "/Main.java"
 
     if !isdirectory(tmpdir)

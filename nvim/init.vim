@@ -1,3 +1,14 @@
+" Although it seems like it should be possible to detect the current directory
+" of _this_ config file, and use that as the config root directory (i.e. let
+" ConfigDir = expand('%:p:h')), when neovim is started with a file specified
+" on the command line (i.e. vi ~/.zshrc), % will actually refer to the file
+" specified on the command line, and not this file.
+let ConfigDir = '~/dotfiles/nvim/'
+
+function! SourceConfig(file)
+  exe 'source' g:ConfigDir . a:file
+endfunction
+
 function! SourceIfExists(file)
   if filereadable(expand(a:file))
     exe 'source' a:file
@@ -64,7 +75,7 @@ autocmd FileType go compiler go
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
-    source ~/dotfiles/nvim/plugins.vim
+    call SourceConfig("plugins.vim")
 call plug#end()
 
 " Options for highlighting matching values of search.
@@ -216,7 +227,7 @@ augroup Misc
     autocmd VimResized * exe "normal! \<c-w>="
 augroup END
 
-source ~/dotfiles/nvim/nvimrc
+call SourceConfig("/nvimrc")
 
 " Automatically save the file when the user does a build.
 set autowrite
