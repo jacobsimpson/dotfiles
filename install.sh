@@ -37,6 +37,8 @@ if [[ ! -e ~/.hgrc ]]; then
     echo "# Mercurial settings local to this machine" > ~/.hgrc.local
 fi
 
+ln -nsf ~/dotfiles/tmux.conf ~/.tmux.conf
+
 echo "Installng Oh My Zsh"
 if [[ -d ${HOME}/.oh-my-zsh ]]; then
     echo "    Oh My Zsh already installed. Skipping."
