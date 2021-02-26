@@ -298,11 +298,11 @@ autocmd FileType help nnoremap <silent> <buffer> <ESC> :bd<CR>
 autocmd FileType help nnoremap <silent> <buffer> <C-C> :bd<CR>
 autocmd FileType help nnoremap <silent> <buffer> q :bd<CR>
 
-nnoremap <silent> yaf ggyG<C-o>
-nnoremap <silent> yif ggyG<C-o>
-nnoremap <silent> vif ggVG
-nnoremap <silent> vaf ggVG
-nnoremap <silent> cif ggVGc
-nnoremap <silent> caf ggVGc
+nnoremap <silent> yaF ggyG<C-o>
+nnoremap <silent> yiF ggyG<C-o>
+nnoremap <silent> viF ggVG
+nnoremap <silent> vaF ggVG
+nnoremap <silent> ciF ggVGc
+nnoremap <silent> caF ggVGc
 
 call SourceIfExists("~/.vimrc.local")
