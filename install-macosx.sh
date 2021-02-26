@@ -12,6 +12,17 @@ fi
 # Install the XCode command line tools, including Git.
 xcode-select --install
 
+# Set Capslock to function as the Escape key. This makes the expected changes,
+# (which can be viewed with defaults -currentHost read -g), but the change
+# doesn't take effect. Log back out and in for the change to take effect. The
+# magic number seems to be vendor/product id, can retrieve with `ioreg -n
+# IOHIDKeyboard -r`.
+# https://apple.stackexchange.com/questions/4813/changing-modifier-keys-from-the-command-line
+defaults -currentHost write -g com.apple.keyboard.modifiermapping.1452-627-0 '({
+  HIDKeyboardModifierMappingDst = 30064771113;
+  HIDKeyboardModifierMappingSrc = 30064771129;
+})'
+
 # Set the defaults so all files are visible in Finder.
 defaults write com.apple.finder AppleShowAllFiles YES
 # Set the initial delay after a key is held down until it repeats.
