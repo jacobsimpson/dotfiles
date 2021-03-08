@@ -15,6 +15,21 @@ function! SourceIfExists(file)
   endif
 endfunction
 
+" These don't seem to work. The Neovim documentation implies that setting
+" these variables will select the python interpreter. However, when I set
+" these, I still get python errors (neovim can't find the neovim package in
+" the interpreter). When I select a virtual environment (pyenv activate
+" neovim-3.9) before launching neovim, then neovim is able to use Python for
+" plugins.
+"let g:python_host_prog = $HOME."/.pyenv/versions/neovim-2.7/bin/python2"
+"let g:python3_host_prog = $HOME."/.pyenv/versions/neovim-3.9/bin/python3"
+
+" This is the setting the actually worked selecting a virtualenv for a Python
+" interpreter for neovim to use. This environment variable is honored by pyenv
+" for selecting a specific interpreter. As long as I don't need both a 2.7
+" interpreter and a 3.x interpreter.
+let $PYENV_VERSION="neovim-3.9"
+
 syntax on
 filetype plugin indent off
 set tabstop=4
