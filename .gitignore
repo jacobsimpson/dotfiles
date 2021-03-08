@@ -1,4 +1,11 @@
+# Allow this repository to have some local configuration. That way, this
+# repository can have a user that is different from the default git user on the
+# host.
+.gitconfig
+
+# Editor swap files.
 .*.sw?
 .sw?
+
 .netrwhist
 /vim/bundle/*/
