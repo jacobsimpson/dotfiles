@@ -52,6 +52,7 @@ Plug 'Raimondi/delimitMate'
 "
 Plug 'jrozner/vim-antlr'
 
+call SourceConfig("plugins/ale.vim")
 call SourceConfig("plugins/treesitter.vim")
 call SourceConfig("plugins/neomake.vim")
 
