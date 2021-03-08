@@ -56,7 +56,7 @@ else
 fi
 
 if uname -a | grep Darwin >& /dev/null ; then
-    ${HOME}/dotfiles/install.macosx.sh
+    ${HOME}/dotfiles/install-macosx.sh
 fi
 
 echo
