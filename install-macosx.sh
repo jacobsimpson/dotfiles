@@ -51,20 +51,31 @@ ls -d /Library/Java/JavaVirtualMachines/jdk*/Contents/Home/. \
 jenv global 1.15
 
 # Python is used by many things, and sometimes older and newer versions must
-# coexist.
+# coexist. See a list of available versions with pyenv install --versions
 brew install pyenv
 brew install pyenv-virtualenv
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 pyenv install 2.7.18
-pyenv install 3.9.2
-pyenv global 3.9.2
-pyenv virtualenv 2.7.18 neovim-2.7
-pyenv virtualenv 3.9.2 neovim-3.9
-pyenv virtualenv 2.7.18 global-2.7
-pyenv virtualenv 3.9.2 global-3.9
+pyenv shell 2.7.18
 pip install --upgrade pip
-pip install virtualenv
+pyenv install 3.9.1
+pyenv shell3.9.1
+pip install --upgrade pip
+pyenv global 3.9.1
+pyenv virtualenv 2.7.18 global-2.7
+pyenv virtualenv 3.9.1 global-3.9
+
+# Follow in the instructions at https://neovim.io/doc/user/provider.html
+pyenv virtualenv 2.7.18 neovim-2.7
+pyenv activate neovim-2.7
+pip install --upgrade pip
+pip install pynvim
+
+pyenv virtualenv 3.9.1 neovim-3.9
+pyenv activate neovim-3.9
+pip install --upgrade pip
+pip install pynvim
 
 # Install Go lang.
 export GOPATH=~/golang
