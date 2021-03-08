@@ -36,11 +36,8 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 
 brew install ag
 brew install jq
-brew install google-chrome
-brew install karabiner # To remap Pause to Eject for locking the screen.
+#brew install google-chrome
 brew install iterm2
-brew install seil
-brew install xquartz
 brew install --HEAD luajit
 brew install --HEAD neovim
 brew install coreutils
