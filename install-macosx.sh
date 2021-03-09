@@ -1,6 +1,14 @@
 #! /bin/bash
 # Installing Mac specific updates.
 
+function brew_install() {
+    if brew list "${@: -1}" >& /dev/null ; then
+        printf "%-20s is already installed, skipping...\n" "${@: -1}"
+    else
+        brew install "$@"
+    fi
+}
+
 echo "Installing homebrew for Mac package management."
 if which brew >& /dev/null ; then
     echo "    Homebrew is already installed."
@@ -34,16 +42,16 @@ defaults write NSGlobalDomain KeyRepeat -int 1
 # Setting this true brings up the alternate input menu for certain keys.
 defaults write -g ApplePressAndHoldEnabled -bool false
 
-brew install ag
-brew install jq
+brew_install ag
+brew_install jq
 #brew install google-chrome
-brew install iterm2
-brew install --HEAD luajit
-brew install --HEAD neovim
-brew install coreutils
+brew_install iterm2
+brew_install --HEAD luajit
+brew_install --HEAD neovim
+brew_install coreutils
 
-brew install openjdk
-brew install jenv
+brew_install openjdk
+brew_install jenv
 path=($HOME/.jenv/bin $path)
 eval "$(jenv init -)"
 ls -d /Library/Java/JavaVirtualMachines/jdk*/Contents/Home/. \
@@ -52,15 +60,15 @@ jenv global 1.15
 
 # Python is used by many things, and sometimes older and newer versions must
 # coexist. See a list of available versions with pyenv install --versions
-brew install pyenv
-brew install pyenv-virtualenv
+brew_install pyenv
+brew_install pyenv-virtualenv
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 pyenv install 2.7.18
 pyenv shell 2.7.18
 pip install --upgrade pip
 pyenv install 3.9.1
-pyenv shell3.9.1
+pyenv shell 3.9.1
 pip install --upgrade pip
 pyenv global 3.9.1
 pyenv virtualenv 2.7.18 global-2.7
@@ -86,16 +94,16 @@ export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
-brew install go
+brew_install go
 # Mercurial is used by the Go get command for installing some packages.
-brew install mercurial
+brew_install mercurial
 
 go get golang.org/x/tools/cmd/godoc
 go get golang.org/x/tools/cmd/vet
 
 # Install Rust.
-brew install rust
-brew install luajit
+brew_install rust
+brew_install luajit
 
 # Agree to the Mac OS X XCode License.
 sudo xcodebuild -license
