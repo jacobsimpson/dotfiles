@@ -59,6 +59,8 @@ call SourceConfig("plugins/ale.vim")
 call SourceConfig("plugins/treesitter.vim")
 call SourceConfig("plugins/neomake.vim")
 
+Plug 'famiu/bufdelete.nvim'
+
 call SourceConfig("language/go.vim")
 call SourceConfig("language/java.vim")
 call SourceConfig("language/json.vim")

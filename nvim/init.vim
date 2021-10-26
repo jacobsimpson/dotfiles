@@ -192,12 +192,10 @@ vnoremap > >gv
 
 " Buffer navigation is extremely common, so there are some things I remapped
 " to make that go faster. I hope.
-map <silent> ,bd :bd<CR>
+map <silent> ,bd :Bdelete<CR>
 map <silent> ,bb :b#<CR>
 map <silent> ,bp :bp<CR>
 map <silent> ,bn :bn<CR>
-" Allow the current buffer to be deleted without removing the window.
-map <silent> ,bc :bp\|bd #<CR>
 map <silent> ,bl :Buffers<CR>
 
 " Make the cursor at least this many lines away from the edge of the screen.
