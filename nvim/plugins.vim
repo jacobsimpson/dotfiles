@@ -52,6 +52,9 @@ Plug 'Raimondi/delimitMate'
 "
 Plug 'jrozner/vim-antlr'
 
+Plug 'jasontbradshaw/pigeon.vim'
+autocmd BufNewFile,BufRead *.peg set filetype=pigeon
+
 call SourceConfig("plugins/ale.vim")
 call SourceConfig("plugins/treesitter.vim")
 call SourceConfig("plugins/neomake.vim")
