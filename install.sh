@@ -34,7 +34,7 @@ else
 fi
 
 ln -nsf ~/dotfiles/hgrc ~/.hgrc
-if [[ ! -e ~/.hgrc ]]; then
+if [[ ! -e ~/.hgrc.local ]]; then
     echo "# Mercurial settings local to this machine" > ~/.hgrc.local
 fi
 
@@ -61,4 +61,3 @@ if uname -a | grep Darwin >& /dev/null ; then
 fi
 
 echo
-
