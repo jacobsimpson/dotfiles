@@ -145,5 +145,4 @@ fi
 
 alias cd.='cd $(pwd)'
 
-alias vi=/usr/local/bin/nvim
-alias vim=/usr/local/bin/nvim
+alias mkdir='mkdir -p'
