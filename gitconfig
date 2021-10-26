@@ -27,6 +27,7 @@
     re = rebase
     rec = rebase --continue
     st = status
+    l = log --name-status
 
     delete-merged = "!f() {\
         [[ $(git rev-parse --abbrev-ref HEAD) == 'master' ]] && git branch --merged | egrep -v '\\*|master|dev' | xargs -n 1 git branch -d ; \
