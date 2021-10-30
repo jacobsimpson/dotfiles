@@ -55,6 +55,10 @@ Plug 'jrozner/vim-antlr'
 Plug 'jasontbradshaw/pigeon.vim'
 autocmd BufNewFile,BufRead *.peg set filetype=pigeon
 
+" Should cause the current block to be brighter and the surrounding code
+" to be dimmed.
+call SourceConfig("plugins/twilight.vim")
+
 call SourceConfig("plugins/treesitter.vim")
 call SourceConfig("plugins/neomake.vim")
 
