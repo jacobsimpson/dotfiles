@@ -329,3 +329,5 @@ call SourceIfExists("~/.vimrc.local")
 " you are replacing? This mapping makes it so that the contents of the buffer
 " are preserved after a visual paste.
 vnoremap p "_dP
+
+set textwidth=100
