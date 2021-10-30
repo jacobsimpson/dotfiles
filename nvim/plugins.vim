@@ -49,6 +49,8 @@ Plug 'Raimondi/delimitMate'
 " ############################################################
 " ################### Experimental Plugins ###################
 "
+Plug 'hashivim/vim-terraform'
+
 Plug 'jrozner/vim-antlr'
 
 Plug 'jasontbradshaw/pigeon.vim'
