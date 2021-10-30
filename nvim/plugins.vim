@@ -22,10 +22,6 @@ Plug 'tpope/vim-fugitive'
 " Move.
 Plug 'tpope/vim-eunuch'
 
-"" These two plugins are for Language Server Protocal integration.
-"Plug 'prabirshrestha/async.vim'
-"Plug 'prabirshrestha/vim-lsp'
-
 " Add better text object handling, things like ci" or ci(
 Plug 'wellle/targets.vim'
 
