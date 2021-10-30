@@ -71,6 +71,9 @@ set hidden
 " As it turns out, this is painful. It's always in the way, I often have to
 " delete it for some reason.
 "
+" What I really want is for all / searches to just be extended regular
+" expression. Haven't found a way to do that yet.
+"
 "nnoremap / /\v
 "vnoremap / /\v
 
