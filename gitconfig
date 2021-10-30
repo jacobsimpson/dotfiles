@@ -28,6 +28,8 @@
     rec = rebase --continue
     st = status
     l = log --name-status
+    xl = log --graph --oneline --all
+    log = log --graph --oneline --all
 
     delete-merged = "!f() {\
         [[ $(git rev-parse --abbrev-ref HEAD) == 'master' ]] && git branch --merged | egrep -v '\\*|master|dev' | xargs -n 1 git branch -d ; \
@@ -98,11 +100,17 @@
 
 [push]
     default = simple
+
 [core]
     pager = less -FMRiX
     editor = /home/jacobsimpson/bin/nvim
     excludesfile = ~/dotfiles/gitignore
+
 [merge]
     tool = vimdiff
+
 [difftool]
     prompt = false
+
+[branch]
+	autosetuprebase = always
