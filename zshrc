@@ -90,6 +90,7 @@ alias history='fc -iln 0'
 # ➜  2015-09-02-WordSearch  ls src
 unsetopt HIST_VERIFY
 
+#export PATH=$PATH:$HOME/.pyenv/bin/
 if which pyenv &> /dev/null; then
     # pyenv shell switches between different Python interpreters, and it hacks up
     # my prompt to show me which one is active, but I would rather it didn't do
@@ -98,7 +99,7 @@ if which pyenv &> /dev/null; then
 
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)" >& /dev/null
-    pyenv shell 3.7.0
+    pyenv shell 3.9.1
 fi
 
 function mcd() {
