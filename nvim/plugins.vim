@@ -6,6 +6,7 @@ call SourceConfig("plugins/hop.vim")
 Plug 'bronson/vim-visual-star-search'
 
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 
 call SourceConfig("plugins/nvim-lsp.vim")
 
