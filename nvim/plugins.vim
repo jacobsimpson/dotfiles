@@ -51,6 +51,10 @@ Plug 'Raimondi/delimitMate'
 "
 Plug 'hashivim/vim-terraform'
 
+" Overrides the 'delete' operations (d, c, etc) so that they don't replace put the delete in the
+" default buffer.
+Plug 'svermeulen/vim-cutlass'
+
 Plug 'jrozner/vim-antlr'
 
 Plug 'jasontbradshaw/pigeon.vim'
