@@ -1,0 +1,59 @@
+#global !p
+#def junit(snip):
+#	if snip.opt("g:ultisnips_java_junit", "") == "3":
+#		snip += ""
+#	else:
+#		snip.rv += "@Test\n\t"
+#def nl(snip):
+#	if snip.opt("g:ultisnips_java_brace_style", "") == "nl":
+#		snip += ""
+#	else:
+#		snip.rv += " "
+#def getArgs(group):
+#	import re
+#	word = re.compile('[a-zA-Z0-9><.]+ \w+')
+#	return [i.split(" ") for i in word.findall(group) ]
+#def camel(word):
+#	if not word: return ''
+#	return word[0].upper() + word[1:]
+#def mixedCase(word):
+#	if not word: return ''
+#	return word[0].lower() + word[1:]
+#endglobal
+
+snippet if "if () { }"
+	if ($1) {
+	    $0
+	}
+snippet pl "System.out.println()"
+	System.out.println("$1");$0
+snippet pf "System.out.printf()"
+	System.out.printf("$1\n", $2);$0
+snippet fore "for (:)"
+	for (var $1 : $2) {
+	  $0
+	}
+snippet fori "for var i = 0; i < n; i++"
+	for (var i = 0; i < $1; i++) {
+	  $0
+	}
+snippet maincl "public class Main{}"
+	public class ${1:`v:lua.snippy_get_java_classname()`} {
+		public static void main(String... args) {
+			$0
+		}
+	}
+#snippet cn "constructor, \w fields + assigments" b
+#	`!p
+#args = getArgs(t[1])
+#for i in args:
+#	snip.rv += "\n\tprivate " + i[0] + " " + i[1]+ ";"
+#if len(args) > 0:
+#	snip.rv += "\n"`
+#public `!p snip.rv = snip.basename or "unknown"`($1) {`!p
+#args = getArgs(t[1])
+#for i in args:
+#	snip.rv += "\n\t\tthis.%s = %s;" % (i[1], i[1])
+#if len(args) == 0:
+#	snip.rv += "\n"`
+#}

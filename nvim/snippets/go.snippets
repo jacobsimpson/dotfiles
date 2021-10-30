@@ -1,0 +1,110 @@
+snippet f "for {...}"
+	for {
+		${VISUAL}${0}
+	}
+
+snippet fr "for _, a := range r {...}"
+	for _, ${1} := range ${2} {
+		${VISUAL}${0}
+	}
+
+snippet fri "for i, a := range r {...}"
+	for ${1:i}, ${2} := range ${3} {
+		${VISUAL}${0}
+	}
+
+snippet ap "a = append(a, b)"
+	${1} = append($1, ${2})$0
+
+snippet if "if ? {}"
+	if ${1} {
+	    ${0}
+	}
+
+snippet ifer "if err != nil { return err }"
+	if err != nil {
+	    return ${1}${1/(.+)/, /}err
+	}
+	$0
+
+snippet ife "if a == b {...}"
+	if ${1} == ${2} {
+	    ${0}
+	}
+
+snippet pl "fmt.Println(...)"
+	fmt.Println("${1}")$0
+
+snippet pf "fmt.Printf(...)"
+	fmt.Printf("${1}\n"${2/(.+)/, /}${2})$0
+
+snippet /^cons/ "Constants declaration" r
+	const (
+		${1:constant}${2/(.+)/ /}${2:type} = ${0:value}
+	)
+
+snippet fn "func name(...) [ret] {...}"
+	func ${1}(${2})${3/(.+)/ /}${3} {
+	    $0
+	}
+
+snippet fnt "func Test<x>(...) {...}"
+	func Test${1}(t *testing.T) {
+	    $0
+	}
+
+snippet tests "tests := ..."
+	tests := []struct{
+		name string
+	    ${1}
+	}{}
+
+	for _, test := range tests {
+	    t.Run(test.name, func(t *testing.T) {
+		    ${0}
+		})
+	}
+
+snippet fnr "t.Run(..., func() {...})"
+	t.Run(${1:test.name}, func(t *testing.T) {
+	    ${0}
+	})
+
+snippet exit "os.Exit(?)"
+	os.Exit(${1})${0}
+
+snippet p1 "fmt.Printf(1\n)"
+	fmt.Printf("1\n")$0
+
+snippet p2 "fmt.Printf(2\n)"
+	fmt.Printf("2\n")$0
+
+snippet p3 "fmt.Printf(3\n)"
+	fmt.Printf("3\n")$0
+
+snippet p4 "fmt.Printf(4\n)"
+	fmt.Printf("4\n")$0
+
+snippet p5 "fmt.Printf(5\n)"
+	fmt.Printf("5\n")$0
+
+snippet p6 "fmt.Printf(6\n)"
+	fmt.Printf("6\n")$0
+
+snippet p7 "fmt.Printf(7\n)"
+	fmt.Printf("7\n")$0
+
+snippet p8 "fmt.Printf(8\n)"
+	fmt.Printf("8\n")$0
+
+snippet p9 "fmt.Printf(9\n)"
+	fmt.Printf("9\n")$0
+
+snippet p10 "fmt.Printf(10\n)"
+	fmt.Printf("10\n")$0
+
+snippet p11 "fmt.Printf(11\n)"
+	fmt.Printf("11\n")$0
+
+snippet p12 "fmt.Printf(12\n)"
+	fmt.Printf("12\n")$0

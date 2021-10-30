@@ -9,7 +9,9 @@ Plug 'tpope/vim-surround'
 
 call SourceConfig("plugins/nvim-lsp.vim")
 
-call SourceConfig("/plugins/ultisnips.vim")
+" Snippet support. I've never been really good at using this, but it seems
+" like a good idea.
+call SourceConfig("/plugins/vsnip.vim")
 
 " Git access from inside Vim.
 Plug 'tpope/vim-fugitive'

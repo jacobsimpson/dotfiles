@@ -1,0 +1,14 @@
+snippet fn "fn name(...) [ret] {...}"
+	fn ${1}(${2})${3/(.+)/ -> /}${3} {
+	    $0
+	}
+snippet ifl "if let Some(?) == {}"
+	if let Some(${1}) = ${2} {
+	    ${0}
+	}
+snippet fori "for a in 0..x {...}"
+	for ${1} in ${2} .. ${3} {
+		${VISUAL}${0}
+	}
+snippet pl "println!(...)"
+	println!("${1}");$0
