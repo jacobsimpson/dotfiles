@@ -18,6 +18,17 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend upda
 lua <<EOF
 function nvim_treesitter_incremental_selection_initialize()
     require'nvim-treesitter.configs'.setup {
+      ensure_installed = {
+          "java",
+          "rust",
+          "go",
+          "bash",
+          "dockerfile",
+          "gomod",
+          "vim"}, -- Ensure that these parsers are installed.
+      highlight = {
+        enable = true,
+      },
       incremental_selection = {
         enable = true,
         keymaps = {
