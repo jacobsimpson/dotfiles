@@ -1,5 +1,5 @@
 
-" The treesitter plugin itself provides language parsing and supportes
+" The treesitter plugin itself provides language parsing and supports
 " queries. Actual functionality is implemented by modules, configured below.
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
