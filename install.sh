@@ -23,6 +23,7 @@ mkdir ~/.local/share/nvim/backup
 
 ln -nsf ~/dotfiles/psqlrc ~
 ln -nsf ~/dotfiles/sqliterc ~
+ln -nsf ~/dotfiles/gradle/gradle.properties ~
 
 echo "Installing the Git configuration."
 if grep "dotfiles.gitconfig" ~/.gitconfig >& /dev/null ; then
