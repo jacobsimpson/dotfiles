@@ -108,6 +108,7 @@ filetype plugin indent on
 
 " For conceal markers.
 if has('conceal')
+    " This setting will accidentally conceal quotations in JSON files too.
     set conceallevel=2 concealcursor=niv
 endif
 
