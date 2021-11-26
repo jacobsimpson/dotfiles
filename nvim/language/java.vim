@@ -164,9 +164,9 @@ au FileType java vmap <buffer>          <Space>c  :call language#java#Comment()<
 au FileType java nmap <buffer>          <Space>c  :call language#java#Comment()<CR>
 au FileType java nmap <buffer> <silent> <Space>b  :call language#java#Build()<CR>
 au FileType java nmap <buffer> <silent> <Space>f  :call language#java#Format()<CR>
-au FileType java nmap <buffer> <silent> <Space>ga :call language#java#GoAlternate()<CR>
 au FileType java nmap <buffer>          <Space>r  :call language#java#Run()<CR>
 au FileType java nmap <buffer>          <Space>s  :call language#java#Scratch()<CR>
+
 " This behavior depends on the 'vim-test/vim-test' plugin.
 au FileType java nmap <buffer> <silent> <Space>tn :TestNearest<CR>
 au FileType java nmap <buffer> <silent> <Space>tf :TestFile<CR>
@@ -174,3 +174,7 @@ au FileType java nmap <buffer> <silent> <Space>ts :TestSuite<CR>
 au FileType java nmap <buffer> <silent> <Space>tl :TestLast<CR>
 au FileType java nmap <buffer> <silent> <Space>tv :TestVisit<CR>
 autocmd FileType java let test#java#runner = 'gradletest'
+
+" Navigation commands.
+au FileType java nmap <buffer> <silent> <Space>ga :call language#java#GoAlternate()<CR>
+au FileType java nmap <buffer> <silent> <Space>gd <cmd>lua vim.lsp.buf.definition()<CR>
