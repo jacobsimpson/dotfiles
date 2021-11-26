@@ -134,10 +134,6 @@ function language#go#Scratch()
     execute ":normal jjjjjjw"
 endfunction
 
-function language#go#Test()
-    execute ":GoTest"
-endfunction
-
 function language#go#Imports()
   execute ":% !goimports %"
   execute ":!glaze //%:h"
@@ -163,7 +159,13 @@ au FileType go nmap <buffer> <silent> <Space>f  :call language#go#Format()<CR>
 au FileType go nmap <buffer> <silent> <Space>ga :call language#go#GoAlternate()<CR>
 au FileType go nmap <buffer> <silent> <Space>r  :call language#go#Run()<CR>
 au FileType go nmap <buffer> <silent> <Space>s  :call language#go#Scratch()<CR>
-au FileType go nmap <buffer> <silent> <Space>t  :call language#go#Test()<CR>
+" This behavior depends on the 'vim-test/vim-test' plugin.
+au FileType go nmap <buffer> <silent> <Space>tn :TestNearest<CR>
+au FileType go nmap <buffer> <silent> <Space>tf :TestFile<CR>
+au FileType go nmap <buffer> <silent> <Space>ts :TestSuite<CR>
+au FileType go nmap <buffer> <silent> <Space>tl :TestLast<CR>
+au FileType go nmap <buffer> <silent> <Space>tv :TestVisit<CR>
+
 au FileType go nmap <buffer> <silent> <Space>dc :GoDebugContinue<CR>
 au FileType go nmap <buffer> <silent> <Space>db :GoDebugBreakpoint<CR>
 au FileType go nmap <buffer> <silent> <Space>ds :GoDebugStart<CR>
