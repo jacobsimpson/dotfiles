@@ -50,7 +50,12 @@ Plug 'hashivim/vim-terraform'
 
 " Overrides the 'delete' operations (d, c, etc) so that they don't replace put the delete in the
 " default buffer.
-Plug 'svermeulen/vim-cutlass'
+" NOTE: Although this seems useful, in practice I am commonly moving text from one place to another
+" and depend on the 'delete-to-buffer' behavior. Sometimes, I want to be able to delete or edit and
+" then paste. Maybe if there was a way that only explicit yanks were duplicated to a different
+" buffer (z?), then the default buffer would maintain it's current behavior, but the last yanked
+" text would always be available.
+"Plug 'svermeulen/vim-cutlass'
 
 Plug 'jrozner/vim-antlr'
 
