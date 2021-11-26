@@ -1,4 +1,57 @@
 "Plug 'google/vim-codefmt'
+Plug 'mfussenegger/nvim-jdtls'
+
+lua<<EOF
+function nvim_jdtls_initialize()
+    v = vim.api.nvim_buf_get_var(0, "has_been_entered")
+    vim.api.nvim_buf_set_var(0, "has_been_entered", 1)
+
+    local config = {
+      -- The command that starts the language server
+      cmd = {
+        -- '/Library/Java/JavaVirtualMachines/graalvm-ce-java17-21.3.0/Contents/Home/bin/java',
+        '/Users/jacob.simpson/bin/jdt-language-server-1.5.0/run.sh',
+        '-Dosgi.bundles.defaultStartLevel=4',
+        -- ADD REMAINING OPTIONS FROM https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line !
+      },
+
+      -- This is the default if not provided, you can remove it. Or adjust as needed.
+      -- One dedicated LSP server & client will be started per unique root_dir
+      root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew', 'build.gradle'})
+    }
+    -- start_or_attach needs to run each time you open a java file or buffer.
+    require('jdtls').start_or_attach(config)
+end
+EOF
+
+" Extra care was taken here to prevent multiple attachments to a buffer. Run :LspInfo to see the
+" buffers that have attachments. If a number appears more than once in the list, it seems to cause
+" odd problems in reformatting imports, if nothing else.
+autocmd BufEnter *.java if !exists('b:has_been_entered') |
+    \ let b:has_been_entered = 1 | call v:lua.nvim_jdtls_initialize() | endif
+
+"" `code_action` is a superset of vim.lsp.buf.code_action and you'll be able to
+"" use this mapping also with other language servers
+nnoremap <A-CR> <Cmd>lua require('jdtls').code_action()<CR>
+vnoremap <A-CR> <Esc><Cmd>lua require('jdtls').code_action(true)<CR>
+nnoremap <leader>r <Cmd>lua require('jdtls').code_action(false, 'refactor')<CR>
+
+nnoremap <A-o> <Cmd>lua require'jdtls'.organize_imports()<CR>
+"nnoremap crv <Cmd>lua require('jdtls').extract_variable()<CR>
+nnoremap crv :echo "this is the thing"<CR>
+vnoremap crv <Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>
+nnoremap crc <Cmd>lua require('jdtls').extract_constant()<CR>
+vnoremap crc <Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>
+vnoremap crm <Esc><Cmd>lua require('jdtls').extract_method(true)<CR>
+
+
+"" If using nvim-dap
+"" This requires java-debug and vscode-java-test bundles, see install steps in this README further below.
+nnoremap <leader>df <Cmd>lua require'jdtls'.test_class()<CR>
+nnoremap <leader>dn <Cmd>lua require'jdtls'.test_nearest_method()<CR>
+
+
+
 
 function! language#java#Build()
     if !empty(glob("build.gradle"))
@@ -62,9 +115,9 @@ function! language#java#Scratch()
     execute ":normal jj"
 endfunction
 
-function! language#java#Test()
-    execute(":make test")
-endfunction
+"function! language#java#Test()
+"    execute(":make test")
+"endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Remap :make to ant for Java files.
@@ -114,5 +167,10 @@ au FileType java nmap <buffer> <silent> <Space>f  :call language#java#Format()<C
 au FileType java nmap <buffer> <silent> <Space>ga :call language#java#GoAlternate()<CR>
 au FileType java nmap <buffer>          <Space>r  :call language#java#Run()<CR>
 au FileType java nmap <buffer>          <Space>s  :call language#java#Scratch()<CR>
-au FileType java nmap <buffer> <silent> <Space>t  :call language#java#Test()<CR>
-
+" This behavior depends on the 'vim-test/vim-test' plugin.
+au FileType java nmap <buffer> <silent> <Space>tn :TestNearest<CR>
+au FileType java nmap <buffer> <silent> <Space>tf :TestFile<CR>
+au FileType java nmap <buffer> <silent> <Space>ts :TestSuite<CR>
+au FileType java nmap <buffer> <silent> <Space>tl :TestLast<CR>
+au FileType java nmap <buffer> <silent> <Space>tv :TestVisit<CR>
+autocmd FileType java let test#java#runner = 'gradletest'
