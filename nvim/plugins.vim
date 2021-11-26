@@ -43,6 +43,8 @@ Plug 'machakann/vim-highlightedyank'
 " Adds the closing element whenever an opening element is inserted.
 Plug 'Raimondi/delimitMate'
 
+call SourceConfig("plugins/vim-test.vim")
+
 " ############################################################
 " ################### Experimental Plugins ###################
 "
