@@ -18,9 +18,6 @@ call SourceConfig("/plugins/vsnip.vim")
 Plug 'tpope/vim-fugitive'
 "autocmd Filetype gitcommit cnoremap <silent> <buffer> wq bd<CR>
 
-" Creates a nicer status line.
-"Plug 'bling/vim-airline'
-
 " In Vim support for some standard Unix commands. I'm mostly interested in
 " Move.
 Plug 'tpope/vim-eunuch'
