@@ -51,7 +51,7 @@ call SourceConfig("plugins/vim-test.vim")
 "
 Plug 'hashivim/vim-terraform'
 
-" Overrides the 'delete' operations (d, c, etc) so that they don't replace put the delete in the
+" Overrides the 'delete' operations (d, c, etc) so that they don't put the deleted text in the
 " default buffer.
 " NOTE: Although this seems useful, in practice I am commonly moving text from one place to another
 " and depend on the 'delete-to-buffer' behavior. Sometimes, I want to be able to delete or edit and
