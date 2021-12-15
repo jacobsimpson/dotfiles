@@ -40,8 +40,9 @@ call SourceConfig("plugins/fzf.vim")
 " what happened.
 Plug 'machakann/vim-highlightedyank'
 
-" Adds the closing element whenever an opening element is inserted.
-Plug 'Raimondi/delimitMate'
+" Adds a matching closing element whenever an opening element is inserted, for a list of elements
+" that commonly occur in pairs.
+call SourceConfig("plugins/nvim-autopairs.vim")
 
 call SourceConfig("plugins/vim-test.vim")
 
