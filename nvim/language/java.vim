@@ -5,12 +5,13 @@ lua<<EOF
 function nvim_jdtls_initialize()
     v = vim.api.nvim_buf_get_var(0, "has_been_entered")
     vim.api.nvim_buf_set_var(0, "has_been_entered", 1)
+    home = os.getenv('HOME')
 
     local config = {
       -- The command that starts the language server
       cmd = {
         -- '/Library/Java/JavaVirtualMachines/graalvm-ce-java17-21.3.0/Contents/Home/bin/java',
-        '/Users/jacob.simpson/bin/jdt-language-server-1.5.0/run.sh',
+        home .. '/dotfiles/nvim/language/run-jdt-language-server-1.5.0.sh',
         '-Dosgi.bundles.defaultStartLevel=4',
         -- ADD REMAINING OPTIONS FROM https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line !
       },
