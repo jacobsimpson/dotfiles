@@ -18,6 +18,12 @@ vbm startvm <vm-id|vm-name> --type headless
 
 vbm controlvm <vm-id|vm-name> poweroff
 
+## Networking
+
+vboxmanage guestproperty get debian /VirtualBox/GuestInfo/Net/0/V4/IP
+
+- this only seems to work if the extensions are installed in the guest.
+
 ## Snapshots
 vbm snapshot <vm-id|vm-name> list
 - list
@@ -35,3 +41,13 @@ Install Guest Extensions
 - add more CPUS
 - Display / Screen / Acceleration
 
+## Networking commands
+
+ip link show
+- shows the interfaces
+
+ip route(s)?
+- shows the routing table
+
+ip addr
+- shows the IP addresses
