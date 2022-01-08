@@ -150,3 +150,7 @@ alias vi=/usr/local/bin/nvim
 alias vim=/usr/local/bin/nvim
 
 alias mkdir='mkdir -p'
+
+if which exa >& /dev/null; then
+    alias ls='exa --icons -F'
+fi

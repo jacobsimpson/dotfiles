@@ -106,5 +106,10 @@ go install golang.org/x/tools/cmd/vet
 brew_install rust
 brew_install luajit
 
+brew_install exa
+
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font
+
 # Agree to the Mac OS X XCode License.
 sudo xcodebuild -license
