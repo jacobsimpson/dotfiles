@@ -95,11 +95,12 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
 brew_install go
-# Mercurial is used by the Go get command for installing some packages.
+# Mercurial is used by the Go get command for installing some packages. Not sure if mercurial is
+# used by 'go install'.
 brew_install mercurial
 
-go get golang.org/x/tools/cmd/godoc
-go get golang.org/x/tools/cmd/vet
+go install golang.org/x/tools/cmd/godoc
+go install golang.org/x/tools/cmd/vet
 
 # Install Rust.
 brew_install rust
