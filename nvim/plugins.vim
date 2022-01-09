@@ -76,6 +76,9 @@ call SourceConfig("plugins/neomake.vim")
 
 Plug 'famiu/bufdelete.nvim'
 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 Plug 'rafcamlet/nvim-luapad'
 
 call SourceConfig("language/go.vim")
