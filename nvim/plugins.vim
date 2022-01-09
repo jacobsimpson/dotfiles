@@ -76,6 +76,8 @@ call SourceConfig("plugins/neomake.vim")
 
 Plug 'famiu/bufdelete.nvim'
 
+call SourceConfig("plugins/lualine.nvim.vim")
+
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
