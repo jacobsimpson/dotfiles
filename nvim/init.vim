@@ -124,7 +124,6 @@ vmap <silent> <leader>r "xy:@x<CR>
 " Navigating quickfix should get easier.
 map <C-n> :cnext<CR>
 map <C-p> :cprevious<CR>
-nnoremap ,c :cclose<CR>
 
 " Improved window navigation key strokes. Fewer keys makes a big
 " difference for window navigation.

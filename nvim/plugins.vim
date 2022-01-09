@@ -46,6 +46,8 @@ call SourceConfig("plugins/nvim-autopairs.vim")
 
 call SourceConfig("plugins/vim-test.vim")
 
+Plug 'jacobsimpson/nvim-editconfig'
+
 " ############################################################
 " ################### Experimental Plugins ###################
 "
