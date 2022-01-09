@@ -76,6 +76,8 @@ call SourceConfig("plugins/neomake.vim")
 
 Plug 'famiu/bufdelete.nvim'
 
+Plug 'rafcamlet/nvim-luapad'
+
 call SourceConfig("language/go.vim")
 call SourceConfig("language/java.vim")
 call SourceConfig("language/json.vim")
