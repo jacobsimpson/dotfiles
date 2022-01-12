@@ -43,6 +43,10 @@ snippet maincl "public class Main{}"
 			$0
 		}
 	}
+snippet main "public static void main(...)"
+	public static void main(String... args) {
+		$0
+	}
 #snippet cn "constructor, \w fields + assigments" b
 #	`!p
 #args = getArgs(t[1])
