@@ -1,13 +1,9 @@
+" Shows how to show documentation in a popup window.
+" https://oren.github.io/articles/rust/neovim/
+"
 
 Plug 'rust-lang/rust.vim'
 Plug 'simrat39/rust-tools.nvim'
-
-lua << EOF
-function nvim_rust_tools_configure()
-    require('rust-tools').setup({})
-end
-EOF
-autocmd VimEnter * :lua nvim_rust_tools_configure()
 
 " Enable Rust formatting on save.
 let g:rustfmt_autosave = 1
@@ -16,15 +12,27 @@ function language#rust#Comment()
     execute "s#^#//#"
 endfunction
 
-function language#rust#Format()
-    let save_pos = getpos(".")
-    execute "%!rustfmt"
-    call setpos('.', save_pos)
-endfunction
+lua << EOF
+
+-- Adding the autocommands in a group means that when this file gets reloaded, the group gets
+-- cleared and autocommands are re-added. Makes the development process of reloading this file with
+-- changes idempotent.
+local group = vim.api.nvim_create_augroup("rust", {clear = true})
+vim.api.nvim_create_autocmd("VimEnter", {
+    group = group,
+    callback = function()
+        vim.schedule(
+            function()
+                require('rust-tools').setup({})
+            end
+        )
+    end
+})
+
+EOF
 
 " These are the key mappings that are expected to be common across all
 " carrying out the intended activity.
-"au FileType rust nmap <buffer> <silent> <Space>a  :call language#rust#GoAlternate()<CR>
 au FileType rust vmap <buffer>          <C-c>  :call language#rust#Comment()<CR>
 au FileType rust nmap <buffer>          <C-c>  :call language#rust#Comment()<CR>
 au FileType rust vmap <buffer>          <Space>c  :call language#rust#Comment()<CR>
@@ -43,7 +51,3 @@ au FileType rust nmap <buffer> <silent> <Space>t  :RustTest<CR>
 autocmd TermClose * nnoremap <silent> <buffer> <ESC> :bd!<CR>
 autocmd TermClose * nnoremap <silent> <buffer> <C-C> :bd!<CR>
 autocmd TermClose * nnoremap <silent> <buffer> q :bd!<CR>
-
-" Shows how to show documentation in a popup window.
-" https://oren.github.io/articles/rust/neovim/
-"
