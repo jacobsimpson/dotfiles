@@ -1,47 +1,64 @@
 
-" The treesitter plugin itself provides language parsing and supports
-" queries. Actual functionality is implemented by modules, configured below.
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+" The treesitter plugin itself provides language parsing and supports queries. Actual functionality
+" is implemented by modules, configured below.
+"
+" The TSUpdate option will cause nvim-treesitter itself to download and install up to date parsers
+" for all configured languages whenever the nvim-treesitter plugin is updated.
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 "
 " Module configuration.
 "
 
-" At this point, we are still in the special vim-plug initialization section,
-" so the nvim-treesitter has not yet been executed, and the
-" nvim-treesitter.configs object does not yet exist. So, each of the module
-" initialization sections creates a function that completes the treesitter
-" module initialization, and uses VimEnter to execute it the initialization
-" function at some time in the future.
+" At this point, we are still in the special vim-plug initialization section, so the nvim-treesitter
+" has not yet been executed, and the nvim-treesitter.configs object does not yet exist. So, each of
+" the module initialization sections creates a function that completes the treesitter module
+" initialization, and uses VimEnter to execute it the initialization function at some time in the
+" future.
 
 " Incremental selection module configuration.
 lua <<EOF
 function nvim_treesitter_incremental_selection_initialize()
     require'nvim-treesitter.configs'.setup {
+      -- Specify the parsers I want to have available.
       ensure_installed = {
-          "java",
-          "rust",
-          "go",
           "bash",
           "dockerfile",
+          "go",
           "gomod",
-          "vim"}, -- Ensure that these parsers are installed.
+          "java",
+          "lua",
+          "markdown",
+          "rust",
+          "toml",
+          "vim"
+      },
       highlight = {
         enable = true,
       },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "gnn",
-          node_incremental = "grn",
-          scope_incremental = "grc",
-          node_decremental = "grm",
-        },
-      },
+      --incremental_selection = {
+      --  enable = true,
+      --  keymaps = {
+      --    init_selection = "gnn",
+      --    node_incremental = "grn",
+      --    scope_incremental = "grc",
+      --    node_decremental = "grm",
+      --  },
+      --},
     }
 end
+
+-- Adding the autocommands in a group means that when this file gets reloaded, the group gets
+-- cleared and autocommands are re-added. Makes the development process of reloading this file with
+-- changes idempotent.
+local group = vim.api.nvim_create_augroup("treesitter_initialization", {clear = true})
+vim.api.nvim_create_autocmd("VimEnter", {
+    group = group,
+    callback = function()
+        vim.schedule(nvim_treesitter_incremental_selection_initialize)
+    end
+})
 EOF
-autocmd VimEnter * :lua nvim_treesitter_incremental_selection_initialize()
 
 " Treesitter text object module configuration.
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
@@ -64,6 +81,7 @@ function nvim_treesitter_text_object_initialize()
             ["ib"] = "@block.inner",
             ["ap"] = "@parameter.outer",
             ["ip"] = "@parameter.inner",
+            ["as"] = "@statement.outer",
           },
         },
 
@@ -112,8 +130,18 @@ function nvim_treesitter_text_object_initialize()
       },
     }
 end
+
+-- Adding the autocommands in a group means that when this file gets reloaded, the group gets
+-- cleared and autocommands are re-added. Makes the development process of reloading this file with
+-- changes idempotent.
+local group = vim.api.nvim_create_augroup("treesitter_initialization", {clear = true})
+vim.api.nvim_create_autocmd("VimEnter", {
+    group = group,
+    callback = function()
+        vim.schedule(nvim_treesitter_text_object_initialize)
+    end
+})
 EOF
-autocmd VimEnter * :lua nvim_treesitter_text_object_initialize()
 
 Plug 'nvim-treesitter/playground'
 lua <<EOF
@@ -127,5 +155,15 @@ function nvim_treesitter_playground_initialize()
         }
     }
 end
+
+-- Adding the autocommands in a group means that when this file gets reloaded, the group gets
+-- cleared and autocommands are re-added. Makes the development process of reloading this file with
+-- changes idempotent.
+local group = vim.api.nvim_create_augroup("treesitter_initialization", {clear = true})
+vim.api.nvim_create_autocmd("VimEnter", {
+    group = group,
+    callback = function()
+        vim.schedule(nvim_treesitter_playground_initialize)
+    end
+})
 EOF
-autocmd VimEnter * :lua nvim_treesitter_playground_initialize()
