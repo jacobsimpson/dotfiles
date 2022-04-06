@@ -323,10 +323,9 @@ nnoremap <silent> caF ggVGc
 
 call SourceIfExists("~/.vimrc.local")
 
-" You know how you have something in the buffer and you want to paste it
-" several times, but each time you highlight a specific piece of text to
-" replace, it ends up overwriting the default buffer with the selected text
-" you are replacing? This mapping makes it so that the contents of the buffer
+" You know how you have something in the buffer and you want to paste it several times, but each
+" time you highlight a specific piece of text to replace, it ends up overwriting the default buffer
+" with the selected text you are replacing? This mapping makes it so that the contents of the buffer
 " are preserved after a visual paste.
 vnoremap p "_dP
 
