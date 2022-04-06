@@ -83,6 +83,12 @@ call SourceConfig("plugins/lualine.nvim.vim")
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+"Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+
+" I didn't end up mapping a key for this. Wasn't sure how much use it would get. Activate with the
+" following command.
+" lua require'telescope.builtin'.symbols{ sources = {'emoji', 'math', 'latex', 'gitmoji'} }
+Plug 'nvim-telescope/telescope-symbols.nvim'
 
 Plug 'rafcamlet/nvim-luapad'
 
