@@ -54,6 +54,8 @@ Plug 'jacobsimpson/nvim-editconfig'
 "
 Plug 'hashivim/vim-terraform'
 
+call SourceConfig("plugins/telekasten.vim")
+
 " Overrides the 'delete' operations (d, c, etc) so that they don't put the deleted text in the
 " default buffer.
 " NOTE: Although this seems useful, in practice I am commonly moving text from one place to another
