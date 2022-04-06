@@ -335,4 +335,4 @@ vnoremap p "_dP
 set textwidth=100
 
 
-map <silent> ,ls :lua require('telescope.builtin').find_files( { search_dirs = {'src/'} })<CR>
+map <silent> ,ls :lua require('telescope.builtin').find_files( { search_dirs = {'src/', 'migrations/', 'plugin/', 'lua/'} })<CR>
