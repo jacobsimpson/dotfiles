@@ -34,6 +34,7 @@ call SourceConfig("plugins/vim-better-whitespace.vim")
 " Haven't figured out how to make it work incrementally.
 "Plug 'othree/eregex.vim'
 
+" There is a very good chance this can be replaced with a telescope configuration.
 call SourceConfig("plugins/fzf.vim")
 
 " After a yank, the yanked text is highlighted in a different color to show
