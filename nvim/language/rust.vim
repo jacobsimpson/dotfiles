@@ -43,3 +43,7 @@ au FileType rust nmap <buffer> <silent> <Space>t  :RustTest<CR>
 autocmd TermClose * nnoremap <silent> <buffer> <ESC> :bd!<CR>
 autocmd TermClose * nnoremap <silent> <buffer> <C-C> :bd!<CR>
 autocmd TermClose * nnoremap <silent> <buffer> q :bd!<CR>
+
+" Shows how to show documentation in a popup window.
+" https://oren.github.io/articles/rust/neovim/
+"
