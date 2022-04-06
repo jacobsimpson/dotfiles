@@ -327,6 +327,9 @@ call SourceIfExists("~/.vimrc.local")
 " time you highlight a specific piece of text to replace, it ends up overwriting the default buffer
 " with the selected text you are replacing? This mapping makes it so that the contents of the buffer
 " are preserved after a visual paste.
+"
+" NOTE: There are a couple of corner cases where it doesn't work correctly. Pasting something that
+" is at the end of the line.
 vnoremap p "_dP
 
 set textwidth=100
