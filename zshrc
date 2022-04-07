@@ -149,8 +149,28 @@ alias cd.='cd $(pwd)'
 alias vi=/usr/local/bin/nvim
 alias vim=/usr/local/bin/nvim
 
+# function vi() {
+#     if [[ ! -z "$NVIM_LISTEN_ADDRESS" ]]; then
+#         nvim --server $NVIM_LISTEN_ADDRESS --remote-send '<ESC><C-W><C-K>'
+#         nvim --server $NVIM_LISTEN_ADDRESS --remote "$@"
+#     elif [[ ! -z "$ITERM_SESSION_ID" ]]; then
+#         id=$(echo "$ITERM_SESSION_ID" | sed 's|^\(....\).*|\1|')
+#         socket=/tmp/nvim.$id
+#         if [[ -e $socket ]]; then
+#             nvim --server $socket --remote "$@"
+#         else
+#             nvim --listen $socket "$@"
+#         fi
+#     else
+#         nvim "$@"
+#     fi
+# }
+
 alias mkdir='mkdir -p'
 
+# A much improved version of ls.
 if which exa >& /dev/null; then
     alias ls='exa --icons -F'
 fi
+
+export PATH=$PATH:/Users/jsimpson/.cargo/bin
