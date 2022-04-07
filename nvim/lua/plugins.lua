@@ -22,13 +22,51 @@ return require('packer').startup(function(use)
 
     use {'phaazon/hop.nvim', branch = 'v1', config = require('plugins.hop')}
 
-    -- When a visual selection is active, pressing * or # will do a file
-    -- search of the selection, instead of a file search of the word under the
-    -- cursor.
+    -- When a visual selection is active, pressing * or # will do a file search of the selection,
+    -- instead of a file search of the word under the cursor.
     use {'bronson/vim-visual-star-search'}
 
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
+    use {'tpope/vim-surround'}
+
+    -- Helps the vim-surround plugin honor the '.' repeat command.
+    use {'tpope/vim-repeat'}
+
+    -- Git access from inside Vim.
+    use {'tpope/vim-fugitive'}
+
+    -- In Vim support for some standard Unix commands. I'm mostly interested in Move.
+    use {'tpope/vim-eunuch'}
+
+    -- Add better text object handling, things like ci" or ci(
+    use {'wellle/targets.vim'}
+
+    use {'jacobsimpson/nvim-editconfig'}
+
+    use {'hashivim/vim-terraform'}
+
+    use {'jrozner/vim-antlr'}
+
+    use {'jasontbradshaw/pigeon.vim', config = require('plugins.pigeon')}
+
+    use {'famiu/bufdelete.nvim'}
+
+    use {'rafcamlet/nvim-luapad'}
+
+    use {'nvim-lua/plenary.nvim'}
+    use {'nvim-telescope/telescope.nvim'}
+    -- Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+
+    -- I didn't end up mapping a key for this. Wasn't sure how much use it would get. Activate with
+    -- the following command.
+    -- lua require'telescope.builtin'.symbols{ sources = {'emoji', 'math', 'latex', 'gitmoji'} }
+    use {'nvim-telescope/telescope-symbols.nvim'}
+
+    -- After a yank, the yanked text is highlighted in a different color to show what happened.
+    use {'machakann/vim-highlightedyank'}
+
+
+    -- Automatically set up your configuration after cloning packer.nvim. Put this at the end after
+    -- all plugins
     if packer_bootstrap then
         require('packer').sync()
     end

@@ -1,25 +1,10 @@
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-
 call SourceConfig("plugins/nvim-lsp.vim")
 
-" Snippet support. I've never been really good at using this, but it seems
-" like a good idea.
+" Snippet support. I've never been really good at using this, but it seems like a good idea.
 call SourceConfig("/plugins/vsnip.vim")
 
 "Plug 'b3nj5m1n/kommentary'
 call SourceConfig("plugins/comment.vim")
-
-" Git access from inside Vim.
-Plug 'tpope/vim-fugitive'
-"autocmd Filetype gitcommit cnoremap <silent> <buffer> wq bd<CR>
-
-" In Vim support for some standard Unix commands. I'm mostly interested in
-" Move.
-Plug 'tpope/vim-eunuch'
-
-" Add better text object handling, things like ci" or ci(
-Plug 'wellle/targets.vim'
 
 call SourceConfig("plugins/signify.vim")
 
@@ -33,23 +18,18 @@ call SourceConfig("plugins/vim-better-whitespace.vim")
 " There is a very good chance this can be replaced with a telescope configuration.
 call SourceConfig("plugins/fzf.vim")
 
-" After a yank, the yanked text is highlighted in a different color to show
-" what happened.
-Plug 'machakann/vim-highlightedyank'
-
 " Adds a matching closing element whenever an opening element is inserted, for a list of elements
 " that commonly occur in pairs.
 call SourceConfig("plugins/nvim-autopairs.vim")
 
 call SourceConfig("plugins/vim-test.vim")
 
-Plug 'jacobsimpson/nvim-editconfig'
+"This was going to be a plugin I develop for note taking. However, then I found telekasten.
+"Plug '~/src/nvim-cognisance'
 
 " ############################################################
 " ################### Experimental Plugins ###################
 "
-Plug 'hashivim/vim-terraform'
-
 call SourceConfig("plugins/telekasten.vim")
 
 " Overrides the 'delete' operations (d, c, etc) so that they don't put the deleted text in the
@@ -61,11 +41,6 @@ call SourceConfig("plugins/telekasten.vim")
 " text would always be available.
 "Plug 'svermeulen/vim-cutlass'
 
-Plug 'jrozner/vim-antlr'
-
-Plug 'jasontbradshaw/pigeon.vim'
-autocmd BufNewFile,BufRead *.peg set filetype=pigeon
-
 " Should cause the current block to be brighter and the surrounding code
 " to be dimmed.
 call SourceConfig("plugins/twilight.vim")
@@ -73,20 +48,7 @@ call SourceConfig("plugins/twilight.vim")
 call SourceConfig("plugins/treesitter.vim")
 call SourceConfig("plugins/neomake.vim")
 
-Plug 'famiu/bufdelete.nvim'
-
 call SourceConfig("plugins/lualine.nvim.vim")
-
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-"Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-
-" I didn't end up mapping a key for this. Wasn't sure how much use it would get. Activate with the
-" following command.
-" lua require'telescope.builtin'.symbols{ sources = {'emoji', 'math', 'latex', 'gitmoji'} }
-Plug 'nvim-telescope/telescope-symbols.nvim'
-
-Plug 'rafcamlet/nvim-luapad'
 
 call SourceConfig("plugins/nvim-cmp.vim")
 
