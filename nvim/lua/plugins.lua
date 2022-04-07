@@ -69,6 +69,8 @@ return require('packer').startup(function(use)
     -- Snippet support. I've never been really good at using this, but it seems like a good idea.
     use {'dcampos/nvim-snippy', config = require('plugins.nvim-snippy')}
 
+    use {'numToStr/Comment.nvim', config = require('plugins.comment')}
+
     -- Automatically set up your configuration after cloning packer.nvim. Put this at the end after
     -- all plugins
     if packer_bootstrap then

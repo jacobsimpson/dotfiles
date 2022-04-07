@@ -1,6 +1,3 @@
-"Plug 'b3nj5m1n/kommentary'
-call SourceConfig("plugins/comment.vim")
-
 call SourceConfig("plugins/signify.vim")
 
 " Strip trailing whitespace on save.
