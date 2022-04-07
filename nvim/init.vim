@@ -34,7 +34,9 @@ syntax on
 filetype plugin indent off
 
 "
-" Example using Lua: https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
+" Examples using Lua:
+" - https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
+" - https://github.com/miltonllera/neovim-lua-config/blob/master/lua/options.lua
 "
 set tabstop=4
 " Sets how much indent for the >
