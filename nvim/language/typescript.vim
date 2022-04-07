@@ -2,9 +2,9 @@ function language#typescript#Build()
     execute "!clasp push"
 endfunction
 
-function language#typescript#Comment()
-    execute "s#^#//#"
-endfunction
+" function language#typescript#Comment()
+"     execute "s#^#//#"
+" endfunction
 
 function language#typescript#Format()
     let save_pos = getpos(".")
@@ -41,8 +41,8 @@ autocmd FileType typescript autocmd BufWritePre <buffer> StripWhitespace
 " These are the key mappings that are expected to be common across all
 " carrying out the intended activity.
 au FileType typescript nmap <buffer> <silent> <Space>a  :call language#typescript#GoAlternate()<CR>
-au FileType typescript vmap <buffer>          <Space>c  :call language#typescript#Comment()<CR>
-au FileType typescript nmap <buffer>          <Space>c  :call language#typescript#Comment()<CR>
+" au FileType typescript vmap <buffer>          <Space>c  :call language#typescript#Comment()<CR>
+" au FileType typescript nmap <buffer>          <Space>c  :call language#typescript#Comment()<CR>
 au FileType typescript nmap <buffer> <silent> <Space>b  :call language#typescript#Build()<CR>
 au FileType typescript nmap <buffer> <silent> <Space>f  :call language#typescript#Format()<CR>
 au FileType typescript nmap <buffer> <silent> <Space>ga :call language#typescript#GoAlternate()<CR>

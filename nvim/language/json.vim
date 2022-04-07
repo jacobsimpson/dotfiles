@@ -30,7 +30,8 @@ endfunction
 " These are the key mappings that are expected to be common across all
 " carrying out the intended activity.
 au FileType json nmap <buffer> <silent> <Space>a  :call language#json#GoAlternate()<CR>
-au FileType json nmap <buffer>          <Space>c  :call language#json#Comment()<CR>
+au FileType json vmap <buffer>          gc        :call language#json#Comment()<CR>
+au FileType json nmap <buffer>          gcc       :call language#json#Comment()<CR>
 au FileType json nmap <buffer> <silent> <Space>b  :call language#json#Build()<CR>
 au FileType json nmap <buffer> <silent> <Space>f  :call language#json#Format()<CR>
 au FileType json nmap <buffer> <silent> <Space>ga :call language#json#GoAlternate()<CR>

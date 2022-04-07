@@ -62,12 +62,12 @@ function! language#java#Build()
     endif
 endfunction
 
-function! language#java#Comment()
-    " There was some old code around for comment lines.
-    " au FileType java vmap <C-_> :s#^#//#<CR>
-    " au FileType java nmap <C-_> :s#^#//#<CR>
-    execute "s#^#//#"
-endfunction
+" function! language#java#Comment()
+"     " There was some old code around for comment lines.
+"     " au FileType java vmap <C-_> :s#^#//#<CR>
+"     " au FileType java nmap <C-_> :s#^#//#<CR>
+"     execute "s#^#//#"
+" endfunction
 
 function! language#java#Format()
     let save_pos = getpos(".")
@@ -161,8 +161,8 @@ autocmd FileType java autocmd BufWritePre <buffer> StripWhitespace
 " These are the key mappings that are expected to be common across all
 " carrying out the intended activity.
 au FileType java nmap <buffer> <silent> <Space>a  :call language#java#GoAlternate()<CR>
-au FileType java vmap <buffer>          <Space>c  :call language#java#Comment()<CR>
-au FileType java nmap <buffer>          <Space>c  :call language#java#Comment()<CR>
+" au FileType java vmap <buffer>          <Space>c  :call language#java#Comment()<CR>
+" au FileType java nmap <buffer>          <Space>c  :call language#java#Comment()<CR>
 au FileType java nmap <buffer> <silent> <Space>b  :call language#java#Build()<CR>
 au FileType java nmap <buffer> <silent> <Space>f  :call language#java#Format()<CR>
 au FileType java nmap <buffer>          <Space>r  :call language#java#Run()<CR>

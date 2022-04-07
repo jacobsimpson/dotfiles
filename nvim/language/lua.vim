@@ -2,9 +2,9 @@ function! language#lua#Build()
     execute "!luajit %"
 endfunction
 
-function! language#lua#Comment()
-    execute "s#^#--#"
-endfunction
+" function! language#lua#Comment()
+"     execute "s#^#--#"
+" endfunction
 
 function! language#lua#Format()
     let save_pos = getpos(".")
@@ -40,8 +40,8 @@ autocmd FileType lua autocmd BufWritePre <buffer> StripWhitespace
 " These are the key mappings that are expected to be common across all
 " carrying out the intended activity.
 au FileType lua nmap <buffer> <silent> <Space>a  :call language#lua#GoAlternate()<CR>
-au FileType lua vmap <buffer>          <Space>c  :call language#lua#Comment()<CR>
-au FileType lua nmap <buffer>          <Space>c  :call language#lua#Comment()<CR>
+" au FileType lua vmap <buffer>          <Space>c  :call language#lua#Comment()<CR>
+" au FileType lua nmap <buffer>          <Space>c  :call language#lua#Comment()<CR>
 au FileType lua nmap <buffer> <silent> <Space>b  :call language#lua#Build()<CR>
 au FileType lua nmap <buffer> <silent> <Space>f  :call language#lua#Format()<CR>
 au FileType lua nmap <buffer> <silent> <Space>ga :call language#lua#GoAlternate()<CR>

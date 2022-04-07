@@ -14,6 +14,9 @@ call SourceConfig("plugins/nvim-lsp.vim")
 " like a good idea.
 call SourceConfig("/plugins/vsnip.vim")
 
+"Plug 'b3nj5m1n/kommentary'
+call SourceConfig("plugins/comment.vim")
+
 " Git access from inside Vim.
 Plug 'tpope/vim-fugitive'
 "autocmd Filetype gitcommit cnoremap <silent> <buffer> wq bd<CR>

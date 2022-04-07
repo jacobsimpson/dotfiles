@@ -153,7 +153,7 @@ au FileType go nmap <buffer> ,t  <Plug>(go-test)
 " These are the key mappings that are expected to be common across all
 " carrying out the intended activity.
 au FileType go nmap <buffer> <silent> <Space>a  :call language#go#GoAlternate()<CR>
-au FileType go nmap <buffer> <silent> <Space>c  :call language#go#Comment()<CR>
+"au FileType go nmap <buffer> <silent> <Space>c  :call language#go#Comment()<CR>
 au FileType go nmap <buffer> <silent> <Space>b  :call language#go#Build()<CR>
 au FileType go nmap <buffer> <silent> <Space>f  :call language#go#Format()<CR>
 au FileType go nmap <buffer> <silent> <Space>ga :call language#go#GoAlternate()<CR>
