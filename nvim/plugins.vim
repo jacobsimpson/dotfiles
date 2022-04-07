@@ -1,5 +1,3 @@
-call SourceConfig("plugins/hop.vim")
-
 " When a visual selection is active, pressing * or # will do a file
 " search of the selection, instead of a file search of the word under the
 " cursor.
