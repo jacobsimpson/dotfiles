@@ -71,6 +71,9 @@ return require('packer').startup(function(use)
 
     use {'numToStr/Comment.nvim', config = require('plugins.comment')}
 
+    -- Shows lines added or removed according to the version control system.
+    use {'lewis6991/gitsigns.nvim', config = require('plugins.gitsigns')}
+
     -- Automatically set up your configuration after cloning packer.nvim. Put this at the end after
     -- all plugins
     if packer_bootstrap then

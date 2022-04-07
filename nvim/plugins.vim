@@ -1,5 +1,3 @@
-call SourceConfig("plugins/signify.vim")
-
 " Strip trailing whitespace on save.
 call SourceConfig("plugins/vim-better-whitespace.vim")
 
