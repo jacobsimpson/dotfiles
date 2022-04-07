@@ -1,9 +1,5 @@
-" Extended regular expression support for / and ? searches.
-" Haven't figured out how to make it work incrementally.
-"Plug 'othree/eregex.vim'
-
 " There is a very good chance this can be replaced with a telescope configuration.
-call SourceConfig("plugins/fzf.vim")
+"call SourceConfig("plugins/fzf.vim")
 
 " Adds a matching closing element whenever an opening element is inserted, for a list of elements
 " that commonly occur in pairs.
@@ -18,19 +14,6 @@ call SourceConfig("plugins/vim-test.vim")
 " ################### Experimental Plugins ###################
 "
 call SourceConfig("plugins/telekasten.vim")
-
-" Overrides the 'delete' operations (d, c, etc) so that they don't put the deleted text in the
-" default buffer.
-" NOTE: Although this seems useful, in practice I am commonly moving text from one place to another
-" and depend on the 'delete-to-buffer' behavior. Sometimes, I want to be able to delete or edit and
-" then paste. Maybe if there was a way that only explicit yanks were duplicated to a different
-" buffer (z?), then the default buffer would maintain it's current behavior, but the last yanked
-" text would always be available.
-"Plug 'svermeulen/vim-cutlass'
-
-" Should cause the current block to be brighter and the surrounding code
-" to be dimmed.
-call SourceConfig("plugins/twilight.vim")
 
 call SourceConfig("plugins/treesitter.vim")
 call SourceConfig("plugins/neomake.vim")
