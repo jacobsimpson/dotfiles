@@ -74,6 +74,9 @@ return require('packer').startup(function(use)
     -- Shows lines added or removed according to the version control system.
     use {'lewis6991/gitsigns.nvim', config = require('plugins.gitsigns')}
 
+    -- Strip trailing whitespace on save.
+    use "McAuleyPenney/tidy.nvim"
+
     -- Automatically set up your configuration after cloning packer.nvim. Put this at the end after
     -- all plugins
     if packer_bootstrap then
