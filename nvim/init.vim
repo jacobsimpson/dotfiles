@@ -32,6 +32,10 @@ let $PYENV_VERSION="neovim-3.9"
 
 syntax on
 filetype plugin indent off
+
+"
+" Example using Lua: https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
+"
 set tabstop=4
 " Sets how much indent for the >
 set shiftwidth=4
@@ -50,9 +54,6 @@ set autoindent
 " Tabs will be changed to equivalent spaces,
 " affects autoindent and shift (>) operator.
 set expandtab
-
-" Toggle the NERDTree side bar on and off.
-nmap <leader>d :NERDTreeToggle<CR>
 
 " Add incremental searching to vim.
 set incsearch
@@ -89,6 +90,9 @@ filetype plugin indent on
 syntax on
 autocmd FileType go compiler go
 
+" It might be time for a new plugin manager. This one is for Neovim, written in Lua.
+" https://github.com/wbthomason/packer.nvim
+
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
@@ -100,7 +104,9 @@ call plug#end()
 "  Turn on highlighting.
 set hlsearch
 "  Map a key to make it easy to turn off search highlighting.
+"vim.api.nvim_set_keymap('n', '<Space><Space>', [[<cmd>nohlsearch<Bar>:echo<CR>]], { noremap = true, silent = true })
 nnoremap <silent> <Space><Space> :nohlsearch<Bar>:echo<CR>
+"vim.api.nvim_set_keymap('n', '<Esc>', [[<cmd>nohlsearch<Bar>:echo<CR>]], { noremap = true, silent = true })
 nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
 
 " Required:
@@ -119,7 +125,7 @@ endif
 cmap w!! w !sudo tee > /dev/null %
 
 " This will execute highlighted text as VimScript.
-vmap <silent> <leader>r "xy:@x<CR>
+"vmap <silent> <leader>r "xy:@x<CR>
 
 " Navigating quickfix should get easier.
 map <C-n> :cnext<CR>
@@ -152,7 +158,7 @@ nnoremap <Backspace> <C-W><C-H>
 "   - C-hjkl - not bad, but C-h maps to backspace in many terminal programs.
 "              Also, on Mac OS X, it isn't mapped properly in the term progs.
 "              https://github.com/neovim/neovim/issues/2048
-"   - A-hjkl - not bad, but Mac uses Alt for Unicode chars be default.
+"   - A-hjkl - not bad, but Mac uses Alt for Unicode chars by default.
 " 2. Closing a buffer in a window should really pop back a buffer, like a
 " stack. But the stack should be specific to that window.
 " 3. Easy to change between a couple common arrangements.
@@ -195,6 +201,7 @@ vnoremap > >gv
 
 " Buffer navigation is extremely common, so there are some things I remapped
 " to make that go faster. I hope.
+"vim.api.nvim_set_keymap('n', ',bd', [[<cmd>:Bdelete<CR>]], { noremap = true, silent = true })
 map <silent> ,bd :Bdelete<CR>
 map <silent> ,bb :b#<CR>
 map <silent> ,bp :bp<CR>
