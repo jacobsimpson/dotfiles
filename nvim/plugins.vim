@@ -92,6 +92,8 @@ Plug 'nvim-telescope/telescope-symbols.nvim'
 
 Plug 'rafcamlet/nvim-luapad'
 
+call SourceConfig("plugins/nvim-cmp.vim")
+
 call SourceConfig("language/go.vim")
 call SourceConfig("language/java.vim")
 call SourceConfig("language/json.vim")
