@@ -76,7 +76,7 @@ function nvim_treesitter_text_object_initialize()
             ["a/"] = "@comment.outer",
             ["i/"] = "@comment.outer",
             ["ic"] = "@conditional.inner",
-            ["ai"] = "@conditional.outer",
+            ["ac"] = "@conditional.outer",
             ["ab"] = "@block.outer",
             ["ib"] = "@block.inner",
             ["ap"] = "@parameter.outer",
