@@ -64,6 +64,7 @@ return require('packer').startup(function(use)
     -- After a yank, the yanked text is highlighted in a different color to show what happened.
     use {'machakann/vim-highlightedyank'}
 
+    use {'neovim/nvim-lspconfig', config = require('plugins.nvim-lspconfig')}
 
     -- Automatically set up your configuration after cloning packer.nvim. Put this at the end after
     -- all plugins

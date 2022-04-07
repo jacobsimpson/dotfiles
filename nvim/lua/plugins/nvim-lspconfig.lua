@@ -1,15 +1,12 @@
-Plug 'neovim/nvim-lsp'
-Plug 'neovim/nvim-lspconfig'
+return function()
+    -- Nice example LSP configuration: https://raygervais.dev/articles/2021/3/neovim-lsp/
 
-" Nice example LSP configuration: https://raygervais.dev/articles/2021/3/neovim-lsp/
+    -- Make the sign column always there, even when there isn't an error. By reserving the space for the
+    -- column always, there is less flicker during refreshes or loads. Without reserving this space, the
+    -- LSP integration will clear the column on each save, then run the analysis, then insert the column
+    -- with errors, causing the text to shift right.
+    vim.opt.signcolumn = "yes"
 
-" Make the sign column always there, even when there isn't an error. By reserving the space for the
-" column always, there is less flicker during refreshes or loads. Without reserving this space, the
-" LSP integration will clear the column on each save, then run the analysis, then insert the column
-" with errors, causing the text to shift right.
-set signcolumn=yes
-
-lua <<EOF
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
       virtual_text = {
         -- Change the character beside the LSP floating text.
@@ -40,13 +37,4 @@ lua <<EOF
     vim.api.nvim_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', {noremap = true})
     vim.api.nvim_set_keymap('n', '<c-s>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', {noremap = true})
     vim.api.nvim_set_keymap('n', 'K',  '<cmd>lua vim.lsp.buf.hover()<CR>', {noremap = true})
-
-    -- Use LSP as the handler for omnifunc.
-    --    See `:help omnifunc` and `:help ins-completion` for more information.
-    -- When 'omnifunc' is set to `v:lua.vim.lsp.omnifunc`, |i_CTRL-X_CTRL-O|
-    --vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-    -- NOTE: Pretty sure this is not the thing to do. When I activate it, I get a window with the
-    -- options, but it isn't a very usable window. Checking into nvim-cmp instead.
-EOF
-
-autocmd BufEnter,BufNew *.rs        lua vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+end
