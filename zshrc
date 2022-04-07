@@ -146,8 +146,8 @@ fi
 
 alias cd.='cd $(pwd)'
 
-alias vi=/usr/local/bin/nvim
-alias vim=/usr/local/bin/nvim
+alias vi=${HOME}/bin/nvim
+alias vim=${HOME}/bin/nvim
 
 # function vi() {
 #     if [[ ! -z "$NVIM_LISTEN_ADDRESS" ]]; then
