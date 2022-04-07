@@ -66,6 +66,9 @@ return require('packer').startup(function(use)
 
     use {'neovim/nvim-lspconfig', config = require('plugins.nvim-lspconfig')}
 
+    -- Snippet support. I've never been really good at using this, but it seems like a good idea.
+    use {'dcampos/nvim-snippy', config = require('plugins.nvim-snippy')}
+
     -- Automatically set up your configuration after cloning packer.nvim. Put this at the end after
     -- all plugins
     if packer_bootstrap then

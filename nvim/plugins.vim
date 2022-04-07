@@ -1,6 +1,3 @@
-" Snippet support. I've never been really good at using this, but it seems like a good idea.
-call SourceConfig("/plugins/vsnip.vim")
-
 "Plug 'b3nj5m1n/kommentary'
 call SourceConfig("plugins/comment.vim")
 
