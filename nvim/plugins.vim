@@ -1,10 +1,6 @@
 " There is a very good chance this can be replaced with a telescope configuration.
 "call SourceConfig("plugins/fzf.vim")
 
-" Adds a matching closing element whenever an opening element is inserted, for a list of elements
-" that commonly occur in pairs.
-call SourceConfig("plugins/nvim-autopairs.vim")
-
 call SourceConfig("plugins/vim-test.vim")
 
 "This was going to be a plugin I develop for note taking. However, then I found telekasten.

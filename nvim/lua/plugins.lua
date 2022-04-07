@@ -77,8 +77,12 @@ return require('packer').startup(function(use)
     -- Strip trailing whitespace on save.
     use "McAuleyPenney/tidy.nvim"
 
+    -- Adds a matching closing element whenever an opening element is inserted, for a list of elements
+    -- that commonly occur in pairs.
+    use {'windwp/nvim-autopairs', config = require('plugins.nvim-autopairs')}
+
     -- Automatically set up your configuration after cloning packer.nvim. Put this at the end after
-    -- all plugins
+    -- all plugins.
     if packer_bootstrap then
         require('packer').sync()
     end
