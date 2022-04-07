@@ -1,8 +1,3 @@
-" When a visual selection is active, pressing * or # will do a file
-" search of the selection, instead of a file search of the word under the
-" cursor.
-Plug 'bronson/vim-visual-star-search'
-
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
