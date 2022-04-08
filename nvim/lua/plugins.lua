@@ -52,8 +52,7 @@ return require('packer').startup(function(use)
 
     use {'rafcamlet/nvim-luapad'}
 
-    use {'nvim-lua/plenary.nvim'}
-    use {'nvim-telescope/telescope.nvim'}
+    use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/plenary.nvim'}}}
     -- Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
     -- I didn't end up mapping a key for this. Wasn't sure how much use it would get. Activate with
