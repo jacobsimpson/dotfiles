@@ -38,36 +38,63 @@ filetype plugin indent off
 " - https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
 " - https://github.com/miltonllera/neovim-lua-config/blob/master/lua/options.lua
 "
-set tabstop=4
-" Sets how much indent for the >
-set shiftwidth=4
+lua <<EOF
+-- Tabs will be changed to equivalent spaces, affects autoindent and shift (>) operator.
+vim.opt.expandtab = true
+-- Use 'shiftwidth' when using <Tab> in front of a line. By default it's used only for shift
+-- commands ("<", ">").
+vim.opt.smarttab = true
+vim.opt.tabstop = 4
+-- Sets how much indent for the >
+vim.opt.shiftwidth = 4
+-- Each new line will match code block
+vim.opt.autoindent = true
 
-" Use 'shiftwidth' when using <Tab> in front of a line. By default it's used
-" only for shift commands ("<", ">").
-set smarttab
+-- Add incremental searching to vim.
+vim.opt.incsearch = true
+
+-- Set case insensitive searching.
+vim.opt.ignorecase = true
+-- If you include a capital letter in a search, vim switches to case sensitive searching.
+vim.opt.smartcase = true
+
+-- This setting allows you to switch between buffers when there are unsaved changes in the buffer
+-- you are leaving.
+vim.opt.hidden = true
+
+-- Open new split panes to right and bottom, which feels more natural than
+-- Vim’s default:
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
+-- Makes the Airline status bar visible at all times.
+vim.opt.laststatus = 2
+
+-- Make the cursor at least this many lines away from the edge of the screen.
+vim.opt.scrolloff = 3
+
+-- Make global substitutions the default.
+-- So, when you do:
+--     :%s/abc/123/
+-- it will act like:
+--     :%s/abc/123/g
+vim.opt.gdefault = true
+
+-- Keep the cursor at the column it was at after a move, like switching
+-- buffers.
+vim.opt.startofline = false
+
+-- Automatically save the file when the user does a build.
+vim.opt.autowrite = true
+
+vim.opt.textwidth = 100
+
+EOF
 
 " This will affect CtrlP plugin, and exclude files from the listing.
 " Ignore these directories for CtrlP
 set wildignore+=*.o,*.class,.svn,*.jar,*.gif,*.jpg,*.pyc,.git,*.so,*.zip,*.swp
 set wildignore+=*/bin/*,*/build/*,*/target/*,*/node_modules/*,*/lib/*
-
-" Each new line will match code block
-set autoindent
-" Tabs will be changed to equivalent spaces,
-" affects autoindent and shift (>) operator.
-set expandtab
-
-" Add incremental searching to vim.
-set incsearch
-
-" Set case insensitive searching.
-set ignorecase
-" If you include a capital letter in a search, vim switches to case sensitive searching.
-set smartcase
-
-" This setting allows you to switch between buffers, leave unsaved changes
-" in a buffer and have them still be there when you get back.
-set hidden
 
 " Maps the RE search key so it gets extended regular expressions by default.
 "
@@ -185,14 +212,6 @@ noremap <A-j> <C-W><C-J>
 noremap <A-k> <C-W><C-k>
 noremap <A-l> <C-W><C-l>
 
-" Open new split panes to right and bottom, which feels more natural than
-" Vim’s default:
-set splitbelow
-set splitright
-
-" Makes the Airline status bar visible at all times.
-set laststatus=2
-
 " Keep visual selection after indenting or unindenting.
 vnoremap < <gv
 vnoremap > >gv
@@ -211,17 +230,7 @@ map <silent> ,bb :b#<CR>
 map <silent> ,bp :bp<CR>
 map <silent> ,bn :bn<CR>
 "map <silent> ,bl :Buffers<CR> " This used the fzf plugin.
-map <silent> ,bl :Telescope buffers<CR>
-
-" Make the cursor at least this many lines away from the edge of the screen.
-set scrolloff=3
-
-" Make global substitutions the default.
-" So, when you do:
-"     :%s/abc/123/
-" it will act like:
-"     :%s/abc/123/g
-set gdefault
+map <silent> ,bl :Telescope buffers theme=dropdown<CR>
 
 " Marks in Vim can be used two ways. The ' takes you to the line of the mark,
 " the ` takes you to the line and column of the mark. I nearly always want the
@@ -240,10 +249,6 @@ nnoremap <Space>j   :<C-u>silent! move+<CR>==
 xnoremap <Space>k   :<C-u>silent! '<,'>move-2<CR>gv=gv
 xnoremap <Space>j   :<C-u>silent! '<,'>move'>+<CR>gv=gv
 
-" Keep the cursor at the column it was at after a move, like switching
-" buffers.
-set nostartofline
-
 " Set the colors used when the cursor is on a matching paren.
 hi MatchParen cterm=bold ctermbg=none ctermfg=Yellow
 
@@ -256,9 +261,6 @@ augroup Misc
 augroup END
 
 call SourceConfig("/nvimrc")
-
-" Automatically save the file when the user does a build.
-set autowrite
 
 " This changes the default command line editor experience (the mode you enter
 " with the : key) to use a command-line-editor window instead. It allows you
@@ -343,9 +345,6 @@ call SourceIfExists("~/.vimrc.local")
 " NOTE: There are a couple of corner cases where it doesn't work correctly. Pasting something that
 " is at the end of the line.
 vnoremap p "_dP
-
-set textwidth=100
-
 
 map <silent> ,ls :lua require('telescope.builtin').find_files( { search_dirs = {'src/', 'migrations/', 'plugin/', 'lua/'} })<CR>
 
