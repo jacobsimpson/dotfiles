@@ -18,8 +18,6 @@ call SourceConfig("plugins/neomake.vim")
 
 call SourceConfig("plugins/lualine.nvim.vim")
 
-call SourceConfig("plugins/nvim-cmp.vim")
-
 call SourceConfig("language/go.vim")
 call SourceConfig("language/java.vim")
 call SourceConfig("language/json.vim")

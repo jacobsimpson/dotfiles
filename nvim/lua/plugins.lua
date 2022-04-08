@@ -80,6 +80,14 @@ return require('packer').startup(function(use)
     -- Note taking app.
     use {'renerocksai/telekasten.nvim', requires = {{'renerocksai/calendar-vim'}}, config = require('plugins.telekasten')}
 
+    use {'hrsh7th/nvim-cmp', config = require('plugins.nvim-cmp'), requires = {
+        {'hrsh7th/nvim-cmp'},
+        {'hrsh7th/cmp-nvim-lua'},
+        {'hrsh7th/cmp-nvim-lsp'},
+        {'dcampos/nvim-snippy'},
+        {'dcampos/cmp-snippy'},
+    }}
+
     -- Automatically set up your configuration after cloning packer.nvim. Put this at the end after
     -- all plugins.
     if packer_bootstrap then
