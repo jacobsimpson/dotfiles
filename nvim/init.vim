@@ -3,6 +3,7 @@
 " ConfigDir = expand('%:p:h')), when neovim is started with a file specified
 " on the command line (i.e. vi ~/.zshrc), % will actually refer to the file
 " specified on the command line, and not this file.
+" NOTE: New learning, something like this might work: fn.stdpath('data')
 let ConfigDir = '~/dotfiles/nvim/'
 
 function! SourceConfig(file)
@@ -72,6 +73,7 @@ vim.opt.laststatus = 2
 
 -- Make the cursor at least this many lines away from the edge of the screen.
 vim.opt.scrolloff = 3
+vim.o.sidescrolloff      = 8
 
 -- Make global substitutions the default.
 -- So, when you do:
@@ -88,6 +90,10 @@ vim.opt.startofline = false
 vim.opt.autowrite = true
 
 vim.opt.textwidth = 100
+
+vim.o.fileencoding       = "utf-8"
+vim.o.completeopt        = "menuone,noinsert,noselect"
+vim.o.wildmode           = "longest,full"                -- Display auto-complete in Command Mode
 
 EOF
 
