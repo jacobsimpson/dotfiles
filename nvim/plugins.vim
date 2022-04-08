@@ -1,4 +1,8 @@
 " There is a very good chance this can be replaced with a telescope configuration.
+" This command seems to supply the 'Buffers' command, which I have mapped to ,bl, which I use _a
+" lot_.
+" The ',bl' mapping is defined in init.vim. I've created a new mapping to use Telescope buffers
+" instead.
 "call SourceConfig("plugins/fzf.vim")
 
 call SourceConfig("plugins/vim-test.vim")

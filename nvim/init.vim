@@ -210,7 +210,8 @@ map <silent> ,bd :Bdelete<CR>
 map <silent> ,bb :b#<CR>
 map <silent> ,bp :bp<CR>
 map <silent> ,bn :bn<CR>
-map <silent> ,bl :Buffers<CR>
+"map <silent> ,bl :Buffers<CR> " This used the fzf plugin.
+map <silent> ,bl :Telescope buffers<CR>
 
 " Make the cursor at least this many lines away from the edge of the screen.
 set scrolloff=3
