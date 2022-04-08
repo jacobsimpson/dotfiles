@@ -1,18 +1,6 @@
-
-" Note taking app.
-Plug 'renerocksai/telekasten.nvim'
-Plug 'renerocksai/calendar-vim'
-
-
-lua <<EOF
-
-function telekasten_initialize()
+return function()
     local home = vim.fn.expand("~/zettelkasten")
-    -- NOTE for Windows users:
-    -- - don't use Windows
-    -- - try WSL2 on Windows and pretend you're on Linux
-    -- - if you **must** use Windows, use "/Users/myname/zettelkasten" instead of "~/zettelkasten"
-    -- - NEVER use "C:\Users\myname" style paths
+
     require('telekasten').setup({
         home         = home,
 
@@ -121,18 +109,20 @@ function telekasten_initialize()
         -- should all links be updated when a file is renamed
         rename_update_links = true,
     })
+
+    --map <silent> ,ln :lua require('telescope.builtin').find_files( { cwd = '~/zettelkasten' })<CR>
+    vim.api.nvim_set_keymap('n', ',ln', [[<cmd>lua require('telescope.builtin').find_files( { cwd = '~/zettelkasten' })<CR>]], {})
+
+    --nnoremap ,zf :lua require('telekasten').find_notes()<CR>
+    vim.api.nvim_set_keymap('n', ',zf', [[<cmd>lua require('telekasten').find_notes()<CR>]], {noremap = true})
+    --nnoremap ,zd :lua require('telekasten').find_daily_notes()<CR>
+    vim.api.nvim_set_keymap('n', ',zd', [[<cmd>lua require('telekasten').find_daily_notes()<CR>]], {noremap = true})
+    --nnoremap ,zg :lua require('telekasten').search_notes()<CR>
+    vim.api.nvim_set_keymap('n', ',zg', [[<cmd>lua require('telekasten').search_notes()<CR>]], {noremap = true})
+    --nnoremap ,zz :lua require('telekasten').follow_link()<CR>
+    vim.api.nvim_set_keymap('n', ',zz', [[<cmd>lua require('telekasten').follow_link()<CR>]], {noremap = true})
+
+    -- on hesitation, bring up the panel
+    --nnoremap ,z :lua require('telekasten').panel()<CR>
+    vim.api.nvim_set_keymap('n', ',z', [[<cmd>lua require('telekasten').panel()<CR>]], {noremap = true})
 end
-
-EOF
-
-autocmd VimEnter * :lua telekasten_initialize()
-
-map <silent> ,ln :lua require('telescope.builtin').find_files( { cwd = '~/zettelkasten' })<CR>
-
-nnoremap ,zf :lua require('telekasten').find_notes()<CR>
-nnoremap ,zd :lua require('telekasten').find_daily_notes()<CR>
-nnoremap ,zg :lua require('telekasten').search_notes()<CR>
-nnoremap ,zz :lua require('telekasten').follow_link()<CR>
-
-" on hesitation, bring up the panel
-nnoremap ,z :lua require('telekasten').panel()<CR>

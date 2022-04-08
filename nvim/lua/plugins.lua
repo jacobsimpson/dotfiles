@@ -81,6 +81,9 @@ return require('packer').startup(function(use)
     -- that commonly occur in pairs.
     use {'windwp/nvim-autopairs', config = require('plugins.nvim-autopairs')}
 
+    -- Note taking app.
+    use {'renerocksai/telekasten.nvim', requires = {{'renerocksai/calendar-vim'}}, config = require('plugins.telekasten')}
+
     -- Automatically set up your configuration after cloning packer.nvim. Put this at the end after
     -- all plugins.
     if packer_bootstrap then

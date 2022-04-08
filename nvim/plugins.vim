@@ -9,8 +9,6 @@ call SourceConfig("plugins/vim-test.vim")
 " ############################################################
 " ################### Experimental Plugins ###################
 "
-call SourceConfig("plugins/telekasten.vim")
-
 call SourceConfig("plugins/treesitter.vim")
 call SourceConfig("plugins/neomake.vim")
 
