@@ -29,10 +29,7 @@ return require('packer').startup(function(use)
     -- instead of a file search of the word under the cursor.
     use {'bronson/vim-visual-star-search'}
 
-    use {'tpope/vim-surround'}
-
-    -- Helps the vim-surround plugin honor the '.' repeat command.
-    use {'tpope/vim-repeat'}
+    use {'tpope/vim-surround', requires = {{'tpope/vim-repeat'}}}
 
     -- Git access from inside Vim.
     use {'tpope/vim-fugitive'}
