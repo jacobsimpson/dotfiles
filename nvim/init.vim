@@ -95,12 +95,29 @@ vim.o.fileencoding       = "utf-8"
 vim.o.completeopt        = "menuone,noinsert,noselect"
 vim.o.wildmode           = "longest,full"                -- Display auto-complete in Command Mode
 
-EOF
+-- Exclude files from being listed. This tends to affect a lot of plugins, and also autocomplete for
+-- :e <filename> in the command buffer.
+-- Examples of appending, and removing: https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
+vim.opt.wildignore = {
+    '*.o',
+    '*.class',
+    '.svn',
+    '*.jar',
+    '*.gif',
+    '*.jpg',
+    '*.pyc',
+    '.git',
+    '*.so',
+    '*.zip',
+    '*.swp',
+    '*/bin/*',
+    '*/build/*',
+    '*/target/*',
+    '*/node_modules/*',
+    '*/lib/*'
+}
 
-" This will affect CtrlP plugin, and exclude files from the listing.
-" Ignore these directories for CtrlP
-set wildignore+=*.o,*.class,.svn,*.jar,*.gif,*.jpg,*.pyc,.git,*.so,*.zip,*.swp
-set wildignore+=*/bin/*,*/build/*,*/target/*,*/node_modules/*,*/lib/*
+EOF
 
 " Maps the RE search key so it gets extended regular expressions by default.
 "
