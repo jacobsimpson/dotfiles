@@ -62,7 +62,8 @@ return require('packer').startup(function(use)
     use {'nvim-telescope/telescope-symbols.nvim'}
 
     -- After a yank, the yanked text is highlighted in a different color to show what happened.
-    use {'machakann/vim-highlightedyank'}
+    -- NOTE: Replaced with a Neovim feature, see init.vim for configuration.
+    -- use {'machakann/vim-highlightedyank'}
 
     use {'neovim/nvim-lspconfig', config = require('plugins.nvim-lspconfig')}
 

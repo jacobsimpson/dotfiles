@@ -348,3 +348,12 @@ set textwidth=100
 
 
 map <silent> ,ls :lua require('telescope.builtin').find_files( { search_dirs = {'src/', 'migrations/', 'plugin/', 'lua/'} })<CR>
+
+" I wanted to replace the vim-highlightedyank plugin with the Neovim feature that has the same
+" behavior.
+" - https://neovim.io/doc/user/lua.html#lua-highlight
+" - https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/
+augroup highlight_yank
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=200}
+augroup END
