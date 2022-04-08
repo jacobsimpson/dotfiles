@@ -20,7 +20,10 @@ vim.cmd([[
 
 return require('packer').startup(function(use)
 
-    use {'phaazon/hop.nvim', branch = 'v1', config = require('plugins.hop')}
+    use 'ggandor/lightspeed.nvim'
+    -- Trying out Lightspeed instead. Slightly different mechanism for selecting the jump target
+    -- identifiers.
+    --use {'phaazon/hop.nvim', branch = 'v1', config = require('plugins.hop')}
 
     -- When a visual selection is active, pressing * or # will do a file search of the selection,
     -- instead of a file search of the word under the cursor.
