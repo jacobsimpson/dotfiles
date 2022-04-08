@@ -48,7 +48,9 @@ return require('packer').startup(function(use)
 
     use {'rafcamlet/nvim-luapad'}
 
-    use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/plenary.nvim'}}, config = require('plugins.telescope')}
+    use {'nvim-telescope/telescope.nvim', config = require('plugins.telescope'), requires = {
+        {'nvim-lua/plenary.nvim'},
+    }}
     -- Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
     -- I didn't end up mapping a key for this. Wasn't sure how much use it would get. Activate with
@@ -78,7 +80,9 @@ return require('packer').startup(function(use)
     use {'windwp/nvim-autopairs', config = require('plugins.nvim-autopairs')}
 
     -- Note taking app.
-    use {'renerocksai/telekasten.nvim', requires = {{'renerocksai/calendar-vim'}}, config = require('plugins.telekasten')}
+    use {'renerocksai/telekasten.nvim', config = require('plugins.telekasten'), requires = {
+        {'renerocksai/calendar-vim'},
+    }}
 
     use {'hrsh7th/nvim-cmp', config = require('plugins.nvim-cmp'), requires = {
         {'hrsh7th/nvim-cmp'},
