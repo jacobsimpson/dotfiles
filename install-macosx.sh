@@ -107,6 +107,7 @@ brew_install rust
 brew_install luajit
 
 brew_install exa
+brew_install lua-language-server
 
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
