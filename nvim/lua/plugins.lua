@@ -47,7 +47,9 @@ return require('packer').startup(function(use)
 
     use {'famiu/bufdelete.nvim'}
 
-    use {'rafcamlet/nvim-luapad'}
+    -- use {'rafcamlet/nvim-luapad'}
+    -- Use a fork that includes an option for split orientation.
+    use {'jacobsimpson/nvim-luapad', config = function() require('luapad').setup({split_orientation = 'horizontal'}) end}
 
     use {'nvim-telescope/telescope.nvim', config = require('plugins.telescope'), requires = {
         {'nvim-lua/plenary.nvim'},
