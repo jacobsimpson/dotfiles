@@ -1,8 +1,8 @@
 return function()
-    local home = vim.fn.expand("~/zettelkasten")
+    local home = vim.fn.expand('~/zettelkasten')
 
     require('telekasten').setup({
-        home         = home,
+        home = home,
 
         -- if true, telekasten will be enabled when opening a note within the configured home
         take_over_my_home = true,
@@ -12,17 +12,17 @@ return function()
         auto_set_filetype = true,
 
         -- dir names for special notes (absolute path or subdir name)
-        dailies      = home .. '/' .. 'daily',
-        weeklies     = home .. '/' .. 'weekly',
-        templates    = home .. '/' .. 'templates',
+        dailies = home .. '/' .. 'daily',
+        weeklies = home .. '/' .. 'weekly',
+        templates = home .. '/' .. 'templates',
 
         -- image (sub)dir for pasting
         -- dir name (absolute path or subdir name)
         -- or nil if pasted images shouldn't go into a special subdir
-        image_subdir = "img",
+        image_subdir = 'img',
 
         -- markdown file extension
-        extension    = ".md",
+        extension = '.md',
 
         -- following a link to a non-existing note will create it
         follow_creates_nonexisting = true,
@@ -39,12 +39,12 @@ return function()
 
         -- template for newly created weekly notes (goto_thisweek)
         -- set to `nil` or do not specify if you do not want a template
-        template_new_weekly= home .. '/' .. 'templates/weekly.md',
+        template_new_weekly = home .. '/' .. 'templates/weekly.md',
 
         -- image link style
         -- wiki:     ![[image name]]
         -- markdown: ![](image_subdir/xxxxx.png)
-        image_link_style = "markdown",
+        image_link_style = 'markdown',
 
         -- integrate with calendar-vim
         plug_into_calendar = true,
@@ -62,14 +62,14 @@ return function()
         insert_after_inserting = true,
 
         -- tag notation: '#tag', ':tag:', 'yaml-bare'
-        tag_notation = "#tag",
+        tag_notation = '#tag',
 
         -- command palette theme: dropdown (window) or ivy (bottom panel)
-        command_palette_theme = "ivy",
+        command_palette_theme = 'ivy',
 
         -- tag list theme:
         -- get_cursor: small tag list at cursor; ivy and dropdown like above
-        show_tags_theme = "ivy",
+        show_tags_theme = 'ivy',
 
         -- when linking to a note in subdir/, create a [[subdir/title]] link
         -- instead of a [[title only]] link
@@ -81,7 +81,7 @@ return function()
         -- - prefer_new_note: use `new_note` template
         -- - smart: if day or week is detected in title, use daily / weekly templates (default)
         -- - always_ask: always ask before creating a note
-        template_handling = "smart",
+        template_handling = 'smart',
 
         -- path handling:
         --   this applies to:
@@ -104,25 +104,30 @@ return function()
         --     - same_as_current: put all new notes in the dir of the current note if
         --                        present or else in home
         --                        except for notes/with/subdirs/in/title.
-        new_note_location = "smart",
+        new_note_location = 'smart',
 
         -- should all links be updated when a file is renamed
         rename_update_links = true,
     })
 
     --map <silent> ,ln :lua require('telescope.builtin').find_files( { cwd = '~/zettelkasten' })<CR>
-    vim.api.nvim_set_keymap('n', ',ln', [[<cmd>lua require('telescope.builtin').find_files( { cwd = '~/zettelkasten' })<CR>]], {})
+    vim.api.nvim_set_keymap(
+        'n',
+        ',ln',
+        [[<cmd>lua require('telescope.builtin').find_files( { cwd = '~/zettelkasten' })<CR>]],
+        {}
+    )
 
     --nnoremap ,zf :lua require('telekasten').find_notes()<CR>
-    vim.api.nvim_set_keymap('n', ',zf', [[<cmd>lua require('telekasten').find_notes()<CR>]], {noremap = true})
+    vim.api.nvim_set_keymap('n', ',zf', [[<cmd>lua require('telekasten').find_notes()<CR>]], { noremap = true })
     --nnoremap ,zd :lua require('telekasten').find_daily_notes()<CR>
-    vim.api.nvim_set_keymap('n', ',zd', [[<cmd>lua require('telekasten').find_daily_notes()<CR>]], {noremap = true})
+    vim.api.nvim_set_keymap('n', ',zd', [[<cmd>lua require('telekasten').find_daily_notes()<CR>]], { noremap = true })
     --nnoremap ,zg :lua require('telekasten').search_notes()<CR>
-    vim.api.nvim_set_keymap('n', ',zg', [[<cmd>lua require('telekasten').search_notes()<CR>]], {noremap = true})
+    vim.api.nvim_set_keymap('n', ',zg', [[<cmd>lua require('telekasten').search_notes()<CR>]], { noremap = true })
     --nnoremap ,zz :lua require('telekasten').follow_link()<CR>
-    vim.api.nvim_set_keymap('n', ',zz', [[<cmd>lua require('telekasten').follow_link()<CR>]], {noremap = true})
+    vim.api.nvim_set_keymap('n', ',zz', [[<cmd>lua require('telekasten').follow_link()<CR>]], { noremap = true })
 
     -- on hesitation, bring up the panel
     --nnoremap ,z :lua require('telekasten').panel()<CR>
-    vim.api.nvim_set_keymap('n', ',z', [[<cmd>lua require('telekasten').panel()<CR>]], {noremap = true})
+    vim.api.nvim_set_keymap('n', ',z', [[<cmd>lua require('telekasten').panel()<CR>]], { noremap = true })
 end

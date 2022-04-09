@@ -1,9 +1,15 @@
-
 -- Automatically install packer, it if isn't already available.
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    packer_bootstrap = fn.system({
+        'git',
+        'clone',
+        '--depth',
+        '1',
+        'https://github.com/wbthomason/packer.nvim',
+        install_path,
+    })
 end
 
 -- Automatically execute PackerInstall every time this file changes.
@@ -15,91 +21,114 @@ vim.cmd([[
 ]])
 
 return require('packer').startup(function(use)
-    use 'wbthomason/packer.nvim'
+    use('wbthomason/packer.nvim')
 
-    use 'ggandor/lightspeed.nvim'
+    use('ggandor/lightspeed.nvim')
     -- Trying out Lightspeed instead. Slightly different mechanism for selecting the jump target
     -- identifiers.
     --use {'phaazon/hop.nvim', branch = 'v1', config = require('plugins.hop')}
 
     -- When a visual selection is active, pressing * or # will do a file search of the selection,
     -- instead of a file search of the word under the cursor.
-    use {'bronson/vim-visual-star-search'}
+    use({ 'bronson/vim-visual-star-search' })
 
-    use {'tpope/vim-surround', requires = {{'tpope/vim-repeat'}}}
+    use({ 'tpope/vim-surround', requires = { { 'tpope/vim-repeat' } } })
 
     -- Git access from inside Vim.
-    use {'tpope/vim-fugitive'}
+    use({ 'tpope/vim-fugitive' })
 
     -- In Vim support for some standard Unix commands. I'm mostly interested in Move.
-    use {'tpope/vim-eunuch'}
+    use({ 'tpope/vim-eunuch' })
 
     -- Add better text object handling, things like ci" or ci(
-    use {'wellle/targets.vim'}
+    use({ 'wellle/targets.vim' })
 
-    use {'jacobsimpson/nvim-editconfig'}
+    use({ 'jacobsimpson/nvim-editconfig' })
 
-    use {'hashivim/vim-terraform'}
+    use({ 'hashivim/vim-terraform' })
 
-    use {'jrozner/vim-antlr'}
+    use({ 'jrozner/vim-antlr' })
 
-    use {'jasontbradshaw/pigeon.vim', config = require('plugins.pigeon')}
+    use({ 'jasontbradshaw/pigeon.vim', config = require('plugins.pigeon') })
 
-    use {'famiu/bufdelete.nvim'}
+    use({ 'famiu/bufdelete.nvim' })
 
     -- use {'rafcamlet/nvim-luapad'}
     -- Use a fork that includes an option for split orientation.
-    use {'jacobsimpson/nvim-luapad', config = function() require('luapad').setup({split_orientation = 'horizontal'}) end}
+    use({
+        'jacobsimpson/nvim-luapad',
+        config = function()
+            require('luapad').setup({ split_orientation = 'horizontal' })
+        end,
+    })
 
-    use {'nvim-telescope/telescope.nvim', config = require('plugins.telescope'), requires = {
-        {'nvim-lua/plenary.nvim'},
-        {'nvim-telescope/telescope-fzf-native.nvim', run= 'make'},
-        {'BurntSushi/ripgrep'},
-        {'nvim-telescope/telescope-live-grep-raw.nvim'},
-    }}
+    use({
+        'nvim-telescope/telescope.nvim',
+        config = require('plugins.telescope'),
+        requires = {
+            { 'nvim-lua/plenary.nvim' },
+            { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+            { 'BurntSushi/ripgrep' },
+            { 'nvim-telescope/telescope-live-grep-raw.nvim' },
+        },
+    })
     -- Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
     -- I didn't end up mapping a key for this. Wasn't sure how much use it would get. Activate with
     -- the following command.
     -- lua require'telescope.builtin'.symbols{ sources = {'emoji', 'math', 'latex', 'gitmoji'} }
-    use {'nvim-telescope/telescope-symbols.nvim'}
+    use({ 'nvim-telescope/telescope-symbols.nvim' })
 
     -- After a yank, the yanked text is highlighted in a different color to show what happened.
     -- NOTE: Replaced with a Neovim feature, see init.vim for configuration.
     -- use {'machakann/vim-highlightedyank'}
 
-    use {'neovim/nvim-lspconfig', config = require('plugins.nvim-lspconfig')}
+    use({ 'neovim/nvim-lspconfig', config = require('plugins.nvim-lspconfig') })
 
     -- Snippet support. I've never been really good at using this, but it seems like a good idea.
-    use {'dcampos/nvim-snippy', config = require('plugins.nvim-snippy')}
+    use({ 'dcampos/nvim-snippy', config = require('plugins.nvim-snippy') })
 
-    use {'numToStr/Comment.nvim', config = require('plugins.comment')}
+    use({ 'numToStr/Comment.nvim', config = require('plugins.comment') })
 
     -- Shows lines added or removed according to the version control system.
-    use {'lewis6991/gitsigns.nvim', config = require('plugins.gitsigns')}
+    use({ 'lewis6991/gitsigns.nvim', config = require('plugins.gitsigns') })
 
     -- Strip trailing whitespace on save.
-    use "McAuleyPenney/tidy.nvim"
+    use('McAuleyPenney/tidy.nvim')
 
     -- Adds a matching closing element whenever an opening element is inserted, for a list of elements
     -- that commonly occur in pairs.
-    use {'windwp/nvim-autopairs', config = require('plugins.nvim-autopairs')}
+    use({ 'windwp/nvim-autopairs', config = require('plugins.nvim-autopairs') })
 
     -- Note taking app.
-    use {'renerocksai/telekasten.nvim', config = require('plugins.telekasten'), requires = {
-        {'renerocksai/calendar-vim'},
-    }}
+    use({
+        'renerocksai/telekasten.nvim',
+        config = require('plugins.telekasten'),
+        requires = {
+            { 'renerocksai/calendar-vim' },
+        },
+    })
 
-    use {'hrsh7th/nvim-cmp', config = require('plugins.nvim-cmp'), requires = {
-        {'hrsh7th/nvim-cmp'},
-        {'hrsh7th/cmp-nvim-lua'},
-        {'hrsh7th/cmp-nvim-lsp'},
-        {'dcampos/nvim-snippy'},
-        {'dcampos/cmp-snippy'},
-    }}
+    use({
+        'hrsh7th/nvim-cmp',
+        config = require('plugins.nvim-cmp'),
+        requires = {
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-nvim-lua' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'dcampos/nvim-snippy' },
+            { 'dcampos/cmp-snippy' },
+        },
+    })
 
     -- Use a fork that allows a style file to be specified.
-    use({"jacobsimpson/stylua-nvim", run = "cargo install stylua", config=function() require'stylua-nvim'.setup({config_file = "~/dotfiles/nvim/language/stylua.toml"}) end})
+    use({
+        'jacobsimpson/stylua-nvim',
+        run = 'cargo install stylua',
+        config = function()
+            require('stylua-nvim').setup({ config_file = '~/dotfiles/nvim/language/stylua.toml' })
+        end,
+    })
 
     -- Automatically set up your configuration after cloning packer.nvim. Put this at the end after
     -- all plugins.

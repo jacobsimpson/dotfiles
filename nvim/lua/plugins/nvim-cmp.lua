@@ -4,8 +4,8 @@ return function()
     cmp.setup({
         snippet = {
             expand = function(args)
-              -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-              require('snippy').expand_snippet(args.body) -- For `snippy` users.
+                -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+                require('snippy').expand_snippet(args.body) -- For `snippy` users.
             end,
         },
 
@@ -16,11 +16,10 @@ return function()
             ['<C-n>'] = cmp.mapping.scroll_docs(4),
             --['<C-Space>'] = cmp.mapping.complete(),
             ['<C-e>'] = cmp.mapping.close(),
-            ['<CR>'] = cmp.mapping.confirm {
+            ['<CR>'] = cmp.mapping.confirm({
                 behavior = cmp.ConfirmBehavior.Replace,
                 select = true,
-            },
-
+            }),
         },
 
         -- You should specify your *installed* sources. The order of these items
@@ -30,7 +29,6 @@ return function()
             { name = 'nvim_lua' },
             --{ name = 'luasnip' },
             --{ name = 'snippy' }, -- For snippy users.
-
         },
 
         experimental = {

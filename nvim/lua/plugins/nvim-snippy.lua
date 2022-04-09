@@ -3,7 +3,7 @@ function _G.snippy_get_java_classname()
     local f = vim.fn.expand('%')
     local i = f:reverse():find('/')
     if i then
-        f = f:sub(i*-1+1)
+        f = f:sub(i * -1 + 1)
     end
     return f:sub(0, -6)
 end
@@ -28,5 +28,5 @@ return function()
 
     -- Any 'snippets' directory on the runtimepath will be added to the available
     -- snippets. This directory is in my 'dotfiles' repo.
-    vim.cmd [[let &runtimepath.="," . g:ConfigDir . "/snippets"]]
+    vim.cmd([[let &runtimepath.="," . g:ConfigDir . "/snippets"]])
 end

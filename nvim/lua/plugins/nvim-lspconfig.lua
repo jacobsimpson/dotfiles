@@ -10,16 +10,16 @@ return function()
     -- column always, there is less flicker during refreshes or loads. Without reserving this space, the
     -- LSP integration will clear the column on each save, then run the analysis, then insert the column
     -- with errors, causing the text to shift right.
-    vim.opt.signcolumn = "yes"
+    vim.opt.signcolumn = 'yes'
 
-    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-      virtual_text = {
-        -- Change the character beside the LSP floating text.
-        prefix = 'x', -- Could be '■', '●', '▎', 'x'
-      }
+    vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+        virtual_text = {
+            -- Change the character beside the LSP floating text.
+            prefix = 'x', -- Could be '■', '●', '▎', 'x'
+        },
     })
 
-    local opts = { noremap=true, silent=true }
+    local opts = { noremap = true, silent = true }
 
     vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
     vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
