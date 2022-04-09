@@ -15,6 +15,7 @@ vim.cmd([[
 ]])
 
 return require('packer').startup(function(use)
+    use 'wbthomason/packer.nvim'
 
     use 'ggandor/lightspeed.nvim'
     -- Trying out Lightspeed instead. Slightly different mechanism for selecting the jump target
