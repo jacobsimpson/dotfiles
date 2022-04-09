@@ -12,8 +12,6 @@ call SourceConfig("plugins/vim-test.vim")
 
 " ############################################################
 " ################### Experimental Plugins ###################
-"
-call SourceConfig("plugins/treesitter.vim")
 
 call SourceConfig("language/go.vim")
 call SourceConfig("language/java.vim")

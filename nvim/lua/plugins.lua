@@ -1,4 +1,4 @@
--- Automatically install packer, it if isn't already available.
+-- Automatically install packer, if it isn't already available.
 local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -134,6 +134,22 @@ return require('packer').startup(function(use)
         'nvim-lualine/lualine.nvim',
         config = require('plugins.lualine'),
         requires = { { 'kyazdani42/nvim-web-devicons' } },
+    })
+
+    -- The treesitter plugin itself provides language parsing and supports queries. Actual functionality
+    -- is implemented by modules, configured below.
+    --
+    -- The TSUpdate option will cause nvim-treesitter itself to download and install up to date parsers
+    -- for all configured languages whenever the nvim-treesitter plugin is updated.
+    use({
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate',
+        config = require('plugins.nvim-treesitter'),
+        requires = {
+            -- Treesitter text object module configuration.
+            { 'nvim-treesitter/nvim-treesitter-textobjects' },
+            { 'nvim-treesitter/playground' },
+        },
     })
 
     -- Automatically set up your configuration after cloning packer.nvim. Put this at the end after
