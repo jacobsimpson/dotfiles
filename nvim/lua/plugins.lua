@@ -98,6 +98,9 @@ return require('packer').startup(function(use)
         {'dcampos/cmp-snippy'},
     }}
 
+    -- Use a fork that allows a style file to be specified.
+    use({"jacobsimpson/stylua-nvim", run = "cargo install stylua", config=function() require'stylua-nvim'.setup({config_file = "~/dotfiles/nvim/language/stylua.toml"}) end})
+
     -- Automatically set up your configuration after cloning packer.nvim. Put this at the end after
     -- all plugins.
     if packer_bootstrap then
