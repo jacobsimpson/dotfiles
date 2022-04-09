@@ -152,6 +152,13 @@ return require('packer').startup(function(use)
         },
     })
 
+    use({
+        'kosayoda/nvim-lightbulb',
+        config = function()
+            vim.cmd([[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]])
+        end,
+    })
+
     -- Automatically set up your configuration after cloning packer.nvim. Put this at the end after
     -- all plugins.
     if packer_bootstrap then
