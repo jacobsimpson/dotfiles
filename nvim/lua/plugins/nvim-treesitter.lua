@@ -1,3 +1,7 @@
+
+-- Some treesitter code that might be useful to learn from
+--    - https://github.com/nvim-treesitter/nvim-treesitter-refactor
+
 return function()
     require('nvim-treesitter.configs').setup({
         -- Specify the parsers I want to have available.
