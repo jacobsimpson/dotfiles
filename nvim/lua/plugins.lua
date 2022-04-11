@@ -121,9 +121,8 @@ return require('packer').startup(function(use)
         },
     })
 
-    -- Use a fork that allows a style file to be specified.
     use({
-        'jacobsimpson/stylua-nvim',
+        'ckipp01/stylua-nvim',
         run = 'cargo install stylua',
         config = function()
             require('stylua-nvim').setup({ config_file = '~/dotfiles/nvim/language/stylua.toml' })
