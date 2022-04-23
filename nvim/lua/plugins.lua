@@ -53,12 +53,13 @@ return require('packer').startup(function(use)
 
     use({ 'famiu/bufdelete.nvim' })
 
-    -- use {'rafcamlet/nvim-luapad'}
-    -- Use a fork that includes an option for split orientation.
     use({
-        'jacobsimpson/nvim-luapad',
+        'rafcamlet/nvim-luapad',
         config = function()
-            require('luapad').setup({ split_orientation = 'horizontal' })
+            require('luapad').setup({
+                split_orientation = 'horizontal',
+                preview = false,
+            })
         end,
     })
 
