@@ -38,7 +38,7 @@ snippet pl "fmt.Println(...)"
 snippet pf "fmt.Printf(...)"
 	fmt.Printf("${1}\n"${2/(.+)/, /}${2})$0
 
-snippet /^cons/ "Constants declaration" r
+snippet /^cons/ "Constants declaration"
 	const (
 		${1:constant}${2/(.+)/ /}${2:type} = ${0:value}
 	)
