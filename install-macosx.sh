@@ -102,8 +102,13 @@ brew_install mercurial
 go install golang.org/x/tools/cmd/godoc
 go install golang.org/x/tools/cmd/vet
 
-# Install Rust.
 brew_install rust
+cargo install difftastic
+cargo install htmlq
+cargo install trunk
+cargo install --locked git-branchless
+cargo install cargo-watch
+
 brew_install luajit
 
 brew_install exa
@@ -111,6 +116,17 @@ brew_install lua-language-server
 
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
+
+# These are some experimental command line utilities that I'm trying out.
+brew_install duf
+brew_install dust
+brew_install bottom
+brew_install btop
+brew_install bat
+brew_install tig
+brew_install lazygit
+brew_install git-delta
+brew_install tealdeer
 
 # Agree to the Mac OS X XCode License.
 sudo xcodebuild -license
