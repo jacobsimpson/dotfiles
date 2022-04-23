@@ -250,8 +250,6 @@ map <silent> ,bd :Bdelete<CR>
 map <silent> ,bb :b#<CR>
 map <silent> ,bp :bp<CR>
 map <silent> ,bn :bn<CR>
-"map <silent> ,bl :Buffers<CR> " This used the fzf plugin.
-map <silent> ,bl :Telescope buffers theme=dropdown<CR>
 
 " Marks in Vim can be used two ways. The ' takes you to the line of the mark,
 " the ` takes you to the line and column of the mark. I nearly always want the
