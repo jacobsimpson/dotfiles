@@ -174,3 +174,5 @@ if which exa >& /dev/null; then
 fi
 
 export PATH=$PATH:/Users/jsimpson/.cargo/bin
+
+export CDPATH=$CDPATH:$HOME/src
