@@ -31,7 +31,6 @@ endfunction
 " interpreter and a 3.x interpreter.
 let $PYENV_VERSION="neovim-3.9"
 
-syntax on
 filetype plugin indent off
 
 "
@@ -139,7 +138,6 @@ if exists("g:did_load_filetypes")
 endif
 set runtimepath+=$GOROOT/misc/vim " replace $GOROOT with the output of: go env GOROOT
 filetype plugin indent on
-syntax on
 autocmd FileType go compiler go
 
 " It might be time for a new plugin manager. This one is for Neovim, written in Lua.
