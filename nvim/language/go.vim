@@ -15,9 +15,6 @@ autocmd FileType go compiler go
 
 let g:go_bin_path = $HOME."/golang"
 
-" Configure the whitespace plugin to auto strip trailing whitespace when the
-" given file types are saved.
-autocmd FileType go autocmd BufWritePre <buffer> StripWhitespace
 " Settings for vim-go -- https://github.com/fatih/vim-go#settings
 
 " Make the output of GoTest appear in a terminal window instead of in
@@ -28,26 +25,39 @@ autocmd FileType go autocmd BufWritePre <buffer> StripWhitespace
 "  doesn't have highlighting and disappears when I press a key.
 "let g:go_term_enabled = 1
 
-" Use goimports for formatting instead of gofmt. goimports is a superset that
-" includes automatically adjusting the import list of the file on save.
-let g:go_fmt_command = "goimports"
+lua << EOF
+-- Use goimports for formatting instead of gofmt. goimports is a superset that
+-- includes automatically adjusting the import list of the file on save.
+-- let g:go_fmt_command = "goimports"
+vim.api.nvim_set_var('go_fmt_command', "goimports")
 
-" Debugging output from `go test` and `go build` should appear in the quickfix
-" window.
-let g:go_list_type = "quickfix"
+-- Debugging output from `go test` and `go build` should appear in the quickfix
+-- window.
+-- let g:go_list_type = "quickfix"
+vim.api.nvim_set_var('go_list_type', "quickfix")
 
-let g:go_disable_autoinstall = 1
+-- let g:go_disable_autoinstall = 1
+vim.api.nvim_set_var('go_disable_autoinstall', 1)
 
-" Open new terminals in a horizontal split by default.
-let g:go_term_mode = "split"
+-- Open new terminals in a horizontal split by default.
+-- let g:go_term_mode = "split"
+vim.api.nvim_set_var('go_term_mode', "split")
 
-" Improve the syntax highlighting defaults.
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
+-- Improve the syntax highlighting defaults.
+-- let g:go_highlight_functions = 1
+vim.api.nvim_set_var('go_highlight_functions', 1)
+-- let g:go_highlight_methods = 1
+vim.api.nvim_set_var('go_highlight_methods', 1)
+-- let g:go_highlight_fields = 1
+vim.api.nvim_set_var('go_highlight_fields', 1)
+-- let g:go_highlight_types = 1
+vim.api.nvim_set_var('go_highlight_types', 1)
+-- let g:go_highlight_operators = 1
+vim.api.nvim_set_var('go_highlight_operators', 1)
+-- let g:go_highlight_build_constraints = 1
+vim.api.nvim_set_var('go_highlight_build_constraints', 1)
+
+EOF
 
 " Go uses tabs everywhere, so change the tab width.
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
