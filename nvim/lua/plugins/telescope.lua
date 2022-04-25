@@ -50,36 +50,19 @@ return function()
         layout_strategy = 'vertical',
     })
 
-    -- " I'm doing a little experiment to see which works better for me, <noun>-<action>, or
-    -- " <action>-<noun>
-    -- map <silent> ,bl <cmd>lua require('telescope.builtin').buffers({sort_mru = true, show_all_buffers = false, ignore_current_buffer = true})<cr>
-    -- map <silent> ,lb <cmd>lua require('telescope.builtin').buffers({sort_mru = true, show_all_buffers = false, ignore_current_buffer = true})<cr>
+    vim.keymap.set(
+        'n',
+        ',bl',
+        telescope_plugin_list_open_buffers,
+        { desc = 'List currently open buffers.', remap = false }
+    )
+    vim.keymap.set(
+        'n',
+        ',lb',
+        telescope_plugin_list_open_buffers,
+        { desc = 'List currently open buffers.', remap = false }
+    )
 
-    vim.api.nvim_set_keymap('n', ',bl', '', {
-        desc = 'List currently open buffers.',
-        noremap = true,
-        callback = telescope_plugin_list_open_buffers,
-    })
-
-    vim.api.nvim_set_keymap('n', ',lb', '', {
-        desc = 'List currently open buffers.',
-        noremap = true,
-        callback = telescope_plugin_list_open_buffers,
-    })
-
-    -- -- map <silent> ,ls :lua require('telescope.builtin').find_files( { search_dirs = { 'src/', 'migrations/', 'plugin/', 'lua/', 'doc/', 'Cargo.toml', 'build.rs' } })<CR>
-    -- -- map <silent> ,sl :lua require('telescope.builtin').find_files( { search_dirs = { 'src/', 'migrations/', 'plugin/', 'lua/', 'doc/', 'Cargo.toml', 'build.rs' } })<CR>
-
-    -- Switch to lua.keymap
-    vim.api.nvim_set_keymap('n', ',ls', '', {
-        desc = 'List source files.',
-        noremap = true,
-        callback = telescope_plugin_list_source_files,
-    })
-
-    vim.api.nvim_set_keymap('n', ',sl', '', {
-        desc = 'List source files.',
-        noremap = true,
-        callback = telescope_plugin_list_source_files,
-    })
+    vim.keymap.set('n', ',ls', telescope_plugin_list_source_files, { desc = 'List source files.', remap = false })
+    vim.keymap.set('n', ',sl', telescope_plugin_list_source_files, { desc = 'List source files.', remap = false })
 end
