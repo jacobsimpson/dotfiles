@@ -1,3 +1,30 @@
+--
+-- There have been a couple of problems related to plugins that have been difficult to troubleshoot.
+--
+-- 1.  Plugin reloads are unreliable. Make sure to :PackerCompile after any change. And start and
+--     stop Neovim.
+-- 2.  Scoping and visibility are weird. Calling local functions from the configuration function
+--     doesn't work correctly.
+--
+-- My experience with Packer though tells me that using a Lua plugin manager is awesome because Lua
+-- functions can be used to do the additional configuration. My experience with Packer itself is
+-- mixed. The emphasis on the compile step make reloads weird, config functions uncertain, and
+-- requires that the :PackerCompile step be re-run all the time, instead of just picking up changes
+-- as other plugin managers would. Make sure to re-run :PackerCompile in the nvim instance where
+-- testing is happening. Running it in another instance and restarting a test instance had
+-- inconsistent results.
+--
+
+-- This section should cause changes to plugins and plugin configuration to be automatically
+-- reloaded.
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost */dotfiles/nvim/lua/plugins.lua source <afile> | PackerCompile
+    autocmd BufWritePost */dotfiles/nvim/lua/plugins/*.lua source <afile> | PackerCompile
+  augroup end
+]])
+
 -- Automatically install packer, if it isn't already available.
 local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
