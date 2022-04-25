@@ -11,6 +11,8 @@ let g:go_loaded_gosnippets = 1
 "Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'fatih/vim-go'
 
+autocmd FileType go compiler go
+
 let g:go_bin_path = $HOME."/golang"
 
 " Configure the whitespace plugin to auto strip trailing whitespace when the
