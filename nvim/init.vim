@@ -39,6 +39,10 @@ filetype plugin indent off
 " - https://github.com/miltonllera/neovim-lua-config/blob/master/lua/options.lua
 "
 lua <<EOF
+vim.opt.errorbells = false
+
+vim.opt.autoread = true
+
 -- Tabs will be changed to equivalent spaces, affects autoindent and shift (>) operator.
 vim.opt.expandtab = true
 -- Use 'shiftwidth' when using <Tab> in front of a line. By default it's used only for shift
