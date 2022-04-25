@@ -365,9 +365,6 @@ call SourceIfExists("~/.vimrc.local")
 " is at the end of the line.
 vnoremap p "_dP
 
-map <silent> ,ls :lua require('telescope.builtin').find_files( { search_dirs = { 'src/', 'migrations/', 'plugin/', 'lua/', 'doc/', 'Cargo.toml', 'build.rs' } })<CR>
-map <silent> ,sl :lua require('telescope.builtin').find_files( { search_dirs = { 'src/', 'migrations/', 'plugin/', 'lua/', 'doc/', 'Cargo.toml', 'build.rs' } })<CR>
-
 " I wanted to replace the vim-highlightedyank plugin with the Neovim feature that has the same
 " behavior.
 " - https://neovim.io/doc/user/lua.html#lua-highlight
