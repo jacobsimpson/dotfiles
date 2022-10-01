@@ -29,6 +29,11 @@ function telescope_plugin_list_source_files()
             'doc/',
             'Cargo.toml',
             'build.rs',
+            '*/src',
+            'core/*/src',
+            'contrib/db_pools/*/src',
+            'contrib/sync_db_pools/*/src',
+            'contrib/*/src'
         },
     })
 end
