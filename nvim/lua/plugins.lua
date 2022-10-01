@@ -42,10 +42,13 @@ end
 return require('packer').startup(function(use)
     use('wbthomason/packer.nvim')
 
-    use('ggandor/lightspeed.nvim')
-    -- Trying out Lightspeed instead. Slightly different mechanism for selecting the jump target
-    -- identifiers.
-    --use {'phaazon/hop.nvim', branch = 'v1', config = require('plugins.hop')}
+    -- This works ok, I didn't notice anything especially awesome about it. One big drawback, it
+    -- hides the cursor after a motion has succeeded, so I don't get the visual feedback of the new
+    -- location until I do something. Also, it replaces/extends the f/t keys. Which is not terrible,
+    -- just not helpful, especially when coupled with hiding the cursor after a jump.
+    -- use('ggandor/lightspeed.nvim')
+    -- Slightly different mechanism for selecting the jump target identifiers.
+    use {'phaazon/hop.nvim', branch = 'v1', config = require('plugins.hop')}
 
     -- When a visual selection is active, pressing * or # will do a file search of the selection,
     -- instead of a file search of the word under the cursor.
