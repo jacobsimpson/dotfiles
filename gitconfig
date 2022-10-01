@@ -31,8 +31,9 @@
     rec = rebase --continue
     st = status
     l = log --name-status
-    xl = log --graph --oneline --all
-    log = log --graph --oneline --all
+    xl = log --graph --oneline --all --reverse
+    log = log --graph --oneline --all --reverse
+    sl = smartlog
 
     delete-merged = "!f() {\
         [[ $(git rev-parse --abbrev-ref HEAD) == 'master' ]] && git branch --merged | egrep -v '\\*|master|dev' | xargs -n 1 git branch -d ; \
@@ -132,4 +133,8 @@
 
 [diff]
     colorMoved = default
-	external = difft
+	#external = difft --display=side-by-side
+    tool = difftastic
+
+[difftool "difftastic"]
+    cmd = /Users/jsimpson/.cargo/bin/difft --display=side-by-side $LOCAL $REMOTE
