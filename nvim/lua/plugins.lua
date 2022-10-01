@@ -97,8 +97,8 @@ return require('packer').startup(function(use)
     })
     -- Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
-    -- I didn't end up mapping a key for this. Wasn't sure how much use it would get. Activate with
-    -- the following command.
+    -- This plugin will pop up a selection list of emojis. I didn't end up mapping a key for this.
+    -- Wasn't sure how much use it would get. Activate with the following command.
     -- lua require'telescope.builtin'.symbols{ sources = {'emoji', 'math', 'latex', 'gitmoji'} }
     use({ 'nvim-telescope/telescope-symbols.nvim' })
 
