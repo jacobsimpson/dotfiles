@@ -44,6 +44,7 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 
 brew_install ag
 brew_install jq
+brew_install fd
 #brew install google-chrome
 brew_install iterm2
 brew_install --HEAD luajit
@@ -130,3 +131,6 @@ brew_install tealdeer
 
 # Agree to the Mac OS X XCode License.
 sudo xcodebuild -license
+
+# This is improved reverse search, it tracks the context and outcome of an operation.
+curl -fsSL https://raw.githubusercontent.com/curusarn/resh/master/scripts/rawinstall.sh | bash
