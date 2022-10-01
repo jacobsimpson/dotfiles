@@ -111,7 +111,13 @@ return require('packer').startup(function(use)
     -- Snippet support. I've never been really good at using this, but it seems like a good idea.
     use({ 'dcampos/nvim-snippy', config = require('plugins.nvim-snippy') })
 
-    use({ 'numToStr/Comment.nvim', config = require('plugins.comment') })
+    -- Default keymapping is gcc/gbc in normal mode, gc/gb in visual mode. Last time I tried using
+    -- the plugin in visual mode, there was an error.
+    use({ 'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end})
+    --config = require('plugins.comment') })
 
     -- Shows lines added or removed according to the version control system.
     use({ 'lewis6991/gitsigns.nvim', config = require('plugins.gitsigns') })
