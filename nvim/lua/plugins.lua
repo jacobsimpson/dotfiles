@@ -192,4 +192,7 @@ return require('packer').startup(function(use)
     if packer_bootstrap then
         require('packer').sync()
     end
+
+    use 'ray-x/go.nvim'
+    use 'ray-x/guihua.lua' -- recommended if need floating window support
 end)

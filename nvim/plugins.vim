@@ -13,7 +13,7 @@ call SourceConfig("plugins/vim-test.vim")
 " ############################################################
 " ################### Experimental Plugins ###################
 
-call SourceConfig("language/go.vim")
+"call SourceConfig("language/go.vim")
 call SourceConfig("language/java.vim")
 call SourceConfig("language/json.vim")
 call SourceConfig("language/lua.vim")
