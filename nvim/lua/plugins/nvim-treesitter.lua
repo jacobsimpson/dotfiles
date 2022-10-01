@@ -1,4 +1,3 @@
-
 -- Some treesitter code that might be useful to learn from
 --    - https://github.com/nvim-treesitter/nvim-treesitter-refactor
 
@@ -11,8 +10,14 @@ return function()
             'go',
             'gomod',
             'java',
-            'lua',
-            'markdown',
+            --'lua',  -- As of 2022-09, this was causing errors in Vim Lua files.
+            -- https://github.com/nvim-treesitter/nvim-treesitter/issues/1887
+            -- Some people found it was a problem compiling the parsers. I disabled the treesitter
+            -- plugin, used PackerSync to get rid of it, then re-enabled the treesitter plugin and
+            -- PackerSync to bring it back, with these misbehaving parsers disabled. That cleared
+            -- the errors, but left me without markdown support.
+            --'markdown',        -- This stopped working 2022-09-16.
+            --'markdown_inline', -- The markdown parser is a two phase parser, so two components.
             'rust',
             'toml',
             'vim',
@@ -30,6 +35,15 @@ return function()
         --  },
         --},
     })
+
+    -- https://tree-sitter.github.io/tree-sitter/using-parsers#pattern-matching-with-queries
+    --    -   documentation on the query language.
+    -- https://github.com/nvim-treesitter/nvim-treesitter/blob/master/queries/rust/highlights.scm
+    --    -   scm files with Treesitter queries.
+    -- https://www.youtube.com/watch?v=86sgKa0jeO4&ab_channel=s1n7ax
+    --    -   A tutorial on making and testing queries. It's a little more about the nvim stuff.
+    --require("vim.treesitter.query").set_query("rust", "injections", "(line_comment) @stuff")
+    --require("vim.treesitter.query").set_query("rust", "injections", "[ (line_comment) (block_comment) ] @stuff")
 
     require('nvim-treesitter.configs').setup({
         textobjects = {
