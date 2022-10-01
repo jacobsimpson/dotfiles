@@ -41,6 +41,7 @@ filetype plugin indent off
 " - https://github.com/miltonllera/neovim-lua-config/blob/master/lua/options.lua
 "
 lua <<EOF
+-- Making noises is annoying. I trying to work here. Just stop it.
 vim.opt.errorbells = false
 
 vim.opt.autoread = true
