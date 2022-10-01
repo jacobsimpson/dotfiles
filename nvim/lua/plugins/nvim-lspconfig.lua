@@ -3,8 +3,11 @@ return function()
     -- Useful example LSP configuration: https://raygervais.dev/articles/2021/3/neovim-lsp/
 
     -- Frequently the diagnostic virtual text goes off the screen. Currently the guidance is to just
-    -- call vim.lsp.diagnostic.show_line_diagnostics(), though I've noticed
-    -- vim.diagnostic.open_float() does the trick too.
+    -- call:
+    --    :lua vim.lsp.diagnostic.show_line_diagnostics()
+    -- though I've noticed
+    --    :lua vim.diagnostic.open_float()
+    -- does the trick too.
 
     -- Make the sign column always there, even when there isn't an error. By reserving the space for the
     -- column always, there is less flicker during refreshes or loads. Without reserving this space, the
