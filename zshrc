@@ -176,3 +176,26 @@ fi
 export PATH=$PATH:/Users/jsimpson/.cargo/bin
 
 export CDPATH=$CDPATH:$HOME/src
+
+[ -f ~/.resh/shellrc ] && source ~/.resh/shellrc # this line was added by RESH (Rich Enchanced Shell History)
+
+#
+# zsh has two completion systems. The old system, compctl, and the new system, compsys.
+#
+# compsys is a collection of zsh functions with three critical components:
+# 1. Base - core and basic completer functions
+# 2. Zsh - code for zsh built in commands, like `cd`
+# 3. Unix - code for completing external commands.
+#
+autoload -U compinit ; compinit
+
+#
+# :completion:<function>:<completer>:<command>:<argument>:<tag>
+#
+# argument - apply the style to the nth argument.
+# tag - apply the style to a specific type of argument, "files", "domains", "users", "options"
+#
+
+# Interesting thing, aliases will still receive the benefit of this completion guidance, though I
+# did get a hint that it is configurable whether that is true or not.
+zstyle ':completion:*:*:nvim:*' file-patterns '^*.(lock|pdf):source-files' '*:all-files'
