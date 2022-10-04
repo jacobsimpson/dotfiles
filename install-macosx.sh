@@ -109,6 +109,7 @@ cargo install htmlq
 cargo install trunk
 cargo install --locked git-branchless
 cargo install cargo-watch
+cargo install --locked bat
 
 brew_install luajit
 
@@ -123,7 +124,6 @@ brew_install duf
 brew_install dust
 brew_install bottom
 brew_install btop
-brew_install bat
 brew_install tig
 brew_install lazygit
 brew_install git-delta
