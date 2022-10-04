@@ -154,10 +154,6 @@ autocmd BufEnter,BufNew *.java         call SetJavaCompilerGradle()
 autocmd BufEnter,BufNew build.xml      call SetJavaCompilerAnt()
 autocmd BufEnter,BufNew build.gradle   call SetJavaCompilerGradle()
 
-" Configure the whitespace plugin to auto strip trailing whitespace when the
-" given file types are saved.
-autocmd FileType java autocmd BufWritePre <buffer> StripWhitespace
-
 " These are the key mappings that are expected to be common across all
 " carrying out the intended activity.
 au FileType java nmap <buffer> <silent> <Space>a  :call language#java#GoAlternate()<CR>

@@ -123,7 +123,37 @@ return require('packer').startup(function(use)
     use({ 'lewis6991/gitsigns.nvim', config = require('plugins.gitsigns') })
 
     -- Strip trailing whitespace on save.
-    use('McAuleyPenney/tidy.nvim')
+    --use({ 'mcauley-penney/tidy.nvim',
+    --    config = function()
+    --        require("tidy").setup()
+    --    end
+    --})
+
+    -- Using packer.nvim
+    use({
+        'johnfrankmorgan/whitespace.nvim',
+        config = function ()
+            require('whitespace-nvim').setup({
+            --    -- configuration options and their defaults
+
+            --    -- `highlight` configures which highlight is used to display
+            --    -- trailing whitespace
+                highlight = 'DiffDelete',
+
+            --    -- `ignored_filetypes` configures which filetypes to ignore when
+            --    -- displaying trailing whitespace
+                ignored_filetypes = { 'TelescopePrompt' },
+            })
+
+            ---- remove trailing whitespace with a keybinding
+            --vim.api.nvim_set_keymap(
+            --    'n',
+            --    '<Leader>t',
+            --    [[<cmd>lua require('whitespace-nvim').trim()<CR>]]
+            --    { noremap = true }
+            --)
+        end
+    })
 
     -- Adds a matching closing element whenever an opening element is inserted, for a list of elements
     -- that commonly occur in pairs.

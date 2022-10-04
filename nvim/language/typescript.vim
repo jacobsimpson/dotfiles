@@ -34,10 +34,6 @@ function language#typescript#Test()
     echo "There is no test behavior defined for Typescript."
 endfunction
 
-" Configure the whitespace plugin to auto strip trailing whitespace when the
-" given file types are saved.
-autocmd FileType typescript autocmd BufWritePre <buffer> StripWhitespace
-
 " These are the key mappings that are expected to be common across all
 " carrying out the intended activity.
 au FileType typescript nmap <buffer> <silent> <Space>a  :call language#typescript#GoAlternate()<CR>
@@ -49,4 +45,3 @@ au FileType typescript nmap <buffer> <silent> <Space>ga :call language#typescrip
 au FileType typescript nmap <buffer>          <Space>r  :call language#typescript#Run()<CR>
 au FileType typescript nmap <buffer>          <Space>s  :call language#typescript#Scratch()<CR>
 au FileType typescript nmap <buffer> <silent> <Space>t  :call language#typescript#Test()<CR>
-

@@ -3,8 +3,6 @@
 " higher than 0.
 autocmd FileType json setlocal conceallevel=0 concealcursor=niv
 
-autocmd FileType json autocmd BufWritePre <buffer> StripWhitespace
-
 function language#json#Build()
     split | terminal jq -M . %
 endfunction
