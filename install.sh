@@ -171,4 +171,16 @@ install_font mononoki Mononoki
 install_font Terminess Terminus
 install_font Fantasque FantasqueSansMono
 
+if grep 'XKBOPTIONS=""' /etc/default/keyboard >& /dev/null; then
+    # https://thesynack.com/posts/persistent-capslock-behavior/
+    echo
+    echo "********************************************************************************"
+    echo "It looks like the Capslock key override isn't installed."
+    echo "Put this option in /etc/default/keyboard and reboot."
+    echo
+    echo 'XKBOPTIONS="caps:escape"'
+    echo "********************************************************************************"
+    echo
+fi
+
 echo
