@@ -146,8 +146,16 @@ fi
 
 alias cd.='cd $(pwd)'
 
-alias vi=${HOME}/bin/nvim
-alias vim=${HOME}/bin/nvim
+if [[ -e ${HOME}/.local/bin/nvim ]]; then
+    alias vi=${HOME}/.local/bin/nvim
+    alias vim=${HOME}/.local/bin/nvim
+elif [[ -e ${HOME}/bin/nvim ]]; then
+    alias vi=${HOME}/bin/nvim
+    alias vim=${HOME}/bin/nvim
+elif [[ -e /usr/bin/nvim ]]; then
+    alias vi=/usr/bin/nvim
+    alias vim=/usr/bin/nvim
+fi
 
 # function vi() {
 #     if [[ ! -z "$NVIM_LISTEN_ADDRESS" ]]; then
@@ -173,7 +181,7 @@ if which exa >& /dev/null; then
     alias ls='exa --icons -F'
 fi
 
-export PATH=$PATH:/Users/jsimpson/.cargo/bin
+export PATH=$PATH:${HOME}/.cargo/bin
 
 export CDPATH=$CDPATH:$HOME/src
 
