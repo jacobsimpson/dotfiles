@@ -108,7 +108,7 @@ sudo cp /home/jsimpson/.cargo/bin/alacritty /usr/local/bin
 sudo cp /home/jsimpson/.cargo/registry/src/github.com-1ecc6299db9ec823/alacritty-0.11.0/extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
 sudo desktop-file-install /home/jsimpson/.cargo/registry/src/github.com-1ecc6299db9ec823/alacritty-0.11.0/extra/linux/Alacritty.desktop
 sudo update-desktop-database
-ln -nsf ~/.alacritty ~/dotfiles/alacritty
+[[ ! -e ~/.alacritty.yml ]] && ln -nsf ~/dotfiles/alacritty.yml ~/.alacritty.yml
 
 go install github.com/jesseduffield/lazygit@latest
 
