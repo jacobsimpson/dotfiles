@@ -52,12 +52,12 @@ brew_install --HEAD neovim
 brew_install coreutils
 
 brew_install openjdk
-brew_install jenv
-path=($HOME/.jenv/bin $path)
-eval "$(jenv init -)"
-ls -d /Library/Java/JavaVirtualMachines/jdk*/Contents/Home/. \
-    | sed 's|/\./||' | xargs -n 1 jenv add
-jenv global 1.15
+#brew_install jenv
+#path=($HOME/.jenv/bin $path)
+#eval "$(jenv init -)"
+#ls -d /Library/Java/JavaVirtualMachines/jdk*/Contents/Home/. \
+#    | sed 's|/\./||' | xargs -n 1 jenv add
+#jenv global 1.15
 
 # Python is used by many things, and sometimes older and newer versions must
 # coexist. See a list of available versions with pyenv install --versions
@@ -110,6 +110,12 @@ cargo install trunk
 cargo install --locked git-branchless
 cargo install cargo-watch
 cargo install --locked bat
+cargo install du-dust
+cargo install bottom --locked
+cargo install git-delta
+cargo install tealdeer
+
+go install github.com/jesseduffield/lazygit@latest
 
 brew_install luajit
 
@@ -121,13 +127,8 @@ brew install --cask font-hack-nerd-font
 
 # These are some experimental command line utilities that I'm trying out.
 brew_install duf
-brew_install dust
-brew_install bottom
 brew_install btop
 brew_install tig
-brew_install lazygit
-brew_install git-delta
-brew_install tealdeer
 
 # Agree to the Mac OS X XCode License.
 sudo xcodebuild -license
