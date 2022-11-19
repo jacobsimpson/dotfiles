@@ -29,6 +29,7 @@ return function()
             { name = 'nvim_lua' },
             --{ name = 'luasnip' },
             --{ name = 'snippy' }, -- For snippy users.
+            { name = "crates" },
         },
 
         experimental = {

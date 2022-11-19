@@ -108,6 +108,18 @@ return require('packer').startup(function(use)
 
     use({ 'neovim/nvim-lspconfig', config = require('plugins.nvim-lspconfig') })
 
+    use {
+        'saecki/crates.nvim',
+        tag = 'v0.3.0',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'jose-elias-alvarez/null-ls.nvim'
+        },
+        config = function()
+            require('crates').setup()
+        end,
+    }
+
     -- Snippet support. I've never been really good at using this, but it seems like a good idea.
     use({ 'dcampos/nvim-snippy', config = require('plugins.nvim-snippy') })
 
