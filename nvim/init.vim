@@ -1,3 +1,5 @@
+" https://github.com/nanotee/nvim-lua-guide#tips-2
+"
 " Although it seems like it should be possible to detect the current directory
 " of _this_ config file, and use that as the config root directory (i.e. let
 " ConfigDir = expand('%:p:h')), when neovim is started with a file specified
@@ -15,6 +17,11 @@ function! SourceIfExists(file)
     exe 'source' a:file
   endif
 endfunction
+
+let g:loaded_python3_provider = 0
+let g:loaded_perl_provider = 0
+let g:loaded_ruby_provider = 0
+let g:loaded_node_provider = 0
 
 " These don't seem to work. The Neovim documentation implies that setting these variables will
 " select the python interpreter. However, when I set these, I still get python errors (neovim can't
