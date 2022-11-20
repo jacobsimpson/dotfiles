@@ -20,7 +20,11 @@ return function()
             --'markdown_inline', -- The markdown parser is a two phase parser, so two components.
             'rust',
             'toml',
-            'vim',
+            -- 'vim', -- I think this was popping up sprurious errors when browsing help files and
+            -- Lua config.
+            'awk',
+            'jq',
+            'sql',
         },
         highlight = {
             enable = true,
