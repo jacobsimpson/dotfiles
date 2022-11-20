@@ -239,12 +239,12 @@ return require('packer').startup(function(use)
         end,
     })
 
+    --use 'ray-x/go.nvim'
+    --use 'ray-x/guihua.lua' -- recommended if need floating window support
+
     -- Automatically set up your configuration after cloning packer.nvim. Put this at the end after
     -- all plugins.
     if packer_bootstrap then
         require('packer').sync()
     end
-
-    use 'ray-x/go.nvim'
-    use 'ray-x/guihua.lua' -- recommended if need floating window support
 end)
