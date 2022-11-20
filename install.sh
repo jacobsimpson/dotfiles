@@ -16,7 +16,7 @@ function install_cargo() {
     if cargo install --list | grep $1 >& /dev/null ; then
         printf "Crate %-20s already installed, skipping...\n" "$1"
     else
-        cargo install $1 $2
+        cargo install $1 $2 $3
     fi
 }
 
@@ -91,6 +91,8 @@ install_cargo mdbook
 install_cargo git-branchless --locked
 install_cargo bat --locked
 install_cargo bottom --locked
+# Used by an nvim plugin.
+install_cargo ripgrep --features 'pcre2'
 
 # Dependencies for alacritty.
 # Running this section failed on my Mint install. The `python3` install could not complete
