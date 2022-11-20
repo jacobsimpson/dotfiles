@@ -5,7 +5,7 @@
 " instead.
 "call SourceConfig("plugins/fzf.vim")
 
-call SourceConfig("plugins/vim-test.vim")
+" call SourceConfig("plugins/vim-test.vim")
 
 "This was going to be a plugin I develop for note taking. However, then I found telekasten.
 "Plug '~/src/nvim-cognisance'
