@@ -69,9 +69,9 @@ return require('packer').startup(function(use)
 
     use({ 'hashivim/vim-terraform' })
 
-    use({ 'jrozner/vim-antlr' })
+    -- use({ 'jrozner/vim-antlr' })
 
-    use({ 'jasontbradshaw/pigeon.vim', config = require('plugins.pigeon') })
+    -- use({ 'jasontbradshaw/pigeon.vim', config = require('plugins.pigeon') })
 
     use({ 'famiu/bufdelete.nvim' })
 
