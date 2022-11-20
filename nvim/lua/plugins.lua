@@ -108,6 +108,16 @@ return require('packer').startup(function(use)
 
     use({ 'neovim/nvim-lspconfig', config = require('plugins.nvim-lspconfig') })
 
+    -- Debugging
+    use {
+        "rcarriga/nvim-dap-ui",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "mfussenegger/nvim-dap",
+        },
+        config = require('plugins.nvim-dap'),
+    }
+
     use {
         'saecki/crates.nvim',
         tag = 'v0.3.0',
