@@ -258,6 +258,42 @@ return require('packer').startup(function(use)
         end,
     })
 
+    --use {
+    --    "nvim-neotest/neotest",
+    --    requires = {
+    --        "nvim-lua/plenary.nvim",
+    --        "nvim-treesitter/nvim-treesitter",
+    --        "antoinemadec/FixCursorHold.nvim",
+    --        "rouge8/neotest-rust",
+    --        "nvim-neotest/neotest-vim-test",
+    --    },
+    --    config = function()
+    --        require("neotest").setup({
+    --            adapters = {
+    --                require("neotest-rust"),
+    --                require("neotest-vim-test")({
+    --                    ignore_file_types = { "rust" },
+    --                })
+    --            }
+    --        })
+    --    end
+    --}
+
+    use({
+        'https://gitlab.com/yorickpeterse/nvim-window.git',
+        config = function()
+            -- require('nvim-window').pick()
+
+            vim.keymap.set(
+                {'n', 'i', 'v'},
+                '<C-w>',
+                require('nvim-window').pick,
+                { desc = 'Show a window picker.', remap = false }
+            )
+
+        end
+    })
+
     --use 'ray-x/go.nvim'
     --use 'ray-x/guihua.lua' -- recommended if need floating window support
 
