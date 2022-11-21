@@ -55,12 +55,13 @@ return function()
         layout_strategy = 'vertical',
     })
 
-    vim.keymap.set(
-        'n',
-        ',bl',
-        telescope_plugin_list_open_buffers,
-        { desc = 'List currently open buffers.', remap = false }
-    )
+    -- Change the background colors and borders for the Telescope popup window.
+    -- It also seems to affect all other popup windows.
+    vim.api.nvim_set_hl(0, 'FloatBorder', {bg='#3B4252', fg='#5E81AC'})
+    vim.api.nvim_set_hl(0, 'NormalFloat', {bg='#3B4252'})
+    vim.api.nvim_set_hl(0, 'TelescopeNormal', {bg='#3B4252'})
+    vim.api.nvim_set_hl(0, 'TelescopeBorder', {bg='#3B4252'})
+
     vim.keymap.set(
         'n',
         ',lb',
@@ -69,5 +70,4 @@ return function()
     )
 
     vim.keymap.set('n', ',ls', telescope_plugin_list_source_files, { desc = 'List source files.', remap = false })
-    vim.keymap.set('n', ',sl', telescope_plugin_list_source_files, { desc = 'List source files.', remap = false })
 end
