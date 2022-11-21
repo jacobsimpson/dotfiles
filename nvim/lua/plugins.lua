@@ -294,6 +294,22 @@ return require('packer').startup(function(use)
         end
     })
 
+    -- call nvim_win_set_option(win, 'Normal:MyHighlight,FloatBorder:MyHighlight')
+    -- win = 0 => current window
+    use {
+        "folke/which-key.nvim",
+        config = function()
+            require("which-key").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+                window = {
+                    border = "double"
+                }
+            }
+        end
+    }
+
     --use 'ray-x/go.nvim'
     --use 'ray-x/guihua.lua' -- recommended if need floating window support
 
