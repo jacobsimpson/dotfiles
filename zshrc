@@ -207,3 +207,12 @@ autoload -U compinit ; compinit
 # Interesting thing, aliases will still receive the benefit of this completion guidance, though I
 # did get a hint that it is configurable whether that is true or not.
 zstyle ':completion:*:*:nvim:*' file-patterns '^*.(lock|pdf):source-files' '*:all-files'
+
+eval "$(zoxide init zsh)"
+alias cd='echo "Try \"z\" instead."'
+
+alias du='echo "Try \"dust\" instead."'
+
+alias find='echo "Try \"fd\" instead."'
+
+eval "$(zellij setup --generate-auto-start zsh)"
