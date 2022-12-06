@@ -66,8 +66,11 @@ install duf
 install btop
 install tig
 install cmake
-# This package allows Neovim to integrate with the system clipboard.
-install xclip
+install xclip      # This package allows Neovim to integrate with the system clipboard.
+install linux-tools-common
+install linux-tools-generic
+install linux-tools-`uname -r`
+install zoxide
 
 if which rustup >& /dev/null ; then
     printf "%-26s already installed, skipping...\n" "rustup"
@@ -80,6 +83,7 @@ rustup component add rust-analyzer
 ln -nsf $(rustup which --toolchain stable rust-analyzer) ~/bin/rust-analyzer
 rustup component add clippy
 
+install_cargo flamegraph
 install_cargo tealdeer
 install_cargo du-dust
 install_cargo difftastic
@@ -186,3 +190,7 @@ if grep 'XKBOPTIONS=""' /etc/default/keyboard >& /dev/null; then
 fi
 
 echo
+
+bash <(curl https://raw.githubusercontent.com/ellie/atuin/main/install.sh)
+atuin import auto
+
