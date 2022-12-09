@@ -45,6 +45,7 @@ function rg() {
 }
 
 path=("${HOME}/bin" $path)
+path=("${HOME}/.local/bin" $path)
 
 # An alias that will open any specified html file in the currently running
 # # Chrome browser, or start an instance.
@@ -214,5 +215,3 @@ alias cd='echo "Try \"z\" instead."'
 alias du='echo "Try \"dust\" instead."'
 
 alias find='echo "Try \"fd\" instead."'
-
-eval "$(zellij setup --generate-auto-start zsh)"
