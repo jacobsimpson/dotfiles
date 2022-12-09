@@ -1,16 +1,23 @@
 -- Some treesitter code that might be useful to learn from
 --    - https://github.com/nvim-treesitter/nvim-treesitter-refactor
 
+-- NOTE: I was getting some semi-random errors about no tree-sitter CLI. In theory, the plugin
+-- should download and compile the necessary C files, but apparently that doesn't happen for _some_
+-- grammars.
+-- install_cargo tree-sitter-cli
+-- Down at the bottom: https://github.com/nvim-treesitter/nvim-treesitter/issues/1097
 return function()
     require('nvim-treesitter.configs').setup({
         -- Specify the parsers I want to have available.
         ensure_installed = {
+            'awk',
             'bash',
             'dockerfile',
             'go',
             'gomod',
             'java',
-            --'lua',  -- As of 2022-09, this was causing errors in Vim Lua files.
+            'jq',
+            'lua',  -- As of 2022-09, this was causing errors in Vim Lua files.
             -- https://github.com/nvim-treesitter/nvim-treesitter/issues/1887
             -- Some people found it was a problem compiling the parsers. I disabled the treesitter
             -- plugin, used PackerSync to get rid of it, then re-enabled the treesitter plugin and
@@ -18,13 +25,14 @@ return function()
             -- the errors, but left me without markdown support.
             --'markdown',        -- This stopped working 2022-09-16.
             --'markdown_inline', -- The markdown parser is a two phase parser, so two components.
+            'python',
             'rust',
-            'toml',
-            -- 'vim', -- I think this was popping up sprurious errors when browsing help files and
-            -- Lua config.
-            'awk',
-            'jq',
             'sql',
+            'toml',
+            -- I think this was popping up sprurious errors when browsing help files and
+            -- Lua config.
+            'vim',
+            'yaml',
         },
         highlight = {
             enable = true,

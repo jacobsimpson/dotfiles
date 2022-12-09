@@ -240,6 +240,12 @@ return require('packer').startup(function(use)
     --
     -- The TSUpdate option will cause nvim-treesitter itself to download and install up to date parsers
     -- for all configured languages whenever the nvim-treesitter plugin is updated.
+    --
+    -- NOTE
+    -- I have, multiple times, had problems with this plugin. It fails to do the highlighting work
+    -- and spews errors on the line with the cursor, as I move the cursor around.
+    -- Try `:checkhealth` and have a loot at the treesitter plugin to see it's status. It can be
+    -- useful to re-install particular language support. i.e. `:TSUpdate lua`
     use({
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
