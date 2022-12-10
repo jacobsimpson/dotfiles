@@ -193,6 +193,10 @@ fi
 
 echo
 
-bash <(curl https://raw.githubusercontent.com/ellie/atuin/main/install.sh)
-atuin import auto
+if ! which atuin >& /dev/null ; then
+    bash <(curl https://raw.githubusercontent.com/ellie/atuin/main/install.sh)
+    atuin import auto
+fi
 
+[[ ! -e ~/.config/i3 ]] && mkdir -p ~/.config/i3
+[[ ! -e ~/.config/i3/config ]] && ln -nsf ~/dotfiles/i3-config ~/.config/i3/config
