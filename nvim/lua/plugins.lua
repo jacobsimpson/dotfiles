@@ -238,6 +238,8 @@ return require('packer').startup(function(use)
         },
     })
 
+    -- This plugin puts the lightbulb in the gutter when there are code actions available. It does
+    -- not handle anything else.
     use({
         'kosayoda/nvim-lightbulb',
         config = function()
