@@ -1,6 +1,8 @@
 return function()
-    -- The plugin repo itself has some nice guidance: https://github.com/neovim/nvim-lspconfig
-    -- Useful example LSP configuration: https://raygervais.dev/articles/2021/3/neovim-lsp/
+    -- The plugin repo itself has some nice guidance:
+    --     - https://github.com/neovim/nvim-lspconfig
+    --     - https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
+    --     - https://raygervais.dev/articles/2021/3/neovim-lsp/
 
     -- Frequently the diagnostic virtual text goes off the screen. Currently the guidance is to just
     -- call:
@@ -42,7 +44,7 @@ return function()
     -- vim.api.nvim_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     vim.api.nvim_set_keymap('n', 'gr', '<cmd>Telescope lsp_references theme=dropdown<CR>', opts)
     vim.api.nvim_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-    vim.api.nvim_set_keymap('n', '<space>a', '<cmd>Telescope lsp_code_actions theme=cursor<CR>', opts)
+    vim.api.nvim_set_keymap('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 
     -- -- Use an on_attach function to only map the following keys after the language server
     -- -- attaches to the current buffer.
