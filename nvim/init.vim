@@ -272,7 +272,7 @@ vnoremap > >gv
 " Buffer navigation is extremely common, so there are some things I remapped
 " to make that go faster. I hope.
 "vim.api.nvim_set_keymap('n', ',bd', [[<cmd>:Bdelete<CR>]], { noremap = true, silent = true })
-map <silent> ,bd :Bdelete<CR>
+map <silent> ,bd :lua require('bufdelete').bufdelete(0, true)<CR>
 map <silent> ,bb :b#<CR>
 map <silent> ,bp :bp<CR>
 map <silent> ,bn :bn<CR>
