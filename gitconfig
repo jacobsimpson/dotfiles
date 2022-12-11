@@ -45,6 +45,15 @@
         git push -u origin $(git rev-parse --abbrev-ref HEAD) ; \
     }; f"
 
+    move-branch = "!f() {\
+        if [[ -z $1 || -z $2 ]]; then \
+            echo \"git move-branch <branch-name> <new-sha>\" ;\
+            return ;\
+        fi ;\
+        echo \"Moving the branch pointer.\" ;\
+        echo git update-ref -m \"reset: Reset $1 to $2\" refs/heads/$2 $1 ;\
+    }; f"
+
     #
     # Complex, multi-command aliases use the ! operator to invoke the shell.
     # Use the format of:
