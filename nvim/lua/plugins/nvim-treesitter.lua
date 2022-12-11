@@ -72,8 +72,10 @@ return function()
                     ['ac'] = '@conditional.outer',
                     ['ab'] = '@block.outer',
                     ['ib'] = '@block.inner',
-                    ['ap'] = '@parameter.outer',
-                    ['ip'] = '@parameter.inner',
+                    -- Use 'a' for argument instead of 'p' for parameter because the navigation
+                    -- combination ']p' is awkward, reusing the pinky.
+                    ['aa'] = '@parameter.outer',
+                    ['ia'] = '@parameter.inner',
                     ['as'] = '@statement.outer',
                 },
             },
@@ -86,6 +88,7 @@ return function()
                     [']i'] = '@conditional.outer',
                     [']c'] = '@class.outer',
                     [']/'] = '@comment.outer',
+                    [']a'] = '@parameter.inner',
                 },
                 goto_next_end = {
                     [']F'] = '@function.outer',
@@ -100,6 +103,7 @@ return function()
                     ['[i'] = '@conditional.outer',
                     ['[c'] = '@class.outer',
                     ['[/'] = '@comment.outer',
+                    ['[a'] = '@parameter.inner',
                 },
                 goto_previous_end = {
                     ['[F'] = '@function.outer',
