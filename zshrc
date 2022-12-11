@@ -214,4 +214,13 @@ alias cd='echo "Try \"z\" instead."'
 
 alias du='echo "Try \"dust\" instead."'
 
-alias find='echo "Try \"fd\" instead."'
+function find() {
+  echo "Try 'fd' instead."
+  echo
+  echo "    tldr fd"
+  echo
+  echo "to see more details"
+}
+
+# Use the vi key mappings when working at the command line.
+bindkey -v
