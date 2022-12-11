@@ -99,6 +99,12 @@ vim.opt.gdefault = true
 -- buffers.
 vim.opt.startofline = false
 
+-- These two lines together puts the line numbers on the left hand side, with the absolute line
+-- number on the current line, and the rest of the lines have the relative line number to facilitate
+-- the motion keys.
+vim.opt.number = true
+vim.opt.relativenumber = true
+
 -- Automatically save the file when the user does a build.
 vim.opt.autowrite = true
 
