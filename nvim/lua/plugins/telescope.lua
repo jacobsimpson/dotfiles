@@ -24,6 +24,7 @@ function telescope_plugin_list_source_files()
         search_dirs = {
             'src/',
             'migrations/',
+            'exercises/',
             'plugin/',
             'lua/',
             'doc/',
