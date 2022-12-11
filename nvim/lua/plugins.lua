@@ -327,4 +327,33 @@ return require('packer').startup(function(use)
     if packer_bootstrap then
         require('packer').sync()
     end
+
+    use 'ray-x/go.nvim'
+    use 'ray-x/guihua.lua' -- recommended if need floating window support
+
+    use { 'mhartington/formatter.nvim' }
+
+    -- LspSaga does not appear to be under development any more. Could try:
+    -- https://github.com/ray-x/navigator.lua
+    --use({
+    --    "glepnir/lspsaga.nvim",
+    --    branch = "main",
+    --    config = function()
+    --        local saga = require("lspsaga")
+
+    --        saga.init_lsp_saga({
+    --            -- your configuration
+    --        })
+    --    end,
+    --})
+
+    -- Pop up a window with a list of key mappings that will match.
+    use {
+       "folke/which-key.nvim",
+        config = function() require("which-key").setup {} end
+    }
+
+    -- Changes the core UI selector to be Telescope. This should be code actions to use a Telescope
+    -- dropdown, among other things.
+    use {'nvim-telescope/telescope-ui-select.nvim' }
 end)
