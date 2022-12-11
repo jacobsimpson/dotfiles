@@ -115,18 +115,15 @@
     default = simple
 
 [core]
-    #pager = less -FMRiX
-    pager = delta
+    pager = delta --side-by-side
     editor = /home/jacobsimpson/bin/nvim
     excludesfile = ~/dotfiles/gitignore
 	editor = nvim
 	autocrlf = input
 
-[merge]
-    tool = vimdiff
-
-[difftool]
-    prompt = false
+[delta]
+    line-numbers = true
+    zero-style = dim syntax
 
 [branch]
 	autosetuprebase = always
@@ -139,11 +136,3 @@
 
 [merge]
     conflictstyle = diff3
-
-[diff]
-    colorMoved = default
-	#external = difft --display=side-by-side
-    tool = difftastic
-
-[difftool "difftastic"]
-    cmd = /Users/jsimpson/.cargo/bin/difft --display=side-by-side $LOCAL $REMOTE
