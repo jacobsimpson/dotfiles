@@ -167,7 +167,7 @@ return function()
     dap.adapters.pythonremote = {
         type = 'server';
         host = '127.0.0.1'; -- host to connect to, defaults to 127.0.0.1
-        port = 49153;       -- port to connect to.
+        port = 5678;        -- port to connect to.
                             -- If "${port}" nvim-dap resolves a free port.
                             -- This is intended to be used with
                             -- `executable.args` further below below
