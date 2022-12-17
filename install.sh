@@ -71,6 +71,7 @@ install linux-tools-common
 install linux-tools-generic
 install linux-tools-`uname -r`
 install zoxide
+install flameshot
 
 if which rustup >& /dev/null ; then
     printf "%-26s already installed, skipping...\n" "rustup"
@@ -200,3 +201,10 @@ fi
 
 [[ ! -e ~/.config/i3 ]] && mkdir -p ~/.config/i3
 [[ ! -e ~/.config/i3/config ]] && ln -nsf ~/dotfiles/i3-config ~/.config/i3/config
+
+#
+# I sometimes want a more flexible way of starting browser sessions, so some URLs go to one browser,
+# and others go to a different browser.
+# mv /usr/bin/xdg-open /usr/bin/xdg-open.orig
+# cp ~/dotfiles/xdg-open.replacement /usr/bin/xdg-open
+# cp ~/dotfiles/xdg-open.augmented ~/.local/bin/xdg-open
