@@ -346,6 +346,25 @@ return require('packer').startup(function(use)
     use {'nvim-telescope/telescope-ui-select.nvim' }
 
 
+    use {
+        'stevearc/aerial.nvim',
+        config = function()
+            require('aerial').setup({
+                layout = {
+                    max_width = { 55, 0.25 },
+                    min_width = { 35, 0.25 },
+                }
+            })
+            vim.keymap.set(
+                'n',
+                ' o',
+                require'aerial'.toggle,
+                { desc = 'Toggle code outline.', remap = false }
+            )
+
+        end
+    }
+
     -----------------------------------------------------------------------------------------------
     -----------------------------------------------------------------------------------------------
     -----------------------------------------------------------------------------------------------
