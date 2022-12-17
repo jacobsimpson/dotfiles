@@ -109,6 +109,9 @@ return require('packer').startup(function(use)
     use({ 'neovim/nvim-lspconfig', config = require('plugins.nvim-lspconfig') })
 
     -- Debugging
+    -- This plugin looks very useful:
+    -- https://github.com/theHamsta/nvim-dap-virtual-text
+    -- https://github.com/nvim-telescope/telescope-dap.nvim
     use {
         "rcarriga/nvim-dap-ui",
         requires = {
