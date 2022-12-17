@@ -21,21 +21,20 @@ end
 
 function telescope_plugin_list_source_files()
     require('telescope.builtin').find_files({
-        search_dirs = {
-            'src/',
-            'migrations/',
-            'exercises/',
-            'plugin/',
-            'lua/',
-            'doc/',
-            'Cargo.toml',
-            'build.rs',
-            '*/src',
-            'core/*/src',
-            'contrib/db_pools/*/src',
-            'contrib/sync_db_pools/*/src',
-            'contrib/*/src'
-        },
+        find_command = {'rg', '--files', '--hidden', '-g', '!.git' },
+    })
+end
+
+function telescope_plugin_search_source_files()
+    require('telescope.builtin').live_grep({
+        find_command = {'rg', '--hidden', '-g', '!.git' },
+    })
+end
+
+function telescope_plugin_search_config_files()
+    require('telescope.builtin').live_grep({
+        find_command = {'rg', '--hidden', '-g', '!.git' },
+        cwd = '~/dotfiles/nvim',
     })
 end
 
@@ -70,5 +69,24 @@ return function()
         { desc = 'List currently open buffers.', remap = false }
     )
 
-    vim.keymap.set('n', ',ls', telescope_plugin_list_source_files, { desc = 'List source files.', remap = false })
+    vim.keymap.set(
+        'n',
+        ',ls',
+        telescope_plugin_list_source_files,
+        { desc = 'List source files.', remap = false }
+    )
+
+    vim.keymap.set(
+        'n',
+        ',ss',
+        telescope_plugin_search_source_files,
+        { desc = 'Search source files.', remap = false }
+    )
+
+    vim.keymap.set(
+        'n',
+        ',sc',
+        telescope_plugin_search_config_files,
+        { desc = 'Search config files.', remap = false }
+    )
 end
