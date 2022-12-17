@@ -124,15 +124,14 @@
 [delta]
     line-numbers = true
     zero-style = dim syntax
+    navigate = true  # use n and N to move between diff sections
+    pager = less -X -F
 
 [branch]
 	autosetuprebase = always
 
 [interactive]
     diffFilter = delta --color-only
-
-[delta]
-    navigate = true  # use n and N to move between diff sections
 
 [merge]
     conflictstyle = diff3
