@@ -40,9 +40,9 @@ path+=('/sbin' '/usr/sbin')
 
 export PYTHONSTARTUP=${HOME}/dotfiles/python/pyprompt.py
 
-function rg() {
-    find . -name "$2" -exec egrep --color=auto -H "$1" {} \;
-}
+# function rg() {
+#     find . -name "$2" -exec egrep --color=auto -H "$1" {} \;
+# }
 
 path=("${HOME}/bin" $path)
 path=("${HOME}/.local/bin" $path)
@@ -133,7 +133,7 @@ export PROMPT="${PROMPT}
 ${ret_status}%{$fg_bold[green]%}%p %{$reset_color%}"
 
 # Enable extended history.
-source ~/dotfiles/extended-history.plugin.zsh
+#source ~/dotfiles/extended-history.plugin.zsh
 
 # Make the terminal stop beeping, ever.
 unsetopt beep
