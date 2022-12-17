@@ -6,3 +6,6 @@
 # Ignore Intellij project files.
 *.iml
 .idea/
+
+# Ignore `rg` (ripgrep) configuration files.
+.ignore
