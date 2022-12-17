@@ -80,4 +80,19 @@ return function()
     -- require'lspconfig'.gopls.setup{on_attach = on_attach}
     -- require'lspconfig'.rust_analyzer.setup{on_attach = on_attach}
     -- require'lspconfig'.sumneko_lua.setup{}
+
+    --
+    -- Python language server configuration.
+    --
+    -- cd ~/.virtualenvs
+    -- python3 -m venv pyright
+    -- pyright/bin/python -m pip install pyright
+    --
+    require'lspconfig'.pyright.setup{
+        cmd = {
+            "/home/jacobsimpson/.virtualenvs/pyright/bin/pyright-langserver",
+            "--stdio"
+        },
+        root_dir = function() return vim.fn.getcwd() end,
+    }
 end
