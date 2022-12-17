@@ -208,3 +208,16 @@ fi
 # mv /usr/bin/xdg-open /usr/bin/xdg-open.orig
 # cp ~/dotfiles/xdg-open.replacement /usr/bin/xdg-open
 # cp ~/dotfiles/xdg-open.augmented ~/.local/bin/xdg-open
+
+#
+# This section sets up the dotfiles repository to communicate with Github using
+# a specific identity, rather than some other identity used for other repositories
+# on this workstation.
+#
+git config user.name
+git config user.email
+# Add some -v arguments to this ssh command to see debugging information on how the ssh connection
+# is working.
+git config core.sshCommand 'ssh -i ~/dotfiles/repository_github_id_rsa'
+[[ ! -e ~/dotfiles/repository_github_id_rsa ]] && ssh-keygen -f ~/dotfiles/repository_github_id_rsa
+

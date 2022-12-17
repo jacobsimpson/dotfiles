@@ -9,3 +9,13 @@
 
 .netrwhist
 /vim/bundle/*/
+
+#
+# These are the local keys used for connecting to this repository as a specific
+# identity, distinct from whatever identity is used for the other repositories
+# on this workstation.
+#
+# Check install.sh for how this git repo is configured to use these keys.
+#
+repository_github_id_rsa
+repository_github_id_rsa.pub
