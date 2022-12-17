@@ -224,3 +224,13 @@ function find() {
 
 # Use the vi key mappings when working at the command line.
 bindkey -v
+
+function command_not_found_handler() {
+    if [[ $0 =~ "^https://" ]]; then
+        xdg-open "$0"
+    fi
+
+    echo "You fell victim to one of the classic blunders: $0"
+    return 1
+}
+
