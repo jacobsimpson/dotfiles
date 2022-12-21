@@ -365,6 +365,9 @@ return require('packer').startup(function(use)
         end
     }
 
+    -- A plugin that provides progress reporting of the LSP clients as they run.
+    use {'j-hui/fidget.nvim', config = function() require('fidget').setup{} end}
+
     -----------------------------------------------------------------------------------
     -----------------------------------------------------------------------------------
     -----------------------------------------------------------------------------------
