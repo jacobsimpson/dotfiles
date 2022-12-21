@@ -74,12 +74,16 @@ return function()
     --
     -- As far as I can tell, these lines are not required. There is equivalent lines in the
     -- lsp-config documentation, but when I leave these out, I don't see a difference.
+    -- NOTE: Sometimes language relevant plugins will configure LSP.
     --
     -- For a while, I did have the gopls line in my configuration. I don't know why these don't have
     -- to be uncommented, all I can do is observe that these LSP servers seem to be working.
     -- require'lspconfig'.gopls.setup{on_attach = on_attach}
-    -- require'lspconfig'.rust_analyzer.setup{on_attach = on_attach}
     -- require'lspconfig'.sumneko_lua.setup{}
+
+    -- This LSP configuration is handled by the rust-tools plugin. No need to have it here in LSP
+    -- config.
+    -- require'lspconfig'.rust_analyzer.setup{on_attach = on_attach}
 
     --
     -- Python language server configuration.
