@@ -319,7 +319,7 @@ return require('packer').startup(function(use)
 
     use {
         'simrat39/rust-tools.nvim',
-        config = require('plugins.rust_language'),
+        config = function() require('plugins.rust_language')() end,
     }
 
     --use 'ray-x/go.nvim'
