@@ -1,3 +1,8 @@
+-- Adding the autocommands in a group means that when this file gets reloaded, the group gets
+-- cleared and autocommands are re-added. Makes the development process of reloading this file with
+-- changes idempotent.
+local group = vim.api.nvim_create_augroup("rust", {clear = true})
+
 -- This section will affect all closed terminals, not just Rust related terminals.
 vim.api.nvim_create_autocmd('TermClose', {
     group = group,
@@ -25,6 +30,19 @@ vim.api.nvim_create_autocmd('TermClose', {
     end,
 })
 
+vim.api.nvim_create_autocmd('BufWritePre', {
+    group = group,
+    callback = function()
+        if vim.lsp.buf.server_ready() then
+            -- Using the LSP format functionality is here is somewhat convenient,
+            -- and will be consistent across all languages configured for LSP,
+            -- however this function doesn't work when the LSP service is restarting
+            -- or reloading. So, each time there is a Cargo change in Rust.
+            -- Could be worth integrating the rust formatter instead.
+            vim.lsp.buf.format()
+        end
+    end,
+})
 
 return function()
     -- https://oren.github.io/articles/rust/neovim/
@@ -37,14 +55,9 @@ return function()
 
     require('rust-tools').setup({})
 
-    -- Enable Rust formatting on save.
-    -- let g:rustfmt_autosave = 1
-    vim.api.nvim_set_var('rustfmt_autosave', 1)
-
-    -- Adding the autocommands in a group means that when this file gets reloaded, the group gets
-    -- cleared and autocommands are re-added. Makes the development process of reloading this file with
-    -- changes idempotent.
-    local group = vim.api.nvim_create_augroup("rust", {clear = true})
+    -- Enable Rust formatting on save. This setting is associated with the rust.vim
+    -- plugin.
+    --vim.api.nvim_set_var('rustfmt_autosave', 1)
 
     vim.api.nvim_create_autocmd('FileType', {
         pattern = 'rust',
@@ -76,7 +89,7 @@ return function()
             vim.keymap.set(
                 'n',
                 '<Space>f',
-                "<cmd>RustFmt<cr>",
+                "<cmd>lua vim.lsp.buf.format()<cr>",
                 { desc = 'Format this file.', remap = false, buffer = true, silent = true }
             )
 
