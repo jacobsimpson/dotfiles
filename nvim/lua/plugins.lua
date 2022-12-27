@@ -119,7 +119,7 @@ return require('packer').startup(function(use)
             "nvim-lua/plenary.nvim",
             "mfussenegger/nvim-dap",
         },
-        config = require('plugins.nvim-dap-ui'),
+        config = function() require('plugins.nvim-dap-ui')() end,
     }
 
     use {
