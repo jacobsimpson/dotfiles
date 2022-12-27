@@ -54,6 +54,7 @@ return function()
         },
         layout_strategy = 'vertical',
     })
+    require('telescope').load_extension('dap')
 
     -- Change the background colors and borders for the Telescope popup window.
     -- It also seems to affect all other popup windows.

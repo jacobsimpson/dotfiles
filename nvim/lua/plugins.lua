@@ -89,6 +89,7 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim',
         config = require('plugins.telescope'),
         requires = {
+            { 'nvim-telescope/telescope-dap.nvim' },
             { 'nvim-lua/plenary.nvim' },
             { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
             { 'BurntSushi/ripgrep' },
