@@ -108,7 +108,7 @@ vim.opt.relativenumber = true
 -- Automatically save the file when the user does a build.
 vim.opt.autowrite = true
 
-vim.opt.textwidth = 100
+vim.opt.textwidth = 80
 
 vim.o.fileencoding       = "utf-8"
 vim.o.completeopt        = "menuone,noinsert,noselect"

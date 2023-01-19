@@ -64,7 +64,10 @@ return function()
         group = group,
         callback = function()
             -- This function fires when transitioning to a Rust buffer.
-            --print("Entering a rust buffer...")
+
+            -- So weird, somewhere this value is getting overridden to 99, so I'm
+            -- setting it each time I enter a rust buffer.
+            vim.opt.textwidth = 80
         end,
     })
 
