@@ -28,7 +28,7 @@
     diff = diff -- ':(exclude)Cargo.lock'
 
     ph = push
-    phf = push --force
+    pushf = push --force
     pl = pull
     re = rebase
     rec = rebase --continue
