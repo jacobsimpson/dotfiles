@@ -117,11 +117,33 @@ local function list_executables()
         end,
     }):sync()
 
+    table.insert(result, "target/debug/data_load")
+
+    -- Plus, add the binaries generated for the 'build' target.
+    -- Job:new({
+    --     -- This execution has always failed without a complete path.
+    --     command = '/usr/bin/find',
+    --     args = { 'target/debug', '-maxdepth', '1', '-type', 'f', '-executable' },
+    --     on_exit = function(j, return_val)
+    --         put(vim.inspect(j))
+    --         for _, line in ipairs(j:stdout_result()) do
+    --             table.insert(result, line)
+    --             -- if string.find(line, "Executable ") ~= nil then
+    --             --     _, loc_start = string.find(line, "%(")
+    --             --     loc_end, _ = string.find(line, "%)")
+    --             --     if loc_start ~= nil and loc_end ~= nil then
+    --             --         table.insert(result, string.sub(line, loc_start+1, loc_end-1))
+    --             --     end
+    --             -- end
+    --         end
+    --     end,
+    -- }):sync()
+
     return result
 end
 
--- I haven't found a nice summary blog, and the example in the docs didn't work for me. This play
--- list takes you through it one at a time.
+-- I haven't found a nice summary blog, and the example in the docs didn't work for me.
+-- This play list takes you through it one at a time.
 -- https://www.youtube.com/watch?v=sHF-LX7FcKM&list=PLOe6AggsTaVsMfLjXeavVwzkmOfAZnfQb&index=4
 local pickers = require('telescope.pickers')
 local finders = require('telescope.finders')
