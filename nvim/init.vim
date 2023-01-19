@@ -162,7 +162,11 @@ filetype plugin indent on
 " It might be time for a new plugin manager. This one is for Neovim, written in Lua.
 " https://github.com/wbthomason/packer.nvim
 " :lua print(vim.fn.stdpath('config'))
-lua require('plugins')
+lua <<EOF
+require('plugins')
+
+require('language.sql')
+EOF
 
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
