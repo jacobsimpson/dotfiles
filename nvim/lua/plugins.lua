@@ -98,12 +98,14 @@ return require('packer').startup(function(use)
     })
     -- Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
-    -- This plugin will pop up a selection list of emojis. I didn't end up mapping a key for this.
-    -- Wasn't sure how much use it would get. Activate with the following command.
+    -- This plugin will pop up a selection list of emojis. I didn't end up
+    -- mapping a key for this. Wasn't sure how much use it would get. Activate
+    -- with the following command.
     -- lua require'telescope.builtin'.symbols{ sources = {'emoji', 'math', 'latex', 'gitmoji'} }
     use({ 'nvim-telescope/telescope-symbols.nvim' })
 
-    -- After a yank, the yanked text is highlighted in a different color to show what happened.
+    -- After a yank, the yanked text is highlighted in a different color to show
+    -- what happened.
     -- NOTE: Replaced with a Neovim feature, see init.vim for configuration.
     -- use {'machakann/vim-highlightedyank'}
 
@@ -134,7 +136,8 @@ return require('packer').startup(function(use)
         end,
     }
 
-    -- Snippet support. I've never been really good at using this, but it seems like a good idea.
+    -- Snippet support. I've never been really good at using this, but it seems
+    -- like a good idea.
     use({ 'dcampos/nvim-snippy', config = require('plugins.nvim-snippy') })
 
     -- Default keymapping is gcc/gbc in normal mode, gc/gb in visual mode.
