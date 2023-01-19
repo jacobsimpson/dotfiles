@@ -214,14 +214,6 @@ alias cd='echo "Try \"z\" instead."'
 
 alias du='echo "Try \"dust\" instead."'
 
-function find() {
-  echo "Try 'fd' instead."
-  echo
-  echo "    tldr fd"
-  echo
-  echo "to see more details"
-}
-
 # Use the vi key mappings when working at the command line.
 bindkey -v
 
@@ -233,4 +225,10 @@ function command_not_found_handler() {
     echo "You fell victim to one of the classic blunders: $0"
     return 1
 }
+
+# Remap the Capslock key to be Esc.
+setxkbmap -option caps:escape
+
+# When the AWS CLI is available, this is an improved pager experience.
+export AWS_PAGER='bat -l json --style plain'
 
