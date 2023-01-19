@@ -19,11 +19,14 @@
     cl = clone
     co = commit
     coa = commit -a
-    di = diff
     din = diff --name-only
-    lg = log --graph --pretty=format:'%Cred%h%Creset %an -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-    mrg = merge
-    mff = merge --ff-only
+
+    di = diff -- ':(exclude)Cargo.lock'
+    df = diff -- ':(exclude)Cargo.lock'
+    dif = diff -- ':(exclude)Cargo.lock'
+    # For some reason this alias doesn't work when it is named 'diff'.
+    diff = diff -- ':(exclude)Cargo.lock'
+
     ph = push
     phf = push --force
     pl = pull
