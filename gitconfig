@@ -31,7 +31,9 @@
     pushf = push --force
     pl = pull
     re = rebase
-    rec = rebase --continue
+    # This little gem is here to automatically accept the existing commit message
+    # and continue the rebase without popping up an editor to ask if I want to modify.
+    rec = "!f() { GIT_EDITOR=true git rebase --continue ; }; f"
     st = status
     l = log --name-status
     xl = log --graph --oneline --all --reverse
