@@ -100,6 +100,14 @@ install_cargo bottom --locked
 install_cargo ripgrep --features 'pcre2'
 # This is used by the neovim tree-sitter plugin, for _some_ grammars.
 install_cargo tree-sitter-cli
+install_cargo cargo-nextest --locked
+install_cargo cargo-audit
+install_cargo cargo-outdated --locked
+install_cargo cargo-deny --locked
+install_cargo sqlx-cli
+install_cargo cargo-feature
+install_cargo grcov
+install_cargo cargo-expand
 
 # Dependencies for alacritty.
 # Running this section failed on my Mint install. The `python3` install could not complete
