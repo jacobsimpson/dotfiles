@@ -1,7 +1,37 @@
--- Adding the autocommands in a group means that when this file gets reloaded, the group gets
--- cleared and autocommands are re-added. Makes the development process of reloading this file with
--- changes idempotent.
+-- Adding the autocommands in a group means that when this file gets reloaded,
+-- the group gets cleared and autocommands are re-added. Makes the development
+-- process of reloading this file with changes idempotent.
 local group = vim.api.nvim_create_augroup("rust", {clear = true})
+
+local function ends_with(str, ending)
+   return ending == "" or str:sub(-#ending) == ending
+end
+
+local function go_alternate_file()
+    local current_file = vim.api.nvim_buf_get_name(0)
+    local alternate_file = nil
+    if (ends_with(current_file, "/test.rs")) then
+        -- Unfortunately the coding standard seems to be to put all tests in a
+        -- single file per module, so the back navigation doesn't work so well.
+        print("Can't disambiguate the return destination.")
+    elseif (ends_with(current_file, ".rs")) then
+        -- If the file name is also a module name, then look for the test file
+        -- in the module.
+        if (ends_with(current_file, "/reconciler.rs")) then
+            alternate_file = current_file:sub(0, -14) .. "/reconciler/test.rs"
+        end
+
+        -- else if the file name is not a module name, but is in a module, then
+        -- look for the test file colocated with the current file.
+
+        -- If an alternate was found, go there.
+        if (alternate_file ~= nil) then
+            vim.cmd('e ' .. alternate_file)
+        else
+            print("No alternate file found.")
+        end
+    end
+end
 
 -- This section will affect all closed terminals, not just Rust related terminals.
 vim.api.nvim_create_autocmd('TermClose', {
@@ -122,6 +152,13 @@ return function()
                 '<Space>t',
                 "<cmd>RustTest<CR>",
                 { desc = 'Run a test.', remap = false, buffer = true, silent = true }
+            )
+
+            vim.keymap.set(
+                'n',
+                '<space>a',
+                go_alternate_file,
+                { desc = 'Go to the alternate file.', remap = false, buffer = true, silent = true }
             )
 
         end,
