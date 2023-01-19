@@ -124,6 +124,15 @@ return require('packer').startup(function(use)
         config = function() require('plugins.nvim-dap-ui')() end,
     }
 
+    -- This seems like it should be nice, and works reasonably well, but gets
+    -- really confusing when fixing bad merges.
+    -- use({
+    --     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    --     config = function()
+    --         require("lsp_lines").setup()
+    --     end,
+    -- })
+
     use {
         'saecki/crates.nvim',
         tag = 'v0.3.0',
