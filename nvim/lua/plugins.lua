@@ -381,6 +381,20 @@ return require('packer').startup(function(use)
     -- A plugin that provides progress reporting of the LSP clients as they run.
     use {'j-hui/fidget.nvim', config = function() require('fidget').setup{} end}
 
+    use({
+        "andythigpen/nvim-coverage",
+        requires = "nvim-lua/plenary.nvim",
+        config = function()
+            require("coverage").setup({
+                lang = {
+                    rust = {
+                        coverage_file = "target/debug/coverage.lcov"
+                    }
+                }
+            })
+        end,
+    })
+
     -----------------------------------------------------------------------------------
     -----------------------------------------------------------------------------------
     -----------------------------------------------------------------------------------
