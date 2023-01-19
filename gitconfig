@@ -48,18 +48,27 @@
     c = clone
     amend = commit --amend --no-edit
 
-    pr = "!f() {\
-        git push -u origin $(git rev-parse --abbrev-ref HEAD) ; \
-    }; f"
+    p = prev
+    pp = prev 2
+    ppp = prev 3
+    pppp = prev 4
+    ppppp = prev 5
+    pppppp = prev 6
+    ppppppp = prev 7
+    pppppppp = prev 8
+    ppppppppp = prev 9
+    pppppppppp = prev 10
 
-    move-branch = "!f() {\
-        if [[ -z $1 || -z $2 ]]; then \
-            echo \"git move-branch <branch-name> <new-sha>\" ;\
-            return ;\
-        fi ;\
-        echo \"Moving the branch pointer.\" ;\
-        echo git update-ref -m \"reset: Reset $1 to $2\" refs/heads/$2 $1 ;\
-    }; f"
+    n = next
+    nn = next 2
+    nnn = next 3
+    nnnn = next 4
+    nnnnn = next 5
+    nnnnnn = next 6
+    nnnnnnn = next 7
+    nnnnnnnn = next 8
+    nnnnnnnnn = next 9
+    nnnnnnnnnn = next 10
 
     #
     # Complex, multi-command aliases use the ! operator to invoke the shell.
