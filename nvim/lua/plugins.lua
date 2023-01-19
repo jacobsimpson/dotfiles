@@ -67,7 +67,7 @@ return require('packer').startup(function(use)
 
     use({ 'jacobsimpson/nvim-editconfig' })
 
-    -- use({ 'hashivim/vim-terraform' })
+    use({ 'hashivim/vim-terraform' })
 
     -- use({ 'jrozner/vim-antlr' })
 
