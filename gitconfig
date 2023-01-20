@@ -70,6 +70,10 @@
     nnnnnnnnn = next 9
     nnnnnnnnnn = next 10
 
+    cpr = github-pull-request create
+    upr = github-pull-request update
+    ppr = !gh pr ready
+
     #
     # Complex, multi-command aliases use the ! operator to invoke the shell.
     # Use the format of:
