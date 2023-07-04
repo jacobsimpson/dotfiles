@@ -16,10 +16,45 @@ exec --no-startup-id synclient PalmMinWidth=8
 exec --no-startup-id synclient PalmMinZ=100
 exec --no-startup-id xrandr -s 1680x1050
 
-exec --no-startup-id google-chrome
-exec --no-startup-id brave-browser
-exec --no-startup-id slack
-exec --no-startup-id alacritty
+# Using `i3-msg` for starting an application in a specific workspace doesn't
+# work for me. The current conjecture is that the application isn't starting in
+# a specific workspace, it is starting in the 'current' workspace, and i3 moves
+# quickly from workspace to workspace starting applications, but not waiting
+# until they are started.
+exec --no-startup-id i3-msg 'workspace 1:Terminal; exec alacritty'
+exec --no-startup-id i3-msg 'workspace 1:Terminal; exec alacritty'
+# exec --no-startup-id alacritty
+exec --no-startup-id i3-msg 'workspace 2:Chat; exec slack'
+# exec --no-startup-id slack
+exec --no-startup-id i3-msg 'workspace 3:Chrome; exec google-chrome'
+#exec --no-startup-id google-chrome
+exec --no-startup-id i3-msg 'workspace 4:Brave; exec brave-browser'
+
+
+###############################################################################
+# This section is attempting to position applications on different workspaces
+# after a restart.
+# https://unix.stackexchange.com/questions/96798/i3wm-start-applications-on-specific-workspaces-when-i3-starts
+#
+# Variables for the different workspaces.
+set $ws1 "1< txt >"
+set $ws2 "2> fm "
+set $ws3 "3< Web >"
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+
+# Assign Workspaces. It is possible to identify the class of an application
+# using:
+#    xprop | grep CLASS
+# assign [class="Alacritty"] $ws1
+assign [class="Google-chrome"] $ws2
+assign [class="Brave-browser"] $ws3
+assign [class="Slack"] $ws4
+###############################################################################
 
 # Change the screensaver timeout to 15min.
 exec --no-startup-id xset s 900
@@ -201,6 +236,9 @@ bar {
         status_command i3status
 }
 
+# Should start i3 using tabbed layout, instead of stacked.
+workspace_layout tabbed
+
 # Configure a Scratchpad
 # https://whhone.com/posts/i3-switching-windows/
 # xprop - to see the class information for a window.
@@ -223,3 +261,10 @@ bindsym Shift+Print exec flameshot gui
 
 for_window [instance="org.gnome.clocks" class="Org.gnome.clocks"] floating enable
 bindsym $mod+t exec toggle-clock
+
+
+# How to get rid of the tab line:
+# Set the main font to 0 Set your bar font to whatever When you refresh i3 you
+# will no have any bars at all. just blue highlight of the active window. you
+# will have to mod left arrow or right or the vim keys and it should be fine
+# https://www.reddit.com/r/i3wm/comments/2vuqjg/question_tab_layout_without_the_tabs_at_the_top/
