@@ -19,8 +19,8 @@
     cl = clone
     co = commit
     coa = commit -a
-    din = diff --name-only
 
+    din = diff --name-only
     di = diff -- ':(exclude)Cargo.lock'
     df = diff -- ':(exclude)Cargo.lock'
     dif = diff -- ':(exclude)Cargo.lock'
@@ -28,7 +28,7 @@
     diff = diff -- ':(exclude)Cargo.lock'
 
     ph = push
-    pushf = push --force
+    pushf = push --force-with-lease
     pl = pull
     re = rebase
     # This little gem is here to automatically accept the existing commit message
@@ -38,15 +38,16 @@
     l = log --name-status
     xl = log --graph --oneline --all --reverse
     log = log --graph --oneline --all --reverse
+    tree = log --graph --oneline --all
     sl = smartlog
 
-    review = diff HEAD^..HEAD
+    detach = !git checkout $(git rev-parse HEAD)
+    resolve-lock = !git restore --staged Cargo.lock && git checkout Cargo.lock && cargo build && git add Cargo.lock
 
-    delete-merged = "!f() {\
-        [[ $(git rev-parse --abbrev-ref HEAD) == 'master' ]] && git branch --merged | egrep -v '\\*|master|dev' | xargs -n 1 git branch -d ; \
-    }; f"
     c = clone
-    amend = commit --amend --no-edit
+    # I used to use this one, however the one from git-branchless does all this
+    # and more.
+    #amend = commit --amend --no-edit
 
     p = prev
     pp = prev 2
@@ -58,6 +59,7 @@
     pppppppp = prev 8
     ppppppppp = prev 9
     pppppppppp = prev 10
+    ppppppppppp = prev 11
 
     n = next
     nn = next 2
@@ -69,6 +71,12 @@
     nnnnnnnn = next 8
     nnnnnnnnn = next 9
     nnnnnnnnnn = next 10
+    nnnnnnnnnnn = next 11
+
+    cpr = github-pull-request create
+    upr = github-pull-request update
+    #ppr = !gh pr ready
+    #gpr = !GH_PAGER=  gh pr view --json url --template '{{printf "%s\n" .url}}'
 
     cpr = github-pull-request create
     upr = github-pull-request update
@@ -83,18 +91,6 @@
     # behavior, because the function invocation at the end captures the args
     # tacked on.
     #
-
-    # Update mainline, all in one command, run from any branch, with uncommitted
-    # changes.
-    plma = "!f() {\
-        NAME=$(git status | head -1 | sed 's|^# On branch ||') ; \
-        exec 5>&1 ; \
-        STASH=$(git stash | tee /dev/fd/5) ; \
-        git checkout mainline ; \
-        git pull ; \
-        git checkout ${NAME} ; \
-        echo $STASH | grep -qv 'No local changes' && git stash pop ; \
-    }; f"
 
     # Process:
     #  1. Check for uncommitted changes.
@@ -115,21 +111,6 @@
         git checkout ${NAME} ; \
         echo $STASH | grep -qv 'No local changes' && git stash pop ; \
     }; f"
-
-    ages = "!f() {\
-        git branch \"$@\" | \
-        grep -v 'HEAD' | \
-        sed 's|*||' | \
-        xargs -I{} -n 1 git log --pretty=format:'%at<>%Cgreen%ad%Creset<>%Cblue<>%aN<>%Creset<>{}%n' -1 {} | \
-        sort -n | \
-        awk '{\
-            split($0, vals, \"<>\"); \
-            name = sprintf(\"%.15s\", vals[4]); \
-            printf \"%-39s %s%-15s%s %s\\n\", vals[2], vals[3], name, vals[5], vals[6]; \
-        }' ;\
-    }; f"
-
-    dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(blue)%d%C(reset)%n%s' --date-order
 
 [push]
     default = simple
