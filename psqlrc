@@ -1,5 +1,6 @@
 
 -- Don't display the "helpful" message on startup.
+-- And, don't show any feedback as these settings are updated.
 \set QUIET 1
 
 -- Make nice lines for tables.
@@ -11,7 +12,15 @@
 -- \pset null '[NULL]'
 \pset null ¤
 
-\set PROMPT1 '%[%033[1m%]%M %n@%/%[%033[0m%]% ──────────────────────────────────────────────── \n'
+-- \set PROMPT1 '%M:%[%033[1;34m%]%>%[%033[0m%] %n@%/%R%#%x '
+-- 31 for red
+-- 32 for green
+-- 33 for yellow
+-- 34 for blue
+-- 35 for magenta
+-- 36 for cyan
+-- 37 for white
+\set PROMPT1 '%[%033[1;34m%]%M %n@%/%[%033[0m%]% %[%033[1;35m%]───────── %[%033[0m%]\n'
 -- PROMPT2 is printed when the prompt expects more input.
 \set PROMPT2 ''
 
@@ -35,9 +44,18 @@
 -- Save a lot of history.
 \set HISTSIZE 100000
 
+-- Sadly, this doesn't work here. It's ignored. The value has to be set before
+-- `psql` starts.
+-- \set PSQL_EDITOR /home/jacobsimpson/.local/bin/nvim
+
 \unset QUIET
 
 
 \set uptime 'select now() - backend_start as uptime from pg_stat_activity where pid = pg_backend_pid();'
-\set settings 'select name, setting,unit,context from pg_settings;'
+\set settings 'select name, setting, unit, context from pg_settings;'
 \set conninfo 'select usename, count(*) from pg_stat_activity group by usename;'
+
+-- Set the query pager to be less, with some extra options to make sure the
+-- output stays on the screen after exiting the pager.
+\setenv PAGER less
+\setenv LESS -XF
