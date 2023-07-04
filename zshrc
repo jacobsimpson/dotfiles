@@ -214,8 +214,22 @@ alias cd='echo "Try \"z\" instead."'
 
 alias du='echo "Try \"dust\" instead."'
 
+#
 # Use the vi key mappings when working at the command line.
+#
 bindkey -v
+
+# Yank to the system clipboard
+function vi-yank-xclip {
+    zle vi-yank
+   echo "$CUTBUFFER" | xclip -i
+}
+
+zle -N vi-yank-xclip
+bindkey -M vicmd 'y' vi-yank-xclip
+
+
+
 
 function command_not_found_handler() {
     if [[ $0 =~ "^https://" ]]; then
@@ -232,3 +246,16 @@ setxkbmap -option caps:escape
 # When the AWS CLI is available, this is an improved pager experience.
 export AWS_PAGER='bat -l json --style plain'
 
+# It would be nice to set this in the psqlrc file, just to keep related settings
+# together. However, whenever I use \set to set this value, it gets ignored.
+export PSQL_EDITOR=/home/jacobsimpson/.local/bin/nvim
+
+autoload -U add-zsh-hook
+
+record_cwd() {
+	pwd > ~/.local/state/cwd
+}
+
+add-zsh-hook chpwd record_cwd
+
+[[ -e ~/.local/state/cwd ]] && \cd `cat ~/.local/state/cwd`
