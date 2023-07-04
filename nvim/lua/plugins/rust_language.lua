@@ -7,29 +7,42 @@ local function ends_with(str, ending)
    return ending == "" or str:sub(-#ending) == ending
 end
 
+function basename(str)
+	local name = string.gsub(str, "(.*/)(.*)", "%2")
+	return name
+end
+
+function dirname(str)
+	local name = string.gsub(str, "(.*/)(.*)", "%1")
+	return name
+end
+
+-- Attempts to detect the 'alternate' file. In many circumstances, that just
+-- means the file with the tests. Rust is very flexible about where tests are
+-- located, so this alternate detection implementation is just based on the
+-- coding conventions of where I work.
 local function go_alternate_file()
     local current_file = vim.api.nvim_buf_get_name(0)
     local alternate_file = nil
     if (ends_with(current_file, "/test.rs")) then
-        -- Unfortunately the coding standard seems to be to put all tests in a
-        -- single file per module, so the back navigation doesn't work so well.
-        print("Can't disambiguate the return destination.")
+        alternate_file = dirname(current_file) .. ".rs"
     elseif (ends_with(current_file, ".rs")) then
         -- If the file name is also a module name, then look for the test file
         -- in the module.
-        if (ends_with(current_file, "/reconciler.rs")) then
-            alternate_file = current_file:sub(0, -14) .. "/reconciler/test.rs"
-        end
+        local filename = basename(current_file)
+        local path = dirname(current_file)
+        local stem = filename:sub(0, -4)
+        alternate_file = path .. "/" .. stem .. "/" .. "test.rs"
 
         -- else if the file name is not a module name, but is in a module, then
         -- look for the test file colocated with the current file.
+    end
 
-        -- If an alternate was found, go there.
-        if (alternate_file ~= nil) then
-            vim.cmd('e ' .. alternate_file)
-        else
-            print("No alternate file found.")
-        end
+    -- If an alternate was found, go there.
+    if (alternate_file ~= nil) then
+        vim.cmd('e ' .. alternate_file)
+    else
+        print("No alternate file found.")
     end
 end
 
@@ -84,6 +97,23 @@ return function()
     ------ Plug 'simrat39/rust-tools.nvim'
 
     require('rust-tools').setup({})
+
+    local lsp = require'lspconfig'
+
+    -- An experimental little thing to try to clear the warnings appearing
+    -- beside each macro "proc macro x not expanded".
+    -- https://users.rust-lang.org/t/how-to-disable-rust-analyzer-proc-macro-warnings-in-neovim/53150
+    lsp.rust_analyzer.setup {
+        settings = {
+            ["rust-analyzer"] = {
+                diagnostics = {
+                    enable = true,
+                    disabled = {"unresolved-proc-macro"},
+                    enableExperimental = true,
+                },
+            },
+        }
+    }
 
     -- Enable Rust formatting on save. This setting is associated with the rust.vim
     -- plugin.

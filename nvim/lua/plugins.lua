@@ -379,7 +379,9 @@ return require('packer').startup(function(use)
     }
 
     -- A plugin that provides progress reporting of the LSP clients as they run.
-    use {'j-hui/fidget.nvim', config = function() require('fidget').setup{} end}
+    -- NOTE: This was okay, and then it started popping up a warning each time I
+    -- started vim. There's no excuse for that rubbish.
+    --use {'j-hui/fidget.nvim', config = function() require('fidget').setup{} end}
 
     use({
         "andythigpen/nvim-coverage",
@@ -394,6 +396,21 @@ return require('packer').startup(function(use)
             })
         end,
     })
+
+    use({
+        "andrewferrier/debugprint.nvim",
+        config = function()
+            require("debugprint").setup()
+        end,
+    })
+
+    use({
+        "folke/trouble.nvim",
+        requires = "nvim-tree/nvim-web-devicons",
+        config = function() require('plugins.trouble')() end,
+    })
+
+    -- use {'kevinhwang91/nvim-bqf'}
 
     -----------------------------------------------------------------------------------
     -----------------------------------------------------------------------------------

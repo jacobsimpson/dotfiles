@@ -18,7 +18,7 @@ vim.keymap.set(
     function()
         require'dap'.toggle_breakpoint(nil, nil, vim.fn.input('Log point message: '))
     end,
-    { desc = 'Toggle debug breakpoint.', remap = false }
+    { desc = 'Toggle log message.', remap = false }
 )
 
 vim.keymap.set(
@@ -280,7 +280,7 @@ return function()
     dap.adapters.lldb = {
         type = 'executable',
         -- adjust as needed, must be absolute path. Instructions above on building this.
-        command = '/home/jacobsimpson/src/llvm-project/build/bin/lldb-vscode',
+        command = '/home/jacobsimpson/.local/bin/lldb-vscode',
         name = 'lldb'
     }
 
