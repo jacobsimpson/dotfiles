@@ -1,0 +1,4 @@
+# This file contains the settings to configure utilities that use the readline
+# library.
+set editing-mode vi
+set keymap vi-command
