@@ -47,10 +47,20 @@ fi
 
 # Where I like to put random little programming projects.
 mkdir -p ~/src
-# I saw someone user `~/.local/bin` once, which sounds like a great idea, but this is where I've
-# been putting my extra binaries for a while now.
-mkdir -p ~/bin
+mkdir -p ~/.local/bin
 
+nix-env -i gh
+nix-env -i neovim
+nix-env -i atuin
+atuin import auto
+rm -f ~/.config/atuin/config.toml
+ln -nsf ~/dotfiles/atuin.config.toml ~/.config/atuin/config.toml
+nix-env -i postgresql
+nix-env -i xsv
+nix-env -iA nixpkgs.protobuf
+nix-env -iA nixpkgs.protolint
+
+install libssl-dev
 install curl
 install zsh
 install silversearcher-ag
@@ -121,9 +131,9 @@ install libxcb-xfixes0-dev
 install libxkbcommon-dev
 install python3
 install_cargo alacritty
-sudo cp /home/jsimpson/.cargo/bin/alacritty /usr/local/bin
-sudo cp /home/jsimpson/.cargo/registry/src/github.com-1ecc6299db9ec823/alacritty-0.11.0/extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
-sudo desktop-file-install /home/jsimpson/.cargo/registry/src/github.com-1ecc6299db9ec823/alacritty-0.11.0/extra/linux/Alacritty.desktop
+sudo cp ${HOME}/.cargo/bin/alacritty /usr/local/bin
+sudo cp ${HOME}/.cargo/registry/src/github.com-1ecc6299db9ec823/alacritty-*/extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+sudo desktop-file-install ${HOME}/.cargo/registry/src/github.com-1ecc6299db9ec823/alacritty-*/extra/linux/Alacritty.desktop
 sudo update-desktop-database
 [[ ! -e ~/.alacritty.yml ]] && ln -nsf ~/dotfiles/alacritty.yml ~/.alacritty.yml
 
@@ -137,8 +147,8 @@ ln -nsf ~/dotfiles/nvim/init.vim ~/.vimrc
 # doesn't create this itself. Or, it didn't at 10/29/2015.
 mkdir -p ~/.local/share/nvim/backup
 
-ln -nsf ~/dotfiles/psqlrc ~
-ln -nsf ~/dotfiles/sqliterc ~
+ln -nsf ~/dotfiles/psqlrc ~/.psqlrc
+ln -nsf ~/dotfiles/sqliterc ~/.sqliterc
 ln -nsf ~/dotfiles/gradle/gradle.properties ~
 
 echo "Installing the Git configuration."
@@ -202,10 +212,10 @@ fi
 
 echo
 
-if ! which atuin >& /dev/null ; then
-    bash <(curl https://raw.githubusercontent.com/ellie/atuin/main/install.sh)
-    atuin import auto
-fi
+# if ! which atuin >& /dev/null ; then
+#     bash <(curl https://raw.githubusercontent.com/ellie/atuin/main/install.sh)
+#     atuin import auto
+# fi
 
 [[ ! -e ~/.config/i3 ]] && mkdir -p ~/.config/i3
 [[ ! -e ~/.config/i3/config ]] && ln -nsf ~/dotfiles/i3-config ~/.config/i3/config
@@ -215,13 +225,17 @@ fi
 # and others go to a different browser.
 # mv /usr/bin/xdg-open /usr/bin/xdg-open.orig
 # cp ~/dotfiles/xdg-open.replacement /usr/bin/xdg-open
-# cp ~/dotfiles/xdg-open.augmented ~/.local/bin/xdg-open
+# ln -nsf ~/dotfiles/xdg-open.augmented ~/.local/bin/xdg-open
 
 #
 # This section sets up the dotfiles repository to communicate with Github using
 # a specific identity, rather than some other identity used for other repositories
 # on this workstation.
 #
+\cd ~/dotfiles
+# Check the `.git/config` file for repository specific configuration.
+# The following two commands need personalization to work correctly.
+git branchless init
 git config user.name
 git config user.email
 # Add some -v arguments to this ssh command to see debugging information on how the ssh connection
