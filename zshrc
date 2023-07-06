@@ -147,7 +147,10 @@ fi
 
 alias cd.='cd $(pwd)'
 
-if [[ -e ${HOME}/.local/bin/nvim ]]; then
+if [[ -e ${HOME}/.nix-profile/bin/nvim ]]; then
+    alias vi=${HOME}/.nix-profile/bin/nvim
+    alias vim=${HOME}/.nix-profile/bin/nvim
+elif [[ -e ${HOME}/.local/bin/nvim ]]; then
     alias vi=${HOME}/.local/bin/nvim
     alias vim=${HOME}/.local/bin/nvim
 elif [[ -e ${HOME}/bin/nvim ]]; then
