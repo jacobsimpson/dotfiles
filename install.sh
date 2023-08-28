@@ -49,6 +49,9 @@ fi
 mkdir -p ~/src
 mkdir -p ~/.local/bin
 
+
+nix-env -i go
+export GOROOT=~/.nix-profile/bin
 nix-env -i gh
 nix-env -i neovim
 nix-env -i atuin
@@ -59,6 +62,9 @@ nix-env -i postgresql
 nix-env -i xsv
 nix-env -iA nixpkgs.protobuf
 nix-env -iA nixpkgs.protolint
+nix-env -i bfs
+nix-env -iA nixpkgs.starship
+nix-env -iA nixpkgs.shellcheck
 
 install libssl-dev
 install curl
