@@ -52,11 +52,11 @@ path=("${HOME}/.local/bin" $path)
 alias chrome='/usr/bin/open -a "/Applications/Google Chrome.app"'
 
 # Golang configuration.
-gopath=~/golang
+gopath=~/.go
 
 export GOPATH=$gopath
-export GOROOT=/usr/local/opt/go/libexec
-path+=("$GOPATH/bin" "$GOROOT/bin")
+export GOROOT=$(nix-env --query --out-path go | awk '{print $2}')/share/go
+path+=("$GOPATH/bin")
 
 function vbm() {
   if [[ $1 == "ssh" || $1 == "ip" ]]; then
