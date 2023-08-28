@@ -100,4 +100,8 @@ return function()
         },
         root_dir = function() return vim.fn.getcwd() end,
     }
+
+    require'lspconfig'.bashls.setup{}
+    require'lspconfig'.postgres_lsp.setup{}
+
 end
