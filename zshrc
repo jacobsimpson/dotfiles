@@ -44,8 +44,13 @@ export PYTHONSTARTUP=${HOME}/dotfiles/python/pyprompt.py
 #     find . -name "$2" -exec egrep --color=auto -H "$1" {} \;
 # }
 
+# This is the old location for commands. Don't put stuff in here any more.
 path=("${HOME}/bin" $path)
+# This is for commands that are specific to the local machine, things that
+# aren't to be shared between machines.
 path=("${HOME}/.local/bin" $path)
+# This is the place for handy things that I keep long term.
+path=("${HOME}/dotfiles/bin" $path)
 
 # An alias that will open any specified html file in the currently running
 # # Chrome browser, or start an instance.

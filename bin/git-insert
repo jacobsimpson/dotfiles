@@ -1,0 +1,4 @@
+#! /bin/bash
+
+git commit "$@" \
+    && git move -I -x HEAD -d HEAD^ --merge
