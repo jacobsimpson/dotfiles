@@ -12,3 +12,12 @@ snippet fori "for a in 0..x {...}"
 	}
 snippet pl "println!(...)"
 	println!("${1}"${2});$0
+snippet script "rust-script outline"
+	#! /usr/bin/env rust-script
+	//! ```cargo
+	//! [dependencies]
+	//! anyhow = "*"
+	//! ```
+	fn main() -> anyhow::Result<()> {
+	    Ok(())
+	}
