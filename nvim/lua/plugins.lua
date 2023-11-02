@@ -146,8 +146,18 @@ return require('packer').startup(function(use)
     }
 
     -- Snippet support. I've never been really good at using this, but it seems
-    -- like a good idea.
-    use({ 'dcampos/nvim-snippy', config = require('plugins.nvim-snippy') })
+    -- like a good idea. This one started failing for syntax errors in the
+    -- snippets, with no clear explanation of what the problem was.
+    --use({ 'dcampos/nvim-snippy', config = require('plugins.nvim-snippy') })
+
+    use({
+        "L3MON4D3/LuaSnip",
+        -- follow latest release.
+        tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!:).
+        run = "make install_jsregexp",
+        config = require('plugins.luasnip')
+    })
 
     -- Default keymapping is gcc/gbc in normal mode, gc/gb in visual mode.
     use({ 'numToStr/Comment.nvim',

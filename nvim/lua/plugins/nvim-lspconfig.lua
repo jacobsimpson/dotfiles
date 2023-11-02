@@ -95,7 +95,7 @@ return function()
     --
     require'lspconfig'.pyright.setup{
         cmd = {
-            "/home/jacobsimpson/.virtualenvs/pyright/bin/pyright-langserver",
+            "/home/jacob/.virtualenvs/pyright/bin/pyright-langserver",
             "--stdio"
         },
         root_dir = function() return vim.fn.getcwd() end,
@@ -103,5 +103,16 @@ return function()
 
     require'lspconfig'.bashls.setup{}
     require'lspconfig'.postgres_lsp.setup{}
+    require'lspconfig'.rust_analyzer.setup {
+        settings = {
+            ["rust-analyzer"] = {
+                diagnostics = {
+                    --enable = true,
+                    --disabled = {"unresolved-proc-macro"},
+                    --enableExperimental = true,
+                },
+            },
+        }
+    }
 
 end

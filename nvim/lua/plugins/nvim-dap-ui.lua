@@ -102,7 +102,7 @@ local function list_executables()
     -- The actual executable is necessary to be passed to the debugger.
     Job:new({
         -- This execution has always failed without a complete path.
-        command = '/home/jacobsimpson/.cargo/bin/cargo',
+        command = '/home/jacob/.cargo/bin/cargo',
         args = { 'test', '--no-run' },
         on_exit = function(j, return_val)
             for _, line in ipairs(j:stderr_result()) do
@@ -280,7 +280,7 @@ return function()
     dap.adapters.lldb = {
         type = 'executable',
         -- adjust as needed, must be absolute path. Instructions above on building this.
-        command = '/home/jacobsimpson/.local/bin/lldb-vscode',
+        command = '/home/jacob/.local/bin/lldb-vscode',
         name = 'lldb'
     }
 
@@ -383,7 +383,7 @@ return function()
           pathMappings = {
               {
                   --localRoot  = "${workspaceFolder}";
-                  localRoot  = "/home/jacobsimpson/src/gro";
+                  localRoot  = "/home/jacob/src/gro";
                   remoteRoot = "/app";
               }
           };

@@ -32,7 +32,7 @@ return function()
             -- I think this was popping up sprurious errors when browsing help files and
             -- Lua config.
             'vim',
-            'yaml',
+            -- 'yaml',
         },
         highlight = {
             enable = true,
