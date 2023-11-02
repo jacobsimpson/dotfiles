@@ -129,11 +129,10 @@ vim.opt.wildignore = {
     '*.so',
     '*.zip',
     '*.swp',
-    '*/bin/*',
     '*/build/*',
     '*/target/*',
+    '*/.gradle/*',
     '*/node_modules/*',
-    '*/lib/*'
 }
 
 EOF
