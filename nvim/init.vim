@@ -162,10 +162,139 @@ filetype plugin indent on
 " https://github.com/wbthomason/packer.nvim
 " :lua print(vim.fn.stdpath('config'))
 lua <<EOF
-require('plugins')
+--require('plugins')
 
-require('language.sql')
+--require('language.sql')
 EOF
+
+" =============================================================================
+"
+" In practice packer has been difficult to use, it doesn't automatically reload
+" changes and error messages are obscure.
+"
+lua <<EOF
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+
+-- Example using a list of specs with the default options
+vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
+
+require("lazy").setup({
+  "folke/which-key.nvim",
+  -- just not helpful, especially when coupled with hiding the cursor after a jump.
+  -- {'ggandor/lightspeed.nvim'}
+  -- Slightly different mechanism for selecting the jump target identifiers.
+  -- {'phaazon/hop.nvim', branch = 'v1', config = require('plugins.hop')}
+
+  -- When a visual selection is active, pressing * or # will do a file search of the selection,
+  -- instead of a file search of the word under the cursor.
+  { 'bronson/vim-visual-star-search' },
+
+  { 'tpope/vim-surround', dependencies = { { 'tpope/vim-repeat' } } },
+
+  -- Add better text object handling, things like ci" or ci(
+  { 'wellle/targets.vim' },
+
+  { 'hashivim/vim-terraform' },
+
+  -- Manages deleting buffers while attempting to maintain window layout.
+  { 'famiu/bufdelete.nvim' },
+
+  {
+    'nvim-telescope/telescope.nvim',
+    config = function()
+      require('plugins.telescope')()
+    end,
+    dependencies = {
+  --    --{ 'nvim-telescope/telescope-dap.nvim' },
+  --    { 'nvim-lua/plenary.nvim' },
+  --    { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+  --    { 'BurntSushi/ripgrep' },
+  --    { 'nvim-telescope/telescope-live-grep-raw.nvim' },
+    },
+  },
+
+  {
+    'neovim/nvim-lspconfig',
+    config = function()
+      require('plugins.nvim-lspconfig')()
+    end
+  },
+
+  {
+      'simrat39/rust-tools.nvim',
+      config = function() require('plugins.rust_language')() end,
+  },
+
+  -- The treesitter plugin itself provides language parsing and supports
+  -- queries. Actual functionality is implemented by modules, configured below.
+  --
+  -- The TSUpdate option will cause nvim-treesitter itself to download and
+  -- install up to date parsers for all configured languages whenever the
+  -- nvim-treesitter plugin is updated.
+  --
+  -- NOTE
+  -- I have, multiple times, had problems with this plugin. It fails to do the highlighting work
+  -- and spews errors on the line with the cursor, as I move the cursor around.
+  -- Try `:checkhealth` and have a look at the treesitter plugin to see it's status. It can be
+  -- useful to re-install particular language support. i.e. `:TSUpdate lua`
+  {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = function()
+      require('plugins.nvim-treesitter')()
+    end,
+    dependencies = {
+      -- Treesitter text object module configuration.
+      { 'nvim-treesitter/nvim-treesitter-textobjects' },
+      { 'nvim-treesitter/playground' },
+    },
+  },
+
+  {
+    'saecki/crates.nvim',
+    tag = 'v0.3.0',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'jose-elias-alvarez/null-ls.nvim'
+    },
+    config = function()
+      require('crates').setup()
+    end,
+  },
+
+  {
+	"L3MON4D3/LuaSnip",
+	-- follow latest release.
+	version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+	-- install jsregexp (optional!).
+	build = "make install_jsregexp"
+  },
+
+  {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  },
+
+})
+
+EOF
+" =============================================================================
+
 
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged

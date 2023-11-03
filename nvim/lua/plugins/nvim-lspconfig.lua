@@ -103,16 +103,16 @@ return function()
 
     require'lspconfig'.bashls.setup{}
     require'lspconfig'.postgres_lsp.setup{}
-    require'lspconfig'.rust_analyzer.setup {
-        settings = {
-            ["rust-analyzer"] = {
-                diagnostics = {
-                    --enable = true,
-                    --disabled = {"unresolved-proc-macro"},
-                    --enableExperimental = true,
-                },
-            },
-        }
-    }
+    -- require'lspconfig'.rust_analyzer.setup {
+    --     settings = {
+    --         ["rust-analyzer"] = {
+    --             diagnostics = {
+    --                 --enable = true,
+    --                 --disabled = {"unresolved-proc-macro"},
+    --                 --enableExperimental = true,
+    --             },
+    --         },
+    --     }
+    -- }
 
 end
