@@ -218,7 +218,6 @@ autoload -U compinit ; compinit
 zstyle ':completion:*:*:nvim:*' file-patterns '^*.(lock|pdf):source-files' '*:all-files'
 
 eval "$(zoxide init zsh)"
-alias cd='echo "Try \"z\" instead."'
 
 alias du='echo "Try \"dust\" instead."'
 
