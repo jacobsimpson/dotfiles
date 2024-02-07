@@ -4,6 +4,9 @@
 [init]
     defaultBranch = main
 
+[advice]
+    detachedHead = false
+
 # Causes Git to remember how conflicts were resolved so if they occur again,
 # they will be resolved the same way again. This is useful when rebasing over a
 # conflict. Normally, each change in the rebased branch will conflict in the

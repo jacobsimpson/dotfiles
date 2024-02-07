@@ -1,4 +1,7 @@
 return function()
+    -- Adds a border around the `LspInfo` window.
+    require('lspconfig.ui.windows').default_options.border = 'single'
+
     -- The plugin repo itself has some nice guidance:
     --     - https://github.com/neovim/nvim-lspconfig
     --     - https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
@@ -95,7 +98,7 @@ return function()
     --
     require'lspconfig'.pyright.setup{
         cmd = {
-            "/home/jacob/.virtualenvs/pyright/bin/pyright-langserver",
+            "/home/jsimpson/.virtualenvs/pyright/bin/pyright-langserver",
             "--stdio"
         },
         root_dir = function() return vim.fn.getcwd() end,
@@ -115,4 +118,27 @@ return function()
     --     }
     -- }
 
+    local configs = require 'lspconfig.configs'
+    if not configs.sql_language_server then
+        configs.sql_language_server = {
+            default_config = {
+                -- cmd = {"/home/jsimpson/src/sql-language-server/target/debug/sql-language-server"},
+                cmd = {"/home/jsimpson/src/sql-language-server/sql-language-server-stub"},
+                filetypes = {'sql'},
+                root_dir = function() return vim.fn.getcwd() end,
+                settings = {},
+            },
+            -- on_new_config = {'f', true},
+            -- on_attach = {'f', true},
+            -- commands = {'t', true},
+            -- docs = {'t', true},
+        }
+    end
+    require'lspconfig'.sql_language_server.setup{}
+    -- require'lspconfig'['sql-language-server'].setup{
+    --     cmd = {
+    --         "/home/jsimpson/src/sql-language-server/target/debug/sql-language-server"
+    --     },
+    --     root_dir = function() return vim.fn.getcwd() end,
+    -- }
 end

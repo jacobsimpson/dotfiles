@@ -531,3 +531,13 @@ augroup highlight_yank
     autocmd!
     au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=200}
 augroup END
+
+
+
+" lua <<EOF
+" vim.lsp.start({
+"     name = 'sql-language-server',
+"     cmd = {'/home/jsimpson/src/sql-language-server/target/debug/sql-language-server'},
+"     root_dir = function() return vim.fn.getcwd() end,
+" })
+" EOF

@@ -1,4 +1,6 @@
 
+git rev-parse HEAD
+- show the hash of the 'current' commit.
 
 git branch -r --contains $(git branch --show-current)
 - does the branch exist on the remote server.
