@@ -55,6 +55,8 @@ fi
 
 # Where I like to put random little programming projects.
 mkdir -p ~/src
+
+# The directory for user local scripts and programs.
 mkdir -p ~/.local/bin
 
 
@@ -76,7 +78,6 @@ nix-env -iA nixpkgs.shellcheck
 
 install libssl-dev
 install curl
-install zsh
 install silversearcher-ag
 install git
 install jq
@@ -96,6 +97,9 @@ install linux-tools-generic
 install linux-tools-`uname -r`
 install zoxide
 install flameshot
+
+install zsh
+sudo chsh -s /usr/bin/zsh
 
 if which rustup >& /dev/null ; then
     printf "%-26s already installed, skipping...\n" "rustup"
