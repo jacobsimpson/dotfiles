@@ -166,23 +166,6 @@ elif [[ -e /usr/bin/nvim ]]; then
     alias vim=/usr/bin/nvim
 fi
 
-# function vi() {
-#     if [[ ! -z "$NVIM_LISTEN_ADDRESS" ]]; then
-#         nvim --server $NVIM_LISTEN_ADDRESS --remote-send '<ESC><C-W><C-K>'
-#         nvim --server $NVIM_LISTEN_ADDRESS --remote "$@"
-#     elif [[ ! -z "$ITERM_SESSION_ID" ]]; then
-#         id=$(echo "$ITERM_SESSION_ID" | sed 's|^\(....\).*|\1|')
-#         socket=/tmp/nvim.$id
-#         if [[ -e $socket ]]; then
-#             nvim --server $socket --remote "$@"
-#         else
-#             nvim --listen $socket "$@"
-#         fi
-#     else
-#         nvim "$@"
-#     fi
-# }
-
 alias mkdir='mkdir -p'
 
 # A much improved version of ls.
@@ -197,7 +180,8 @@ export CDPATH=$CDPATH:$HOME/src
 [ -f ~/.resh/shellrc ] && source ~/.resh/shellrc # this line was added by RESH (Rich Enchanced Shell History)
 
 #
-# zsh has two completion systems. The old system, compctl, and the new system, compsys.
+# zsh has two completion systems. The old system, compctl, and the new system,
+# compsys.
 #
 # compsys is a collection of zsh functions with three critical components:
 # 1. Base - core and basic completer functions
@@ -213,8 +197,9 @@ autoload -U compinit ; compinit
 # tag - apply the style to a specific type of argument, "files", "domains", "users", "options"
 #
 
-# Interesting thing, aliases will still receive the benefit of this completion guidance, though I
-# did get a hint that it is configurable whether that is true or not.
+# Interesting thing, aliases will still receive the benefit of this completion
+# guidance, though I did get a hint that it is configurable whether that is true
+# or not.
 zstyle ':completion:*:*:nvim:*' file-patterns '^*.(lock|pdf):source-files' '*:all-files'
 
 eval "$(zoxide init zsh)"
@@ -248,7 +233,9 @@ function command_not_found_handler() {
 }
 
 # Remap the Capslock key to be Esc.
-setxkbmap -option caps:escape
+if which setxkbmap >& /dev/null ; then
+    setxkbmap -option caps:escape
+fi
 
 # When the AWS CLI is available, this is an improved pager experience.
 export AWS_PAGER='bat -l json --style plain'
@@ -257,20 +244,25 @@ export AWS_PAGER='bat -l json --style plain'
 # together. However, whenever I use \set to set this value, it gets ignored.
 export PSQL_EDITOR=/home/jacobsimpson/.local/bin/nvim
 
-autoload -U add-zsh-hook
 
+#
+# These lines make a small feature that returns an interactive shell to the most
+# recent directory when there is a new login.
+#
+autoload -U add-zsh-hook
+mkdir -p ~/.local/state
 record_cwd() {
 	pwd > ~/.local/state/cwd
 }
-
 add-zsh-hook chpwd record_cwd
-
 [[ -e ~/.local/state/cwd ]] && \cd `cat ~/.local/state/cwd`
 
-# This line and the bindkey below are to set it up so up arrow doesn't invoke atuin (it's too slow
-# for running the last command), but Ctrl-R does.
+
+#
+# This line and the bindkey below are to set it up so up arrow doesn't invoke
+# atuin (it's too slow for running the last command), but Ctrl-R does.
+#
 export ATUIN_NOBIND="true"
 eval "$(atuin init zsh)"
-
 bindkey '^r' _atuin_search_widget
 
