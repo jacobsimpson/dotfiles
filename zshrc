@@ -266,3 +266,11 @@ record_cwd() {
 add-zsh-hook chpwd record_cwd
 
 [[ -e ~/.local/state/cwd ]] && \cd `cat ~/.local/state/cwd`
+
+# This line and the bindkey below are to set it up so up arrow doesn't invoke atuin (it's too slow
+# for running the last command), but Ctrl-R does.
+export ATUIN_NOBIND="true"
+eval "$(atuin init zsh)"
+
+bindkey '^r' _atuin_search_widget
+
