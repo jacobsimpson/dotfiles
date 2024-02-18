@@ -109,7 +109,7 @@ else
 fi
 
 rustup component add rust-analyzer
-ln -nsf $(rustup which --toolchain stable rust-analyzer) ~/bin/rust-analyzer
+ln -nsf $(rustup which --toolchain stable rust-analyzer) ~/.local/bin/rust-analyzer
 rustup component add clippy
 
 install_cargo flamegraph
@@ -157,8 +157,6 @@ sudo desktop-file-install ${HOME}/.cargo/registry/src/github.com-1ecc6299db9ec82
 sudo update-desktop-database
 [[ ! -e ~/.alacritty.yml ]] && ln -nsf ~/dotfiles/alacritty.yml ~/.alacritty.yml
 
-go install github.com/jesseduffield/lazygit@latest
-
 mkdir -p ~/.config
 ln -nsf ~/dotfiles/nvim ~/.config/nvim
 ln -nsf ~/.vim ~/.nvim
@@ -167,11 +165,23 @@ ln -nsf ~/dotfiles/nvim/init.vim ~/.vimrc
 # doesn't create this itself. Or, it didn't at 10/29/2015.
 mkdir -p ~/.local/share/nvim/backup
 
+#
+# There are a number of common CLI utilities that will read global configuration
+# from files in a well known location. This area creates links for the well
+# known locations to configuration files in the `dotfiles` repository, so that
+# all changes/updates are reflected in the git repo.
+#
 ln -nsf ~/dotfiles/psqlrc ~/.psqlrc
 ln -nsf ~/dotfiles/sqliterc ~/.sqliterc
 ln -nsf ~/dotfiles/gradle/gradle.properties ~
 ln -nsf ~/dotfiles/inputrc ~/.inputrc
 
+#
+# Rather than linking the git global configuration, add it as an 'include' in
+# the global configuration file. This way, local settings appropriate work/home
+# computers are configured in the global configuration file and don't get
+# checked in.
+#
 echo "Installing the Git configuration."
 if grep "dotfiles.gitconfig" ~/.gitconfig >& /dev/null ; then
     echo "    The Git config settings are already installed. Skipping."
@@ -185,8 +195,6 @@ ln -nsf ~/dotfiles/hgrc ~/.hgrc
 if [[ ! -e ~/.hgrc.local ]]; then
     echo "# Mercurial settings local to this machine" > ~/.hgrc.local
 fi
-
-ln -nsf ~/dotfiles/tmux.conf ~/.tmux.conf
 
 echo "Installng Oh My Zsh"
 if [[ -d ${HOME}/.oh-my-zsh ]]; then
