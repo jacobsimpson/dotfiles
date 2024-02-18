@@ -104,7 +104,7 @@ sudo chsh -s /usr/bin/zsh
 if which rustup >& /dev/null ; then
     printf "%-26s already installed, skipping...\n" "rustup"
 else
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
     source "$HOME/.cargo/env"
 fi
 
