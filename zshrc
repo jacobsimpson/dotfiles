@@ -60,7 +60,9 @@ alias chrome='/usr/bin/open -a "/Applications/Google Chrome.app"'
 gopath=~/.go
 
 export GOPATH=$gopath
-export GOROOT=$(nix-env --query --out-path go | awk '{print $2}')/share/go
+if which nix-env >& /dev/null ; then
+    export GOROOT=$(nix-env --query --out-path go | awk '{print $2}')/share/go
+fi
 path+=("$GOPATH/bin")
 
 function vbm() {
