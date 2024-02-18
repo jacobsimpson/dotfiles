@@ -17,6 +17,8 @@ echo -1 | sudo tee /proc/sys/kernel/perf_event_paranoid
 
 ## Add debugging detail to the executable
 
+These instructions are not necessary if you are working with the dev build.
+
 For the `Cargo.toml` file:
 
 ```
@@ -34,7 +36,11 @@ I've had some success with this line. It seems to generate quite a lot of data
 slow, however I do get stack frames from my code:
 
 ```
-perf record --call-graph dwarf,16384 -e cpu-clock -F 997 -p <pid>
+perf record --call-graph dwarf,16384 -e cpu-clock -F 49 -p <pid>
+```
+
+```
+perf record --call-graph dwarf,16384 -e cpu-clock -F 49 <executable>
 ```
 
 This one "works" to the extent it doesn't crash, and the data it produces
@@ -103,6 +109,22 @@ valgrind --tool=callgrind \
          --collect-jumps=yes \
          --simulate-cache=yes \
          $BENCH --bench --profile-time 10 $T_ID
+
+### Cachegrind
+
+Untested.
+
+Associated with valgrind, this mechanism determines the number of instructions
+executed, rather than timing a lot of runs.
+
+- https://valgrind.org/docs/manual/cg-manual.html
+- https://github.com/bheisler/iai
+
+## Alternative to Criterion
+
+- https://nikolaivazquez.com/blog/divan/
+- It appears that this framework is new enough it currently doesn't support
+  `async` functions.
 
 ## Extra
 
