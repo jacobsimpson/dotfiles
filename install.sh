@@ -40,6 +40,14 @@ function install_font() {
     fi
 }
 
+function install_nix() {
+    local package_name="$1"
+
+    if which nix-env >& /dev/null ; then
+        nix-env -i "$package_name"
+    fi
+}
+
 OS=macos
 if uname | grep -i linux >& /dev/null ; then
     OS=linux
@@ -50,19 +58,19 @@ mkdir -p ~/src
 mkdir -p ~/.local/bin
 
 
-nix-env -i go
+install_nix go
 export GOROOT=~/.nix-profile/bin
-nix-env -i gh
-nix-env -i neovim
-nix-env -i atuin
+install_nix gh
+install_nix neovim
+#install_nix atuin
 atuin import auto
 rm -f ~/.config/atuin/config.toml
 ln -nsf ~/dotfiles/atuin.config.toml ~/.config/atuin/config.toml
-nix-env -i postgresql
-nix-env -i xsv
+install_nix postgresql
+install_nix xsv
 nix-env -iA nixpkgs.protobuf
 nix-env -iA nixpkgs.protolint
-nix-env -i bfs
+install_nix bfs
 nix-env -iA nixpkgs.starship
 nix-env -iA nixpkgs.shellcheck
 
@@ -124,6 +132,8 @@ install_cargo sqlx-cli
 install_cargo cargo-feature
 install_cargo grcov
 install_cargo cargo-expand
+install_cargo bfs
+install_cargo atuin
 
 # Dependencies for alacritty.
 # Running this section failed on my Mint install. The `python3` install could not complete
